@@ -50,7 +50,7 @@ function getTransporter() {
   return null;
 }
 
-const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_TO || 'info@atriowings.in';
+const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_TO || process.env.SMTP_USER || 'info@atriowings.in';
 
 // Reusable premium wrapper for the email HTML in a trending dashboard-style layout
 function getEmailHtml(title: string, category: string, tableRowsHtml: string) {
