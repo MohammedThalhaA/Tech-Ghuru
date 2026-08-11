@@ -505,16 +505,6 @@ export default function Page() {
                 </div>
               </div>
 
-              {/* Card 11 */}
-              <div className={`card wow slideInUp ecommerce ${filter !== 'all' && filter !== 'ecommerce' ? 'hide' : ''}`}>
-                <div className="card-image">
-                  <img alt="Product 2" className="scissorsimg" src="/img/portfolio pics/mythrisgleams.png" />
-                </div>
-                <div className="card-content">
-                  <p>E-Commerce</p>
-                  <a className="portbtn" href="https://aarions.in/" style={{ backgroundColor: 'rgb(189, 171, 10)' }} target="_blank" rel="noreferrer">Visit site →</a>
-                </div>
-              </div>
 
               {/* Card 12 */}
               <div className={`card wow slideInRight ${filter !== 'all' && filter !== 'corporate' ? 'hide' : ''}`}>
