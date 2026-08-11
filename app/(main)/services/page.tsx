@@ -76,7 +76,7 @@ export default function Page() {
 <h5 className="fw-bold text-primary text-uppercase">Our Services</h5>
 <h1 className="mb-0">Custom IT Solutions for Your Successful Business</h1>
 </div>
-          <div className="row g-4 justify-content-center">
+          <div className="row justify-content-center" style={{ gap: '40px' }}>
             <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp servicsbgimg" data-wow-delay="0.3s">
               <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom">
                 <div className="service-icon">
