@@ -1,0 +1,18 @@
+ /* html {
+        cursor: none;
+      }
+      .circle1 {
+        width: 14px;
+        height: 14px;
+        background-color: black;
+        border-radius: 50%;
+        position: fixed;
+        z-index: 100000;
+
+        /* pointer-events: none;  
+        /* Ensure circles don't interfere with cursor events 
+
+        /* cursor: ; 
+        transition: transform 0.2s ease;
+        
+      } */

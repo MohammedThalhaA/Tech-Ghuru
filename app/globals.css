@@ -1,0 +1,57 @@
+:root {
+  --font-nunito: 'Nunito', sans-serif;
+  --font-rubik: 'Rubik', sans-serif;
+}
+
+/* Fix background image paths for Next.js public folder */
+/* All other CSS is loaded as <link> tags in layout.tsx */
+.bg-header {
+  background: linear-gradient(rgba(9, 30, 62, 0.7), rgba(9, 30, 62, 0.7)),
+    url(/img/about2.png) center center no-repeat !important;
+  background-size: cover !important;
+}
+.bg-headercsk {
+  background: linear-gradient(rgba(9, 30, 62, 0.7), rgba(9, 30, 62, 0.7)),
+    url(/img/Testimonal.png) center center no-repeat !important;
+  background-size: cover !important;
+}
+.bg-headerer {
+  background: linear-gradient(rgba(9, 30, 62, 0.7), rgba(9, 30, 62, 0.7)),
+    url(/img/Features.png) center center no-repeat !important;
+  background-size: cover !important;
+}
+.bg-headerr {
+  background: linear-gradient(rgba(9, 30, 62, 0.7), rgba(9, 30, 62, 0.7)),
+    url(/img/Services/webdesigninglogoimg.jpg) center center no-repeat !important;
+  background-size: cover !important;
+}
+.bg-headerrr {
+  background: linear-gradient(rgba(9, 30, 62, 0.7), rgba(9, 30, 62, 0.7)),
+    url(/img/quote.jpg) center center no-repeat !important;
+  background-size: cover !important;
+  height: 50vh;
+}
+
+/* Custom Cursor trailing effect styling */
+html {
+  cursor: none;
+}
+.circle {
+  width: 14px;
+  height: 14px;
+  background-color: black;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 100000;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+@media (max-width: 1024px) {
+  html {
+    cursor: auto !important;
+  }
+  .circle {
+    display: none !important;
+  }
+}

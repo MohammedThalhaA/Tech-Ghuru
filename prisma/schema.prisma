@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Register {
+  id         Int      @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  email      String   @unique
+  password   String
+  createdAt  DateTime @default(now())
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  mobile    String
+  subject   String
+  message   String
+  isRead    Boolean  @default(false)
+  status    String   @default("New")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Quote {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  companyName String?
+  service     String
+  message     String
+  isRead      Boolean  @default(false)
+  status      String   @default("New")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+}
+
+model CareerApplication {
+  id           Int      @id @default(autoincrement())
+  fullName     String
+  email        String
+  phone        String
+  position     String
+  experience   String
+  linkedin     String?
+  portfolio    String?
+  coverLetter  String
+  resumePath   String
+  status       String   @default("New")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
