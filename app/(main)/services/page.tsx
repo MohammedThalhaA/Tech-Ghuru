@@ -76,86 +76,86 @@ export default function Page() {
 <h5 className="fw-bold text-primary text-uppercase">Our Services</h5>
 <h1 className="mb-0">Custom IT Solutions for Your Successful Business</h1>
 </div>
-<div className="row">
-<div className="col-lg-5 col-md-5 wow slideInUp servicsbgimg" data-wow-delay="0.3s">
-<div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom">
-<div className="service-icon">
-<i className="fa fa-laptop text-white"></i>
-</div>
-<h4 className="mb-3">Web Developing</h4>
-<p className="m-0 text-dark">Providing comprehensive IT solutions and robust for seamless
-                            operations.</p>
-<a className="btn btn-lg btn-primary rounded" href="webdeveloping.html">
-<i className="bi bi-arrow-right wow slideInDown"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-5 col-md-5 wow slideInUp ms-lg-5 digitalservicimg smres" data-wow-delay="0.6s">
-<div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-calendar-alt text-white"></i>
-</div>
-<h4 className="mb-3">Digital Marketing</h4>
-<p className="m-0 text-dark">Efficiently coordinate digital marketing campaigns with our experienced
-                            strategy team.</p>
-<a className="btn btn-lg btn-primary rounded" href="digitalmarketing.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-5 col-md-5 wow slideInUp mt-lg-5 socialmediaserviceimg smres" data-wow-delay="0.3s">
-<div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-briefcase text-white"></i>
-</div>
-<h4 className="mb-3">Product Design</h4>
-<p className="m-0 text-dark">Product design encompasses the entire process of creating a product,
-                            from ideation to launch./p&gt;
-                                <a className="btn btn-lg btn-primary rounded" href="productdesign.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</p></div>
-</div>
-<div className="col-lg-5 col-md-5 ms-lg-5 wow slideInUp mt-lg-5 seoservicesimg smres" data-wow-delay="0.6s">
-<div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-users text-white"></i>
-</div>
-<h4 className="mb-3">Video Ads &amp; Editing</h4>
-<p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.
-                        </p>
-<a className="btn btn-lg btn-primary rounded" href="./videoadsphotos.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-5 col-md-5 wow slideInUp mt-lg-5 contentserviceimg smres" data-wow-delay="0.6s">
-<div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fas fa-pen text-white"></i>
-</div>
-<h4 className="mb-3">Content Writting</h4>
-<p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.
-                        </p>
-<a className="btn btn-lg btn-primary rounded" href="./contetnwriting.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-5 col-md-5 ms-lg-5 wow slideInUp mt-lg-5 consultationserimg smres" data-wow-delay="0.6s">
-<div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fas fa-headset text-white"></i>
-</div>
-<h4 className="mb-3">Consultation</h4>
-<p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.
-                        </p>
-<a className="btn btn-lg btn-primary rounded" href="./consolation.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-</div>
+          <div className="row g-4 justify-content-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp servicsbgimg" data-wow-delay="0.3s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom">
+                <div className="service-icon">
+                  <i className="fa fa-laptop text-white"></i>
+                </div>
+                <h4 className="mb-3">Web Developing</h4>
+                <p className="m-0 text-dark">Providing comprehensive IT solutions and robust for seamless operations.</p>
+                <a className="btn btn-lg btn-primary rounded" href="webdeveloping.html">
+                  <i className="bi bi-arrow-right wow slideInDown"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp digitalservicimg smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div className="service-icon">
+                  <i className="fa fa-calendar-alt text-white"></i>
+                </div>
+                <h4 className="mb-3">Digital Marketing</h4>
+                <p className="m-0 text-dark">Efficiently coordinate digital marketing campaigns with our experienced strategy team.</p>
+                <a className="btn btn-lg btn-primary rounded" href="digitalmarketing.html">
+                  <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp socialmediaserviceimg smres" data-wow-delay="0.3s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div className="service-icon">
+                  <i className="fa fa-briefcase text-white"></i>
+                </div>
+                <h4 className="mb-3">Product Design</h4>
+                <p className="m-0 text-dark">Product design encompasses the entire process of creating a product, from ideation to launch.</p>
+                <a className="btn btn-lg btn-primary rounded" href="productdesign.html">
+                  <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp seoservicesimg smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div className="service-icon">
+                  <i className="fa fa-users text-white"></i>
+                </div>
+                <h4 className="mb-3">Video Ads &amp; Editing</h4>
+                <p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.</p>
+                <a className="btn btn-lg btn-primary rounded" href="./videoadsphotos.html">
+                  <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp contentserviceimg smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div className="service-icon">
+                  <i className="fas fa-pen text-white"></i>
+                </div>
+                <h4 className="mb-3">Content Writting</h4>
+                <p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.</p>
+                <a className="btn btn-lg btn-primary rounded" href="./contetnwriting.html">
+                  <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp consultationserimg smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div className="service-icon">
+                  <i className="fas fa-headset text-white"></i>
+                </div>
+                <h4 className="mb-3">Consultation</h4>
+                <p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.</p>
+                <a className="btn btn-lg btn-primary rounded" href="./consolation.html">
+                  <i className="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
 </div>
 </div>
 
