@@ -280,6 +280,15 @@ export default function Page() {
 <img alt="LOGO" src="img/vendor/digitalghru.png"/>
 </div>
 <div className="marquee__item">
+<img alt="LOGO" src="img/vendor/newbrand2.png"/>
+</div>
+<div className="marquee__item">
+<img alt="LOGO" src="img/vendor/newbrand3.png"/>
+</div>
+<div className="marquee__item">
+<img alt="LOGO" src="img/vendor/newbrand4.png"/>
+</div>
+<div className="marquee__item">
 <img alt="LOGO" src="img/vendor/newbrand5.png"/>
 </div>
 <div className="marquee__item">
