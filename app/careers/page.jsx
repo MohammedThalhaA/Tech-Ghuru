@@ -15,29 +15,32 @@ const CounterNumber = ({ value, suffix = "" }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (!isInView) return;
-    if (shouldReduceMotion) {
-      setCount(value);
-      return;
-    }
     let start = 0;
-    const duration = 2000;
-    const stepTime = Math.abs(Math.floor(duration / value));
+    const end = parseInt(value, 10);
+    if (start === end) return;
+    const totalMiliseconds = 1600;
+    const stepTime = Math.max(Math.floor(totalMiliseconds / end), 12);
+    
     const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= value) {
+      start += Math.ceil(end / 40);
+      if (start >= end) {
+        setCount(end);
         clearInterval(timer);
+      } else {
+        setCount(start);
       }
     }, stepTime);
+
     return () => clearInterval(timer);
-  }, [isInView, value, shouldReduceMotion]);
+  }, [isInView, value]);
 
   return <span ref={ref}>{count}{suffix}</span>;
 };
+
+
 
 export default function CareersPage() {
   const shouldReduceMotion = useReducedMotion();
