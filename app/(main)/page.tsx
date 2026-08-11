@@ -461,7 +461,7 @@ export default function Page() {
               <div className="marquee__item"><img src="/img/vendor/sivajisons.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/joysontrust.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/spacemedia.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/studioj.png" alt="LOGO" /></div>
+              
               <div className="marquee__item"><img src="/img/vendor/meera filngs.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/digitalghru.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/vasanth.png" alt="LOGO" /></div>
@@ -484,7 +484,7 @@ export default function Page() {
               <div className="marquee__item"><img src="/img/vendor/sivajisons.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/joysontrust.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/spacemedia.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/studioj.png" alt="LOGO" /></div>
+              
               <div className="marquee__item"><img src="/img/vendor/meera filngs.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/digitalghru.png" alt="LOGO" /></div>
               <div className="marquee__item"><img src="/img/vendor/vasanth.png" alt="LOGO" /></div>

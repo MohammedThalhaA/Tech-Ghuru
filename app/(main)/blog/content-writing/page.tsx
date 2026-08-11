@@ -496,9 +496,7 @@ Ready to make today's hottest AI tools and platforms a part of your brand's ongo
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/spacemedia.png"/>
 </div>
-<div className="marquee__item">
-<img alt="LOGO" src="img/vendor/studioj.png"/>
-</div>
+
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/meera filngs.png"/>
 </div>

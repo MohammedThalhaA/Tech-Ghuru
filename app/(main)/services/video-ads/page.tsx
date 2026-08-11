@@ -368,9 +368,7 @@ Boost your marketing with high-quality video that converts and inspires.</p>
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/spacemedia.png"/>
 </div>
-<div className="marquee__item">
-<img alt="LOGO" src="img/vendor/studioj.png"/>
-</div>
+
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/meera filngs.png"/>
 </div>

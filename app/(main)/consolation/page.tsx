@@ -503,9 +503,7 @@ Partner with us for trusted advice that drives real, measurable results.</p>
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/spacemedia.png"/>
 </div>
-<div className="marquee__item">
-<img alt="LOGO" src="img/vendor/studioj.png"/>
-</div>
+
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/meera filngs.png"/>
 </div>

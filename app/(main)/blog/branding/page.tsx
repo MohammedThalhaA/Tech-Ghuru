@@ -386,9 +386,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/spacemedia.png"/>
 </div>
-<div className="marquee__item">
-<img alt="LOGO" src="img/vendor/studioj.png"/>
-</div>
+
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/meera filngs.png"/>
 </div>

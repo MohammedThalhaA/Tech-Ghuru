@@ -1268,7 +1268,6 @@ export default function Page() {
     { name: "Sivaji Sons", img: "/img/vendor/sivajisons.png" },
     { name: "Joyson Trust", img: "/img/vendor/joysontrust.png" },
     { name: "Space Media", img: "/img/vendor/spacemedia.png" },
-    { name: "Studio J", img: "/img/vendor/studioj.png" },
     { name: "Meera Filings", img: "/img/vendor/meera filngs.png" },
     { name: "Digital Ghru", img: "/img/vendor/digitalghru.png" },
     { name: "Vasanth", img: "/img/vendor/vasanth.png" }

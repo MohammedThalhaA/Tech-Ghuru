@@ -358,9 +358,7 @@ Grow your brand with data-backed, creative, and impactful digital campaigns.</p>
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/spacemedia.png"/>
 </div>
-<div className="marquee__item">
-<img alt="LOGO" src="img/vendor/studioj.png"/>
-</div>
+
 <div className="marquee__item">
 <img alt="LOGO" src="img/vendor/meera filngs.png"/>
 </div>
