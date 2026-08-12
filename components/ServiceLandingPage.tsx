@@ -111,6 +111,7 @@ const staggerContainer: Variants = {
 export default function ServiceLandingPage({ data }: { data: ServiceData }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [showcaseStage, setShowcaseStage] = useState(0);
+  const [activeTimelineStep, setActiveTimelineStep] = useState(0);
 
   const roleStageMap: Record<string, { activeIdx: number; label: string }> = {
     web: { activeIdx: 3, label: "Development Stage" },
@@ -154,6 +155,14 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
     const timer = setInterval(() => {
       setShowcaseStage((prev) => (prev + 1) % data.workflow.length);
     }, 3800);
+    return () => clearInterval(timer);
+  }, [data.workflow.length]);
+
+  // Auto-progress timeline step for dynamic flow
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTimelineStep((prev) => (prev + 1) % data.workflow.length);
+    }, 3200);
     return () => clearInterval(timer);
   }, [data.workflow.length]);
 
@@ -1727,8 +1736,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               <motion.div 
                 className="absolute top-[81px] left-4 right-4 h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 2.2, ease: "easeInOut" }}
+                animate={{ scaleX: activeTimelineStep / (data.workflow.length - 1) }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 style={{ width: 'calc(100% - 32px)' }}
               />
             )}
@@ -1738,8 +1747,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               <motion.div
                 className="absolute w-6 h-6 -translate-y-1/2 z-10 pointer-events-none flex items-center justify-center"
                 initial={{ left: "16px" }}
-                animate={{ left: "calc(100% - 36px)" }}
-                transition={{ duration: 2.2, ease: "easeInOut" }}
+                animate={{ left: `calc(${(activeTimelineStep / (data.workflow.length - 1)) * 100}% - 12px)` }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 style={{ top: "81px" }}
               >
                 <i className="fas fa-rocket text-[#1E7FD4] text-xs drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
@@ -1748,8 +1757,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             <div className="row relative z-10 justify-between">
               {data.workflow.map((step, i) => {
-                const isCompleted = i < activeStage.activeIdx;
-                const isActive = i === activeStage.activeIdx;
+                const isCompleted = i < activeTimelineStep;
+                const isActive = i === activeTimelineStep;
                 const isLast = i === data.workflow.length - 1;
 
                 // Set node icons matching the second image
@@ -1771,11 +1780,11 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                         <motion.div 
                           initial={{ opacity: 0, y: 10, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
-                          transition={{ delay: 0.5, duration: 0.3 }}
+                          transition={{ delay: 0.2, duration: 0.3 }}
                           className="absolute -top-11 bg-[#1E7FD4] border border-[#1E7FD4]/30 rounded-lg px-2.5 py-1 flex flex-col items-center justify-center shadow-lg z-30"
                         >
-                          <span className="text-[7px] uppercase tracking-widest text-white/80 font-extrabold leading-none mb-0.5">You are here</span>
-                          <span className="text-[9px] font-bold text-white leading-none whitespace-nowrap">{activeStage.label}</span>
+                          <span className="text-[7px] uppercase tracking-widest text-white/80 font-extrabold leading-none mb-0.5">Active Step</span>
+                          <span className="text-[9px] font-bold text-white leading-none whitespace-nowrap">{step.title}</span>
                           {/* Triangle arrow */}
                           <div className="w-1.5 h-1.5 bg-[#1E7FD4] rotate-45 absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
                         </motion.div>
@@ -1783,6 +1792,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
                       {/* Ring Orb */}
                       <motion.div 
+                        onClick={() => setActiveTimelineStep(i)}
                         className={`w-12 h-12 rounded-full flex items-center justify-center relative cursor-pointer select-none transition-all duration-300 z-10 ${
                           isActive 
                             ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.65)] scale-105' 
@@ -1824,7 +1834,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
                     {/* Step Content */}
                     <div className="text-center mt-3">
-                      <span className={`text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase ${
+                      <span className={`text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase transition-colors duration-300 ${
                         isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/50'
                       }`}>
                         0{i + 1}
@@ -1848,7 +1858,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           <div className="lg:hidden space-y-8 relative px-2 mb-4">
             <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-white/10 z-0" />
             {data.workflow.map((step, i) => {
-              const isActive = i === activeStage.activeIdx;
+              const isActive = i === activeTimelineStep;
               const isLast = i === data.workflow.length - 1;
               const stepIcons = ["fa-search", "fa-clipboard-list", "fa-pencil-ruler", "fa-code", "fa-shield-alt", "fa-rocket"];
 
