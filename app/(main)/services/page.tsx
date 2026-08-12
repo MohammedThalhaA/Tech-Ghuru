@@ -77,9 +77,9 @@ export default function Page() {
 <h5 className="fw-bold text-primary text-uppercase">Our Services</h5>
 <h1 className="mb-0">Custom IT Solutions for Your Successful Business</h1>
 </div>
-          <div className="row justify-content-center" style={{ gap: '40px' }}>
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp servicsbgimg" data-wow-delay="0.3s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom">
+          <div className="row g-4 justify-content-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp" data-wow-delay="0.3s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom servicsbgimg">
                 <div className="service-icon">
                   <i className="fa fa-laptop text-white"></i>
                 </div>
@@ -91,8 +91,8 @@ export default function Page() {
               </div>
             </div>
             
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp digitalservicimg smres" data-wow-delay="0.6s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center digitalservicimg">
                 <div className="service-icon">
                   <i className="fa fa-calendar-alt text-white"></i>
                 </div>
@@ -104,8 +104,8 @@ export default function Page() {
               </div>
             </div>
             
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp socialmediaserviceimg smres" data-wow-delay="0.3s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp smres" data-wow-delay="0.3s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center socialmediaserviceimg">
                 <div className="service-icon">
                   <i className="fa fa-briefcase text-white"></i>
                 </div>
@@ -117,8 +117,8 @@ export default function Page() {
               </div>
             </div>
             
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp seoservicesimg smres" data-wow-delay="0.6s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center seoservicesimg">
                 <div className="service-icon">
                   <i className="fa fa-users text-white"></i>
                 </div>
@@ -130,8 +130,8 @@ export default function Page() {
               </div>
             </div>
             
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp contentserviceimg smres" data-wow-delay="0.6s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center contentserviceimg">
                 <div className="service-icon">
                   <i className="fas fa-pen text-white"></i>
                 </div>
@@ -143,8 +143,8 @@ export default function Page() {
               </div>
             </div>
             
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp consultationserimg smres" data-wow-delay="0.6s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInUp smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center consultationserimg">
                 <div className="service-icon">
                   <i className="fas fa-headset text-white"></i>
                 </div>

@@ -258,8 +258,8 @@ export default function Page() {
             <h1 className="mb-0">Custom IT Solutions for Your Successful Business</h1>
           </div>
           <div className="row g-4 justify-content-center">
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInLeft servicsbgimg" data-wow-delay="0.3s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInLeft" data-wow-delay="0.3s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center bom servicsbgimg">
                 <div className="service-icon">
                   <i className="fa fa-laptop text-white"></i>
                 </div>
@@ -270,8 +270,8 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInRight digitalservicimg smres" data-wow-delay="0.6s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInRight smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center digitalservicimg">
                 <div className="service-icon">
                   <i className="fa fa-calendar-alt text-white"></i>
                 </div>
@@ -282,8 +282,8 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInLeft socialmediaserviceimg smres" data-wow-delay="0.3s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInLeft smres" data-wow-delay="0.3s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center socialmediaserviceimg">
                 <div className="service-icon">
                   <i className="fa fa-briefcase text-white"></i>
                 </div>
@@ -294,8 +294,8 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInRight seoservicesimg smres" data-wow-delay="0.6s">
-              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center">
+            <div className="col-lg-5 col-md-6 col-sm-12 wow slideInRight smres" data-wow-delay="0.6s">
+              <div className="service-item rounded d-flex flex-column align-items-center justify-content-center text-center seoservicesimg">
                 <div className="service-icon">
                   <i className="fa fa-users text-white"></i>
                 </div>
