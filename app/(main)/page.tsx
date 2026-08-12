@@ -1,3 +1,4 @@
+import LogoMarquee from "@/components/LogoMarquee";
 import Link from 'next/link';
 
 export default function Page() {
@@ -440,58 +441,7 @@ export default function Page() {
       {/* Blog End */}
 
       {/* Vendor/Client Logos Marquee */}
-      <div className="wrapper container" suppressHydrationWarning={true}>
-        <div className="marquee" data-speed="60" suppressHydrationWarning={true}>
-          <div className="marquee__ctn" suppressHydrationWarning={true}>
-            <div className="marquee__track" suppressHydrationWarning={true}>
-              <div className="marquee__item"><img src="/img/vendor/newbrand1.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand2.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand3.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand4.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand5.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand6.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/mcars.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newsghru.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/school.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/sissers.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/uelogo.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/blessence.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/miniso poster logo.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/PRS LOGO.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/sivajisons.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/joysontrust.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/spacemedia.png" alt="LOGO" /></div>
-              
-              <div className="marquee__item"><img src="/img/vendor/meera filngs.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/digitalghru.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/vasanth.png" alt="LOGO" /></div>
-            </div>
-            <div className="marquee__track" aria-hidden="true" suppressHydrationWarning={true}>
-              <div className="marquee__item"><img src="/img/vendor/newbrand1.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand2.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand3.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand4.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand5.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newbrand6.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/mcars.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/newsghru.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/school.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/sissers.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/uelogo.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/blessence.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/miniso poster logo.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/PRS LOGO.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/sivajisons.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/joysontrust.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/spacemedia.png" alt="LOGO" /></div>
-              
-              <div className="marquee__item"><img src="/img/vendor/meera filngs.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/digitalghru.png" alt="LOGO" /></div>
-              <div className="marquee__item"><img src="/img/vendor/vasanth.png" alt="LOGO" /></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <LogoMarquee />
 
       {/* Fixed message icon */}
       <div className="fixed-panel">

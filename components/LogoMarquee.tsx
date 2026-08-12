@@ -1,0 +1,53 @@
+import React from 'react';
+
+const LogoMarquee: React.FC = () => {
+  const logos = [
+    'brand1.png',
+    'brand03.png',
+    'brand3.png',
+    'brand4.png',
+    'newbrand6.png',
+    'newbrand7.png',
+    'newbrand8.png',
+    'newbrand9.png',
+    'mcars.png',
+    'newsghru.png',
+    'NEWS GHURU LOGO PNG.png',
+    'school.png',
+    'sissers.png',
+    'blessence.png',
+    'miniso poster logo.png',
+    'PRS LOGO.png',
+    'sivajisons.png',
+    'joysontrust.png',
+    'spacemedia.png',
+    'meera filngs.png',
+    'digitalghru.png',
+    'staff.jpg'
+  ];
+
+  return (
+    <div className="wrapper container" suppressHydrationWarning>
+      <div className="marquee" data-speed="60" suppressHydrationWarning>
+        <div className="marquee__ctn" suppressHydrationWarning>
+          <div className="marquee__track" suppressHydrationWarning>
+            {logos.map((logo, i) => (
+              <div key={`track1-${i}`} className="marquee__item">
+                <img src={`/img/vendor/${logo}`} alt="LOGO" />
+              </div>
+            ))}
+          </div>
+          <div className="marquee__track" aria-hidden="true" suppressHydrationWarning>
+            {logos.map((logo, i) => (
+              <div key={`track2-${i}`} className="marquee__item">
+                <img src={`/img/vendor/${logo}`} alt="LOGO" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LogoMarquee;
