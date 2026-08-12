@@ -85,11 +85,17 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
   // Auto-progress showcase animation stage
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      setShowcaseStage(0);
+      return;
+    }
+
     const timer = setInterval(() => {
-      setShowcaseStage((prev) => (prev + 1) % 4);
-    }, 4000);
+      setShowcaseStage((prev) => (prev + 1) % data.workflow.length);
+    }, 3500);
     return () => clearInterval(timer);
-  }, []);
+  }, [data.workflow.length]);
 
   // Refs for scroll animations
   const overviewRef = useRef(null);
@@ -612,6 +618,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 3. ANIMATED SERVICE SHOWCASE */}
+      {/* 3. ANIMATED SERVICE SHOWCASE */}
       <section className="py-20 bg-[#F7F5F0] overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
@@ -624,130 +631,140 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
           <div className="row justify-content-center">
             <div className="col-lg-10">
-              {/* Interactive Showcase Panel */}
-              <div className="bg-white border border-[#1E7FD4]/15 rounded-3xl shadow-xl overflow-hidden p-4 md:p-6 relative">
-                
-                {/* Visual Header */}
-                <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#ef4444]"></span>
-                    <span className="w-3 h-3 rounded-full bg-[#f59e0b]"></span>
-                    <span className="w-3 h-3 rounded-full bg-[#10b981]"></span>
-                    <span className="text-xs text-muted-foreground font-mono ml-4">Atriowings Build Stage Simulation</span>
+              <div className="bg-white border border-[#1E7FD4]/10 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+                {/* Accent glow backdrop */}
+                <div 
+                  className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-[80px] -z-10"
+                  style={{ 
+                    backgroundColor: 
+                      data.heroVisualType === 'web' ? 'rgba(30,127,212,0.08)' :
+                      data.heroVisualType === 'design' ? 'rgba(168,85,247,0.08)' :
+                      data.heroVisualType === 'content' ? 'rgba(46,158,107,0.08)' :
+                      data.heroVisualType === 'marketing' ? 'rgba(255,138,61,0.08)' :
+                      data.heroVisualType === 'video' ? 'rgba(239,68,68,0.08)' :
+                      'rgba(8,169,230,0.08)'
+                  }}
+                />
+
+                <div className="row g-5 align-items-center">
+                  
+                  {/* Left: Interactive Workflow Stages */}
+                  <div className="col-lg-6">
+                    <h4 className="h4 fw-extrabold text-[#0B1F3A] mb-2">
+                      Interactive Process Flow
+                    </h4>
+                    <p className="text-muted text-xs mb-6">
+                      Click any stage below to inspect details or watch the simulation run automatically.
+                    </p>
+
+                    {/* Timeline steps */}
+                    <div className="space-y-4 relative">
+                      {/* Vertical line connection */}
+                      <div className="absolute left-[17px] top-4 bottom-4 w-0.5 bg-gray-100 z-0"></div>
+
+                      {data.workflow.map((step, idx) => {
+                        const isActive = idx === showcaseStage;
+                        const accentColor = 
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' :
+                          '#08A9E6';
+
+                        return (
+                          <div 
+                            key={step.title} 
+                            className="flex items-start gap-4 relative z-10 cursor-pointer"
+                            onClick={() => setShowcaseStage(idx)}
+                          >
+                            <motion.div
+                              className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border bg-white shrink-0 shadow-sm transition-all"
+                              style={{
+                                borderColor: isActive ? accentColor : '#E5E7EB',
+                                color: isActive ? '#FFFFFF' : '#9CA3AF',
+                                backgroundColor: isActive ? accentColor : '#FFFFFF'
+                              }}
+                              animate={isActive ? { scale: 1.1 } : { scale: 1 }}
+                            >
+                              {step.number}
+                            </motion.div>
+                            <div>
+                              <h5 
+                                className="text-sm font-bold mb-0.5 transition-colors"
+                                style={{ color: isActive ? accentColor : '#0B1F3A' }}
+                              >
+                                {step.title}
+                              </h5>
+                              <p className="text-muted text-xs mb-0">
+                                {step.desc}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    {[0, 1, 2, 3].map((stage) => (
-                      <button
-                        key={stage}
-                        className={`text-[10px] font-bold px-3 py-1 rounded-full border transition-all ${
-                          showcaseStage === stage
-                            ? 'bg-[#1E7FD4] text-white border-transparent'
-                            : 'bg-gray-50 text-gray-500 border-gray-200'
-                        }`}
-                        onClick={() => setShowcaseStage(stage)}
-                      >
-                        {['1. Wireframe', '2. UI Design', '3. Code', '4. Live Output'][stage]}
-                      </button>
-                    ))}
+
+                  {/* Right: Mockup Preview Frame & Metrics */}
+                  <div className="col-lg-6">
+                    <div className="border border-gray-200/80 rounded-2xl p-4 bg-[#F7FAFD] shadow-inner">
+                      
+                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-3">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                          <span className="text-[9px] text-muted-foreground ml-3 font-mono">
+                            atriowings.in/{data.heroVisualType}
+                          </span>
+                        </div>
+                        <span className="text-[8px] font-mono text-muted-foreground font-bold tracking-wider">
+                          LIVE PREVIEW
+                        </span>
+                      </div>
+
+                      {/* Video/GIF container */}
+                      <div className="relative h-[210px] rounded-xl overflow-hidden bg-black/5 flex items-center justify-center shadow-sm">
+                        <video
+                          src={
+                            data.heroVisualType === 'web' ? '/img/web-development-video.mp4' :
+                            data.heroVisualType === 'design' ? '/img/Services/product designgif.gif' :
+                            data.heroVisualType === 'content' ? '/img/portfolio pics/Content-Writing-12.gif' :
+                            data.heroVisualType === 'marketing' ? '/img/Services/digitalmarketgif4.gif' :
+                            data.heroVisualType === 'video' ? '/img/Services/videogif.gif' :
+                            '/img/Services/services1.gif'
+                          }
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
+                      </div>
+
+                      {/* Sample metrics overlay */}
+                      <div className="flex items-center justify-around gap-2 mt-3 pt-2.5 border-t border-gray-200/60 text-center">
+                        {[
+                          { label: "Delivery Speed", value: "Optimal" },
+                          { label: "Integration", value: "Verified" },
+                          { label: "Quality Grade", value: "A+" }
+                        ].map((stat) => (
+                          <div key={stat.label} className="flex-1">
+                            <span className="text-[8px] text-muted-foreground uppercase tracking-wider block">
+                              {stat.label}
+                            </span>
+                            <span className="text-xs font-extrabold text-[#1E7FD4] block mt-0.5">
+                              {stat.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                    </div>
                   </div>
-                </div>
 
-                {/* Animated Body Content Area */}
-                <div className="relative h-[320px] bg-gray-50 rounded-2xl flex items-center justify-center overflow-hidden border border-gray-100 p-4">
-                  <AnimatePresence mode="wait">
-                    {showcaseStage === 0 && (
-                      <motion.div
-                        key="stage0"
-                        className="w-full max-w-[450px] border-2 border-dashed border-gray-300 rounded-xl p-4 space-y-4 flex flex-col justify-between h-[200px]"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <div className="flex justify-between items-center">
-                          <div className="w-16 h-4 bg-gray-200 rounded"></div>
-                          <div className="w-4 h-4 bg-gray-200 rounded-full"></div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="w-full h-3 bg-gray-200 rounded"></div>
-                          <div className="w-[80%] h-3 bg-gray-200 rounded"></div>
-                        </div>
-                        <div className="w-24 h-8 bg-gray-200 rounded self-end"></div>
-                      </motion.div>
-                    )}
-
-                    {showcaseStage === 1 && (
-                      <motion.div
-                        key="stage1"
-                        className="w-full max-w-[450px] bg-[#0B1F3A] border border-white/10 rounded-xl p-4 space-y-4 flex flex-col justify-between h-[200px] shadow-lg text-white"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <div className="flex justify-between items-center">
-                          <div className="w-16 h-4 bg-[#1E7FD4] rounded"></div>
-                          <div className="w-4 h-4 bg-white/20 rounded-full"></div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="w-full h-3 bg-white/10 rounded"></div>
-                          <div className="w-[80%] h-3 bg-white/10 rounded"></div>
-                        </div>
-                        <div className="w-24 h-8 bg-[#08A9E6] rounded self-end"></div>
-                      </motion.div>
-                    )}
-
-                    {showcaseStage === 2 && (
-                      <motion.div
-                        key="stage2"
-                        className="w-full max-w-[450px] bg-[#0c1322] border border-white/5 rounded-xl p-4 h-[200px] shadow-lg text-green-400 font-mono text-xs flex flex-col justify-between"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <div>
-                          <p className="text-white/40">// Compiling system variables</p>
-                          <p>import &#123; createWidget &#125; from &apos;atriowings-core&apos;;</p>
-                          <p className="text-yellow-400">const service = new createWidget(&#123;</p>
-                          <p className="pl-4">engine: &quot;Vite/Next.js&quot;,</p>
-                          <p className="pl-4">render: &quot;SSR&quot;,</p>
-                          <p className="pl-4">responsive: true</p>
-                          <p className="text-yellow-400">&#125;);</p>
-                        </div>
-                        <span className="text-white/50 text-[10px] self-end">Compilation success</span>
-                      </motion.div>
-                    )}
-
-                    {showcaseStage === 3 && (
-                      <motion.div
-                        key="stage3"
-                        className="w-full max-w-[450px] bg-white border border-gray-100 rounded-xl p-4 space-y-4 flex flex-col justify-between h-[200px] shadow-2xl relative"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <div className="flex justify-between items-center">
-                          <span className="font-bold text-xs text-[#0B1F3A]">Platform Live</span>
-                          <span className="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
-                        </div>
-                        <div className="p-3 bg-green-50 rounded-lg text-green-700 text-xs flex justify-between items-center">
-                          <span>Performance Index: 100% Speed Score</span>
-                          <i className="fas fa-check-circle text-base"></i>
-                        </div>
-                        <button className="btn btn-primary btn-sm rounded-pill self-end bg-[#1E7FD4] border-0 px-4">Visit Platform</button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Floating Tags */}
-                  <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm border border-gray-100 text-[10px] text-[#0B1F3A] font-bold px-3 py-1 rounded-full shadow-sm">
-                    <i className="fas fa-check text-green-500 mr-1.5"></i> Responsive
-                  </div>
-                  <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm border border-gray-100 text-[10px] text-[#0B1F3A] font-bold px-3 py-1 rounded-full shadow-sm">
-                    <i className="fas fa-check text-green-500 mr-1.5"></i> SEO Optimized
-                  </div>
                 </div>
 
               </div>
