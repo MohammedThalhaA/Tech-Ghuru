@@ -859,7 +859,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             {/* ── RIGHT: Text content with animated highlights ── */}
             <div className="col-lg-7">
               <motion.span
-                className="text-xs font-extrabold uppercase tracking-widest mb-3 block flex items-center gap-2"
+                className="text-xs font-extrabold uppercase tracking-widest mb-3 block d-flex align-items-center gap-2"
                 style={{ color: '#2E9E6B' }}
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
@@ -875,34 +875,53 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 Overview
               </motion.span>
 
+              {/* Heading — full color change + glow on hover */}
               <motion.h2
-                className="fw-extrabold text-[#0B1F3A] mb-5"
+                className="fw-extrabold mb-5 transition-all duration-300"
                 style={{
                   fontFamily: 'var(--font-rubik)',
-                  fontSize: 'clamp(1.6rem, 3vw, 2.5rem)',
-                  lineHeight: 1.2
+                  fontSize: 'clamp(1.5rem, 3.5vw, 2.6rem)',
+                  lineHeight: 1.18,
+                  color: '#0B1F3A',
+                  cursor: 'default'
                 }}
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={fadeUp}
+                whileHover={{
+                  color: accentCol,
+                  textShadow: `0 0 28px ${accentCol}35, 0 0 55px ${accentCol}15`,
+                  x: 4
+                }}
+                transition={{ duration: 0.25 }}
               >
                 {data.overview.title}
               </motion.h2>
 
+              {/* Animated underline that reveals on inView */}
               <motion.div
-                className="space-y-4 text-muted text-sm leading-relaxed mb-8"
+                className="mb-5 h-0.5 rounded-full"
+                style={{ background: `linear-gradient(90deg, ${accentCol}, ${accentCol}30, transparent)` }}
+                initial={{ scaleX: 0, originX: 0 }}
+                animate={isOverviewInView ? { scaleX: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+              />
+
+              <motion.div
+                className="text-muted leading-relaxed mb-8"
+                style={{ fontSize: 'clamp(0.82rem, 1.5vw, 0.95rem)' }}
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={staggerContainer}
               >
                 {data.overview.paragraphs.map((p, i) => (
-                  <motion.p key={i} variants={fadeUp} className="mb-0">{p}</motion.p>
+                  <motion.p key={i} variants={fadeUp} className="mb-3">{p}</motion.p>
                 ))}
               </motion.div>
 
-              {/* Glowing stat chips row */}
+              {/* Glowing stat chips row — enhanced hover color change */}
               <motion.div
-                className="d-flex flex-wrap gap-3"
+                className="d-flex flex-wrap gap-2 gap-sm-3"
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={staggerContainer}
@@ -915,26 +934,30 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <motion.div
                     key={chip.label}
                     variants={fadeUp}
-                    className="d-inline-flex align-items-center gap-2 rounded-pill px-4 py-2 text-xs font-bold cursor-default"
+                    className="d-inline-flex align-items-center gap-2 rounded-pill px-3 px-sm-4 py-2 text-xs font-bold cursor-default"
                     style={{
                       background: chip.col + '0f',
                       border: `1.5px solid ${chip.col}25`,
                       color: '#374151',
-                      boxShadow: `0 2px 8px ${chip.col}10`
+                      fontSize: 'clamp(10px, 1.2vw, 13px)'
                     }}
                     whileHover={{
-                      scale: 1.06,
-                      boxShadow: `0 4px 20px ${chip.col}30`,
-                      borderColor: chip.col + '60'
+                      scale: 1.08,
+                      color: chip.col,
+                      background: chip.col + '18',
+                      boxShadow: `0 6px 24px ${chip.col}30`,
+                      borderColor: chip.col + '70'
                     }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.18 }}
                   >
-                    <span
-                      className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px]"
-                      style={{ backgroundColor: chip.col }}
+                    <motion.span
+                      className="w-6 h-6 rounded-full d-flex align-items-center justify-content-center text-white"
+                      style={{ backgroundColor: chip.col, fontSize: 10, minWidth: 24 }}
+                      whileHover={{ rotate: 15, scale: 1.15 }}
+                      transition={{ duration: 0.2 }}
                     >
                       <i className={`fas ${chip.icon}`}></i>
-                    </span>
+                    </motion.span>
                     {chip.label}
                   </motion.div>
                 ))}
