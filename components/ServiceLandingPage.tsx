@@ -119,70 +119,60 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       case 'web':
         return (
           <div className="relative w-full h-[420px] flex items-center justify-center">
-            {/* Background Grid Pattern */}
+            {/* Grid background */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
-
-            {/* Glowing Backdrop */}
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#1E7FD4]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
-            {/* main IDE Editor Mockup */}
+            {/* Browser video player mockup */}
             <motion.div
-              className="absolute w-[80%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              {/* Window controls */}
+              {/* Browser control header */}
               <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 shadow-[0_0_8px_rgba(239,68,68,0.4)]"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                  <span className="text-[10px] text-white/40 ml-4 font-mono select-none">atriowings-app.tsx</span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/web-developing</span>
                 </div>
-                <div className="text-[9px] text-white/30 font-mono">React / TypeScript</div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● RENDER VIDEO</span>
+                </div>
               </div>
-              
-              {/* Animated Code block */}
-              <div className="p-4 font-mono text-[10.5px] leading-relaxed text-[#08A9E6] overflow-x-hidden">
-                <div className="text-white/40 mb-1.5">// Custom Web Engineering</div>
-                <div className="flex items-center gap-1.5 text-[#10b981]">
-                  <span>import</span> <span className="text-white">&#123;</span> NextPage <span className="text-white">&#125;</span> <span>from</span> <span className="text-yellow-400">&apos;next&apos;</span><span className="text-white">;</span>
-                </div>
-                <div className="text-white/80 mt-1">
-                  <span>const</span> <span className="text-blue-400">AtriowingsProject</span> = <span className="text-white">() =&gt; &#123;</span>
-                </div>
-                <div className="pl-4 text-white/90">
-                  <span>return</span> <span className="text-white">(</span>
-                </div>
-                <div className="pl-8 text-[#08A9E6] flex items-center">
-                  <span>&lt;</span><span className="text-[#FF8A3D]">DynamicApp</span>
-                  <span className="text-[#10b981] ml-2">responsive</span>
-                  <span className="text-[#10b981] ml-2">fast</span>
-                  <span className="text-[#08A9E6]">&gt;</span>
-                </div>
-                {/* Cursor typing simulation */}
-                <div className="pl-12 text-[#10b981] flex items-center">
-                  <span className="text-white">&lt;</span><span className="text-[#FF8A3D]">OptimizationScore</span> <span className="text-yellow-400">target</span>=<span className="text-white">&quot;100%&quot;</span> <span className="text-white">/&gt;</span>
-                  <motion.span 
-                    className="w-1.5 h-3.5 bg-[#08A9E6] ml-1.5 inline-block"
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 0.9, repeat: Infinity, ease: "linear" }}
+
+              {/* Video frame container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <video
+                  src="/img/web-development-video.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Play progress bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <motion.div 
+                    className="h-full bg-[#08A9E6]"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                   />
                 </div>
-                <div className="pl-8 text-white/90">&lt;/<span className="text-[#FF8A3D]">DynamicApp</span>&gt;</div>
-                <div className="pl-4 text-white">);</div>
-                <div className="text-white">&#125;;</div>
               </div>
             </motion.div>
 
             {/* floating PostgreSQL DB card */}
             <motion.div
-              className="absolute bottom-6 left-1 bg-[#1E7FD4]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
-              animate={{ y: [0, -12, 0], x: [0, 2, 0] }}
+              className="absolute bottom-4 left-1 bg-[#1E7FD4]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg shadow-[0_4px_12px_rgba(30,127,212,0.3)]">
+              <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg">
                 <i className="fas fa-database text-white"></i>
               </div>
               <div>
@@ -193,110 +183,68 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* floating API validation label */}
             <motion.div
-              className="absolute top-8 right-1 bg-[#2E9E6B]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
-              animate={{ y: [0, 12, 0], x: [0, -2, 0] }}
+              className="absolute top-6 right-1 bg-[#2E9E6B]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, 12, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             >
               <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg">
                 <i className="fas fa-shield-alt text-white animate-pulse"></i>
               </div>
               <div>
-                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">AUTHENTICATION</span>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">SECURITY</span>
                 <span className="text-[10px] font-bold block">Secure API Auth</span>
               </div>
             </motion.div>
-
-            {/* Animated Pulsating Connection Line */}
-            <svg className="absolute w-full h-full pointer-events-none z-0" viewBox="0 0 500 400">
-              <motion.path
-                d="M 50,300 C 120,250 380,200 450,150"
-                fill="none"
-                stroke="rgba(8, 169, 230, 0.2)"
-                strokeWidth="2.5"
-                strokeDasharray="6 6"
-              />
-              <motion.path
-                d="M 50,300 C 120,250 380,200 450,150"
-                fill="none"
-                stroke="#08A9E6"
-                strokeWidth="3"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              />
-            </svg>
           </div>
         );
       case 'marketing':
         return (
           <div className="relative w-full h-[420px] flex items-center justify-center">
-            {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
-
-            {/* Glowing Backdrop */}
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#FF8A3D]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
-            {/* main Analytics Graph Card */}
+            {/* Browser GIF player mockup */}
             <motion.div
-              className="absolute w-[80%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] p-4 z-10"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="flex justify-between items-center mb-4 border-b border-white/5 pb-3">
-                <div>
-                  <span className="text-[10px] uppercase tracking-wider text-white/40 block font-bold">Campaign Status</span>
-                  <span className="text-white font-bold text-xs">Conversion Rate Overview</span>
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/digital-marketing</span>
                 </div>
-                <span className="bg-[#2E9E6B]/20 text-[#2E9E6B] text-[9px] px-2.5 py-1 rounded-full font-bold border border-[#2E9E6B]/30 animate-pulse">LIVE</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY GRAPHICS</span>
+                </div>
               </div>
-              
-              {/* Line chart simulation */}
-              <div className="relative h-28 w-full mt-4 flex items-end">
-                <svg className="w-full h-full overflow-visible" viewBox="0 0 300 100">
-                  {/* Grid Lines */}
-                  <line x1="0" y1="20" x2="300" y2="20" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-                  <line x1="0" y1="50" x2="300" y2="50" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-                  <line x1="0" y1="80" x2="300" y2="80" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-                  
-                  {/* Dynamic Curve */}
-                  <motion.path
-                    d="M 0,85 C 40,80 80,45 120,50 C 160,55 200,10 240,15 C 280,20 300,5 300,5"
-                    fill="none"
-                    stroke="url(#marketing-gradient)"
-                    strokeWidth="3.5"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/digitalmarketgif4.gif"
+                  alt="Digital Marketing Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Play progress bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <motion.div 
+                    className="h-full bg-[#FF8A3D]"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                   />
-                  <defs>
-                    <linearGradient id="marketing-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#1E7FD4" />
-                      <stop offset="50%" stopColor="#08A9E6" />
-                      <stop offset="100%" stopColor="#FF8A3D" />
-                    </linearGradient>
-                  </defs>
-                  {/* Pulse at the end of the line */}
-                  <motion.circle
-                    cx="300"
-                    cy="5"
-                    r="4"
-                    fill="#FF8A3D"
-                    animate={{ r: [4, 8, 4] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  />
-                </svg>
-              </div>
-              
-              <div className="flex justify-between mt-4 text-[10px] text-white/50 border-t border-white/5 pt-3">
-                <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[#1E7FD4]"></span>Impressions: +240%</span>
-                <span className="text-[#2E9E6B] font-bold font-mono">Conversion: 5.4%</span>
+                </div>
               </div>
             </motion.div>
 
             {/* floating ROI statistics widget */}
             <motion.div
-              className="absolute bottom-6 right-1 bg-[#FF8A3D]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              className="absolute bottom-4 left-1 bg-[#FF8A3D]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -307,19 +255,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* floating targeting radar */}
             <motion.div
-              className="absolute top-6 left-1 bg-[#2E9E6B]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3.5"
+              className="absolute top-6 right-1 bg-[#2E9E6B]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             >
-              {/* concentric pulsing circles */}
-              <div className="relative w-8 h-8 flex items-center justify-center">
-                <span className="absolute w-full h-full rounded-full border border-[#2E9E6B] animate-ping opacity-45"></span>
-                <div className="w-4 h-4 rounded-full bg-[#2E9E6B]/80 flex items-center justify-center text-[10px]">
-                  <i className="fas fa-crosshairs"></i>
-                </div>
+              <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-xs">
+                <i className="fas fa-bullseye text-white"></i>
               </div>
               <div>
-                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">TARGET AUDIENCE</span>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">CAMPAIGNS</span>
                 <span className="text-[10px] font-bold block">Lead Funnel Active</span>
               </div>
             </motion.div>
@@ -328,75 +272,57 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       case 'design':
         return (
           <div className="relative w-full h-[420px] flex items-center justify-center">
-            {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
-
-            {/* Glowing Backdrop */}
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#A855F7]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
-            {/* main Figma canvas panel */}
+            {/* Browser Design Player mockup */}
             <motion.div
-              className="absolute w-[80%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] p-4 z-10"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
                 <div className="flex items-center gap-2">
-                  <i className="fas fa-palette text-[#A855F7] text-xs"></i>
-                  <span className="text-white font-bold text-xs">Figma Design System</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/product-design</span>
                 </div>
-                <span className="text-white/40 text-[9px] font-mono">1920 x 1080</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY DESIGN</span>
+                </div>
               </div>
-              <div className="relative h-32 border border-dashed border-white/15 rounded-xl flex items-center justify-center overflow-hidden bg-white/2">
-                
-                {/* SVG vector curve rendering */}
-                <svg className="absolute w-full h-full pointer-events-none" viewBox="0 0 300 120">
-                  <motion.path
-                    d="M 50,90 Q 150,10 250,90"
-                    fill="none"
-                    stroke="#A855F7"
-                    strokeWidth="2.5"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/product designgif.gif"
+                  alt="Product Design Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Play progress bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <motion.div 
+                    className="h-full bg-[#A855F7]"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                   />
-                  <circle cx="50" cy="90" r="3.5" fill="#08A9E6" />
-                  <circle cx="250" cy="90" r="3.5" fill="#08A9E6" />
-                  <line x1="50" y1="90" x2="150" y2="10" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="3 3" />
-                  <line x1="250" y1="90" x2="150" y2="10" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="3 3" />
-                  {/* vector control anchor handle */}
-                  <circle cx="150" cy="10" r="4.5" fill="#A855F7" />
-                </svg>
-                
-                {/* Figma Cursor Animation */}
-                <motion.div
-                  className="absolute z-30"
-                  animate={{
-                    x: [-60, 40, -10, -60],
-                    y: [30, -20, 25, 30]
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <i className="fas fa-mouse-pointer text-[#08A9E6] text-sm drop-shadow-md"></i>
-                  <span className="bg-[#08A9E6] text-white text-[8px] font-bold px-2 py-0.5 rounded-full ml-2 shadow-md">UI/UX Lead</span>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
 
             {/* floating typography card */}
             <motion.div
-              className="absolute bottom-6 left-1 bg-[#A855F7]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              className="absolute bottom-4 left-1 bg-[#A855F7]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
             >
               <span className="text-[8px] uppercase tracking-wider text-white/70 font-bold block">DESIGN SYSTEM</span>
-              <span className="text-xs font-bold block font-sans">Rubik typography</span>
-              <span className="text-[8.5px] text-white/70">Font scales & tracking set</span>
+              <span className="text-xs font-bold block font-sans">Atomic Prototypes</span>
+              <span className="text-[8.5px] text-white/70">Connected user flows</span>
             </motion.div>
 
             {/* floating components widget */}
@@ -406,86 +332,70 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             >
               <div className="flex gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#2E9E6B]"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#08A9E6]"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#A855F7]"></span>
+                <span className="w-2 h-2 rounded-full bg-[#2E9E6B]"></span>
+                <span className="w-2 h-2 rounded-full bg-[#08A9E6]"></span>
               </div>
-              <span className="text-[9.5px] font-bold tracking-wider uppercase font-mono">Atomic UI</span>
+              <span className="text-[9.5px] font-bold tracking-wider uppercase font-mono">Figma UI</span>
             </motion.div>
           </div>
         );
       case 'content':
         return (
           <div className="relative w-full h-[420px] flex items-center justify-center">
-            {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
-
-            {/* Glowing Backdrop */}
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#FF8A3D]/20 to-[#A855F7]/20 rounded-full blur-[80px] -z-10" />
 
-            {/* main Editor document visual */}
+            {/* Browser Content Player mockup */}
             <motion.div
-              className="absolute w-[80%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] p-4 z-10"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="flex items-center gap-2 mb-3.5 border-b border-white/5 pb-3">
-                <div className="w-6 h-6 rounded-lg bg-yellow-500/15 flex items-center justify-center text-xs text-yellow-500">
-                  <i className="fas fa-file-alt"></i>
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/content-writing</span>
                 </div>
-                <div>
-                  <span className="text-[8px] uppercase tracking-wider text-white/40 font-bold block">SEO Blog Article</span>
-                  <span className="text-white font-bold text-xs">Content Creation Editor</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY COPY</span>
                 </div>
               </div>
-              <div className="space-y-2.5 font-serif text-[10.5px] leading-relaxed text-white/80">
-                <p className="border-l-3 border-[#08A9E6] pl-2.5 py-0.5 italic text-white/95">
-                  &quot;In the dynamic tech landscape, high-quality, copy-structured technical content acts as a primary catalyst for scaling organic lead volumes...&quot;
-                </p>
-                <div className="space-y-1.5 pt-2">
-                  <p className="h-1.5 bg-white/10 rounded-full w-full"></p>
-                  <p className="h-1.5 bg-white/10 rounded-full w-[95%]"></p>
-                  <div className="flex items-center gap-1.5">
-                    <p className="h-1.5 bg-white/10 rounded-full w-[40%]"></p>
-                    <motion.span
-                      className="w-1.5 h-3 bg-[#08A9E6] inline-block"
-                      animate={{ opacity: [1, 0, 1] }}
-                      transition={{ duration: 0.8, repeat: Infinity }}
-                    />
-                  </div>
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/portfolio pics/Content-Writing-12.gif"
+                  alt="Content Writing Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Play progress bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <motion.div 
+                    className="h-full bg-[#08A9E6]"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                  />
                 </div>
               </div>
             </motion.div>
 
             {/* floating SEO score badge */}
             <motion.div
-              className="absolute bottom-6 left-1 bg-[#2E9E6B]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              className="absolute bottom-4 left-1 bg-[#2E9E6B]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* Circular gauge dials */}
-              <div className="relative w-8 h-8 flex items-center justify-center">
-                <svg className="w-full h-full rotate-[-90deg]">
-                  <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.1)" strokeWidth="3" fill="none" />
-                  <motion.circle 
-                    cx="16" 
-                    cy="16" 
-                    r="13" 
-                    stroke="#ffffff" 
-                    strokeWidth="3" 
-                    fill="none" 
-                    strokeDasharray="82"
-                    initial={{ strokeDashoffset: 82 }}
-                    animate={{ strokeDashoffset: 10 }}
-                    transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-                  />
-                </svg>
-                <span className="absolute text-[8px] font-bold">92%</span>
+              <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-xs">
+                <i className="fas fa-feather-alt"></i>
               </div>
               <div>
-                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">SEO METRIC</span>
-                <span className="text-[10px] font-bold block">High Readability</span>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">READABILITY</span>
+                <span className="text-[10px] font-bold block">100% SEO Score</span>
               </div>
             </motion.div>
 
@@ -497,8 +407,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             >
               <span className="text-[8px] uppercase tracking-wider text-white/70 font-bold block">KEYWORDS</span>
               <div className="flex flex-wrap gap-1 mt-1.5">
-                <span className="bg-white/20 text-[7.5px] px-2 py-0.5 rounded font-mono font-bold">SEO Rank</span>
-                <span className="bg-white/20 text-[7.5px] px-2 py-0.5 rounded font-mono font-bold">B2B Copy</span>
+                <span className="bg-white/20 text-[7.5px] px-2 py-0.5 rounded font-mono font-bold">SEO Blogs</span>
               </div>
             </motion.div>
           </div>
@@ -506,77 +415,51 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       case 'video':
         return (
           <div className="relative w-full h-[420px] flex items-center justify-center">
-            {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
-
-            {/* Glowing Backdrop */}
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#ef4444]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
-            {/* main video editor viewport card */}
+            {/* Browser Video Player mockup */}
             <motion.div
-              className="absolute w-[80%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden z-10"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              {/* Media viewer player screen */}
-              <div className="relative h-44 bg-gradient-to-br from-[#0B1F3A] to-[#1E7FD4]/45 flex items-center justify-center">
-                {/* Viewfinder borders */}
-                <div className="absolute inset-4 border border-white/10 pointer-events-none">
-                  <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white/50"></span>
-                  <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white/50"></span>
-                  <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white/50"></span>
-                  <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white/50"></span>
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/video-ads</span>
                 </div>
-                <div className="absolute top-3 left-4 flex items-center gap-1.5 bg-black/45 text-[9px] text-white px-2 py-0.5 rounded font-mono">
-                  <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span>
-                  <span>REC 00:22</span>
-                </div>
-                
-                {/* Big play bubble */}
-                <motion.div
-                  className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-lg cursor-pointer"
-                  whileHover={{ scale: 1.15, backgroundColor: 'rgba(255,255,255,0.2)' }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <i className="fas fa-play text-white text-base ml-1"></i>
-                </motion.div>
-
-                {/* Animated Audio Waveform overlay */}
-                <div className="absolute bottom-2 left-4 right-4 h-6 flex items-end gap-0.5 opacity-60">
-                  {Array.from({ length: 30 }).map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="flex-1 bg-[#08A9E6] rounded-t-sm"
-                      animate={{ height: [4, Math.random() * 24, 4] }}
-                      transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut", delay: i * 0.04 }}
-                    />
-                  ))}
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY VIDEO</span>
                 </div>
               </div>
-              
-              {/* timeline editor track simulation */}
-              <div className="p-3 bg-black/35 border-t border-white/5 flex flex-col gap-1.5 font-mono text-[9px] text-white/50">
-                <div className="flex items-center gap-2">
-                  <span className="text-[8px] uppercase tracking-wider text-white/30 font-bold w-10">V1</span>
-                  <div className="flex-1 bg-gradient-to-r from-[#1E7FD4]/60 to-[#08A9E6]/60 h-2 rounded relative">
-                    <motion.div 
-                      className="absolute top-0 bottom-0 w-0.5 bg-red-500 z-10"
-                      animate={{ left: ['0%', '100%'] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                    />
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[8px] uppercase tracking-wider text-white/30 font-bold w-10">A1</span>
-                  <div className="flex-1 bg-green-500/35 h-2 rounded" />
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/videogif.gif"
+                  alt="Video Editing Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Play progress bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <motion.div 
+                    className="h-full bg-[#ef4444]"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                  />
                 </div>
               </div>
             </motion.div>
 
             {/* floating render codec badge */}
             <motion.div
-              className="absolute bottom-6 left-1 bg-[#ef4444]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3.5"
+              className="absolute bottom-4 left-1 bg-[#ef4444]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3.5"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -593,58 +476,51 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       case 'consultation':
         return (
           <div className="relative w-full h-[420px] flex items-center justify-center">
-            {/* Background Grid Pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
-
-            {/* Glowing Backdrop */}
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#2E9E6B]/20 to-[#1E7FD4]/20 rounded-full blur-[80px] -z-10" />
 
-            {/* main Roadmap strategy tree visual */}
+            {/* Browser Consultation Player mockup */}
             <motion.div
-              className="absolute w-[80%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] p-4 z-10"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="flex items-center gap-2 mb-4 border-b border-white/5 pb-3">
-                <div className="w-6 h-6 rounded-lg bg-[#2E9E6B]/15 flex items-center justify-center text-xs text-[#2E9E6B]">
-                  <i className="fas fa-project-diagram"></i>
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/consultation</span>
                 </div>
-                <div>
-                  <span className="text-[8px] uppercase tracking-wider text-white/40 font-bold block">System Strategy</span>
-                  <span className="text-white font-bold text-xs">Architectural Roadmap</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY STRATEGY</span>
                 </div>
               </div>
-              
-              {/* Connected node network */}
-              <div className="relative h-28 flex items-center justify-between px-6 bg-white/2 border border-white/5 rounded-xl">
-                {/* Node 1 */}
-                <div className="flex flex-col items-center">
-                  <motion.div className="w-7 h-7 rounded-full bg-[#2E9E6B] flex items-center justify-center text-[10px] font-bold shadow-[0_0_8px_rgba(46,158,107,0.4)]" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>Audit</motion.div>
-                </div>
-                {/* Node 2 */}
-                <div className="flex flex-col items-center">
-                  <motion.div className="w-7 h-7 rounded-full bg-[#1E7FD4] flex items-center justify-center text-[10px] font-bold" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}>Plan</motion.div>
-                </div>
-                {/* Node 3 */}
-                <div className="flex flex-col items-center">
-                  <motion.div className="w-7 h-7 rounded-full bg-[#FF8A3D] flex items-center justify-center text-[10px] font-bold" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}>Scale</motion.div>
-                </div>
 
-                {/* Connecting SVG wires */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 250 110">
-                  <line x1="55" y1="55" x2="115" y2="55" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
-                  <line x1="135" y1="55" x2="195" y2="55" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
-                  {/* Glowing signal dots */}
-                  <motion.circle cx="55" cy="55" r="2.5" fill="#08A9E6" animate={{ cx: [55, 115] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
-                  <motion.circle cx="135" cy="55" r="2.5" fill="#08A9E6" animate={{ cx: [135, 195] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} />
-                </svg>
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/services1.gif"
+                  alt="Business Consultation Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Play progress bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <motion.div 
+                    className="h-full bg-[#2E9E6B]"
+                    animate={{ width: ['0%', '100%'] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                  />
+                </div>
               </div>
             </motion.div>
 
             {/* floating KPIs badge */}
             <motion.div
-              className="absolute bottom-6 left-1 bg-[#2E9E6B]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              className="absolute bottom-4 left-1 bg-[#2E9E6B]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4.3, repeat: Infinity, ease: "easeInOut" }}
             >
