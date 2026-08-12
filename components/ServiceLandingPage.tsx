@@ -1805,7 +1805,14 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 5. INTERACTIVE WORKFLOW */}
-      <section ref={workflowRef} className="py-20 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
+      <section 
+        ref={workflowRef} 
+        className="py-20 text-white overflow-hidden relative" 
+        style={{ 
+          fontFamily: 'var(--font-rubik)',
+          background: 'radial-gradient(circle at 50% 50%, #071930 0%, #030e21 100%)'
+        }}
+      >
         {/* Inline CSS override to immediately bypass dev server CSS hot-reload delay and hide horizontal scrollbars */}
         <style dangerouslySetInnerHTML={{ __html: `
           *::-webkit-scrollbar:horizontal {
@@ -1823,14 +1830,16 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
         {/* Mockup-faithful glowing mesh gradient orbs with slow floating drift */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] rounded-full pointer-events-none z-0" 
+          className="absolute top-1/4 left-1/4 -translate-x-1/2 rounded-full pointer-events-none z-0" 
           style={{
-            background: `radial-gradient(circle, ${hexToRgba(accentCol, 0.28)} 0%, ${hexToRgba(accentCol, 0.08)} 60%, transparent 100%)`,
-            filter: 'blur(90px)'
+            width: '600px',
+            height: '600px',
+            background: `radial-gradient(circle, ${hexToRgba(accentCol, 0.45)} 0%, ${hexToRgba(accentCol, 0.12)} 60%, transparent 100%)`,
+            filter: 'blur(100px)'
           }}
           animate={{
-            x: [0, 50, -30, 0],
-            y: [0, -40, 40, 0],
+            x: [0, 60, -40, 0],
+            y: [0, -50, 50, 0],
             scale: [1, 1.15, 0.9, 1]
           }}
           transition={{
@@ -1840,14 +1849,16 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           }}
         />
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] rounded-full pointer-events-none z-0" 
+          className="absolute bottom-1/4 right-1/4 translate-x-1/2 rounded-full pointer-events-none z-0" 
           style={{
-            background: `radial-gradient(circle, rgba(8, 169, 230, 0.25) 0%, rgba(46, 158, 107, 0.08) 60%, transparent 100%)`,
-            filter: 'blur(90px)'
+            width: '700px',
+            height: '700px',
+            background: `radial-gradient(circle, rgba(8, 169, 230, 0.38) 0%, rgba(46, 158, 107, 0.10) 60%, transparent 100%)`,
+            filter: 'blur(100px)'
           }}
           animate={{
-            x: [0, -60, 40, 0],
-            y: [0, 50, -40, 0],
+            x: [0, -70, 50, 0],
+            y: [0, 60, -50, 0],
             scale: [1, 0.9, 1.1, 1]
           }}
           transition={{
@@ -1857,13 +1868,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[250px] rounded-full pointer-events-none z-0" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none z-0" 
           style={{
-            background: `radial-gradient(ellipse, ${hexToRgba(accentCol, 0.20)} 0%, transparent 70%)`,
-            filter: 'blur(80px)'
+            width: '800px',
+            height: '400px',
+            background: `radial-gradient(ellipse, ${hexToRgba(accentCol, 0.28)} 0%, transparent 70%)`,
+            filter: 'blur(90px)'
           }}
           animate={{
-            scale: [1, 1.2, 0.85, 1],
+            scale: [1, 1.25, 0.85, 1],
             rotate: [0, 180, 360]
           }}
           transition={{
