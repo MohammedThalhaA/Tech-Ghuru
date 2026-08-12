@@ -1684,70 +1684,65 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 5. INTERACTIVE WORKFLOW */}
-      <section ref={workflowRef} className="py-24 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
+      <section ref={workflowRef} className="py-14 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
         {/* Abstract decorative layout dots/orbs */}
-        <div className="absolute top-24 left-10 w-[200px] h-[200px] bg-[#1E7FD4]/10 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute bottom-24 right-10 w-[240px] h-[240px] bg-[#08A9E6]/10 rounded-full blur-[90px] pointer-events-none" />
+        <div className="absolute top-12 left-10 w-[160px] h-[160px] bg-[#1E7FD4]/8 rounded-full blur-[70px] pointer-events-none" />
+        <div className="absolute bottom-12 right-10 w-[180px] h-[180px] bg-[#08A9E6]/8 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="container px-4 relative z-10">
-          <div className="section-title text-center max-w-[700px] mx-auto mb-20">
-            <div className="flex items-center justify-center gap-3 mb-2.5">
-              <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#1E7FD4]" />
-              <span className="text-xs font-bold uppercase tracking-widest text-[#1E7FD4]">Our Process Journey</span>
-              <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-[#1E7FD4]" />
+          <div className="section-title text-center max-w-[700px] mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2.5 mb-2">
+              <div className="h-[1px] w-6 bg-gradient-to-r from-transparent to-[#1E7FD4]" />
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#1E7FD4]">Our Process Journey</span>
+              <div className="h-[1px] w-6 bg-gradient-to-l from-transparent to-[#1E7FD4]" />
             </div>
-            <h2 className="display-5 fw-bold mb-4">
+            <h2 className="text-3xl md:text-4xl fw-bold mb-3">
               Proven Process <span className="text-[#1E7FD4] bg-clip-text text-transparent bg-gradient-to-r from-[#1E7FD4] to-[#08A9E6]">Timeline</span>
             </h2>
-            <p className="text-white/60 text-sm leading-relaxed max-w-[550px] mx-auto">
+            <p className="text-white/60 text-xs leading-relaxed max-w-[500px] mx-auto">
               A structured journey from first requirements audit to post-launch optimization support.
             </p>
 
             {/* Sub-badge categories */}
-            <div className="flex flex-wrap justify-center gap-3 mt-6">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/3 text-[10px] font-bold text-white/80">
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/5 bg-white/3 text-[9px] font-bold text-white/80">
                 <i className="fas fa-check-circle text-[#1E7FD4]" /> Transparent Process
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/3 text-[10px] font-bold text-white/80">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/5 bg-white/3 text-[9px] font-bold text-white/80">
                 <i className="fas fa-clock text-[#1E7FD4]" /> On-time Delivery
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/3 text-[10px] font-bold text-white/80">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/5 bg-white/3 text-[9px] font-bold text-white/80">
                 <i className="fas fa-award text-[#1E7FD4]" /> Quality Assured
               </span>
             </div>
           </div>
 
           {/* Desktop Process Line & Visual Node Pipeline */}
-          <div className="hidden lg:block relative py-20 mb-16 px-4">
+          <div className="hidden lg:block relative py-6 mb-4 px-4">
             {/* The main progress track */}
-            <div className="absolute top-1/2 left-0 w-full h-[3px] bg-white/10 -translate-y-1/2 z-0" />
+            <div className="absolute top-[81px] left-4 right-4 h-[2px] bg-white/10 z-0" />
             
             {/* Glow accent track path */}
             {isWorkflowInView && (
               <motion.div 
-                className="absolute top-1/2 left-0 h-[3px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] -translate-y-1/2 z-0 origin-left"
+                className="absolute top-[81px] left-4 right-4 h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
-                style={{ width: '100%' }}
+                transition={{ duration: 2.2, ease: "easeInOut" }}
+                style={{ width: 'calc(100% - 32px)' }}
               />
             )}
 
             {/* Flying Rocket element following the progress line */}
             {isWorkflowInView && (
               <motion.div
-                className="absolute top-1/2 w-6 h-6 -translate-y-1/2 -mt-[2px] z-10 pointer-events-none"
-                initial={{ left: "0%", rotate: 0 }}
-                animate={{ 
-                  left: "100%",
-                  y: ["-50%", "-65%", "-35%", "-50%"]
-                }}
-                transition={{ 
-                  left: { duration: 2.5, ease: "easeInOut" },
-                  y: { duration: 2.5, repeat: 0, ease: "easeInOut" }
-                }}
+                className="absolute top-[81px] w-6 h-6 -translate-y-1/2 -mt-[0.5px] z-10 pointer-events-none"
+                initial={{ left: "0%" }}
+                animate={{ left: "100%" }}
+                transition={{ duration: 2.2, ease: "easeInOut" }}
+                style={{ width: 'calc(100% - 32px)', left: '16px' }}
               >
-                <i className="fas fa-rocket text-[#1E7FD4] text-lg drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
+                <i className="fas fa-rocket text-[#1E7FD4] text-sm drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
               </motion.div>
             )}
 
@@ -1768,50 +1763,59 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 ];
 
                 return (
-                  <div key={i} className="col flex flex-col items-center relative">
-                    {/* Tooltip badge for active role stage */}
-                    {isActive && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 0.6, duration: 0.4 }}
-                        className="absolute -top-16 bg-[#1E7FD4]/90 backdrop-blur-sm border border-[#1E7FD4]/30 rounded-xl px-3 py-1.5 flex flex-col items-center justify-center shadow-lg"
-                      >
-                        <span className="text-[8px] uppercase tracking-widest text-white/70 font-extrabold leading-none mb-0.5">You are here</span>
-                        <span className="text-[10px] font-bold text-white leading-none whitespace-nowrap">{activeStage.label}</span>
-                        {/* Triangle arrow */}
-                        <div className="w-2 h-2 bg-[#1E7FD4] rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
-                      </motion.div>
-                    )}
+                  <div key={i} className="col flex flex-col items-center relative" style={{ flex: 1, minWidth: 0 }}>
+                    {/* Visual stack with fixed height of 86px to align the dots and line perfectly */}
+                    <div className="relative h-[86px] w-full flex flex-col items-center justify-between">
+                      {/* Tooltip badge for active role stage */}
+                      {isActive && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ delay: 0.5, duration: 0.3 }}
+                          className="absolute -top-11 bg-[#1E7FD4] border border-[#1E7FD4]/30 rounded-lg px-2.5 py-1 flex flex-col items-center justify-center shadow-lg z-30"
+                        >
+                          <span className="text-[7px] uppercase tracking-widest text-white/80 font-extrabold leading-none mb-0.5">You are here</span>
+                          <span className="text-[9px] font-bold text-white leading-none whitespace-nowrap">{activeStage.label}</span>
+                          {/* Triangle arrow */}
+                          <div className="w-1.5 h-1.5 bg-[#1E7FD4] rotate-45 absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
+                        </motion.div>
+                      )}
 
-                    {/* Ring Orb */}
-                    <div 
-                      className={`w-16 h-16 rounded-full flex items-center justify-center relative cursor-pointer select-none transition-all duration-500 ${
-                        isActive 
-                          ? 'bg-[#030E21] border-[3px] border-[#1E7FD4] shadow-[0_0_25px_rgba(30,127,212,0.65)] scale-110' 
-                          : isLast 
-                            ? 'bg-[#030E21] border-[3px] border-[#2E9E6B] shadow-[0_0_20px_rgba(46,158,107,0.5)]'
-                            : isCompleted
-                              ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_12px_rgba(30,127,212,0.25)]'
-                              : 'bg-[#030E21] border-2 border-white/20'
-                      }`}
-                    >
-                      <i className={`fas ${stepIcons[i] || step.icon} text-lg ${
-                        isActive 
-                          ? 'text-[#1E7FD4]' 
-                          : isLast 
-                            ? 'text-[#2E9E6B]'
-                            : isCompleted 
-                              ? 'text-white' 
-                              : 'text-white/40'
+                      {/* Ring Orb */}
+                      <motion.div 
+                        className={`w-12 h-12 rounded-full flex items-center justify-center relative cursor-pointer select-none transition-all duration-300 z-10 ${
+                          isActive 
+                            ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.65)] scale-105' 
+                            : isLast 
+                              ? 'bg-[#030E21] border-2 border-[#2E9E6B] shadow-[0_0_12px_rgba(46,158,107,0.4)]'
+                              : isCompleted
+                                ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_8px_rgba(30,127,212,0.2)]'
+                                : 'bg-[#030E21] border border-white/20'
+                        }`}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <i className={`fas ${stepIcons[i] || step.icon} text-xs ${
+                          isActive 
+                            ? 'text-[#1E7FD4]' 
+                            : isLast 
+                              ? 'text-[#2E9E6B]'
+                              : isCompleted 
+                                ? 'text-white' 
+                                : 'text-white/40'
+                        }`} />
+                      </motion.div>
+
+                      {/* Vertical Connector Line (draws from bottom of circle down to the track dot) */}
+                      <div className={`w-[1px] h-6 ${
+                        isLast ? 'bg-[#2E9E6B]/40' : isCompleted ? 'bg-[#1E7FD4]/40' : 'bg-white/10'
                       }`} />
 
                       {/* Small node dot underneath the circle */}
-                      <div className={`w-3.5 h-3.5 rounded-full absolute bottom-[-32px] left-1/2 -translate-x-1/2 border-2 border-[#030E21] z-20 transition-colors duration-500 ${
+                      <div className={`w-2.5 h-2.5 rounded-full border border-[#030E21] z-10 transition-colors duration-300 ${
                         isActive 
-                          ? 'bg-[#1E7FD4] shadow-[0_0_8px_#1E7FD4]'
+                          ? 'bg-[#1E7FD4] shadow-[0_0_6px_#1E7FD4]'
                           : isLast 
-                            ? 'bg-[#2E9E6B] shadow-[0_0_8px_#2E9E6B]'
+                            ? 'bg-[#2E9E6B] shadow-[0_0_6px_#2E9E6B]'
                             : isCompleted 
                               ? 'bg-[#1E7FD4]' 
                               : 'bg-white/30'
@@ -1819,18 +1823,18 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     </div>
 
                     {/* Step Content */}
-                    <div className="text-center mt-12">
-                      <span className={`text-[10px] font-extrabold block mb-1 tracking-wider uppercase ${
-                        isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/60'
+                    <div className="text-center mt-3">
+                      <span className={`text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase ${
+                        isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/50'
                       }`}>
                         0{i + 1}
                       </span>
-                      <h4 className={`text-xs fw-extrabold mb-1.5 transition-colors duration-300 ${
+                      <h4 className={`text-[11px] font-extrabold mb-1 transition-colors duration-300 ${
                         isActive ? 'text-[#1E7FD4]' : 'text-white'
                       }`}>
                         {step.title}
                       </h4>
-                      <p className="text-white/50 text-[10px] leading-relaxed max-w-[130px] line-clamp-3">
+                      <p className="text-white/40 text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3">
                         {step.desc}
                       </p>
                     </div>
@@ -1841,7 +1845,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Mobile Workflow Steps */}
-          <div className="lg:hidden space-y-10 relative px-2">
+          <div className="lg:hidden space-y-8 relative px-2 mb-4">
             <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-white/10 z-0" />
             {data.workflow.map((step, i) => {
               const isActive = i === activeStage.activeIdx;
@@ -1849,15 +1853,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               const stepIcons = ["fa-search", "fa-clipboard-list", "fa-pencil-ruler", "fa-code", "fa-shield-alt", "fa-rocket"];
 
               return (
-                <div key={i} className="flex gap-5 relative z-10">
-                  <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center shrink-0 transition-all duration-300 ${
+                <div key={i} className="flex gap-4 relative z-10">
+                  <div className={`w-12 h-12 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
                     isActive 
                       ? 'bg-[#030E21] border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.4)]' 
                       : isLast 
                         ? 'bg-[#030E21] border-[#2E9E6B]'
                         : 'bg-[#030E21] border-white/20'
                   }`}>
-                    <i className={`fas ${stepIcons[i] || step.icon} text-sm ${isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/60'}`} />
+                    <i className={`fas ${stepIcons[i] || step.icon} text-xs ${isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/60'}`} />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
@@ -1873,58 +1877,58 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Bottom Grid: Standard value offerings */}
-          <div className="mt-16 p-4 rounded-3xl border border-white/5 bg-white/3 backdrop-blur-md">
-            <div className="row g-4 justify-content-center text-center">
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
-                  <i className="fas fa-users text-[#1E7FD4]" />
+          <div className="mt-8 p-3 rounded-2xl border border-white/5 bg-white/3 backdrop-blur-md">
+            <div className="row g-2 justify-content-center text-center">
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
+                  <i className="fas fa-users text-[#1E7FD4] text-xs" />
                 </div>
-                <span className="text-[10px] font-bold text-white">Dedicated Team</span>
+                <span className="text-[9px] font-bold text-white">Dedicated Team</span>
               </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
-                  <i className="fas fa-bullseye text-[#1E7FD4]" />
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
+                  <i className="fas fa-bullseye text-[#1E7FD4] text-xs" />
                 </div>
-                <span className="text-[10px] font-bold text-white">Goal-Oriented Approach</span>
+                <span className="text-[9px] font-bold text-white">Goal-Oriented Approach</span>
               </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
-                  <i className="fas fa-cogs text-[#1E7FD4]" />
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
+                  <i className="fas fa-cogs text-[#1E7FD4] text-xs" />
                 </div>
-                <span className="text-[10px] font-bold text-white">Agile Process</span>
+                <span className="text-[9px] font-bold text-white">Agile Process</span>
               </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
-                  <i className="fas fa-chart-line text-[#1E7FD4]" />
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
+                  <i className="fas fa-chart-line text-[#1E7FD4] text-xs" />
                 </div>
-                <span className="text-[10px] font-bold text-white">Result-Driven Solutions</span>
+                <span className="text-[9px] font-bold text-white">Result-Driven Solutions</span>
               </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
-                  <i className="fas fa-headset text-[#1E7FD4]" />
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
+                  <i className="fas fa-headset text-[#1E7FD4] text-xs" />
                 </div>
-                <span className="text-[10px] font-bold text-white">Dedicated Support</span>
+                <span className="text-[9px] font-bold text-white">Dedicated Support</span>
               </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
-                  <i className="fas fa-award text-[#1E7FD4]" />
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
+                  <i className="fas fa-award text-[#1E7FD4] text-xs" />
                 </div>
-                <span className="text-[10px] font-bold text-white">Continuous Improvement</span>
+                <span className="text-[9px] font-bold text-white">Continuous Improvement</span>
               </div>
             </div>
           </div>
 
           {/* Start Project redirect buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-16">
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
             <a 
               href="/contact" 
-              className="inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline"
             >
               Start Your Project <i className="fas fa-arrow-right text-[10px]" />
             </a>
             <a 
               href="/portfolio" 
-              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline"
             >
               <i className="fas fa-briefcase text-[10px] mr-1" /> View Our Portfolio
             </a>
