@@ -69,6 +69,26 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
+const fadeLeftToRight: Variants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+};
+
+const fadeRightToLeft: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+};
+
+const fadeTopToBottom: Variants = {
+  hidden: { opacity: 0, y: -60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+};
+
+const fadeBottomToTop: Variants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+};
+
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -1632,13 +1652,22 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             initial="hidden"
             animate={isFeaturesInView ? "visible" : "hidden"}
           >
-            {data.features.map((feature, i) => (
-              <motion.div
-                key={i}
-                className="col-lg-4 col-md-6"
-                variants={fadeUp}
-              >
+            {data.features.map((feature, i) => {
+              const cardVariant = i % 4 === 0 
+                ? fadeLeftToRight 
+                : i % 4 === 1 
+                  ? fadeTopToBottom 
+                  : i % 4 === 2 
+                    ? fadeRightToLeft 
+                    : fadeBottomToTop;
+
+              return (
                 <motion.div
+                  key={i}
+                  className="col-lg-4 col-md-6"
+                  variants={cardVariant}
+                >
+                  <motion.div
                   className="group relative h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
                   style={{
                     background: 'rgba(255, 255, 255, 0.48)',
@@ -1698,7 +1727,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   </div>
                 </motion.div>
               </motion.div>
-            ))}
+            );
+          })}
           </motion.div>
         </div>
       </section>
