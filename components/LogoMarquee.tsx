@@ -2,6 +2,10 @@ import React from 'react';
 
 const LogoMarquee: React.FC = () => {
   const logos = [
+    'sai.jpeg',
+    'dhara.jpeg',
+    'divine.jpeg',
+    'mithra.jpeg',
     'brand1.png',
     'brand03.png',
     'brand3.png',
