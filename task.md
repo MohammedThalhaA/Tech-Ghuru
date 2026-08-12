@@ -1,0 +1,10 @@
+- [x] Create `ServiceLandingPage.tsx` reusable layout component with framer-motion animations
+- [x] Swap and configure service data for all 6 pages:
+  - [x] Web Developing `app/(main)/services/web-developing/page.tsx`
+  - [x] Digital Marketing `app/(main)/services/digital-marketing/page.tsx`
+  - [x] Product Design `app/(main)/services/product-design/page.tsx`
+  - [x] Video Ads `app/(main)/services/video-ads/page.tsx`
+  - [x] Content Writing `app/(main)/services/content-writing/page.tsx`
+  - [x] Consultation `app/(main)/consolation/page.tsx`
+- [x] Fix routes and links in `app/(main)/services/page.tsx` and homepage `app/(main)/page.tsx` to use SPA router Links instead of `.html` targets
+- [ ] Verify build compiles cleanly with typechecks and build commands

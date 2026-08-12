@@ -84,9 +84,9 @@ export default function Page() {
                 </div>
                 <h4 className="mb-3">Web Developing</h4>
                 <p className="m-0 text-dark">Providing comprehensive IT solutions and robust for seamless operations.</p>
-                <a className="btn btn-lg btn-primary rounded" href="webdeveloping.html">
+                <Link className="btn btn-lg btn-primary rounded" href="/services/web-developing">
                   <i className="bi bi-arrow-right wow slideInDown"></i>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -97,9 +97,9 @@ export default function Page() {
                 </div>
                 <h4 className="mb-3">Digital Marketing</h4>
                 <p className="m-0 text-dark">Efficiently coordinate digital marketing campaigns with our experienced strategy team.</p>
-                <a className="btn btn-lg btn-primary rounded" href="digitalmarketing.html">
+                <Link className="btn btn-lg btn-primary rounded" href="/services/digital-marketing">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -110,9 +110,9 @@ export default function Page() {
                 </div>
                 <h4 className="mb-3">Product Design</h4>
                 <p className="m-0 text-dark">Product design encompasses the entire process of creating a product, from ideation to launch.</p>
-                <a className="btn btn-lg btn-primary rounded" href="productdesign.html">
+                <Link className="btn btn-lg btn-primary rounded" href="/services/product-design">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -123,9 +123,9 @@ export default function Page() {
                 </div>
                 <h4 className="mb-3">Video Ads &amp; Editing</h4>
                 <p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.</p>
-                <a className="btn btn-lg btn-primary rounded" href="./videoadsphotos.html">
+                <Link className="btn btn-lg btn-primary rounded" href="/services/video-ads">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -134,11 +134,11 @@ export default function Page() {
                 <div className="service-icon">
                   <i className="fas fa-pen text-white"></i>
                 </div>
-                <h4 className="mb-3">Content Writting</h4>
+                <h4 className="mb-3">Content Writing</h4>
                 <p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.</p>
-                <a className="btn btn-lg btn-primary rounded" href="./contetnwriting.html">
+                <Link className="btn btn-lg btn-primary rounded" href="/services/content-writing">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
             
@@ -149,9 +149,9 @@ export default function Page() {
                 </div>
                 <h4 className="mb-3">Consultation</h4>
                 <p className="m-0 text-dark">We create eye-catching video ads that grab attention and drive results.</p>
-                <a className="btn btn-lg btn-primary rounded" href="./consolation.html">
+                <Link className="btn btn-lg btn-primary rounded" href="/consolation">
                   <i className="bi bi-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
