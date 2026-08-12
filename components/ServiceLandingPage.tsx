@@ -1694,9 +1694,25 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
       {/* 5. INTERACTIVE WORKFLOW */}
       <section ref={workflowRef} className="py-20 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
-        {/* Abstract decorative layout dots/orbs */}
-        <div className="absolute top-12 left-10 w-[160px] h-[160px] bg-[#1E7FD4]/8 rounded-full blur-[70px] pointer-events-none" />
-        <div className="absolute bottom-12 right-10 w-[180px] h-[180px] bg-[#08A9E6]/8 rounded-full blur-[80px] pointer-events-none" />
+        {/* Subtle high-tech grid background overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+
+        {/* Mockup-faithful glowing mesh gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-gradient-to-tr from-[#1E7FD4]/10 to-[#08A9E6]/5 rounded-full blur-[100px] pointer-events-none z-0" />
+        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-bl from-[#08A9E6]/10 to-[#2E9E6B]/5 rounded-full blur-[110px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#1E7FD4]/6 rounded-full blur-[120px] pointer-events-none z-0" />
+
+        {/* Mockup-faithful Rocket Dotted Trail SVG at the top-left */}
+        <svg className="absolute top-6 left-8 w-[220px] h-[100px] opacity-25 pointer-events-none z-10" viewBox="0 0 200 100" fill="none">
+          <path d="M10 80 Q 50 15, 120 55 T 190 25" stroke="#1E7FD4" strokeWidth="1.5" strokeDasharray="5 5" />
+          <path d="M190 25 L184 31 M190 25 L182 25" stroke="#1E7FD4" strokeWidth="1.5" />
+          <text x="195" y="28" fill="#1E7FD4" fontSize="12" style={{ fontFamily: 'var(--fa-style-family-free)', fontWeight: 900 }}>🚀</text>
+        </svg>
+
+        {/* Glowing Sparkle Badge in the bottom-left corner */}
+        <div className="absolute bottom-8 left-8 w-10 h-10 rounded-full bg-[#1E7FD4]/15 border border-[#1E7FD4]/30 flex items-center justify-center text-white cursor-pointer hover:bg-[#1E7FD4] hover:scale-115 transition-all duration-300 shadow-[0_0_15px_rgba(30,127,212,0.4)] z-20">
+          <i className="fas fa-magic text-[#08A9E6] text-sm" />
+        </div>
 
         <div className="container px-4 relative z-10">
           <div className="section-title text-center max-w-[700px] mx-auto mb-14">
@@ -1728,17 +1744,17 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
           {/* Desktop Process Line & Visual Node Pipeline */}
           <div className="hidden lg:block relative py-10 mb-8 px-4">
-            {/* The main progress track */}
-            <div className="absolute top-[81px] left-4 right-4 h-[2px] bg-white/10 z-0" />
+            {/* The main progress track - aligned with column centers (8.33% to 91.66%) */}
+            <div className="absolute top-[81px] left-[8.33%] right-[8.33%] h-[2px] bg-white/10 z-0" />
             
             {/* Glow accent track path */}
             {isWorkflowInView && (
               <motion.div 
-                className="absolute top-[81px] left-4 right-4 h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
+                className="absolute top-[81px] left-[8.33%] h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: activeTimelineStep / (data.workflow.length - 1) }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ width: 'calc(100% - 32px)' }}
+                style={{ width: '83.33%' }}
               />
             )}
 
@@ -1746,8 +1762,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             {isWorkflowInView && (
               <motion.div
                 className="absolute w-6 h-6 -translate-y-1/2 z-10 pointer-events-none flex items-center justify-center"
-                initial={{ left: "16px" }}
-                animate={{ left: `calc(${(activeTimelineStep / (data.workflow.length - 1)) * 100}% - 12px)` }}
+                initial={{ left: "8.33%" }}
+                animate={{ left: `calc(${((activeTimelineStep + 0.5) / 6) * 100}% - 12px)` }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 style={{ top: "81px" }}
               >
@@ -1887,44 +1903,91 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Bottom Grid: Standard value offerings */}
-          <div className="mt-16 p-4 md:px-5 md:py-4 rounded-2xl border border-white/5 bg-white/3 backdrop-blur-md">
-            <div className="row g-2 justify-content-center text-center">
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
-                  <i className="fas fa-users text-[#1E7FD4] text-xs" />
-                </div>
-                <span className="text-[9px] font-bold text-white">Dedicated Team</span>
-              </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
-                  <i className="fas fa-bullseye text-[#1E7FD4] text-xs" />
-                </div>
-                <span className="text-[9px] font-bold text-white">Goal-Oriented Approach</span>
-              </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
-                  <i className="fas fa-cogs text-[#1E7FD4] text-xs" />
-                </div>
-                <span className="text-[9px] font-bold text-white">Agile Process</span>
-              </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
-                  <i className="fas fa-chart-line text-[#1E7FD4] text-xs" />
-                </div>
-                <span className="text-[9px] font-bold text-white">Result-Driven Solutions</span>
-              </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
-                  <i className="fas fa-headset text-[#1E7FD4] text-xs" />
-                </div>
-                <span className="text-[9px] font-bold text-white">Dedicated Support</span>
-              </div>
-              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
-                  <i className="fas fa-award text-[#1E7FD4] text-xs" />
-                </div>
-                <span className="text-[9px] font-bold text-white">Continuous Improvement</span>
-              </div>
+          <div className="mt-16 p-4 md:px-5 md:py-4 rounded-3xl border border-white/10 bg-[#0B1A30]/40 backdrop-blur-md shadow-[0_15px_35px_-10px_rgba(3,14,33,0.8)]">
+            <div className="row g-3 justify-content-center align-items-center">
+              <motion.div 
+                className="col-6 col-md-4 col-lg-2 flex items-center gap-3 p-2 rounded-2xl cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#1E7FD4] group-hover:shadow-[0_0_15px_rgba(30,127,212,0.6)]"
+                  whileHover={{ rotate: 12 }}
+                >
+                  <i className="fas fa-users text-[#1E7FD4] group-hover:text-white text-xs" />
+                </motion.div>
+                <span className="text-[10px] font-extrabold text-white/80 group-hover:text-white leading-tight">Dedicated Team</span>
+              </motion.div>
+
+              <motion.div 
+                className="col-6 col-md-4 col-lg-2 flex items-center gap-3 p-2 rounded-2xl cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#1E7FD4] group-hover:shadow-[0_0_15px_rgba(30,127,212,0.6)]"
+                  whileHover={{ rotate: 12 }}
+                >
+                  <i className="fas fa-bullseye text-[#1E7FD4] group-hover:text-white text-xs" />
+                </motion.div>
+                <span className="text-[10px] font-extrabold text-white/80 group-hover:text-white leading-tight">Goal-Oriented Approach</span>
+              </motion.div>
+
+              <motion.div 
+                className="col-6 col-md-4 col-lg-2 flex items-center gap-3 p-2 rounded-2xl cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#1E7FD4] group-hover:shadow-[0_0_15px_rgba(30,127,212,0.6)]"
+                  whileHover={{ rotate: 12 }}
+                >
+                  <i className="fas fa-cogs text-[#1E7FD4] group-hover:text-white text-xs" />
+                </motion.div>
+                <span className="text-[10px] font-extrabold text-white/80 group-hover:text-white leading-tight">Agile Process</span>
+              </motion.div>
+
+              <motion.div 
+                className="col-6 col-md-4 col-lg-2 flex items-center gap-3 p-2 rounded-2xl cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#1E7FD4] group-hover:shadow-[0_0_15px_rgba(30,127,212,0.6)]"
+                  whileHover={{ rotate: 12 }}
+                >
+                  <i className="fas fa-chart-line text-[#1E7FD4] group-hover:text-white text-xs" />
+                </motion.div>
+                <span className="text-[10px] font-extrabold text-white/80 group-hover:text-white leading-tight">Result-Driven Solutions</span>
+              </motion.div>
+
+              <motion.div 
+                className="col-6 col-md-4 col-lg-2 flex items-center gap-3 p-2 rounded-2xl cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#1E7FD4] group-hover:shadow-[0_0_15px_rgba(30,127,212,0.6)]"
+                  whileHover={{ rotate: 12 }}
+                >
+                  <i className="fas fa-headset text-[#1E7FD4] group-hover:text-white text-xs" />
+                </motion.div>
+                <span className="text-[10px] font-extrabold text-white/80 group-hover:text-white leading-tight">Dedicated Support</span>
+              </motion.div>
+
+              <motion.div 
+                className="col-6 col-md-4 col-lg-2 flex items-center gap-3 p-2 rounded-2xl cursor-pointer group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <motion.div 
+                  className="w-10 h-10 rounded-full bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#1E7FD4] group-hover:shadow-[0_0_15px_rgba(30,127,212,0.6)]"
+                  whileHover={{ rotate: 12 }}
+                >
+                  <i className="fas fa-award text-[#1E7FD4] group-hover:text-white text-xs" />
+                </motion.div>
+                <span className="text-[10px] font-extrabold text-white/80 group-hover:text-white leading-tight">Continuous Improvement</span>
+              </motion.div>
             </div>
           </div>
 
