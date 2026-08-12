@@ -52,8 +52,8 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "Do you integrate third-party APIs and payment systems?", a: "Yes, we regularly configure secure payment gateways (Razorpay, Stripe) and integrate external APIs (CRMs, email dispatchers, and tracking software)." }
     ],
     portfolio: [
-      { title: "Universal Engineering Portal", desc: "Premium engineering website showcasing machinery portfolios and corporate assets.", category: "Corporate", img: "/img/portfolio pics/uelogo.png", link: "https://universalengineering.org.in/" },
-      { title: "Travel Hassle Free", desc: "Modern dynamic travel agency portal featuring holiday packages and custom queries.", category: "E-Commerce", img: "/img/portfolio pics/travel.png", link: "https://travelhasslefree.com/" }
+      { title: "Universal Engineering Portal", desc: "Premium engineering website showcasing machinery portfolios and corporate assets.", category: "Corporate", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" },
+      { title: "Travel Hassle Free", desc: "Modern dynamic travel agency portal featuring holiday packages and custom queries.", category: "E-Commerce", img: "/img/portfolio pics/travelhasslefree.com_.png", link: "https://travelhasslefree.com/" }
     ]
   },
   "digital-marketing": {
@@ -107,7 +107,7 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "Do you create the ad creatives and graphics?", a: "Yes, our product design and media teams design high-converting visual banners, overlay cards, and write all copywriting for the ads." }
     ],
     portfolio: [
-      { title: "Sri Gnana Sai Baba Mandir", desc: "Expanded web reach, local SEO profiles, and social media trust vectors.", category: "Social Campaign", img: "/img/portfolio pics/mandir.png", link: "https://srignanasaibabamandir.com/" },
+      { title: "Sri Gnana Sai Baba Mandir", desc: "Expanded web reach, local SEO profiles, and social media trust vectors.", category: "Social Campaign", img: "/img/portfolio pics/srignanasaibabamandir.com_.png", link: "https://srignanasaibabamandir.com/" },
       { title: "Digital Ghuru Academy", desc: "Optimized paid ads campaign and lead capture flows to scale student admissions.", category: "Lead Gen", img: "/img/portfolio pics/digitalghru.png", link: "https://digitalghuru.in/" }
     ]
   },
@@ -163,7 +163,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     portfolio: [
       { title: "Mythri's Gleams Branding", desc: "Crafted sleek visual identity and custom e-commerce product listings layout.", category: "Branding", img: "/img/portfolio pics/mythrisgleams.png", link: "https://aarions.in/" },
-      { title: "Sivaji Sons Corporate Portal", desc: "Designed premium agricultural enterprise platform layout reflecting trust and legacy.", category: "UI/UX", img: "/img/portfolio pics/sivajisons.png", link: "http://www.sivajison.com/" }
+      { title: "Sivaji Sons Corporate Portal", desc: "Designed premium agricultural enterprise platform layout reflecting trust and legacy.", category: "UI/UX", img: "/img/portfolio pics/Sivaji sons.jpeg", link: "http://www.sivajison.com/" }
     ]
   },
   "video-ads": {
@@ -217,7 +217,7 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "How many edits/revisions do we get?", a: "We include 2 rounds of structural changes at the rough-cut stage, and 1 final round of minor revisions (such as typography corrections or swap clips) to ensure satisfaction." }
     ],
     portfolio: [
-      { title: "M cars Promotional Reel", desc: "Dynamic high-energy automotive video showcase with sound design and custom overlays.", category: "Video Ad", img: "/img/portfolio pics/m-cars.png", link: "#" },
+      { title: "M cars Promotional Reel", desc: "Dynamic high-energy automotive video showcase with sound design and custom overlays.", category: "Video Ad", img: "/img/portfolio pics/video-ads.jpg", link: "#" },
       { title: "Blessence Brand Spot", desc: "Elegant lifestyle branding video detailing natural ingredient formulation.", category: "Promo Spot", img: "/img/portfolio pics/blessence.png", link: "#" }
     ]
   },
@@ -272,8 +272,8 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "What is your review and revision policy?", a: "We want you to love the copy! We offer 2 rounds of modifications on all drafts, allowing you to fine-tune phrasing, technical claims, or brand tone adjustments." }
     ],
     portfolio: [
-      { title: "News Ghuru Articles", desc: "Written SEO-optimized tech trends and lifestyle articles with structured layouts.", category: "SEO Writing", img: "/img/portfolio pics/news.png", link: "https://newsghuru.in/" },
-      { title: "Universal Engineering Case Study", desc: "Detailed technical showcase document detailing custom industrial builds.", category: "Technical Copy", img: "/img/portfolio pics/uelogo.png", link: "https://universalengineering.org.in/" }
+      { title: "News Ghuru Articles", desc: "Written SEO-optimized tech trends and lifestyle articles with structured layouts.", category: "SEO Writing", img: "/img/portfolio pics/newsghuru.in_.png", link: "https://newsghuru.in/" },
+      { title: "Universal Engineering Case Study", desc: "Detailed technical showcase document detailing custom industrial builds.", category: "Technical Copy", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" }
     ]
   },
   "consultation": {
@@ -327,8 +327,8 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "Can you help our developers implement the changes?", a: "Yes, our consultants provide regular alignment calls, code reviews, and can coordinate with your technical lead throughout implementation." }
     ],
     portfolio: [
-      { title: "Universal Engineering Systems Audit", desc: "Audited cloud deployment patterns, securing data pipelines and cutting server bills.", category: "System Audit", img: "/img/portfolio pics/uelogo.png", link: "https://universalengineering.org.in/" },
-      { title: "Dhara Foundations Strategy Roadmap", desc: "Designed workflow roadmap and technical structure for scaling community operations.", category: "Consulting", img: "/img/portfolio pics/dhara.png", link: "https://dharafoundations.com/" }
+      { title: "Universal Engineering Systems Audit", desc: "Audited cloud deployment patterns, securing data pipelines and cutting server bills.", category: "System Audit", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" },
+      { title: "Dhara Foundations Strategy Roadmap", desc: "Designed workflow roadmap and technical structure for scaling community operations.", category: "Consulting", img: "/img/portfolio pics/dharafoundations.com_.png", link: "https://dharafoundations.com/" }
     ]
   }
 };
