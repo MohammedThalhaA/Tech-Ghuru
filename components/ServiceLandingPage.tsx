@@ -1694,6 +1694,14 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
       {/* 5. INTERACTIVE WORKFLOW */}
       <section ref={workflowRef} className="py-20 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
+        {/* Inline CSS override to immediately bypass dev server CSS hot-reload delay and hide horizontal scrollbars */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          *::-webkit-scrollbar:horizontal {
+            display: none !important;
+            height: 0 !important;
+            background: transparent !important;
+          }
+        ` }} />
         {/* Subtle high-tech grid background overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
 
@@ -1851,16 +1859,18 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     {/* Step Content */}
                     <div className="text-center mt-3">
                       <span className={`text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase transition-colors duration-300 ${
-                        isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/50'
+                        isActive ? 'text-[#1E7FD4]' : isCompleted ? 'text-[#1E7FD4]/70' : 'text-white/30'
                       }`}>
                         0{i + 1}
                       </span>
                       <h4 className={`text-[11px] font-extrabold mb-1 transition-colors duration-300 ${
-                        isActive ? 'text-[#1E7FD4]' : 'text-white'
+                        isActive ? 'text-white' : isCompleted ? 'text-white/85' : 'text-white/35'
                       }`}>
                         {step.title}
                       </h4>
-                      <p className="text-white/40 text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3">
+                      <p className={`text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3 transition-colors duration-300 ${
+                        isActive ? 'text-white/85' : isCompleted ? 'text-white/60' : 'text-white/20'
+                      }`}>
                         {step.desc}
                       </p>
                     </div>
@@ -1875,6 +1885,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-white/10 z-0" />
             {data.workflow.map((step, i) => {
               const isActive = i === activeTimelineStep;
+              const isCompleted = i < activeTimelineStep;
               const isLast = i === data.workflow.length - 1;
               const stepIcons = ["fa-search", "fa-clipboard-list", "fa-pencil-ruler", "fa-code", "fa-shield-alt", "fa-rocket"];
 
@@ -1885,17 +1896,33 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       ? 'bg-[#030E21] border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.4)]' 
                       : isLast 
                         ? 'bg-[#030E21] border-[#2E9E6B]'
-                        : 'bg-[#030E21] border-white/20'
+                        : isCompleted
+                          ? 'bg-[#030E21] border-[#1E7FD4]/40'
+                          : 'bg-[#030E21] border-white/20'
                   }`}>
-                    <i className={`fas ${stepIcons[i] || step.icon} text-xs ${isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/60'}`} />
+                    <i className={`fas ${stepIcons[i] || step.icon} text-xs ${
+                      isActive 
+                        ? 'text-[#1E7FD4]' 
+                        : isLast 
+                          ? 'text-[#2E9E6B]' 
+                          : isCompleted
+                            ? 'text-[#1E7FD4]/60'
+                            : 'text-white/40'
+                    }`} />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-[9px] font-extrabold text-[#1E7FD4] tracking-widest">0{i + 1}</span>
+                      <span className={`text-[9px] font-extrabold tracking-widest ${
+                        isActive ? 'text-[#1E7FD4]' : isCompleted ? 'text-[#1E7FD4]/70' : 'text-white/30'
+                      }`}>0{i + 1}</span>
                       {isActive && <span className="bg-[#1E7FD4]/20 text-[#1E7FD4] text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full">Active</span>}
                     </div>
-                    <h5 className={`text-xs font-bold mb-1 ${isActive ? 'text-[#1E7FD4]' : 'text-white'}`}>{step.title}</h5>
-                    <p className="text-white/50 text-[10px] leading-relaxed mb-0">{step.desc}</p>
+                    <h5 className={`text-xs font-bold mb-1 transition-colors duration-300 ${
+                      isActive ? 'text-white' : isCompleted ? 'text-white/80' : 'text-white/35'
+                    }`}>{step.title}</h5>
+                    <p className={`text-[10px] leading-relaxed mb-0 transition-colors duration-300 ${
+                      isActive ? 'text-white/80' : isCompleted ? 'text-white/60' : 'text-white/20'
+                    }`}>{step.desc}</p>
                   </div>
                 </div>
               );
