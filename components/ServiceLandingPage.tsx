@@ -672,12 +672,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
     }
   };
 
-  const accentCol =
-    data.heroVisualType === 'web' ? '#1E7FD4' :
-    data.heroVisualType === 'design' ? '#A855F7' :
-    data.heroVisualType === 'content' ? '#2E9E6B' :
-    data.heroVisualType === 'marketing' ? '#FF8A3D' :
-    data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+  const accentCol = '#1E7FD4';
 
   const cardBorder = `1.5px solid ${accentCol}33`;
   const cardShadow = `0 25px 80px -15px ${accentCol}1f, 0 2px 6px rgba(0,0,0,0.05)`;
@@ -879,14 +874,14 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="col-lg-7">
               <motion.span
                 className="text-xs font-extrabold uppercase tracking-widest mb-3 block d-flex align-items-center gap-2"
-                style={{ color: '#2E9E6B' }}
+                style={{ color: accentCol }}
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={fadeUp}
               >
                 <motion.span
                   className="inline-block w-5 h-0.5 rounded-full"
-                  style={{ backgroundColor: '#2E9E6B' }}
+                  style={{ backgroundColor: accentCol }}
                   initial={{ scaleX: 0 }}
                   animate={isOverviewInView ? { scaleX: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -973,8 +968,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               >
                 {[
                   { icon: 'fa-bolt', label: 'Fast Delivery', col: accentCol },
-                  { icon: 'fa-shield-alt', label: 'Quality Assured', col: '#2E9E6B' },
-                  { icon: 'fa-chart-line', label: 'ROI Driven', col: '#FF8A3D' }
+                  { icon: 'fa-shield-alt', label: 'Quality Assured', col: '#08A9E6' },
+                  { icon: 'fa-chart-line', label: 'ROI Driven', col: '#0284c7' }
                 ].map((chip) => (
                   <motion.div
                     key={chip.label}
@@ -1123,13 +1118,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     key={i}
                     className="absolute w-1.5 h-1.5 rounded-full opacity-30 pointer-events-none"
                     style={{
-                      backgroundColor:
-                        data.heroVisualType === 'web' ? '#1E7FD4' :
-                        data.heroVisualType === 'design' ? '#A855F7' :
-                        data.heroVisualType === 'content' ? '#2E9E6B' :
-                        data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                        data.heroVisualType === 'video' ? '#ef4444' :
-                        '#08A9E6',
+                      backgroundColor: '#1E7FD4',
                       top: `${15 + i * 12}%`,
                       right: `${3 + (i % 3) * 4}%`,
                     }}
@@ -1146,14 +1135,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       <div
                         className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-extrabold shrink-0"
                         style={{
-                          background: `linear-gradient(135deg, ${
-                            data.heroVisualType === 'web' ? '#1E7FD4, #08A9E6' :
-                            data.heroVisualType === 'design' ? '#A855F7, #7C3AED' :
-                            data.heroVisualType === 'content' ? '#2E9E6B, #10b981' :
-                            data.heroVisualType === 'marketing' ? '#FF8A3D, #F97316' :
-                            data.heroVisualType === 'video' ? '#ef4444, #dc2626' :
-                            '#08A9E6, #0284c7'
-                          })`
+                          background: `linear-gradient(135deg, #1E7FD4, #08A9E6)`
                         }}
                       >
                         <i className={`fas fa-${
@@ -1171,8 +1153,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       </div>
                     </div>
                     {/* Live badge */}
-                    <span className="inline-flex items-center gap-1.5 bg-[#2E9E6B]/10 border border-[#2E9E6B]/25 text-[#2E9E6B] text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2E9E6B] animate-pulse"></span>
+                    <span className="inline-flex items-center gap-1.5 bg-[#1E7FD4]/10 border border-[#1E7FD4]/25 text-[#1E7FD4] text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1E7FD4] animate-pulse"></span>
                       Live Simulation
                     </span>
                   </div>
@@ -1184,14 +1166,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       <motion.div
                         className="h-full rounded-full"
                         style={{
-                          background: `linear-gradient(90deg, ${
-                            data.heroVisualType === 'web' ? '#1E7FD4, #08A9E6' :
-                            data.heroVisualType === 'design' ? '#A855F7, #7C3AED' :
-                            data.heroVisualType === 'content' ? '#2E9E6B, #10b981' :
-                            data.heroVisualType === 'marketing' ? '#FF8A3D, #F97316' :
-                            data.heroVisualType === 'video' ? '#ef4444, #F97316' :
-                            '#08A9E6, #1E7FD4'
-                          })`
+                          background: `linear-gradient(90deg, #1E7FD4, #08A9E6)`
                         }}
                         animate={{ width: `${((showcaseStage) / (data.workflow.length - 1)) * 100}%` }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -1202,12 +1177,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       {data.workflow.map((step, idx) => {
                         const isActive = idx === showcaseStage;
                         const isPast = idx < showcaseStage;
-                        const accentColor =
-                          data.heroVisualType === 'web' ? '#1E7FD4' :
-                          data.heroVisualType === 'design' ? '#A855F7' :
-                          data.heroVisualType === 'content' ? '#2E9E6B' :
-                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+                        const accentColor = '#1E7FD4';
                         return (
                           <div
                             key={step.title}
@@ -1265,20 +1235,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       key={showcaseStage}
                       className="rounded-xl px-4 py-3 mb-6 d-flex align-items-center gap-3"
                       style={{
-                        background: `${
-                          data.heroVisualType === 'web' ? '#1E7FD4' :
-                          data.heroVisualType === 'design' ? '#A855F7' :
-                          data.heroVisualType === 'content' ? '#2E9E6B' :
-                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
-                        }0f`,
-                        border: `1px solid ${
-                          data.heroVisualType === 'web' ? '#1E7FD4' :
-                          data.heroVisualType === 'design' ? '#A855F7' :
-                          data.heroVisualType === 'content' ? '#2E9E6B' :
-                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
-                        }20`
+                        background: '#1E7FD40f',
+                        border: `1px solid #1E7FD420`
                       }}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -1288,12 +1246,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       <div
                         className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs shrink-0 font-bold"
                         style={{
-                          backgroundColor:
-                            data.heroVisualType === 'web' ? '#1E7FD4' :
-                            data.heroVisualType === 'design' ? '#A855F7' :
-                            data.heroVisualType === 'content' ? '#2E9E6B' :
-                            data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                            data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                          backgroundColor: '#1E7FD4'
                         }}
                       >
                         {data.workflow[showcaseStage]?.number}
@@ -1305,18 +1258,11 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       <div className="d-flex gap-1">
                         {data.workflow.map((_, i) => (
                           <motion.div
-                            key={i}
-                            className="rounded-full cursor-pointer"
+                className="rounded-full cursor-pointer"
                             style={{
                               width: i === showcaseStage ? 16 : 5,
                               height: 5,
-                              backgroundColor: i === showcaseStage ? (
-                                data.heroVisualType === 'web' ? '#1E7FD4' :
-                                data.heroVisualType === 'design' ? '#A855F7' :
-                                data.heroVisualType === 'content' ? '#2E9E6B' :
-                                data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                                data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
-                              ) : '#E5E7EB'
+                              backgroundColor: i === showcaseStage ? '#1E7FD4' : '#E5E7EB'
                             }}
                             onClick={() => setShowcaseStage(i)}
                             animate={{ width: i === showcaseStage ? 16 : 5 }}
@@ -1394,12 +1340,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                                   className="rounded-circle"
                                   style={{
                                     width: 7, height: 7, display: 'inline-block',
-                                    backgroundColor:
-                                      data.heroVisualType === 'web' ? '#1E7FD4' :
-                                      data.heroVisualType === 'design' ? '#A855F7' :
-                                      data.heroVisualType === 'content' ? '#2E9E6B' :
-                                      data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                                      data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                                    backgroundColor: '#1E7FD4'
                                   }}
                                 ></span>
                                 Step {data.workflow[showcaseStage]?.number} · {data.workflow[showcaseStage]?.title}
@@ -1420,31 +1361,31 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                               web: [
                                 { label: "Performance", value: "98%", col: "#1E7FD4", icon: "fa-bolt" },
                                 { label: "SEO Score", value: "95/100", col: "#08A9E6", icon: "fa-search" },
-                                { label: "Security", value: "100%", col: "#2E9E6B", icon: "fa-shield-alt" }
+                                { label: "Security", value: "100%", col: "#0284c7", icon: "fa-shield-alt" }
                               ],
                               design: [
-                                { label: "UX Score", value: "9.6/10", col: "#A855F7", icon: "fa-star" },
+                                { label: "UX Score", value: "9.6/10", col: "#1E7FD4", icon: "fa-star" },
                                 { label: "Accessibility", value: "AA+", col: "#08A9E6", icon: "fa-universal-access" },
-                                { label: "Design Quality", value: "95%", col: "#2E9E6B", icon: "fa-paint-brush" }
+                                { label: "Design Quality", value: "95%", col: "#0284c7", icon: "fa-paint-brush" }
                               ],
                               content: [
-                                { label: "SEO Score", value: "92%", col: "#2E9E6B", icon: "fa-search" },
-                                { label: "Readability", value: "Clear", col: "#FF8A3D", icon: "fa-book-open" },
+                                { label: "SEO Score", value: "92%", col: "#08A9E6", icon: "fa-search" },
+                                { label: "Readability", value: "Clear", col: "#0284c7", icon: "fa-book-open" },
                                 { label: "Word Count", value: "1,250+", col: "#1E7FD4", icon: "fa-align-left" }
                               ],
                               marketing: [
-                                { label: "ROI Target", value: "4.6x", col: "#FF8A3D", icon: "fa-chart-line" },
+                                { label: "ROI Target", value: "4.6x", col: "#0284c7", icon: "fa-chart-line" },
                                 { label: "CTR Rate", value: "8.4%", col: "#1E7FD4", icon: "fa-mouse-pointer" },
-                                { label: "Conversions", value: "Excellent", col: "#2E9E6B", icon: "fa-bullseye" }
+                                { label: "Conversions", value: "Excellent", col: "#08A9E6", icon: "fa-bullseye" }
                               ],
                               video: [
-                                { label: "Output Quality", value: "4K UHD", col: "#ef4444", icon: "fa-film" },
-                                { label: "Retention Rate", value: "92%", col: "#A855F7", icon: "fa-eye" },
-                                { label: "Render Speed", value: "Fast", col: "#FF8A3D", icon: "fa-tachometer-alt" }
+                                { label: "Output Quality", value: "4K UHD", col: "#1E7FD4", icon: "fa-film" },
+                                { label: "Retention Rate", value: "92%", col: "#08A9E6", icon: "fa-eye" },
+                                { label: "Render Speed", value: "Fast", col: "#0284c7", icon: "fa-tachometer-alt" }
                               ],
                               consultation: [
                                 { label: "Success Rate", value: "98%", col: "#08A9E6", icon: "fa-chart-pie" },
-                                { label: "ROI Impact", value: "+35%", col: "#2E9E6B", icon: "fa-arrow-up" },
+                                { label: "ROI Impact", value: "+35%", col: "#0284c7", icon: "fa-arrow-up" },
                                 { label: "Action Plan", value: "Verified", col: "#1E7FD4", icon: "fa-check-circle" }
                               ]
                             };
@@ -1521,12 +1462,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                           consultation: ["🗺 Growth Roadmap", "📊 KPI Dashboard", "🔍 Tech Stack Audit", "💼 Market Research", "🤝 Weekly Check-ins", "📋 Action Plans"]
                         };
                         const chips = featChips[data.heroVisualType] || featChips.web;
-                        const accentColor =
-                          data.heroVisualType === 'web' ? '#1E7FD4' :
-                          data.heroVisualType === 'design' ? '#A855F7' :
-                          data.heroVisualType === 'content' ? '#2E9E6B' :
-                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+                        const accentColor = '#1E7FD4';
                         return chips.map((chip, i) => (
                           <motion.span
                             key={chip}
@@ -1554,12 +1490,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     <span className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 block mb-3">Technologies Used</span>
                     <div className="d-flex flex-wrap gap-2">
                       {data.tools.map((tech, i) => {
-                        const accentColor =
-                          data.heroVisualType === 'web' ? '#1E7FD4' :
-                          data.heroVisualType === 'design' ? '#A855F7' :
-                          data.heroVisualType === 'content' ? '#2E9E6B' :
-                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+                        const accentColor = '#1E7FD4';
                         return (
                           <motion.span
                             key={tech}
