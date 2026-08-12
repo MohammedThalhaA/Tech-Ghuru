@@ -16,7 +16,6 @@ const LogoMarquee: React.FC = () => {
     'newbrand9.png',
     'mcars.png',
     'newsghru.png',
-    'NEWS GHURU LOGO PNG.png',
     'school.png',
     'sissers.png',
     'blessence.png',
@@ -27,7 +26,11 @@ const LogoMarquee: React.FC = () => {
     'spacemedia.png',
     'meera filngs.png',
     'digitalghru.png',
-    'staff.jpg'
+    'studioj.png',
+    'uelogo.png',
+    'vasanth.png',
+    'vrtech.png',
+    'mk.png'
   ];
 
   return (
