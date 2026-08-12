@@ -505,7 +505,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       {/* 1. HERO BANNER */}
       <section className="relative bg-gradient-to-b from-[#0B1F3A] to-[#0f2d54] text-white pt-28 pb-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,127,212,0.18),rgba(255,255,255,0))]"></div>
-        <div className="container relative z-10 px-4">
+        <div className="container relative z-10 px-4 overflow-hidden">
           <div className="row align-items-center g-5">
             <div className="col-lg-6">
               <motion.span
@@ -806,7 +806,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Desktop Workflow Line */}
-          <div className="hidden lg:block relative py-10 mb-10">
+          <div className="hidden lg:block relative py-10 mb-10 overflow-hidden">
             {/* SVG Connecting Flight Path */}
             <svg className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2" viewBox="0 0 1000 10" fill="none" preserveAspectRatio="none">
               <motion.path
