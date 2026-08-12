@@ -67,5 +67,16 @@ html {
 html, body {
   overflow-x: hidden !important;
   max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Hide horizontal scrollbar globally on all elements while keeping vertical scroll active */
+html::-webkit-scrollbar:horizontal,
+body::-webkit-scrollbar:horizontal,
+div::-webkit-scrollbar:horizontal,
+section::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 

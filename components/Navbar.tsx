@@ -73,7 +73,22 @@ export default function Navbar() {
           transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .custom-nav-link::after {
-          display: none !important;
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 3px;
+          bottom: 18px;
+          left: 50%;
+          background-color: #06a3da;
+          transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: translateX(-50%) scaleX(0);
+          border-radius: 4px;
+          box-shadow: 0 0 8px rgba(6, 163, 218, 0.5);
+        }
+        .custom-nav-link:hover::after,
+        .custom-nav-link.active::after {
+          width: 100%;
+          transform: translateX(-50%) scaleX(1);
         }
         .custom-nav-link:hover {
           color: #06a3da !important;
