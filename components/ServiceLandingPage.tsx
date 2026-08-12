@@ -431,7 +431,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               
               <motion.h1
                 className="display-4 fw-bold mb-4"
-                style={{ fontFamily: 'var(--font-rubik)', lineHeight: 1.15 }}
+                style={{ fontFamily: 'var(--font-rubik)', lineHeight: 1.15, color: '#ffffff' }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -439,7 +439,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 {data.title.split(' ').map((word, index) => {
                   const isAccent = word.toLowerCase() === "experience" || word.toLowerCase() === "experiences" || word.toLowerCase() === "business" || word.toLowerCase() === "forward" || word.toLowerCase() === "growth" || word.toLowerCase() === "speed" || word.toLowerCase() === "design" || word.toLowerCase() === "marketing" || word.toLowerCase() === "writing" || word.toLowerCase() === "consultation" || word.toLowerCase() === "editing";
                   return (
-                    <span key={index} className={isAccent ? "text-[#08A9E6]" : ""}>
+                    <span key={index} style={{ color: isAccent ? '#08A9E6' : '#ffffff' }} className={isAccent ? "text-[#08A9E6]" : "text-white"}>
                       {word}{" "}
                     </span>
                   );
@@ -710,8 +710,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_120%,rgba(30,127,212,0.15),rgba(255,255,255,0))]"></div>
         <div className="container relative z-10 px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-20">
-            <h5 className="fw-bold text-[#08A9E6] uppercase tracking-wider text-sm mb-2">Our Process</h5>
-            <h2 className="display-6 fw-bold" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <h5 className="fw-bold text-[#08A9E6] uppercase tracking-wider text-sm mb-2" style={{ color: '#08A9E6' }}>Our Process</h5>
+            <h2 className="display-6 fw-bold" style={{ fontFamily: 'var(--font-rubik)', color: '#ffffff' }}>
               How We Bring Your Project to Life
             </h2>
             <p className="text-white/60 mt-2">A structured, flight-path inspired methodology that guarantees alignment and delivery precision.</p>
@@ -765,7 +765,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <div className="w-12 h-12 rounded-full border-2 border-[#1E7FD4] bg-[#0B1F3A] flex items-center justify-center font-bold text-white text-base mb-4 shadow-[0_0_15px_rgba(30,127,212,0.2)]">
                     {step.number}
                   </div>
-                  <h5 className="fw-bold mb-2">{step.title}</h5>
+                  <h5 className="fw-bold mb-2" style={{ color: '#ffffff' }}>{step.title}</h5>
                   <p className="text-white/60 text-[11px] leading-relaxed">{step.desc}</p>
                 </motion.div>
               ))}
@@ -785,7 +785,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 <div className="absolute top-0 -left-[38px] w-6 h-6 rounded-full bg-[#1E7FD4] border-2 border-[#0B1F3A] flex items-center justify-center font-bold text-white text-[10px]">
                   {step.number}
                 </div>
-                <h5 className="fw-bold mb-1">{step.title}</h5>
+                <h5 className="fw-bold mb-1" style={{ color: '#ffffff' }}>{step.title}</h5>
                 <p className="text-white/60 text-xs leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -993,7 +993,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_100%,rgba(8,169,230,0.15),rgba(255,255,255,0))]"></div>
         <div className="container relative z-10 px-4 text-center">
           <div className="max-w-[650px] mx-auto">
-            <h2 className="display-5 fw-bold mb-4" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <h2 className="display-5 fw-bold mb-4" style={{ fontFamily: 'var(--font-rubik)', color: '#ffffff' }}>
               Ready to Build Something Great?
             </h2>
             <p className="lead text-white/70 mb-5">
