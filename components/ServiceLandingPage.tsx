@@ -1927,141 +1927,201 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Desktop Process Line & Visual Node Pipeline */}
-          <div className="hidden lg:block relative py-10 mb-8 px-4">
-            {/* The main progress track - aligned with column centers (8.33% to 91.66%) */}
-            <div className="absolute top-[81px] left-[8.33%] right-[8.33%] h-[2px] bg-white/10 z-0" />
-            
-            {/* Glow accent track path */}
-            {isWorkflowInView && (
-              <motion.div 
-                className="absolute top-[81px] left-[8.33%] h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: activeTimelineStep / (data.workflow.length - 1) }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ width: '83.33%' }}
-              />
-            )}
+          <div className="hidden lg:block mb-8 px-4">
+            <div className="relative py-10">
+              {/* The main progress track - aligned with column centers (8.33% to 91.66%) */}
+              <div className="absolute top-[81px] left-[8.33%] right-[8.33%] h-[2px] bg-white/10 z-0" />
+              
+              {/* Glow accent track path */}
+              {isWorkflowInView && (
+                <motion.div 
+                  className="absolute top-[81px] left-[8.33%] h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: activeTimelineStep / (data.workflow.length - 1) }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  style={{ width: '83.33%' }}
+                />
+              )}
 
-            {/* Flying Rocket element following the progress line */}
-            {isWorkflowInView && (
-              <motion.div
-                className="absolute w-6 h-6 -translate-y-1/2 z-10 pointer-events-none flex items-center justify-center"
-                initial={{ left: "8.33%" }}
-                animate={{ left: `calc(${((activeTimelineStep + 0.5) / 6) * 100}% - 12px)` }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ top: "81px" }}
-              >
-                <i className="fas fa-rocket text-[#1E7FD4] text-xs drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
-              </motion.div>
-            )}
+              {/* Flying Rocket element following the progress line */}
+              {isWorkflowInView && (
+                <motion.div
+                  className="absolute w-6 h-6 -translate-y-1/2 z-10 pointer-events-none flex items-center justify-center"
+                  initial={{ left: "8.33%" }}
+                  animate={{ left: `calc(${((activeTimelineStep + 0.5) / 6) * 100}% - 12px)` }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  style={{ top: "81px" }}
+                >
+                  <i className="fas fa-rocket text-[#1E7FD4] text-xs drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
+                </motion.div>
+              )}
 
-            <div className="row relative z-10 justify-between">
-              {data.workflow.map((step, i) => {
-                const isCompleted = i < activeTimelineStep;
-                const isActive = i === activeTimelineStep;
-                const isLast = i === data.workflow.length - 1;
+              <div className="row relative z-10 justify-between">
+                {data.workflow.map((step, i) => {
+                  const isCompleted = i < activeTimelineStep;
+                  const isActive = i === activeTimelineStep;
+                  const isLast = i === data.workflow.length - 1;
 
-                // Set node icons matching the second image
-                const stepIcons = [
-                  "fa-search",       // Requirement Discovery
-                  "fa-clipboard-list", // Strategy & Planning
-                  "fa-pencil-ruler", // Design & Prototyping
-                  "fa-code",         // Development & Implementation
-                  "fa-shield-alt",   // Testing & Quality Assurance
-                  "fa-rocket"        // Launch & Optimization
-                ];
+                  // Set node icons matching the second image
+                  const stepIcons = [
+                    "fa-search",       // Requirement Discovery
+                    "fa-clipboard-list", // Strategy & Planning
+                    "fa-pencil-ruler", // Design & Prototyping
+                    "fa-code",         // Development & Implementation
+                    "fa-shield-alt",   // Testing & Quality Assurance
+                    "fa-rocket"        // Launch & Optimization
+                  ];
 
-                return (
-                  <div key={i} className="col flex flex-col items-center relative" style={{ flex: 1, minWidth: 0 }}>
-                    {/* Visual stack with fixed height of 86px to align the dots and line perfectly */}
-                    <div className="relative h-[86px] w-full flex flex-col items-center justify-between">
-                      {/* Tooltip badge for active role stage */}
-                      {isActive && (
+                  return (
+                    <div key={i} className="col flex flex-col items-center relative" style={{ flex: 1, minWidth: 0 }}>
+                      {/* Visual stack with fixed height of 86px to align the dots and line perfectly */}
+                      <div className="relative h-[86px] w-full flex flex-col items-center justify-between">
+                        {/* Tooltip badge for active role stage */}
+                        {isActive && (
+                          <motion.div 
+                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{ delay: 0.2, duration: 0.3 }}
+                            className="absolute -top-11 bg-[#1E7FD4] border border-[#1E7FD4]/30 rounded-lg px-2.5 py-1 flex flex-col items-center justify-center shadow-lg z-30"
+                          >
+                            <span className="text-[7px] uppercase tracking-widest text-white/80 font-extrabold leading-none mb-0.5">Active Step</span>
+                            <span className="text-[9px] font-bold text-white leading-none whitespace-nowrap">{step.title}</span>
+                            {/* Triangle arrow */}
+                            <div className="w-1.5 h-1.5 bg-[#1E7FD4] rotate-45 absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
+                          </motion.div>
+                        )}
+
+                        {/* Ring Orb */}
                         <motion.div 
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          transition={{ delay: 0.2, duration: 0.3 }}
-                          className="absolute -top-11 bg-[#1E7FD4] border border-[#1E7FD4]/30 rounded-lg px-2.5 py-1 flex flex-col items-center justify-center shadow-lg z-30"
+                          onClick={() => setActiveTimelineStep(i)}
+                          className={`w-12 h-12 rounded-full flex items-center justify-center relative cursor-pointer select-none transition-all duration-300 z-10 ${
+                            isActive 
+                              ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.65)] scale-105' 
+                              : isLast 
+                                ? 'bg-[#030E21] border-2 border-[#2E9E6B] shadow-[0_0_12px_rgba(46,158,107,0.4)]'
+                                : isCompleted
+                                  ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_8px_rgba(30,127,212,0.2)]'
+                                  : 'bg-[#030E21] border border-white/20'
+                          }`}
+                          whileHover={{ scale: 1.1 }}
                         >
-                          <span className="text-[7px] uppercase tracking-widest text-white/80 font-extrabold leading-none mb-0.5">Active Step</span>
-                          <span className="text-[9px] font-bold text-white leading-none whitespace-nowrap">{step.title}</span>
-                          {/* Triangle arrow */}
-                          <div className="w-1.5 h-1.5 bg-[#1E7FD4] rotate-45 absolute -bottom-0.5 left-1/2 -translate-x-1/2" />
+                          <i className={`fas ${stepIcons[i] || step.icon} text-xs ${
+                            isActive 
+                              ? 'text-[#1E7FD4]' 
+                              : isLast 
+                                ? 'text-[#2E9E6B]'
+                                : isCompleted 
+                                  ? 'text-white' 
+                                  : 'text-white/40'
+                          }`} />
                         </motion.div>
-                      )}
 
-                      {/* Ring Orb */}
-                      <motion.div 
-                        onClick={() => setActiveTimelineStep(i)}
-                        className={`w-12 h-12 rounded-full flex items-center justify-center relative cursor-pointer select-none transition-all duration-300 z-10 ${
-                          isActive 
-                            ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.65)] scale-105' 
-                            : isLast 
-                              ? 'bg-[#030E21] border-2 border-[#2E9E6B] shadow-[0_0_12px_rgba(46,158,107,0.4)]'
-                              : isCompleted
-                                ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_8px_rgba(30,127,212,0.2)]'
-                                : 'bg-[#030E21] border border-white/20'
-                        }`}
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <i className={`fas ${stepIcons[i] || step.icon} text-xs ${
-                          isActive 
-                            ? 'text-[#1E7FD4]' 
-                            : isLast 
-                              ? 'text-[#2E9E6B]'
-                              : isCompleted 
-                                ? 'text-white' 
-                                : 'text-white/40'
+                        {/* Vertical Connector Line (draws from bottom of circle down to the track dot) */}
+                        <div className={`w-[1px] h-6 ${
+                          isLast ? 'bg-[#2E9E6B]/40' : isCompleted ? 'bg-[#1E7FD4]/40' : 'bg-white/10'
                         }`} />
-                      </motion.div>
 
-                      {/* Vertical Connector Line (draws from bottom of circle down to the track dot) */}
-                      <div className={`w-[1px] h-6 ${
-                        isLast ? 'bg-[#2E9E6B]/40' : isCompleted ? 'bg-[#1E7FD4]/40' : 'bg-white/10'
-                      }`} />
+                        {/* Small node dot underneath the circle */}
+                        <div className={`w-2.5 h-2.5 rounded-full border border-[#030E21] z-10 transition-colors duration-300 ${
+                          isActive 
+                            ? 'bg-[#1E7FD4] shadow-[0_0_6px_#1E7FD4]'
+                            : isLast 
+                              ? 'bg-[#2E9E6B] shadow-[0_0_6px_#2E9E6B]'
+                              : isCompleted 
+                                ? 'bg-[#1E7FD4]' 
+                                : 'bg-white/30'
+                        }`} />
+                      </div>
 
-                      {/* Small node dot underneath the circle */}
-                      <div className={`w-2.5 h-2.5 rounded-full border border-[#030E21] z-10 transition-colors duration-300 ${
-                        isActive 
-                          ? 'bg-[#1E7FD4] shadow-[0_0_6px_#1E7FD4]'
-                          : isLast 
-                            ? 'bg-[#2E9E6B] shadow-[0_0_6px_#2E9E6B]'
-                            : isCompleted 
-                              ? 'bg-[#1E7FD4]' 
-                              : 'bg-white/30'
-                      }`} />
+                      {/* Step Content */}
+                      <div className="text-center mt-3">
+                        <span 
+                          className="text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase transition-colors duration-300"
+                          style={{
+                            color: isActive ? '#1E7FD4' : isCompleted ? 'rgba(30, 127, 212, 0.7)' : 'rgba(255, 255, 255, 0.3)'
+                          }}
+                        >
+                          0{i + 1}
+                        </span>
+                        <h4 
+                          className="text-[11px] font-extrabold mb-1 transition-colors duration-300"
+                          style={{
+                            color: isActive ? '#ffffff' : isCompleted ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.35)'
+                          }}
+                        >
+                          {step.title}
+                        </h4>
+                        <p 
+                          className="text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3 transition-colors duration-300"
+                          style={{
+                            color: isActive ? 'rgba(255, 255, 255, 0.85)' : isCompleted ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.2)'
+                          }}
+                        >
+                          {step.desc}
+                        </p>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
+            </div>
 
-                    {/* Step Content */}
-                    <div className="text-center mt-3">
-                      <span 
-                        className="text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase transition-colors duration-300"
-                        style={{
-                          color: isActive ? '#1E7FD4' : isCompleted ? 'rgba(30, 127, 212, 0.7)' : 'rgba(255, 255, 255, 0.3)'
-                        }}
-                      >
-                        0{i + 1}
-                      </span>
-                      <h4 
-                        className="text-[11px] font-extrabold mb-1 transition-colors duration-300"
-                        style={{
-                          color: isActive ? '#ffffff' : isCompleted ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.35)'
-                        }}
-                      >
-                        {step.title}
-                      </h4>
-                      <p 
-                        className="text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3 transition-colors duration-300"
-                        style={{
-                          color: isActive ? 'rgba(255, 255, 255, 0.85)' : isCompleted ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.2)'
-                        }}
-                      >
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Start Project redirect buttons */}
+            <div className="flex flex-wrap justify-center gap-3 mt-12">
+              <motion.a 
+                href="/contact" 
+                whileHover="hover"
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline overflow-hidden relative"
+                style={{ scale: 1 }}
+              >
+                {/* Sliding background color fill from left to right */}
+                <motion.span
+                  className="absolute inset-0 bg-[#08A9E6] z-0"
+                  variants={{
+                    hover: { x: 0 }
+                  }}
+                  initial={{ x: "-100%" }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                />
+                <span className="relative z-10 flex items-center gap-2">
+                  Start Your Project 
+                  <motion.i 
+                    className="fas fa-arrow-right text-[10px]"
+                    variants={{
+                      hover: { x: 3 }
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  />
+                </span>
+              </motion.a>
+              <motion.a 
+                href="/portfolio" 
+                whileHover="hover"
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline overflow-hidden relative"
+                style={{ scale: 1 }}
+              >
+                {/* Sliding background color fill from left to right */}
+                <motion.span
+                  className="absolute inset-0 bg-[#1E7FD4] z-0"
+                  variants={{
+                    hover: { x: 0 }
+                  }}
+                  initial={{ x: "-100%" }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                />
+                <span className="relative z-10 flex items-center gap-2">
+                  <motion.i 
+                    className="fas fa-briefcase text-[10px]"
+                    variants={{
+                      hover: { rotate: [-10, 10, -10, 10, 0] }
+                    }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  View Our Portfolio
+                </span>
+              </motion.a>
             </div>
           </div>
 
