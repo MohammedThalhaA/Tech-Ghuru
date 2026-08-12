@@ -1639,27 +1639,41 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 variants={fadeUp}
               >
                 <motion.div
-                  className="group h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none transition-all duration-300"
+                  className="group relative h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
                   style={{
-                    background: 'rgba(247, 245, 240, 0.55)',
-                    border: '1.5px solid rgba(30, 127, 212, 0.15)',
+                    background: 'rgba(255, 255, 255, 0.48)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                    border: '1.5px solid rgba(30, 127, 212, 0.12)',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
                   }}
                   whileHover={{
                     y: -8,
                     scale: 1.025,
-                    background: 'rgba(255, 255, 255, 1)',
-                    borderColor: 'rgba(30, 127, 212, 0.5)',
-                    boxShadow: '0 20px 40px -15px rgba(30, 127, 212, 0.22), 0 4px 12px rgba(0,0,0,0.04)'
+                    background: 'rgba(255, 255, 255, 0.88)',
+                    borderColor: 'rgba(30, 127, 212, 0.4)',
+                    boxShadow: '0 25px 45px -12px rgba(30, 127, 212, 0.2), 0 4px 12px rgba(0,0,0,0.04)'
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
-                  <div>
+                  {/* Decorative glowing gradient top beam */}
+                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent opacity-20 group-hover:opacity-100 group-hover:h-[4px] transition-all duration-300" />
+                  
+                  {/* Floating ambient bubble in background */}
+                  <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-[#1E7FD4]/3 blur-xl group-hover:bg-[#1E7FD4]/8 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
+
+                  {/* Glowing corner spark dot */}
+                  <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#1E7FD4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#1E7FD4]" />
+
+                  {/* Glowing bottom line bar */}
+                  <div className="absolute bottom-0 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+
+                  <div className="relative z-10">
                     {/* Glowing Icon Wrapper */}
                     <motion.div
                       className="w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-4 transition-all duration-300"
                       style={{
-                        backgroundColor: 'rgba(30, 127, 212, 0.1)',
+                        backgroundColor: 'rgba(30, 127, 212, 0.08)',
                         color: '#1E7FD4'
                       }}
                       whileHover={{
