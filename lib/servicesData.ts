@@ -217,7 +217,6 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "How many edits/revisions do we get?", a: "We include 2 rounds of structural changes at the rough-cut stage, and 1 final round of minor revisions (such as typography corrections or swap clips) to ensure satisfaction." }
     ],
     portfolio: [
-      { title: "M cars Promotional Reel", desc: "Dynamic high-energy automotive video showcase with sound design and custom overlays.", category: "Video Ad", img: "/img/portfolio pics/video-ads.jpg", link: "#" },
       { title: "Blessence Brand Spot", desc: "Elegant lifestyle branding video detailing natural ingredient formulation.", category: "Promo Spot", img: "/img/portfolio pics/blessence.png", link: "#" }
     ]
   },

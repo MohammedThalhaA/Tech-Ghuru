@@ -88,6 +88,16 @@ const cardEntranceVariants: Variants = {
   })
 };
 
+const portfolioLeftToRight: Variants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+};
+
+const portfolioRightToLeft: Variants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+};
+
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -1992,8 +2002,12 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 8. RESULTS / OUTCOMES */}
-      <section ref={outcomesRef} className="py-20 bg-white overflow-hidden">
-        <div className="container px-4">
+      <section ref={outcomesRef} className="py-24 bg-gradient-to-b from-white to-[#F7FAFD] overflow-hidden relative">
+        {/* Soft background orbs */}
+        <div className="absolute top-12 left-12 w-[250px] h-[250px] bg-[#1E7FD4]/4 rounded-full blur-[80px] pointer-events-none -z-0" />
+        <div className="absolute bottom-12 right-12 w-[300px] h-[300px] bg-[#08A9E6]/3 rounded-full blur-[90px] pointer-events-none -z-0" />
+
+        <div className="container px-4 relative z-10">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <motion.h5 
               className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
@@ -2043,25 +2057,91 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           <motion.div
-            className="row g-4"
+            className="row g-4 justify-content-center"
             variants={staggerContainer}
             initial="hidden"
             animate={isOutcomesInView ? "visible" : "hidden"}
           >
-            {data.outcomes.map((outcome, i) => (
-              <motion.div key={i} className="col-lg-4 col-md-6" variants={fadeUp}>
-                <div className="bg-[#F7F5F0] border border-[#1E7FD4]/10 rounded-2xl p-6 h-full flex flex-col justify-between hover:shadow-md transition-shadow">
-                  <div>
-                    <div className="w-11 h-11 bg-[#1E7FD4]/10 rounded-xl flex items-center justify-center text-[#1E7FD4] text-lg mb-4">
-                      <i className={`fas ${outcome.icon}`}></i>
+            {data.outcomes.map((outcome, i) => {
+              const direction = i % 4 === 0 
+                ? 'left' 
+                : i % 4 === 1 
+                  ? 'top' 
+                  : i % 4 === 2 
+                    ? 'right' 
+                    : 'bottom';
+
+              return (
+                <motion.div
+                  key={i}
+                  className="col-lg-4 col-md-6"
+                  custom={{ direction, index: i }}
+                  variants={cardEntranceVariants}
+                >
+                  <motion.div
+                    className="group relative h-full rounded-2xl p-6 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.48)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      border: '1.5px solid rgba(30, 127, 212, 0.12)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                    }}
+                    whileHover={{
+                      y: -8,
+                      scale: 1.025,
+                      background: 'rgba(255, 255, 255, 0.88)',
+                      borderColor: 'rgba(30, 127, 212, 0.4)',
+                      boxShadow: '0 25px 45px -12px rgba(30, 127, 212, 0.2), 0 4px 12px rgba(0,0,0,0.04)'
+                    }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  >
+                    {/* Decorative glowing gradient top beam */}
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent opacity-20 group-hover:opacity-100 group-hover:h-[4px] transition-all duration-300" />
+                    
+                    {/* Floating ambient bubble in background */}
+                    <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-[#1E7FD4]/3 blur-xl group-hover:bg-[#1E7FD4]/8 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
+
+                    {/* Glowing corner spark dot */}
+                    <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#1E7FD4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#1E7FD4]" />
+
+                    {/* Glowing bottom line bar */}
+                    <div className="absolute bottom-0 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+
+                    <div className="relative z-10">
+                      {/* Glowing Icon Wrapper */}
+                      <motion.div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-base mb-4 transition-all duration-300"
+                        style={{
+                          backgroundColor: 'rgba(30, 127, 212, 0.08)',
+                          color: '#1E7FD4'
+                        }}
+                        whileHover={{
+                          scale: 1.12,
+                          rotate: 8,
+                          backgroundColor: '#1E7FD4',
+                          color: '#FFFFFF',
+                          boxShadow: '0 8px 20px -4px rgba(30, 127, 212, 0.6)'
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      >
+                        <i className={`fas ${outcome.icon}`}></i>
+                      </motion.div>
+
+                      <span className="text-[10px] text-muted-foreground uppercase tracking-widest block mb-1 font-bold transition-colors duration-300 group-hover:text-[#1E7FD4]/70">
+                        {outcome.metric}
+                      </span>
+                      <h4 className="text-base fw-bold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[#1E7FD4]">
+                        {outcome.title}
+                      </h4>
+                      <p className="text-muted text-xs leading-relaxed mb-0 transition-colors duration-300 group-hover:text-[#1E7FD4]/80">
+                        {outcome.desc}
+                      </p>
                     </div>
-                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest block mb-1 font-bold">{outcome.metric}</span>
-                    <h4 className="text-base fw-bold text-[#0B1F3A] mb-2">{outcome.title}</h4>
-                    <p className="text-muted text-xs leading-relaxed mb-0">{outcome.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                  </motion.div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -2118,36 +2198,61 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               <p className="text-muted mt-2">Explore live examples of digital platforms, travel portals and corporate layouts successfully launched by our engineering team.</p>
             </div>
 
-            <div className="row g-4">
-              {data.portfolio.map((project, i) => (
-                <div key={i} className="col-lg-6 col-md-6">
-                  <motion.div
-                    className="bg-white border border-[#1E7FD4]/10 rounded-3xl p-5 h-full flex flex-col justify-between shadow-sm hover:shadow-lg transition-all"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isPortfolioInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.6, delay: i * 0.15 }}
-                  >
-                    <div>
-                      <div className="relative h-[250px] rounded-2xl overflow-hidden mb-4 bg-gray-100">
-                        <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
-                        <div className="absolute top-4 left-4 bg-[#0B1F3A]/80 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                          {project.category}
-                        </div>
-                      </div>
-                      <h4 className="text-lg fw-bold text-[#0B1F3A] mb-2">{project.title}</h4>
-                      <p className="text-muted text-xs leading-relaxed mb-4">{project.desc}</p>
-                    </div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline-primary btn-sm rounded-pill font-bold align-self-start border-[#1E7FD4] text-[#1E7FD4] hover:bg-[#1E7FD4] hover:text-white px-4 py-2 text-xs flex items-center gap-2"
+            <div className="row g-4 justify-content-center">
+              {data.portfolio.map((project, i) => {
+                const isLeft = i % 2 === 0;
+                const variant = isLeft ? portfolioLeftToRight : portfolioRightToLeft;
+                return (
+                  <div key={i} className="col-lg-6 col-md-6">
+                    <motion.div
+                      variants={variant}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.15 }}
+                      className="group relative bg-white/80 border border-[#1E7FD4]/12 rounded-3xl p-5 h-full flex flex-col justify-between shadow-sm overflow-hidden"
+                      style={{
+                        backdropFilter: 'blur(10px)',
+                        WebkitBackdropFilter: 'blur(10px)'
+                      }}
+                      whileHover={{
+                        y: -8,
+                        scale: 1.015,
+                        borderColor: 'rgba(30, 127, 212, 0.4)',
+                        boxShadow: '0 25px 45px -12px rgba(30, 127, 212, 0.2), 0 4px 12px rgba(0,0,0,0.02)'
+                      }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
-                      Visit Website <i className="fas fa-external-link-alt text-[9px]"></i>
-                    </a>
-                  </motion.div>
-                </div>
-              ))}
+                      {/* Decorative glowing gradient top beam */}
+                      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent opacity-20 group-hover:opacity-100 group-hover:h-[4px] transition-all duration-300" />
+                      
+                      {/* Floating ambient bubble in background */}
+                      <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-[#1E7FD4]/3 blur-xl group-hover:bg-[#1E7FD4]/6 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
+
+                      {/* Glowing corner spark dot */}
+                      <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#1E7FD4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#1E7FD4]" />
+
+                      <div>
+                        <div className="relative h-[250px] rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                          <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                          <div className="absolute top-4 left-4 bg-[#0B1F3A]/80 backdrop-blur-sm text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider transition-colors duration-300 group-hover:bg-[#1E7FD4] group-hover:text-white">
+                            {project.category}
+                          </div>
+                        </div>
+                        <h4 className="text-lg fw-bold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[#1E7FD4]">{project.title}</h4>
+                        <p className="text-muted text-xs leading-relaxed mb-4 transition-colors duration-300 group-hover:text-[#1E7FD4]/80">{project.desc}</p>
+                      </div>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline-primary btn-sm rounded-pill font-bold align-self-start border-[#1E7FD4] text-[#1E7FD4] hover:bg-[#1E7FD4] hover:text-white px-4 py-2 text-xs flex items-center gap-2 transition-all duration-300"
+                      >
+                        Visit Website <i className="fas fa-external-link-alt text-[9px]"></i>
+                      </a>
+                    </motion.div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
