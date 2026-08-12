@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView, Variants } from 'framer-motion';
 import Link from 'next/link';
 
 // Interfaces for the custom data structure
@@ -63,120 +63,27 @@ export interface ServiceData {
   }[];
 }
 
-const SERVICE_META_MAPPING = {
-  web: {
-    id: "01",
-    title: "Web Developing",
-    tagline: "High-performance websites & web applications",
-    videoSrc: "/services-video/web-developing.mp4",
-    fallbackSrc: "/img/web-development-video.mp4",
-    accentColor: "#1E7FD4",
-    glowColor: "rgba(30, 127, 212, 0.25)",
-    benefits: ["Responsive Design", "SEO Optimized", "Fast Performance", "Secure Development", "Scalable Architecture", "Clean Code"],
-    tools: ["React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS", "AWS"],
-    metrics: [
-      { label: "Performance", value: "98%" },
-      { label: "SEO Score", value: "95/100" },
-      { label: "Security", value: "100%" }
-    ]
-  },
-  design: {
-    id: "02",
-    title: "Product Design",
-    tagline: "User-centered designs that create impact",
-    videoSrc: "/services-video/product-design.mp4",
-    fallbackSrc: "/img/Services/product designgif.gif",
-    accentColor: "#A855F7",
-    glowColor: "rgba(168, 85, 247, 0.25)",
-    benefits: ["User Research", "Modern UI/UX", "Interactive Prototypes", "Design Systems", "Mobile-First", "Conversion Focused"],
-    tools: ["Figma", "FigJam", "Adobe XD", "Prototyping", "Design System", "UI/UX Audit"],
-    metrics: [
-      { label: "UX Score", value: "9.6/10" },
-      { label: "Design Quality", value: "95%" }
-    ]
-  },
-  content: {
-    id: "03",
-    title: "Content Writing",
-    tagline: "SEO-friendly content that ranks and converts",
-    videoSrc: "/services-video/content-writing.mp4",
-    fallbackSrc: "/img/portfolio pics/Content-Writing-12.gif",
-    accentColor: "#2E9E6B",
-    glowColor: "rgba(46, 158, 107, 0.25)",
-    benefits: ["SEO Optimized", "Well Researched", "Original Content", "Engaging Copy", "Plagiarism Free", "On-time Delivery"],
-    tools: ["SEO Writing", "Keyword Audit", "Google Docs", "Grammarly", "WordPress", "Analytics"],
-    metrics: [
-      { label: "SEO Score", value: "92%" },
-      { label: "Readability", value: "Clear" },
-      { label: "Words", value: "1,245" }
-    ]
-  },
-  marketing: {
-    id: "04",
-    title: "Digital Marketing",
-    tagline: "Data-driven strategies that grow your business",
-    videoSrc: "/services-video/digital-marketing.mp4",
-    fallbackSrc: "/img/Services/digitalmarketgif4.gif",
-    accentColor: "#FF8A3D",
-    glowColor: "rgba(255, 138, 61, 0.25)",
-    benefits: ["SEO Optimization", "Paid Advertising", "Social Funnels", "GA4 Analytics", "Retargeting", "ROAS Target Focus"],
-    tools: ["Google Ads", "Meta Ads Manager", "Google Analytics 4", "Semrush", "Tag Manager", "Mailchimp"],
-    metrics: [
-      { label: "ROAS ROI", value: "5.8x" },
-      { label: "Cost Per Lead", value: "Low" }
-    ]
-  },
-  video: {
-    id: "05",
-    title: "Video Ads & Editing",
-    tagline: "High-impact videos that tell your brand story",
-    videoSrc: "/services-video/video-ads-editing.mp4",
-    fallbackSrc: "/img/Services/videogif.gif",
-    accentColor: "#ef4444",
-    glowColor: "rgba(239, 68, 68, 0.25)",
-    benefits: ["Creative Concepts", "Video Editing", "Motion Graphics", "Social Formats", "High Quality Output", "Fast Turnaround"],
-    tools: ["Premiere Pro", "After Effects", "DaVinci Resolve", "Cinema 4D", "Audition", "Motion Design"],
-    metrics: [
-      { label: "Views Index", value: "8.7/10" },
-      { label: "Retention", value: "92%" },
-      { label: "Watch Time", value: "2.4K h" }
-    ]
-  },
-  consultation: {
-    id: "06",
-    title: "Consultation",
-    tagline: "Strategic guidance for your business growth",
-    videoSrc: "/services-video/consultation.mp4",
-    fallbackSrc: "/img/Services/services1.gif",
-    accentColor: "#08A9E6",
-    glowColor: "rgba(8, 169, 230, 0.25)",
-    benefits: ["Business Strategy", "Market Research", "Growth Planning", "Risk Analysis", "Actionable Insights", "Long-term Support"],
-    tools: ["Market Analysis", "SWOT Audits", "KPI Tracking", "Financial Model", "Process Mapping", "Roadmap Planning"],
-    metrics: [
-      { label: "Success Rate", value: "98%" },
-      { label: "Satisfaction", value: "5 ★" }
-    ]
+// Fade-up variants
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
   }
 };
 
 export default function ServiceLandingPage({ data }: { data: ServiceData }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [showcaseStage, setShowcaseStage] = useState(0);
-  const [activeStep, setActiveStep] = useState(0);
 
-  const featuresRef = useRef(null);
-  const isFeaturesInView = useInView(featuresRef, { once: true, margin: "-100px" });
-
-  const processRef = useRef(null);
-  const isProcessInView = useInView(processRef, { once: true, margin: "-100px" });
-
-  const portfolioRef = useRef(null);
-  const isPortfolioInView = useInView(portfolioRef, { once: true, margin: "-100px" });
-
-  // Map helper props based on the visual type
-  const meta = SERVICE_META_MAPPING[data.heroVisualType] || SERVICE_META_MAPPING.web;
-
-  // Auto-progress showcase timeline state
+  // Auto-progress showcase animation stage
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) {
@@ -186,574 +93,1025 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
     const timer = setInterval(() => {
       setShowcaseStage((prev) => (prev + 1) % data.workflow.length);
-    }, 3000);
+    }, 3500);
     return () => clearInterval(timer);
   }, [data.workflow.length]);
 
-  // Auto-progress overall delivery process journey map
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % 7);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+  // Refs for scroll animations
+  const overviewRef = useRef(null);
+  const isOverviewInView = useInView(overviewRef, { once: true, margin: "-100px" });
 
-  const featureStrips = [
-    { title: "Interactive Simulation", desc: "See your project transform step-by-step", icon: "fa-magic", col: "#1E7FD4" },
-    { title: "Real-time Preview", desc: "Experience our workflow in action", icon: "fa-eye", col: "#FF8A3D" },
-    { title: "Transparent Process", desc: "Clear workflow with complete visibility", icon: "fa-project-diagram", col: "#2E9E6B" },
-    { title: "Quality Assured", desc: "Industry best practices at every stage", icon: "fa-shield-alt", col: "#ef4444" },
-    { title: "On-time Delivery", desc: "We value your time and deliver on promises", icon: "fa-clock", col: "#08A9E6" }
-  ];
+  const featuresRef = useRef(null);
+  const isFeaturesInView = useInView(featuresRef, { once: true, margin: "-100px" });
 
-  const deliverySteps = [
-    { num: "01", name: "Understand", col: "#1E7FD4" },
-    { num: "02", name: "Plan", col: "#FF8A3D" },
-    { num: "03", name: "Design", col: "#A855F7" },
-    { num: "04", name: "Develop", col: "#2E9E6B" },
-    { num: "05", name: "Test", col: "#ef4444" },
-    { num: "06", name: "Launch", col: "#08A9E6" },
-    { num: "07", name: "Support", col: "#10b981" }
-  ];
+  const workflowRef = useRef(null);
+  const isWorkflowInView = useInView(workflowRef, { once: true, margin: "-100px" });
+
+  const toolsRef = useRef(null);
+  const isToolsInView = useInView(toolsRef, { once: true, margin: "-100px" });
+
+  const whyChooseRef = useRef(null);
+  const isWhyChooseInView = useInView(whyChooseRef, { once: true, margin: "-100px" });
+
+  const outcomesRef = useRef(null);
+  const isOutcomesInView = useInView(outcomesRef, { once: true, margin: "-100px" });
+
+  const portfolioRef = useRef(null);
+  const isPortfolioInView = useInView(portfolioRef, { once: true, margin: "-100px" });
+
+  // Floating Hero Visual Component based on visual type
+  const renderHeroVisual = () => {
+    switch (data.heroVisualType) {
+      case 'web':
+        return (
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+            {/* Grid background */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#1E7FD4]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
+
+            {/* Browser video player mockup */}
+            <motion.div
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(8,169,230,0.3)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {/* Browser control header */}
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/web-developing</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● RENDER VIDEO</span>
+                </div>
+              </div>
+
+              {/* Video frame container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <video
+                  src="/img/web-development-video.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* floating PostgreSQL DB card */}
+            <motion.div
+              className="absolute bottom-4 left-1 bg-[#1E7FD4]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg">
+                <i className="fas fa-database text-white"></i>
+              </div>
+              <div>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">DATABASE</span>
+                <span className="text-[10px] font-bold block">PostgreSQL Config</span>
+              </div>
+            </motion.div>
+
+            {/* floating API validation label */}
+            <motion.div
+              className="absolute top-6 right-1 bg-[#2E9E6B]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+              <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg">
+                <i className="fas fa-shield-alt text-white animate-pulse"></i>
+              </div>
+              <div>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">SECURITY</span>
+                <span className="text-[10px] font-bold block">Secure API Auth</span>
+              </div>
+            </motion.div>
+          </div>
+        );
+      case 'marketing':
+        return (
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#FF8A3D]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
+
+            {/* Browser GIF player mockup */}
+            <motion.div
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(255,138,61,0.25)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/digital-marketing</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY GRAPHICS</span>
+                </div>
+              </div>
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/digitalmarketgif4.gif"
+                  alt="Digital Marketing Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* floating ROI statistics widget */}
+            <motion.div
+              className="absolute bottom-4 left-1 bg-[#FF8A3D]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-[8px] uppercase tracking-wider text-white/70 font-bold block">AD CAMPAIGNS</span>
+              <span className="text-base font-extrabold block">5.8x ROAS</span>
+              <span className="text-[8px] text-white/70">Google/Meta Audited</span>
+            </motion.div>
+
+            {/* floating targeting radar */}
+            <motion.div
+              className="absolute top-6 right-1 bg-[#2E9E6B]/90 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            >
+              <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-xs">
+                <i className="fas fa-bullseye text-white"></i>
+              </div>
+              <div>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">CAMPAIGNS</span>
+                <span className="text-[10px] font-bold block">Lead Funnel Active</span>
+              </div>
+            </motion.div>
+          </div>
+        );
+      case 'design':
+        return (
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#A855F7]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
+
+            {/* Browser Design Player mockup */}
+            <motion.div
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(168,85,247,0.25)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/product-design</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY DESIGN</span>
+                </div>
+              </div>
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/product designgif.gif"
+                  alt="Product Design Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* floating typography card */}
+            <motion.div
+              className="absolute bottom-4 left-1 bg-[#A855F7]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-[8px] uppercase tracking-wider text-white/70 font-bold block">DESIGN SYSTEM</span>
+              <span className="text-xs font-bold block font-sans">Atomic Prototypes</span>
+              <span className="text-[8.5px] text-white/70">Connected user flows</span>
+            </motion.div>
+
+            {/* floating components widget */}
+            <motion.div
+              className="absolute top-6 right-1 bg-[#1E7FD4]/90 backdrop-blur-md px-3.5 py-2.5 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            >
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#2E9E6B]"></span>
+                <span className="w-2 h-2 rounded-full bg-[#08A9E6]"></span>
+              </div>
+              <span className="text-[9.5px] font-bold tracking-wider uppercase font-mono">Figma UI</span>
+            </motion.div>
+          </div>
+        );
+      case 'content':
+        return (
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#FF8A3D]/20 to-[#A855F7]/20 rounded-full blur-[80px] -z-10" />
+
+            {/* Browser Content Player mockup */}
+            <motion.div
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(8,169,230,0.25)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/content-writing</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY COPY</span>
+                </div>
+              </div>
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/portfolio pics/Content-Writing-12.gif"
+                  alt="Content Writing Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* floating SEO score badge */}
+            <motion.div
+              className="absolute bottom-4 left-1 bg-[#2E9E6B]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-xs">
+                <i className="fas fa-feather-alt"></i>
+              </div>
+              <div>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">READABILITY</span>
+                <span className="text-[10px] font-bold block">100% SEO Score</span>
+              </div>
+            </motion.div>
+
+            {/* floating focus keywords card */}
+            <motion.div
+              className="absolute top-6 right-1 bg-[#FF8A3D]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+            >
+              <span className="text-[8px] uppercase tracking-wider text-white/70 font-bold block">KEYWORDS</span>
+              <div className="flex flex-wrap gap-1 mt-1.5">
+                <span className="bg-white/20 text-[7.5px] px-2 py-0.5 rounded font-mono font-bold">SEO Blogs</span>
+              </div>
+            </motion.div>
+          </div>
+        );
+      case 'video':
+        return (
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#ef4444]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
+
+            {/* Browser Video Player mockup */}
+            <motion.div
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(239,68,68,0.25)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/video-ads</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY VIDEO</span>
+                </div>
+              </div>
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/videogif.gif"
+                  alt="Video Editing Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* floating render codec badge */}
+            <motion.div
+              className="absolute bottom-4 left-1 bg-[#ef4444]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex items-center gap-3.5"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-xs">
+                <i className="fas fa-video"></i>
+              </div>
+              <div>
+                <span className="text-[8px] uppercase tracking-wider text-white/60 font-bold block">VIDEO CODEC</span>
+                <span className="text-[9.5px] font-bold block">4K Prores 60 FPS</span>
+              </div>
+            </motion.div>
+          </div>
+        );
+      case 'consultation':
+        return (
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#2E9E6B]/20 to-[#1E7FD4]/20 rounded-full blur-[80px] -z-10" />
+
+            {/* Browser Consultation Player mockup */}
+            <motion.div
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(46,158,107,0.25)] overflow-hidden z-10"
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/consultation</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="text-[9px] text-white/45 uppercase tracking-wider font-bold">● PLAY STRATEGY</span>
+                </div>
+              </div>
+
+              {/* GIF Screen container */}
+              <div className="relative h-[210px] bg-black/60 overflow-hidden flex items-center justify-center">
+                <img
+                  src="/img/Services/services1.gif"
+                  alt="Business Consultation Animation"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
+              </div>
+            </motion.div>
+
+            {/* floating KPIs badge */}
+            <motion.div
+              className="absolute bottom-4 left-1 bg-[#2E9E6B]/95 backdrop-blur-md px-3.5 py-3 rounded-2xl text-white shadow-lg border border-white/10 z-20 flex flex-col"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4.3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-[8px] uppercase tracking-wider text-white/70 font-bold block">KPI AUDIT</span>
+              <span className="text-xs font-bold block">-30% Hosting Bill</span>
+              <span className="text-[8px] text-white/70">Redundant units removed</span>
+            </motion.div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="bg-[#F7FAFD] min-vh-100 text-[#0B1F3A] overflow-x-hidden font-sans relative w-full">
-      {/* Decorative flying paths */}
-      <svg className="absolute top-0 left-0 w-full h-[500px] pointer-events-none z-0 opacity-25" viewBox="0 0 1200 500" fill="none">
-        <motion.path
-          d="M -100,200 C 300,100 500,400 1300,300"
-          stroke="url(#gradient-hero-1)"
-          strokeWidth="2.5"
-          strokeDasharray="8 8"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        />
-        <defs>
-          <linearGradient id="gradient-hero-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1E7FD4" />
-            <stop offset="50%" stopColor="#08A9E6" />
-            <stop offset="100%" stopColor="#2E9E6B" />
-          </linearGradient>
-        </defs>
-      </svg>
+    <div className="bg-[#F7F5F0] w-full overflow-x-hidden relative">
+      
+      {/* 1. HERO BANNER */}
+      <section className="relative bg-gradient-to-b from-[#0B1F3A] to-[#0f2d54] text-white pt-28 pb-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,127,212,0.18),rgba(255,255,255,0))]"></div>
+        <div className="container relative z-10 px-4 overflow-hidden">
+          <div className="row align-items-center g-5">
+            <div className="col-lg-6">
+              <motion.span
+                className="inline-block bg-[#1E7FD4]/20 border border-[#1E7FD4]/40 text-[#08A9E6] text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {data.eyebrow}
+              </motion.span>
+              
+              <motion.h1
+                className="display-4 fw-bold mb-4"
+                style={{ fontFamily: 'var(--font-rubik)', lineHeight: 1.15, color: '#ffffff' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                {data.title.split(' ').map((word, index) => {
+                  const isAccent = word.toLowerCase() === "experience" || word.toLowerCase() === "experiences" || word.toLowerCase() === "business" || word.toLowerCase() === "forward" || word.toLowerCase() === "growth" || word.toLowerCase() === "speed" || word.toLowerCase() === "design" || word.toLowerCase() === "marketing" || word.toLowerCase() === "writing" || word.toLowerCase() === "consultation" || word.toLowerCase() === "editing";
+                  return (
+                    <span key={index} style={{ color: isAccent ? '#08A9E6' : '#ffffff' }} className={isAccent ? "text-[#08A9E6]" : "text-white"}>
+                      {word}{" "}
+                    </span>
+                  );
+                })}
+              </motion.h1>
 
-      {/* Page Intro Banner & Feature strip */}
-      <section className="py-20 md:py-28 relative z-10 overflow-hidden">
-        <div className="container px-4">
-          <div className="row g-5 align-items-center">
+              <motion.p
+                className="lead text-white/70 mb-5 max-w-[500px]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                {data.tagline}
+              </motion.p>
+
+              <motion.div
+                className="d-flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Link href="/quote" className="btn btn-primary btn-lg rounded-pill px-4 py-2.5 shadow-lg border-0 bg-gradient-to-r from-[#1E7FD4] to-[#08A9E6]">
+                  Start Your Project <i className="fas fa-arrow-right ms-2 text-xs"></i>
+                </Link>
+                <Link href="/portfolio" className="btn btn-outline-light btn-lg rounded-pill px-4 py-2.5 border-white/20 hover:bg-white/5">
+                  Explore Our Work
+                </Link>
+              </motion.div>
+            </div>
             
-            {/* Left side text intro */}
             <div className="col-lg-6">
-              <span className="inline-block bg-[#1E7FD4]/10 border border-[#1E7FD4]/30 text-[#1E7FD4] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
-                HOW WE DELIVER EXCELLENCE
-              </span>
-              <h1 className="display-4 fw-extrabold text-[#0B1F3A] leading-tight mb-4 animate-fade-in" style={{ fontFamily: 'var(--font-rubik)' }}>
-                Animated Service <br />
-                Delivery <span className="text-[#1E7FD4]">Showcase</span>
-              </h1>
-              <p className="text-muted text-base md:text-lg leading-relaxed max-w-[520px]">
-                Explore how we turn your ideas into powerful digital solutions through our structured, transparent and result-driven process.
-              </p>
+              {renderHeroVisual()}
             </div>
-
-            {/* Right side horizontal grid feature strips */}
-            <div className="col-lg-6">
-              <div className="flex flex-col gap-3">
-                {featureStrips.map((strip, idx) => (
-                  <motion.div
-                    key={strip.title}
-                    className="bg-white border border-[#1E7FD4]/10 rounded-2xl p-4 shadow-sm hover:border-[#1E7FD4]/40 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-4 cursor-default group"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  >
-                    <div 
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-sm shrink-0 group-hover:scale-110 transition-transform"
-                      style={{ backgroundColor: strip.col + '15', color: strip.col }}
-                    >
-                      <i className={`fas ${strip.icon}`}></i>
-                    </div>
-                    <div>
-                      <h4 className="text-sm fw-bold text-[#0B1F3A] mb-0.5">{strip.title}</h4>
-                      <p className="text-muted text-xs mb-0">{strip.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* The Core Active Showcase Panel for the current service */}
-      <section className="py-12 md:py-20 bg-white border-y border-gray-200/50 overflow-hidden">
+      {/* 2. OVERVIEW SECTION */}
+      <section ref={overviewRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
-          <div className="bg-white border border-[#1E7FD4]/10 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
-            {/* Accent glow backdrop */}
-            <div 
-              className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-[80px] -z-10"
-              style={{ backgroundColor: meta.accentColor + '10' }}
-            />
-
-            <div className="row g-5 align-items-center">
-              {/* Card Left: Content, Workflow & Tools */}
-              <div className="col-lg-6 flex flex-col justify-between h-full">
-                <div>
-                  {/* Badge & Title */}
-                  <div className="flex items-center gap-3.5 mb-4">
-                    <span 
-                      className="font-mono text-xs font-bold px-3 py-1.5 rounded-full"
-                      style={{ backgroundColor: meta.accentColor + '15', color: meta.accentColor }}
-                    >
-                      {meta.id}
-                    </span>
-                    <h3 className="h3 fw-extrabold text-[#0B1F3A] mb-0" style={{ fontFamily: 'var(--font-rubik)' }}>
-                      {meta.title}
-                    </h3>
+          <div className="row g-5 align-items-center">
+            <div className="col-lg-5">
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate={isOverviewInView ? "visible" : "hidden"}
+              >
+                <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">The Overview</h5>
+                <h2 className="display-6 fw-bold text-[#0B1F3A] leading-tight mb-4" style={{ fontFamily: 'var(--font-rubik)' }}>
+                  {data.overview.title}
+                </h2>
+                
+                {/* Metric Card */}
+                <div className="bg-[#F7F5F0] border border-[#1E7FD4]/10 rounded-2xl p-4 mt-5 flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#1E7FD4]/15 rounded-xl flex items-center justify-center text-[#1E7FD4] text-xl">
+                    <i className="fas fa-rocket"></i>
                   </div>
+                  <div>
+                    <h5 className="fw-bold text-[#0B1F3A] mb-0">{data.overview.metric.value}</h5>
+                    <small className="text-muted">{data.overview.metric.label}</small>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            <div className="col-lg-7">
+              <motion.div
+                className="space-y-4"
+                variants={staggerContainer}
+                initial="hidden"
+                animate={isOverviewInView ? "visible" : "hidden"}
+              >
+                {data.overview.paragraphs.map((para, i) => (
+                  <motion.p key={i} className="lead text-[#4a5568]" style={{ fontSize: '16px' }} variants={fadeUp}>
+                    {para}
+                  </motion.p>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                  <p className="text-muted text-base mb-6 leading-relaxed">
-                    <strong className="text-[#0B1F3A] block mb-1 text-sm font-semibold">{data.title}</strong>
-                    {data.tagline}
-                  </p>
+      {/* 3. ANIMATED SERVICE SHOWCASE */}
+      {/* 3. ANIMATED SERVICE SHOWCASE */}
+      <section className="py-20 bg-[#F7F5F0] overflow-hidden">
+        <div className="container px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Workflow Showcase</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              Animated Service Delivery Simulation
+            </h2>
+            <p className="text-muted mt-2">See how we take your project requirements and transform them step-by-step into a premium digital platform.</p>
+          </div>
 
-                  {/* Animated Workflow Strip */}
-                  <div className="mb-8">
-                    <h5 className="text-[11px] font-bold text-[#0B1F3A]/50 uppercase tracking-widest mb-3.5">
-                      Delivery Workflow
-                    </h5>
-                    <div className="flex items-center justify-between gap-1 overflow-x-auto pb-3 -mx-2 px-2 scrollbar-thin">
-                      {data.workflow.map((stage, idx) => {
+          <div className="row justify-content-center">
+            <div className="col-lg-10">
+              <div className="bg-white border border-[#1E7FD4]/10 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+                {/* Accent glow backdrop */}
+                <div 
+                  className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-[80px] -z-10"
+                  style={{ 
+                    backgroundColor: 
+                      data.heroVisualType === 'web' ? 'rgba(30,127,212,0.08)' :
+                      data.heroVisualType === 'design' ? 'rgba(168,85,247,0.08)' :
+                      data.heroVisualType === 'content' ? 'rgba(46,158,107,0.08)' :
+                      data.heroVisualType === 'marketing' ? 'rgba(255,138,61,0.08)' :
+                      data.heroVisualType === 'video' ? 'rgba(239,68,68,0.08)' :
+                      'rgba(8,169,230,0.08)'
+                  }}
+                />
+
+                <div className="row g-5 align-items-center">
+                  
+                  {/* Left: Interactive Workflow Stages */}
+                  <div className="col-lg-6">
+                    <h4 className="h4 fw-extrabold text-[#0B1F3A] mb-2">
+                      Interactive Process Flow
+                    </h4>
+                    <p className="text-muted text-xs mb-6">
+                      Click any stage below to inspect details or watch the simulation run automatically.
+                    </p>
+
+                    {/* Timeline steps */}
+                    <div className="space-y-4 relative">
+                      {/* Vertical line connection */}
+                      <div className="absolute left-[17px] top-4 bottom-4 w-0.5 bg-gray-100 z-0"></div>
+
+                      {data.workflow.map((step, idx) => {
                         const isActive = idx === showcaseStage;
-                        return (
-                          <div key={stage.title} className="flex items-center flex-1 min-w-[75px] relative">
-                            {/* Connecting track line */}
-                            {idx < data.workflow.length - 1 && (
-                              <div className="absolute top-[14px] left-[55%] right-0 h-0.5 bg-gray-100 z-0">
-                                <motion.div 
-                                  className="h-full" 
-                                  style={{ backgroundColor: meta.accentColor }}
-                                  initial={{ width: "0%" }}
-                                  animate={isActive ? { width: "100%" } : { width: "0%" }}
-                                  transition={{ duration: 3.0, ease: "linear" }}
-                                />
-                              </div>
-                            )}
+                        const accentColor = 
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' :
+                          '#08A9E6';
 
-                            <div className="flex flex-col items-center z-10 w-full cursor-pointer" onClick={() => setShowcaseStage(idx)}>
-                              <motion.div
-                                className="w-7.5 h-7.5 rounded-full flex items-center justify-center text-[10px] font-bold border transition-all"
-                                style={{
-                                  borderColor: isActive ? meta.accentColor : '#E5E7EB',
-                                  backgroundColor: isActive ? meta.accentColor : '#FFFFFF',
-                                  color: isActive ? '#FFFFFF' : '#9CA3AF',
-                                  boxShadow: isActive ? `0 0 10px ${meta.glowColor}` : 'none'
-                                }}
-                                animate={isActive ? { scale: 1.15 } : { scale: 1 }}
-                                transition={{ duration: 0.3 }}
+                        return (
+                          <div 
+                            key={step.title} 
+                            className="flex items-start gap-4 relative z-10 cursor-pointer"
+                            onClick={() => setShowcaseStage(idx)}
+                          >
+                            <motion.div
+                              className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border bg-white shrink-0 shadow-sm transition-all"
+                              style={{
+                                borderColor: isActive ? accentColor : '#E5E7EB',
+                                color: isActive ? '#FFFFFF' : '#9CA3AF',
+                                backgroundColor: isActive ? accentColor : '#FFFFFF'
+                              }}
+                              animate={isActive ? { scale: 1.1 } : { scale: 1 }}
+                            >
+                              {step.number}
+                            </motion.div>
+                            <div>
+                              <h5 
+                                className="text-sm font-bold mb-0.5 transition-colors"
+                                style={{ color: isActive ? accentColor : '#0B1F3A' }}
                               >
-                                {idx + 1}
-                              </motion.div>
-                              <span 
-                                className="text-[9px] font-bold mt-2 text-center truncate w-full"
-                                style={{ color: isActive ? meta.accentColor : '#9CA3AF' }}
-                              >
-                                {stage.title}
-                              </span>
+                                {step.title}
+                              </h5>
+                              <p className="text-muted text-xs mb-0">
+                                {step.desc}
+                              </p>
                             </div>
                           </div>
                         );
                       })}
                     </div>
                   </div>
-                </div>
 
-                <div>
-                  {/* Technology badges */}
-                  <div className="mb-6">
-                    <h5 className="text-[10px] font-bold text-[#0B1F3A]/40 uppercase tracking-widest mb-2.5">
-                      Technologies / Standards
-                    </h5>
-                    <div className="flex flex-wrap gap-2">
-                      {data.tools.map((tool) => (
-                        <span 
-                          key={tool} 
-                          className="bg-[#F7F5F0] border border-gray-200/60 rounded-lg px-2.5 py-1 text-[11px] text-[#0B1F3A] font-medium"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Benefit tags checklist */}
-                  <div className="row g-2">
-                    {meta.benefits.map((benefit) => (
-                      <div key={benefit} className="col-sm-6 flex items-center gap-2 text-xs text-[#0B1F3A]/85">
-                        <i className="fas fa-check-circle text-[#2E9E6B] text-[13px]"></i>
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Right: Device Mockup Demo & Metrics */}
-              <div className="col-lg-6">
-                <div className="relative border border-gray-200/80 rounded-2xl p-4 bg-[#F7FAFD] shadow-inner overflow-hidden">
-                  
-                  {/* Mockup shell header */}
-                  <div className="flex items-center justify-between border-b border-gray-200 pb-3 mb-4">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-400"></span>
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
-                      <span className="w-2.5 h-2.5 rounded-full bg-green-400"></span>
-                      <span className="text-[10px] text-muted-foreground ml-3 font-mono select-none">
-                        atriowings.in/{data.id}
-                      </span>
-                    </div>
-                    <span className="text-[9px] font-mono text-muted-foreground font-bold tracking-wider">
-                      SAMPLE DEMO
-                    </span>
-                  </div>
-
-                  {/* Loop Video/GIF Visual demonstration block */}
-                  <div className="relative h-[250px] rounded-xl overflow-hidden bg-black/5 flex items-center justify-center shadow-sm">
-                    <video
-                      src={meta.videoSrc}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        // Fallback to project video or GIF if services-video folder isn't populated
-                        const target = e.target as HTMLVideoElement;
-                        if (target.src !== meta.fallbackSrc) {
-                          target.src = meta.fallbackSrc;
-                        }
-                      }}
-                    />
-                    
-                    {/* Scanline CRT layout */}
-                    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.15]" />
-                  </div>
-
-                  {/* Metrics overlays */}
-                  <div className="flex items-center justify-around gap-2 mt-4 pt-3 border-t border-gray-200/60">
-                    {meta.metrics.map((metric) => (
-                      <div key={metric.label} className="text-center flex-1">
-                        <span className="text-[9px] text-muted-foreground uppercase tracking-wider block">
-                          {metric.label}
-                        </span>
-                        <span 
-                          className="text-sm font-extrabold block mt-0.5"
-                          style={{ color: meta.accentColor }}
-                        >
-                          {metric.value}
+                  {/* Right: Mockup Preview Frame & Metrics */}
+                  <div className="col-lg-6">
+                    <div className="border border-gray-200/80 rounded-2xl p-4 bg-[#F7FAFD] shadow-inner">
+                      
+                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-3">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                          <span className="text-[9px] text-muted-foreground ml-3 font-mono">
+                            atriowings.in/{data.heroVisualType}
+                          </span>
+                        </div>
+                        <span className="text-[8px] font-mono text-muted-foreground font-bold tracking-wider">
+                          LIVE PREVIEW
                         </span>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Why Choose Us & Key statistics */}
-      <section ref={featuresRef} className="py-20 bg-[#F8FAFC] relative overflow-hidden">
-        <div className="container px-4">
-          <div className="row g-5">
-            
-            {/* Left: Why Choose Us block details */}
-            <div className="col-lg-7">
-              <div className="section-title pb-3 mb-5">
-                <span className="text-xs font-bold text-[#2E9E6B] uppercase tracking-widest mb-2 block">
-                  ATRIOWINGS GUARANTEES
-                </span>
-                <h2 className="display-6 fw-extrabold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
-                  Why Choose AtrioWings?
-                </h2>
-              </div>
-
-              <div className="space-y-4">
-                {[
-                  { title: "Expert Team", desc: "Skilled professionals with practical experience across frontend development, copywriting and strategy layouts.", icon: "fa-users", col: "#1E7FD4" },
-                  { title: "Agile Process", desc: "Flexible, iterative and result-driven milestoning to ensure transparent progression reviews.", icon: "fa-route", col: "#FF8A3D" },
-                  { title: "Custom Solutions", desc: "We design code blocks and design prototypes specifically built around your exact commercial needs.", icon: "fa-pencil-ruler", col: "#A855F7" },
-                  { title: "Scalable & Secure", desc: "Built with secure API access layers and clean database definitions for long-term growth.", icon: "fa-shield-alt", col: "#2E9E6B" },
-                  { title: "Support 24/7", desc: "Dedicated, responsive IT consultants ready to patch, optimize and backup your platforms.", icon: "fa-headset", col: "#08A9E6" }
-                ].map((item, idx) => (
-                  <motion.div
-                    key={item.title}
-                    className="bg-white border border-[#1E7FD4]/10 rounded-2xl p-4.5 flex gap-4 shadow-sm hover:border-[#1E7FD4]/30 transition-all"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  >
-                    <div 
-                      className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 text-base"
-                      style={{ backgroundColor: item.col + '15', color: item.col }}
-                    >
-                      <i className={`fas ${item.icon}`}></i>
-                    </div>
-                    <div>
-                      <h4 className="text-base fw-extrabold text-[#0B1F3A] mb-1">{item.title}</h4>
-                      <p className="text-muted text-xs leading-relaxed mb-0">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Key Milestones statistics & Tech strip */}
-            <div className="col-lg-5 flex flex-col justify-between">
-              <div className="bg-gradient-to-tr from-[#0B1F3A] to-[#1E7FD4] text-white rounded-3xl p-8 shadow-xl relative overflow-hidden flex flex-col justify-between h-full min-h-[380px] mb-6">
-                
-                {/* Decorative overlay curves */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_120%_-20%,rgba(255,255,255,0.1),rgba(255,255,255,0))]"></div>
-                
-                <div>
-                  <h3 className="h4 fw-extrabold mb-6 tracking-wide uppercase text-white/60">Milestones</h3>
-                  <div className="row g-4">
-                    {[
-                      { num: "6+", label: "Core Services" },
-                      { num: "150+", label: "Projects Delivered" },
-                      { num: "98%", label: "Client Satisfaction" },
-                      { num: "5+", label: "Years of Excellence" },
-                      { num: "24/7", label: "Support Available" }
-                    ].map((stat) => (
-                      <div key={stat.label} className="col-6">
-                        <span className="display-6 fw-extrabold block text-white">{stat.num}</span>
-                        <span className="text-[10px] text-white/70 uppercase tracking-widest block mt-1">{stat.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="border-t border-white/10 pt-6 mt-6">
-                  <span className="text-[10px] text-white/50 uppercase tracking-widest block mb-4">
-                    TRUSTED BY ENTERPRISES WORLDWIDE
-                  </span>
-                  {/* Partner logo mock strip */}
-                  <div className="flex flex-wrap gap-4 items-center">
-                    {["Zapier", "Google", "Microsoft", "AWS", "Meta", "Stripe"].map((logo) => (
-                      <span key={logo} className="text-white/60 text-xs font-mono font-bold tracking-wider">
-                        {logo}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Technologies stack showcase block */}
-              <div className="bg-white border border-[#1E7FD4]/10 rounded-3xl p-6 shadow-sm">
-                <span className="text-[10px] text-muted-foreground uppercase tracking-widest block mb-3 font-bold">
-                  Technologies Stack
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {data.tools.map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="bg-[#F7FAFD] border border-gray-200/60 text-xs text-[#0B1F3A] px-3 py-1.5 rounded-lg font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Showcase Section */}
-      {data.portfolio && data.portfolio.length > 0 && (
-        <section ref={portfolioRef} className="py-20 bg-white border-t border-gray-200/60 overflow-hidden">
-          <div className="container px-4">
-            <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-              <span className="text-xs font-bold text-[#1E7FD4] uppercase tracking-widest mb-2 block">
-                OUR PORTFOLIO
-              </span>
-              <h2 className="display-6 fw-extrabold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
-                Recent Work Done
-              </h2>
-            </div>
-            <div className="row g-4">
-              {data.portfolio.map((project, idx) => (
-                <div key={project.title} className="col-md-6 col-lg-6">
-                  <motion.div 
-                    className="bg-[#F7FAFD] border border-gray-200/65 rounded-2xl p-4 h-full flex flex-col justify-between hover:shadow-lg transition-shadow"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isPortfolioInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.6, delay: idx * 0.15 }}
-                  >
-                    <div>
-                      <div className="relative h-[240px] rounded-xl overflow-hidden mb-4 bg-gray-150">
-                        <img 
-                          src={project.img} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" 
+                      {/* Video/GIF container */}
+                      <div className="relative h-[210px] rounded-xl overflow-hidden bg-black/5 flex items-center justify-center shadow-sm">
+                        <video
+                          src={
+                            data.heroVisualType === 'web' ? '/img/web-development-video.mp4' :
+                            data.heroVisualType === 'design' ? '/img/Services/product designgif.gif' :
+                            data.heroVisualType === 'content' ? '/img/portfolio pics/Content-Writing-12.gif' :
+                            data.heroVisualType === 'marketing' ? '/img/Services/digitalmarketgif4.gif' :
+                            data.heroVisualType === 'video' ? '/img/Services/videogif.gif' :
+                            '/img/Services/services1.gif'
+                          }
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
                         />
+                        <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
                       </div>
-                      <span className="text-[10px] font-bold text-[#1E7FD4] uppercase tracking-wider block mb-1">
-                        {project.category}
-                      </span>
-                      <h4 className="text-base fw-bold text-[#0B1F3A] mb-2">{project.title}</h4>
-                      <p className="text-muted text-xs leading-relaxed mb-4">{project.desc}</p>
+
+                      {/* Sample metrics overlay */}
+                      <div className="flex items-center justify-around gap-2 mt-3 pt-2.5 border-t border-gray-200/60 text-center">
+                        {[
+                          { label: "Delivery Speed", value: "Optimal" },
+                          { label: "Integration", value: "Verified" },
+                          { label: "Quality Grade", value: "A+" }
+                        ].map((stat) => (
+                          <div key={stat.label} className="flex-1">
+                            <span className="text-[8px] text-muted-foreground uppercase tracking-wider block">
+                              {stat.label}
+                            </span>
+                            <span className="text-xs font-extrabold text-[#1E7FD4] block mt-0.5">
+                              {stat.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
                     </div>
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="btn btn-outline-primary btn-sm rounded-pill font-bold align-self-start border-[#1E7FD4] text-[#1E7FD4] hover:bg-[#1E7FD4] hover:text-white px-4"
-                    >
-                      Visit Website <i className="fas fa-external-link-alt text-[9px] ml-1"></i>
-                    </a>
-                  </motion.div>
+                  </div>
+
                 </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. FEATURES & BENEFITS */}
+      <section ref={featuresRef} className="py-20 bg-white overflow-hidden">
+        <div className="container px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Features &amp; Benefits</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              Engineered for Maximum Impact
+            </h2>
+            <p className="text-muted mt-2">Every feature of our service is designed to solve real business hurdles and optimize output performance.</p>
+          </div>
+
+          <motion.div
+            className="row g-4 justify-content-center"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isFeaturesInView ? "visible" : "hidden"}
+          >
+            {data.features.map((feature, i) => (
+              <motion.div key={i} className="col-md-6 col-lg-4" variants={fadeUp}>
+                <div className="service-feature-card group h-full bg-[#F7F5F0]/60 hover:bg-white border border-[#1E7FD4]/10 hover:border-[#2E9E6B]/30 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1.5 flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 bg-[#1E7FD4]/10 rounded-xl flex items-center justify-center text-[#1E7FD4] text-xl mb-4 group-hover:scale-110 transition-transform">
+                      <i className={`fas ${feature.icon}`}></i>
+                    </div>
+                    <h4 className="h5 fw-bold text-[#0B1F3A] mb-3">{feature.title}</h4>
+                    <p className="text-muted text-[13px] leading-relaxed mb-4">{feature.desc}</p>
+                  </div>
+                  <div className="text-[#1E7FD4] text-xs font-bold flex items-center gap-1">
+                    Learn More <i className="fas fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5. INTERACTIVE WORKFLOW */}
+      <section ref={workflowRef} className="py-20 bg-[#0B1F3A] text-white overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_120%,rgba(30,127,212,0.15),rgba(255,255,255,0))]"></div>
+        <div className="container relative z-10 px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-20">
+            <h5 className="fw-bold text-[#08A9E6] uppercase tracking-wider text-sm mb-2" style={{ color: '#08A9E6' }}>Our Process</h5>
+            <h2 className="display-6 fw-bold" style={{ fontFamily: 'var(--font-rubik)', color: '#ffffff' }}>
+              How We Bring Your Project to Life
+            </h2>
+            <p className="text-white/60 mt-2">A structured, flight-path inspired methodology that guarantees alignment and delivery precision.</p>
+          </div>
+
+          {/* Desktop Workflow Line */}
+          <div className="hidden lg:block relative py-10 mb-10 overflow-hidden">
+            {/* SVG Connecting Flight Path */}
+            <svg className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2" viewBox="0 0 1000 10" fill="none" preserveAspectRatio="none">
+              <motion.path
+                d="M 0,5 L 1000,5"
+                stroke="rgba(255,255,255,0.08)"
+                strokeWidth="4"
+              />
+              <motion.path
+                d="M 0,5 L 1000,5"
+                stroke="url(#gradient-line)"
+                strokeWidth="4"
+                initial={{ pathLength: 0 }}
+                animate={isWorkflowInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+              <defs>
+                <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#1E7FD4" />
+                  <stop offset="100%" stopColor="#2E9E6B" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            {/* Glowing path point */}
+            {isWorkflowInView && (
+              <motion.div
+                className="absolute top-1/2 left-0 w-4 h-4 rounded-full bg-[#2E9E6B] shadow-[0_0_12px_rgba(46,158,107,0.8)] -translate-y-1/2 -translate-x-1/2 z-20"
+                animate={{
+                  left: ["0%", "100%"]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+            )}
+
+            <div className="flex justify-between relative z-10">
+              {data.workflow.map((step, i) => (
+                <motion.div
+                  key={i}
+                  className="flex flex-col items-center text-center w-40"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isWorkflowInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                >
+                  <div className="w-12 h-12 rounded-full border-2 border-[#1E7FD4] bg-[#0B1F3A] flex items-center justify-center font-bold text-white text-base mb-4 shadow-[0_0_15px_rgba(30,127,212,0.2)]">
+                    {step.number}
+                  </div>
+                  <h5 className="fw-bold mb-2" style={{ color: '#ffffff' }}>{step.title}</h5>
+                  <p className="text-white/60 text-[11px] leading-relaxed">{step.desc}</p>
+                </motion.div>
               ))}
             </div>
           </div>
-        </section>
-      )}
 
-      {/* FAQ Section */}
-      {data.faqs && data.faqs.length > 0 && (
-        <section className="py-20 bg-[#F8FAFC] border-t border-gray-200/60 overflow-hidden">
-          <div className="container px-4">
-            <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-              <span className="text-xs font-bold text-[#1E7FD4] uppercase tracking-widest mb-2 block">
-                FAQ
-              </span>
-              <h2 className="display-6 fw-extrabold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
-                Frequently Asked Questions
-              </h2>
-            </div>
-            <div className="max-w-[800px] mx-auto space-y-3">
-              {data.faqs.map((faq, idx) => {
-                const isOpen = activeFaq === idx;
-                return (
-                  <div key={faq.q} className="bg-white border border-gray-200/80 rounded-2xl overflow-hidden shadow-sm transition-all duration-300">
-                    <button 
-                      className="w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-[#0B1F3A] hover:bg-[#F7FAFD] transition-colors"
-                      onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    >
-                      <span>{faq.q}</span>
-                      <i className={`fas ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'} text-xs text-muted-foreground ml-4`} />
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <div className="px-5 pb-5 text-xs text-muted-foreground leading-relaxed border-t border-gray-100 pt-3">
-                            {faq.a}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
+          {/* Mobile Vertical Workflow */}
+          <div className="lg:hidden relative border-l-2 border-white/10 pl-6 space-y-10 py-4 ml-2">
+            {data.workflow.map((step, i) => (
+              <motion.div
+                key={i}
+                className="relative"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isWorkflowInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+              >
+                <div className="absolute top-0 -left-[38px] w-6 h-6 rounded-full bg-[#1E7FD4] border-2 border-[#0B1F3A] flex items-center justify-center font-bold text-white text-[10px]">
+                  {step.number}
+                </div>
+                <h5 className="fw-bold mb-1" style={{ color: '#ffffff' }}>{step.title}</h5>
+                <p className="text-white/60 text-xs leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
           </div>
-        </section>
-      )}
 
-      {/* Horizontal Delivery process map */}
-      <section ref={processRef} className="py-20 bg-white border-t border-gray-200/60 overflow-hidden">
+        </div>
+      </section>
+
+      {/* 6. TECHNOLOGY / TOOLS */}
+      <section ref={toolsRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <span className="text-xs font-bold text-[#1E7FD4] uppercase tracking-widest mb-2 block">
-              OUR PROVEN DELIVERY PROCESS
-            </span>
-            <h2 className="display-6 fw-extrabold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
-              From your first idea to a successful launch
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Technology &amp; Stack</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              Built With the Right Tools
             </h2>
+            <p className="text-muted mt-2">We leverage industry-leading technologies to guarantee performance, scaling capacity, and product longevity.</p>
           </div>
 
-          <div className="relative py-10">
-            {/* SVG Connecting Journey path line */}
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 z-0">
-              {isProcessInView && (
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#1E7FD4] via-[#A855F7] to-[#10b981]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 7, ease: "easeInOut" }}
-                />
-              )}
-            </div>
+          <motion.div
+            className="flex flex-wrap justify-center gap-3.5"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isToolsInView ? "visible" : "hidden"}
+          >
+            {data.tools.map((tool, i) => (
+              <motion.div
+                key={i}
+                className="bg-[#F7F5F0] border border-[#1E7FD4]/10 rounded-xl px-4 py-2.5 text-[#0B1F3A] font-bold text-sm shadow-sm flex items-center gap-2 cursor-default hover:border-[#1E7FD4]/40 hover:-translate-y-0.5 transition-all"
+                variants={fadeUp}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#08A9E6]"></span>
+                {tool}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Steps dots row layout */}
-            <div className="row relative z-10 g-4 justify-between">
-              {deliverySteps.map((step, idx) => {
-                const isActive = idx === activeStep;
-                return (
-                  <div key={step.name} className="col flex flex-col items-center min-w-[100px]">
-                    <motion.div
-                      className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white border-4 border-white shadow-md transition-all"
-                      style={{
-                        backgroundColor: step.col
-                      }}
-                      animate={isActive ? { scale: 1.15 } : { scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {step.num}
-                    </motion.div>
-                    <span 
-                      className="text-xs fw-extrabold mt-3 text-center transition-colors duration-300"
-                      style={{ color: isActive ? step.col : '#0B1F3A' }}
-                    >
-                      {step.name}
-                    </span>
+      {/* 7. WHY CHOOSE ATRIOWINGS */}
+      <section ref={whyChooseRef} className="py-20 bg-[#F7F5F0] overflow-hidden">
+        <div className="container px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Our Advantage</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              Why Businesses Choose Atriowings
+            </h2>
+            <p className="text-muted mt-2">We blend development rigor, marketing intelligence, and product-design focus to create outstanding results.</p>
+          </div>
+
+          <motion.div
+            className="row g-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isWhyChooseInView ? "visible" : "hidden"}
+          >
+            {data.whyChooseUs.map((item, i) => (
+              <motion.div key={i} className="col-md-6" variants={fadeUp}>
+                <div className="bg-white border border-[#1E7FD4]/10 rounded-2xl p-5 flex gap-4 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-[#2E9E6B]/10 flex items-center justify-center text-[#2E9E6B] text-xl shrink-0">
+                    <i className={`fas ${item.icon}`}></i>
                   </div>
-                );
-              })}
-            </div>
+                  <div>
+                    <h5 className="fw-bold text-[#0B1F3A] mb-2">{item.title}</h5>
+                    <p className="text-muted text-[13px] leading-relaxed mb-0">{item.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 8. RESULTS / OUTCOMES */}
+      <section ref={outcomesRef} className="py-20 bg-white overflow-hidden">
+        <div className="container px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Outcomes</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              Designed for Real Business Outcomes
+            </h2>
+            <p className="text-muted mt-2">We set concrete project goals to ensure maximum return on investment for your organization.</p>
+          </div>
+
+          <motion.div
+            className="row g-4 justify-content-center"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isOutcomesInView ? "visible" : "hidden"}
+          >
+            {data.outcomes.map((outcome, i) => (
+              <motion.div key={i} className="col-md-6 col-lg-4" variants={fadeUp}>
+                <div className="bg-[#F7F5F0]/60 border border-[#1E7FD4]/10 rounded-2xl p-5 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-[10px] uppercase font-bold text-muted tracking-wider">Target Objective</span>
+                      <i className={`fas ${outcome.icon} text-[#FF8A3D] text-lg`}></i>
+                    </div>
+                    <h4 className="h5 fw-bold text-[#0B1F3A] mb-2">{outcome.title}</h4>
+                    <p className="text-muted text-[13px] leading-relaxed mb-4">{outcome.desc}</p>
+                  </div>
+                  <div className="border-t border-[#1E7FD4]/10 pt-3 text-xs text-[#0B1F3A] font-bold">
+                    {outcome.metric}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 9. PORTFOLIO / PROJECT SHOWCASE */}
+      <section ref={portfolioRef} className="py-20 bg-[#F7F5F0] overflow-hidden">
+        <div className="container px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Our Portfolio</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              See What We Can Build
+            </h2>
+            <p className="text-muted mt-2">A small highlight of core projects launched under this category.</p>
+          </div>
+
+          <motion.div
+            className="row g-5"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isPortfolioInView ? "visible" : "hidden"}
+          >
+            {data.portfolio.map((proj, i) => (
+              <motion.div key={i} className="col-lg-6" variants={fadeUp}>
+                <div className="bg-white rounded-3xl overflow-hidden shadow-md group hover:shadow-xl transition-shadow duration-300">
+                  <div className="relative overflow-hidden h-[240px] md:h-[280px]">
+                    <img
+                      src={proj.img}
+                      alt={proj.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4 bg-[#0B1F3A]/80 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      {proj.category}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="fw-bold text-[#0B1F3A] mb-2">{proj.title}</h4>
+                    <p className="text-muted text-sm mb-4 leading-relaxed">{proj.desc}</p>
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#1E7FD4] text-sm font-bold flex items-center gap-1.5"
+                    >
+                      View Live Website <i className="fas fa-external-link-alt text-[10px]"></i>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 10. FAQ SECTION */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="container px-4">
+          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
+            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">FAQ</h5>
+            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted mt-2">Clear and direct answers regarding project timelines, scopes, and technologies.</p>
+          </div>
+
+          <div className="max-w-[700px] mx-auto space-y-3">
+            {data.faqs.map((faq, i) => (
+              <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-gray-50/50">
+                <button
+                  className="w-full px-5 py-4 text-left font-bold text-[#0B1F3A] flex justify-between items-center transition-colors hover:bg-gray-100/40"
+                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                >
+                  <span>{faq.q}</span>
+                  <i className={`fas ${activeFaq === i ? 'fa-chevron-up' : 'fa-chevron-down'} text-[#1E7FD4] text-xs`}></i>
+                </button>
+                <AnimatePresence initial={false}>
+                  {activeFaq === i && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden bg-white"
+                    >
+                      <div className="px-5 py-4 text-sm text-[#4a5568] leading-relaxed border-t border-gray-100">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Premium CTA block */}
-      <section className="py-20 bg-gradient-to-br from-[#0B1F3A] to-[#1E7FD4] text-white text-center relative overflow-hidden">
-        
-        {/* Decorative backdrop blobs */}
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#08A9E6]/10 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#2E9E6B]/15 rounded-full blur-[100px]" />
-
-        <div className="container relative z-10 px-4">
-          <h2 className="display-5 fw-extrabold text-white mb-3" style={{ fontFamily: 'var(--font-rubik)' }}>
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-white/80 text-base md:text-lg mb-8 max-w-[500px] mx-auto">
-            Let&apos;s build something amazing together.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link 
-              href="/contact" 
-              className="btn btn-light btn-lg rounded-pill px-5 py-3 font-bold transition-all hover:scale-102 shadow-md hover:bg-gray-50 text-[#1E7FD4]"
-            >
-              Get a Free Consultation
-            </Link>
-            <Link 
-              href="/portfolio" 
-              className="btn btn-outline-light btn-lg rounded-pill px-5 py-3 font-bold transition-all hover:scale-102 border-white/20 hover:bg-white/5 text-white"
-            >
-              View Our Portfolio
-            </Link>
+      {/* 11. FINAL CTA */}
+      <section className="py-20 bg-gradient-to-r from-[#0B1F3A] to-[#1E7FD4] text-white overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_100%,rgba(8,169,230,0.15),rgba(255,255,255,0))]"></div>
+        <div className="container relative z-10 px-4 text-center">
+          <div className="max-w-[650px] mx-auto">
+            <h2 className="display-5 fw-bold mb-4" style={{ fontFamily: 'var(--font-rubik)', color: '#ffffff' }}>
+              Ready to Build Something Great?
+            </h2>
+            <p className="lead text-white/70 mb-5">
+              Let&apos;s discuss your {data.title} project and find the right digital solution for your business goals.
+            </p>
+            <div className="d-flex flex-wrap justify-content-center gap-3">
+              <Link href="/quote" className="btn btn-light btn-lg rounded-pill px-5 py-3 font-bold text-[#0B1F3A] shadow-lg border-0 hover:bg-gray-100 animate-pulse">
+                Get a Quote <i className="fas fa-arrow-right ms-2 text-xs"></i>
+              </Link>
+              <Link href="/contact" className="btn btn-outline-light btn-lg rounded-pill px-5 py-3 border-white/20 hover:bg-white/5">
+                Talk to Our Team
+              </Link>
+            </div>
           </div>
         </div>
       </section>
