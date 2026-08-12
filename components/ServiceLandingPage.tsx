@@ -2301,20 +2301,56 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 />
               </div>
 
-              <p className="text-muted mt-2">Get answers to standard questions regarding our execution milestones, post-launch updates and integrations.</p>
+              <p className="text-muted mt-2">
+                {data.heroVisualType === 'web' ? 'Get answers to standard questions regarding our execution milestones, post-launch updates and integrations.' :
+                 data.heroVisualType === 'design' ? 'Get answers to standard questions regarding our design iterations, prototype hand-offs, and design cycles.' :
+                 data.heroVisualType === 'content' ? 'Get answers to standard questions regarding our content research, revision structures, and keyword metrics.' :
+                 data.heroVisualType === 'marketing' ? 'Get answers to standard questions regarding campaign setups, ad spend reporting, and target optimization.' :
+                 data.heroVisualType === 'video' ? 'Get answers to standard questions regarding raw video submissions, motion designs, and edit revisions.' :
+                 'Get answers to standard questions regarding our collaborative processes and execution timelines.'}
+              </p>
             </div>
 
             <div className="max-w-[750px] mx-auto space-y-3">
               {data.faqs.map((faq, i) => {
                 const isOpen = activeFaq === i;
+                const direction = i % 4 === 0 
+                  ? 'left' 
+                  : i % 4 === 1 
+                    ? 'top' 
+                    : i % 4 === 2 
+                      ? 'right' 
+                      : 'bottom';
+
                 return (
-                  <div key={i} className="bg-white border border-[#1E7FD4]/10 rounded-2xl overflow-hidden shadow-sm transition-all duration-300">
+                  <motion.div
+                    key={i}
+                    custom={{ direction, index: i }}
+                    variants={cardEntranceVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.15 }}
+                    className="group relative border border-[#1E7FD4]/12 rounded-2xl overflow-hidden shadow-sm transition-all duration-300"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.48)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)'
+                    }}
+                    whileHover={{
+                      scale: 1.01,
+                      borderColor: 'rgba(30, 127, 212, 0.35)',
+                      boxShadow: '0 12px 25px -10px rgba(30, 127, 212, 0.15)'
+                    }}
+                  >
+                    {/* Decorative glowing gradient top beam */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent opacity-10 group-hover:opacity-100 transition-all duration-300" />
+
                     <button
-                      className="w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-[#0B1F3A] hover:bg-gray-50/50"
+                      className="w-full px-5 py-4 text-left flex items-center justify-between font-bold text-sm text-[#0B1F3A] hover:bg-gray-50/30 transition-colors duration-200"
                       onClick={() => setActiveFaq(isOpen ? null : i)}
                     >
-                      <span>{faq.q}</span>
-                      <i className={`fas ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'} text-xs text-muted-foreground ml-4`} />
+                      <span className={`transition-colors duration-300 ${isOpen ? 'text-[#1E7FD4]' : 'group-hover:text-[#1E7FD4]'}`}>{faq.q}</span>
+                      <i className={`fas fa-chevron-down text-xs ml-4 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#1E7FD4]' : 'text-muted-foreground'}`} />
                     </button>
                     <AnimatePresence initial={false}>
                       {isOpen && (
@@ -2324,13 +2360,13 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="px-5 pb-5 text-xs text-muted-foreground leading-relaxed border-t border-gray-100 pt-3">
+                          <div className="px-5 pb-5 text-xs text-muted-foreground leading-relaxed border-t border-gray-100/50 pt-3 bg-white/20">
                             {faq.a}
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
