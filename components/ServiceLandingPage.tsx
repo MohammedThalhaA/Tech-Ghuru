@@ -62,6 +62,7 @@ export interface ServiceData {
     link: string;
   }[];
 }
+
 // Fade-up variants
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -465,7 +466,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         return (
           <div className="row g-3 h-full">
             {/* Left side: Code panel */}
-            <div className="col-6 h-full flex flex-col">
+            <div className="col-5 h-full flex flex-col">
               <div className="bg-[#081225] border border-white/5 rounded-xl p-3 flex-1 font-mono text-[9px] text-blue-400 overflow-hidden leading-relaxed">
                 <div className="flex items-center gap-1.5 border-b border-white/5 pb-2 mb-2">
                   <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
@@ -529,65 +530,18 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 </AnimatePresence>
               </div>
             </div>
-            {/* Right side: Browser preview */}
-            <div className="col-6 h-full flex flex-col">
-              <div className="bg-white border border-gray-200/80 rounded-xl p-3 flex-1 flex flex-col justify-between overflow-hidden relative shadow-sm">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2">
-                  <span className="text-[8px] font-bold text-muted-foreground uppercase font-mono select-none">Web Browser Live</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                </div>
-
-                <div className="flex-1 flex flex-col justify-center space-y-2.5">
-                  {stage === 0 && (
-                    <div className="space-y-2 p-2 border border-dashed border-gray-300 rounded-lg">
-                      <div className="w-10 h-2 bg-gray-200 rounded"></div>
-                      <div className="w-full h-3 bg-gray-200 rounded"></div>
-                    </div>
-                  )}
-                  {stage === 1 && (
-                    <div className="space-y-2 p-2 border border-gray-250 rounded-lg">
-                      <div className="flex justify-between">
-                        <div className="w-12 h-3 bg-gray-200 rounded animate-pulse"></div>
-                        <div className="w-3 h-3 bg-gray-200 rounded-full"></div>
-                      </div>
-                      <div className="w-full h-4 bg-gray-150 rounded animate-pulse"></div>
-                    </div>
-                  )}
-                  {stage === 2 && (
-                    <div className="space-y-2 p-2 border border-blue-200 rounded-lg">
-                      <div className="w-16 h-3.5 bg-[#1E7FD4]/20 border border-[#1E7FD4]/40 rounded"></div>
-                      <div className="w-full h-5 bg-[#0B1F3A] rounded flex items-center justify-center text-[7px] text-white">Themed Template</div>
-                    </div>
-                  )}
-                  {stage === 3 && (
-                    <div className="space-y-2 p-2 border border-blue-300 bg-blue-50/10 rounded-lg">
-                      <div className="flex justify-between items-center">
-                        <div className="w-12 h-3 bg-[#1E7FD4] rounded"></div>
-                        <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-ping"></div>
-                      </div>
-                      <p className="text-[7px] text-[#0B1F3A] font-semibold">Running interactive script components</p>
-                    </div>
-                  )}
-                  {stage === 4 && (
-                    <div className="p-2 border border-[#2E9E6B]/30 bg-green-50/10 rounded-lg text-center space-y-1.5">
-                      <p className="text-[7px] text-[#2E9E6B] font-bold">Speed score: 99/100</p>
-                      <div className="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
-                        <div className="bg-[#2E9E6B] h-full w-[99%]"></div>
-                      </div>
-                    </div>
-                  )}
-                  {stage === 5 && (
-                    <div className="p-2 border border-[#1E7FD4]/20 bg-blue-50/20 rounded-lg text-center space-y-2">
-                      <p className="text-[8px] text-[#0B1F3A] font-extrabold block">AtrioWings Platform Live</p>
-                      <button className="btn btn-primary btn-sm rounded-pill py-1 px-3 text-[7px] border-0 bg-[#1E7FD4] shadow-sm select-none">Visit Platform</button>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex gap-1.5 justify-end text-[7px] text-muted-foreground font-bold">
-                  <span>● Responsive</span>
-                  <span>● SEO Core</span>
-                </div>
+            {/* Right side: Video player */}
+            <div className="col-7 h-full flex flex-col">
+              <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
+                <video
+                  src="/img/web-development-video.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
               </div>
             </div>
           </div>
@@ -595,82 +549,26 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
       case 'design':
         return (
-          <div className="bg-white border border-gray-200/80 rounded-xl p-3 h-full flex flex-col justify-between overflow-hidden shadow-sm">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2 font-mono text-[8px] text-muted-foreground">
-              <span>Layers / Figma Canvas</span>
-              <span>UX Score: 9.6/10</span>
-            </div>
-            <div className="flex-1 row g-2">
-              <div className="col-4 border-r border-gray-150 pr-2">
-                <span className="text-[8px] uppercase tracking-wider text-muted-foreground block mb-2 font-bold">LAYERS</span>
-                <div className="space-y-1 text-[8px] text-muted-foreground">
-                  <div className={`flex items-center gap-1.5 p-1 rounded ${stage >= 0 ? 'text-[#A855F7] font-bold bg-purple-50/50' : ''}`}>
-                    <i className="fas fa-file-alt"></i> Header
-                  </div>
-                  <div className={`flex items-center gap-1.5 p-1 rounded ${stage >= 1 ? 'text-[#A855F7] font-bold bg-purple-50/50' : ''}`}>
-                    <i className="fas fa-vector-square"></i> Hero Section
-                  </div>
-                  <div className={`flex items-center gap-1.5 p-1 rounded ${stage >= 3 ? 'text-[#A855F7] font-bold bg-purple-50/50' : ''}`}>
-                    <i className="fas fa-th-large"></i> Feature Cards
-                  </div>
-                  <div className={`flex items-center gap-1.5 p-1 rounded ${stage >= 5 ? 'text-[#A855F7] font-bold bg-purple-50/50' : ''}`}>
-                    <i className="fas fa-server"></i> Footer
-                  </div>
+          <div className="row g-3 h-full">
+            <div className="col-4 h-full">
+              <div className="bg-[#0c1322] border border-white/5 rounded-xl p-2.5 h-[190px] text-white/50 text-[8px] overflow-hidden">
+                <span className="text-[7px] uppercase tracking-wider text-muted-foreground block mb-2 font-bold font-mono">LAYERS / FigJam</span>
+                <div className="space-y-1">
+                  <div className={`p-1 rounded ${stage >= 0 ? 'text-purple-400 font-bold bg-purple-50/10' : ''}`}>✔ Research Flow</div>
+                  <div className={`p-1 rounded ${stage >= 2 ? 'text-purple-400 font-bold bg-purple-50/10' : ''}`}>✔ Wireframes</div>
+                  <div className={`p-1 rounded ${stage >= 3 ? 'text-purple-400 font-bold bg-purple-50/10' : ''}`}>✔ Colorful UI</div>
+                  <div className={`p-1 rounded ${stage >= 4 ? 'text-purple-400 font-bold bg-purple-50/10' : ''}`}>✔ Smart Animate</div>
                 </div>
               </div>
-              <div className="col-8 flex flex-col justify-center align-items-center p-2">
-                <AnimatePresence mode="wait">
-                  {stage === 0 && (
-                    <motion.div key="ds0" className="text-center space-y-1.5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-[9px] text-[#0B1F3A] font-bold">01 User Research Insights</p>
-                      <span className="bg-purple-100 text-[#A855F7] text-[7px] font-bold px-2 py-0.5 rounded-full">Audience Persona</span>
-                    </motion.div>
-                  )}
-                  {stage === 1 && (
-                    <motion.div key="ds1" className="text-center space-y-1.5 w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-[9px] text-[#0B1F3A] font-bold">02 User Flow Node Map</p>
-                      <div className="flex justify-around items-center gap-1 mt-1">
-                        <span className="border border-purple-300 text-[6px] p-1 rounded bg-purple-50">Landing</span>
-                        <i className="fas fa-arrow-right text-[8px] text-[#A855F7] animate-pulse"></i>
-                        <span className="border border-purple-300 text-[6px] p-1 rounded bg-purple-50">CTA Sign</span>
-                      </div>
-                    </motion.div>
-                  )}
-                  {stage === 2 && (
-                    <motion.div key="ds2" className="text-center space-y-2 w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-[9px] text-[#0B1F3A] font-bold">03 Grayscale Wireframe</p>
-                      <div className="border border-dashed border-gray-300 rounded p-2 space-y-1 max-w-[120px] mx-auto bg-gray-50">
-                        <div className="w-12 h-2 bg-gray-200 rounded"></div>
-                        <div className="w-full h-3.5 bg-gray-200 rounded"></div>
-                      </div>
-                    </motion.div>
-                  )}
-                  {stage === 3 && (
-                    <motion.div key="ds3" className="text-center space-y-1.5 w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-[9px] text-[#0B1F3A] font-bold">04 High-Fidelity UI Design</p>
-                      <div className="border border-[#A855F7]/30 bg-purple-50/10 rounded p-2 max-w-[120px] mx-auto shadow-sm">
-                        <div className="w-12 h-2 bg-[#A855F7] rounded"></div>
-                        <div className="w-full h-4 bg-[#0B1F3A] rounded flex items-center justify-center text-[5px] text-white">Themed UI</div>
-                      </div>
-                    </motion.div>
-                  )}
-                  {stage === 4 && (
-                    <motion.div key="ds4" className="text-center space-y-1.5 w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-[9px] text-[#0B1F3A] font-bold">05 Interactive Prototype</p>
-                      <span className="bg-purple-100 text-[#A855F7] text-[7px] font-extrabold px-3 py-1 rounded-full animate-bounce inline-block">
-                        Smart Animate Active
-                      </span>
-                    </motion.div>
-                  )}
-                  {stage === 5 && (
-                    <motion.div key="ds5" className="text-center space-y-1.5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-[9px] text-[#2E9E6B] font-bold">06 Developer Asset Handoff</p>
-                      <span className="border border-green-300 text-green-700 bg-green-50 text-[7px] font-bold px-2 py-1 rounded block">
-                        Specs Exported Successfully
-                      </span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+            </div>
+            <div className="col-8 h-full">
+              <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
+                <img
+                  src="/img/Services/product designgif.gif"
+                  className="w-full h-full object-cover"
+                  alt="Design simulation"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
               </div>
             </div>
           </div>
@@ -678,276 +576,56 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
       case 'content':
         return (
-          <div className="bg-white border border-gray-200/80 rounded-xl p-3 h-full flex flex-col justify-between overflow-hidden shadow-sm">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2 font-mono text-[8px] text-muted-foreground">
-              <span>Text Editor View</span>
-              <span>SEO Score: {stage >= 4 ? "92%" : "70%"}</span>
-            </div>
-            <div className="flex-1 flex flex-col justify-between">
-              <div className="bg-gray-50 border border-gray-200/60 rounded p-2.5 flex-1 overflow-hidden font-mono text-[8px] leading-relaxed">
-                <AnimatePresence mode="wait">
-                  {stage === 0 && (
-                    <motion.div key="c0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <h6 className="font-bold text-[9px] text-gray-500 mb-1">CLIENT BRIEF OUTLINE</h6>
-                      <p>● Target: Tech Startups</p>
-                      <p>● Tone: Professional, authoritative</p>
-                    </motion.div>
-                  )}
-                  {stage === 1 && (
-                    <motion.div key="c1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <h6 className="font-bold text-[9px] text-gray-500 mb-1">KEYWORD AUDIT RESEARCH</h6>
-                      <p className="text-green-600">✔ SEO Optimization (High intent)</p>
-                      <p className="text-green-600">✔ Lead Generation Funnels</p>
-                    </motion.div>
-                  )}
-                  {stage === 2 && (
-                    <motion.div key="c2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <h6 className="font-bold text-[9px] text-gray-500 mb-1">ARTICLE OUTLINE HIERARCHY</h6>
-                      <p>H1: The Ultimate Guide to Marketing</p>
-                      <p className="pl-3">H2: 1. Setup Analytics Tracking</p>
-                    </motion.div>
-                  )}
-                  {stage === 3 && (
-                    <motion.div key="c3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <h6 className="font-bold text-[9px] text-gray-500 mb-1">ARTICLE DRAFT WRITING</h6>
-                      <p className="text-gray-700 font-sans">Digital marketing continues to evolve rapidly. Businesses that adapt early gain a competitive advantage in organic search visibility...</p>
-                    </motion.div>
-                  )}
-                  {stage === 4 && (
-                    <motion.div key="c4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <h6 className="font-bold text-[9px] text-gray-500 mb-1">SEO BINDINGS APPLIED</h6>
-                      <p className="text-green-700 bg-green-50 px-1 rounded inline-block">✔ Keyword density checklist verified</p>
-                      <p className="text-green-700 bg-green-50 px-1 rounded inline-block mt-1">✔ Meta tags injected</p>
-                    </motion.div>
-                  )}
-                  {stage === 5 && (
-                    <motion.div key="c5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <h6 className="font-bold text-[9px] text-[#2E9E6B] mb-1">PUBLICATION CONFIRMED</h6>
-                      <p className="text-white bg-[#2E9E6B] px-2 py-0.5 rounded text-center">Live on WordPress CMS</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-              <div className="flex gap-2.5 mt-2.5 justify-around text-[7px] text-muted-foreground font-bold border-t border-gray-100 pt-2">
-                <span>Words: 1,245</span>
-                <span>Originality: 100%</span>
-                <span>Plagiarism Free: Yes</span>
-              </div>
+          <div className="w-full h-full">
+            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
+              <img
+                src="/img/portfolio pics/Content-Writing-12.gif"
+                className="w-full h-full object-cover"
+                alt="Content simulation"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
             </div>
           </div>
         );
 
       case 'marketing':
         return (
-          <div className="bg-white border border-gray-200/80 rounded-xl p-3 h-full flex flex-col justify-between overflow-hidden shadow-sm">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2 font-mono text-[8px] text-muted-foreground">
-              <span>Campaign dashboard</span>
-              <span>ROAS Target: 5.8x</span>
-            </div>
-            <div className="flex-1 flex flex-col justify-between">
-              <div className="row g-2 text-center">
-                <div className="col-6 bg-[#F8FAFC] border border-gray-150 rounded p-1.5">
-                  <span className="text-[7px] text-muted-foreground uppercase block">Clicks</span>
-                  <span className="text-xs font-bold text-[#FF8A3D]">{stage >= 3 ? "45.7K" : "20.1K"}</span>
-                </div>
-                <div className="col-6 bg-[#F8FAFC] border border-gray-150 rounded p-1.5">
-                  <span className="text-[7px] text-muted-foreground uppercase block">Conversions</span>
-                  <span className="text-xs font-bold text-[#2E9E6B]">{stage >= 4 ? "3.2K" : "1.1K"}</span>
-                </div>
-              </div>
-              <div className="flex-1 flex flex-col justify-center p-2">
-                <AnimatePresence mode="wait">
-                  {stage === 0 && (
-                    <motion.div key="m0" className="text-center text-[8px] text-gray-500" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="font-bold">01 Auditing competitor spend data</p>
-                    </motion.div>
-                  )}
-                  {stage === 1 && (
-                    <motion.div key="m1" className="text-center text-[8px] text-gray-500" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="font-bold">02 Mapping marketing strategy channels</p>
-                    </motion.div>
-                  )}
-                  {stage === 2 && (
-                    <motion.div key="m2" className="text-center text-[8px] text-gray-500" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="font-bold">03 Setting up pixel trackers &amp; Ads Manager</p>
-                    </motion.div>
-                  )}
-                  {stage === 3 && (
-                    <motion.div key="m3" className="text-center text-[8px] text-gray-500" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <span className="bg-[#FF8A3D] text-white px-2 py-0.5 rounded font-extrabold animate-pulse">
-                        Campaigns Executing Live
-                      </span>
-                    </motion.div>
-                  )}
-                  {stage === 4 && (
-                    <motion.div key="m4" className="text-center w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <span className="text-[8px] text-green-600 font-extrabold block">Conversions growth chart drawing</span>
-                      <svg className="w-full h-8 mt-1" viewBox="0 0 100 20">
-                        <motion.path
-                          d="M0,20 Q20,15 40,12 T80,5 T100,2"
-                          fill="none"
-                          stroke="#2E9E6B"
-                          strokeWidth="2"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{ duration: 1.5 }}
-                        />
-                      </svg>
-                    </motion.div>
-                  )}
-                  {stage === 5 && (
-                    <motion.div key="m5" className="text-center text-[8px] text-green-700 bg-green-50 border border-green-300 p-1.5 rounded" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="font-bold">06 Funnel optimization: ROAS scaled to 5.8x</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+          <div className="w-full h-full">
+            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
+              <img
+                src="/img/Services/digitalmarketgif4.gif"
+                className="w-full h-full object-cover"
+                alt="Marketing simulation"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
             </div>
           </div>
         );
 
       case 'video':
         return (
-          <div className="bg-white border border-gray-200/80 rounded-xl p-3 h-full flex flex-col justify-between overflow-hidden shadow-sm">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2 font-mono text-[8px] text-muted-foreground">
-              <span>Video player frame &amp; track timelines</span>
-              <span>Views: {stage >= 5 ? "2.4M" : "40K"}</span>
-            </div>
-            <div className="flex-1 flex flex-col justify-between">
-              {/* Media viewer mockup */}
-              <div className="bg-black/90 rounded-lg h-[95px] flex items-center justify-center relative overflow-hidden text-center text-white">
-                <AnimatePresence mode="wait">
-                  {stage === 0 && (
-                    <motion.div key="v0" className="text-[8px] p-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-white/50">// Storyboard Concept</p>
-                      <div className="w-10 h-6 border border-dashed border-white/20 mx-auto mt-1 flex items-center justify-center">Sketch</div>
-                    </motion.div>
-                  )}
-                  {stage === 1 && (
-                    <motion.div key="v1" className="text-[8px] p-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-white/50">// Script voiceover</p>
-                      <p className="text-[7px] italic font-serif">&quot;Step into the future of sports gear...&quot;</p>
-                    </motion.div>
-                  )}
-                  {stage === 2 && (
-                    <motion.div key="v2" className="text-[8px] p-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-white/50">// Cataloging raw footage assets</p>
-                      <div className="flex gap-1 justify-center mt-1">
-                        <span className="w-6 h-4 bg-white/10 rounded"></span>
-                        <span className="w-6 h-4 bg-white/10 rounded"></span>
-                      </div>
-                    </motion.div>
-                  )}
-                  {stage === 3 && (
-                    <motion.div key="v3" className="text-[8px] p-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-white/50">// Aligning splits on track layers</p>
-                      <p className="text-red-400 font-bold">Cutting clips &amp; synchronizing audio</p>
-                    </motion.div>
-                  )}
-                  {stage === 4 && (
-                    <motion.div key="v4" className="text-[8px] p-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <p className="text-yellow-400 font-bold animate-pulse">✔ Render motion titles overlay</p>
-                    </motion.div>
-                  )}
-                  {stage === 5 && (
-                    <motion.div key="v5" className="text-[8px] p-2 text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      <span className="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mx-auto mb-1 animate-ping">
-                        <i className="fas fa-play text-white text-[8px]"></i>
-                      </span>
-                      <p className="text-[7px]">Advertisement Video Playing</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Editing timeline tracks mockup */}
-              <div className="bg-[#121824] rounded p-2 mt-2 space-y-1 text-[7px] font-mono text-white/50">
-                <div className="flex items-center gap-2">
-                  <span className="text-[6px] uppercase tracking-wider block w-8">Video:</span>
-                  <div className={`h-2.5 rounded flex-1 flex gap-1 ${stage >= 3 ? 'bg-red-900/60' : 'bg-gray-800'}`}>
-                    <span className="bg-red-500/80 w-1/3 rounded"></span>
-                    <span className="bg-red-500/80 w-1/4 rounded"></span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[6px] uppercase tracking-wider block w-8">Audio:</span>
-                  <div className={`h-2.5 rounded flex-1 flex gap-1 ${stage >= 3 ? 'bg-blue-900/60' : 'bg-gray-800'}`}>
-                    <span className="bg-blue-500/80 w-1/2 rounded"></span>
-                  </div>
-                </div>
-              </div>
+          <div className="w-full h-full">
+            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
+              <img
+                src="/img/Services/videogif.gif"
+                className="w-full h-full object-cover"
+                alt="Video simulation"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
             </div>
           </div>
         );
 
       case 'consultation':
         return (
-          <div className="bg-white border border-gray-200/80 rounded-xl p-3 h-full flex flex-col justify-between overflow-hidden shadow-sm">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2 font-mono text-[8px] text-muted-foreground">
-              <span>Business Analysis Audits</span>
-              <span>Growth Roadmap</span>
-            </div>
-            <div className="flex-1 flex flex-col justify-between">
-              {/* Progress parameter bars */}
-              <div className="space-y-2 p-1">
-                {[
-                  { label: "Market Position", value: stage >= 2 ? 85 : 40, col: "#1E7FD4" },
-                  { label: "Growth Potential", value: stage >= 4 ? 92 : 30, col: "#A855F7" },
-                  { label: "Operations Audit", value: stage >= 1 ? 78 : 20, col: "#2E9E6B" }
-                ].map((bar) => (
-                  <div key={bar.label}>
-                    <div className="flex justify-between text-[7px] font-bold text-muted-foreground mb-0.5">
-                      <span>{bar.label}</span>
-                      <span>{bar.value}%</span>
-                    </div>
-                    <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: bar.col }}
-                        initial={{ width: 0 }}
-                        animate={{ width: `${bar.value}%` }}
-                        transition={{ duration: 1 }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Consultation outputs */}
-              <div className="bg-[#F8FAFC] border border-gray-150 rounded p-2 text-center text-[8px] text-gray-500 mt-2">
-                <AnimatePresence mode="wait">
-                  {stage === 0 && (
-                    <motion.p key="cn0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      📞 01 Discovery Call Transcription Logging...
-                    </motion.p>
-                  )}
-                  {stage === 1 && (
-                    <motion.p key="cn1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      📝 02 Auditor checking operations metrics
-                    </motion.p>
-                  )}
-                  {stage === 2 && (
-                    <motion.p key="cn2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      📊 03 Business gap analysis parameters populated
-                    </motion.p>
-                  )}
-                  {stage === 3 && (
-                    <motion.p key="cn3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      💡 04 Strategic growth recommendations formatted
-                    </motion.p>
-                  )}
-                  {stage === 4 && (
-                    <motion.p key="cn4" className="text-[#1E7FD4] font-bold" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      🚀 05 Expansion roadmap milestone mapped
-                    </motion.p>
-                  )}
-                  {stage === 5 && (
-                    <motion.p key="cn5" className="text-[#2E9E6B] font-bold" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                      ✔ 06 Launch monitoring support closed
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-              </div>
+          <div className="w-full h-full">
+            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
+              <img
+                src="/img/Services/services1.gif"
+                className="w-full h-full object-cover"
+                alt="Consultation simulation"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
             </div>
           </div>
         );
@@ -1088,69 +766,63 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   }}
                 />
 
-                <div className="row g-5 align-items-center">
-                  
-                  {/* Left: Interactive Workflow Stages */}
-                  <div className="col-lg-6">
-                    <h4 className="h4 fw-extrabold text-[#0B1F3A] mb-2">
-                      Interactive Process Flow
-                    </h4>
-                    <p className="text-muted text-xs mb-6">
-                      Click any stage below to inspect details or watch the simulation run automatically.
-                    </p>
-
-                    {/* Timeline steps */}
-                    <div className="space-y-4 relative">
-                      {/* Vertical line connection */}
-                      <div className="absolute left-[17px] top-4 bottom-4 w-0.5 bg-gray-100 z-0"></div>
-
-                      {data.workflow.map((step, idx) => {
-                        const isActive = idx === showcaseStage;
-                        const accentColor = 
-                          data.heroVisualType === 'web' ? '#1E7FD4' :
-                          data.heroVisualType === 'design' ? '#A855F7' :
-                          data.heroVisualType === 'content' ? '#2E9E6B' :
-                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
-                          data.heroVisualType === 'video' ? '#ef4444' :
-                          '#08A9E6';
-
-                        return (
-                          <div 
-                            key={step.title} 
-                            className="flex items-start gap-4 relative z-10 cursor-pointer"
-                            onClick={() => setShowcaseStage(idx)}
-                          >
-                            <motion.div
-                              className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs border bg-white shrink-0 shadow-sm transition-all"
-                              style={{
-                                borderColor: isActive ? accentColor : '#E5E7EB',
-                                color: isActive ? '#FFFFFF' : '#9CA3AF',
-                                backgroundColor: isActive ? accentColor : '#FFFFFF'
-                              }}
-                              animate={isActive ? { scale: 1.1 } : { scale: 1 }}
-                            >
-                              {step.number}
-                            </motion.div>
-                            <div>
-                              <h5 
-                                className="text-sm font-bold mb-0.5 transition-colors"
-                                style={{ color: isActive ? accentColor : '#0B1F3A' }}
-                              >
-                                {step.title}
-                              </h5>
-                              <p className="text-muted text-xs mb-0">
-                                {step.desc}
-                              </p>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                {/* Card Header matching third image cards */}
+                <div className="flex justify-between items-center mb-6">
+                  <div>
+                    <span className="bg-[#1E7FD4]/10 text-[#1E7FD4] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      {data.id || "01"}
+                    </span>
+                    <h3 className="h5 fw-extrabold text-[#0B1F3A] mt-2 mb-1">{data.title}</h3>
+                    <p className="text-muted text-xs mb-0">{data.tagline}</p>
                   </div>
+                </div>
 
-                  {/* Right: Mockup Preview Frame & Metrics */}
-                  <div className="col-lg-6">
-                    <div className="border border-gray-200/80 rounded-2xl p-4 bg-[#F7FAFD] shadow-inner h-[300px]">
+                {/* Horizontal flow timeline matching third image cards */}
+                <div className="relative py-4 mb-6 border-y border-gray-100/60">
+                  <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 z-0"></div>
+                  <div className="row relative z-10 g-0 justify-between">
+                    {data.workflow.map((step, idx) => {
+                      const isActive = idx === showcaseStage;
+                      const accentColor = 
+                        data.heroVisualType === 'web' ? '#1E7FD4' :
+                        data.heroVisualType === 'design' ? '#A855F7' :
+                        data.heroVisualType === 'content' ? '#2E9E6B' :
+                        data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                        data.heroVisualType === 'video' ? '#ef4444' :
+                        '#08A9E6';
+                      return (
+                        <div 
+                          key={step.title} 
+                          className="col flex flex-col items-center cursor-pointer"
+                          onClick={() => setShowcaseStage(idx)}
+                        >
+                          <motion.div
+                            className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[10px] border bg-white shadow-sm transition-all"
+                            style={{
+                              borderColor: isActive ? accentColor : '#E5E7EB',
+                              color: isActive ? '#FFFFFF' : '#9CA3AF',
+                              backgroundColor: isActive ? accentColor : '#FFFFFF'
+                            }}
+                            animate={isActive ? { scale: 1.15 } : { scale: 1 }}
+                          >
+                            {step.number}
+                          </motion.div>
+                          <span 
+                            className="text-[9px] font-bold mt-1.5 text-center transition-colors block truncate max-w-[75px]"
+                            style={{ color: isActive ? accentColor : '#0B1F3A' }}
+                          >
+                            {step.title}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Symmetrical mockup dashboard blocks matching third image layout */}
+                <div className="row g-4 align-items-stretch">
+                  <div className="col-lg-9 col-md-8">
+                    <div className="border border-gray-200/85 rounded-2xl p-4 bg-[#F7FAFD] shadow-inner h-full flex flex-col justify-between">
                       
                       <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-3">
                         <div className="flex items-center gap-1.5">
@@ -1166,14 +838,115 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                         </span>
                       </div>
 
-                      {/* Display custom HTML dashboard specific to service and active stage */}
-                      <div className="h-[210px] overflow-hidden">
+                      {/* Display custom HTML layout playing actual animated videos/GIFs */}
+                      <div className="h-[200px] overflow-hidden">
                         {renderShowcaseVisual(data.heroVisualType, showcaseStage)}
                       </div>
 
                     </div>
                   </div>
 
+                  {/* Right side: Circular gauge dials panel */}
+                  <div className="col-lg-3 col-md-4 flex flex-col justify-between">
+                    <div className="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm h-full flex flex-col justify-around text-center">
+                      {data.heroVisualType === 'web' && (
+                        <>
+                          {[
+                            { label: "Performance", value: "98%", col: "#1E7FD4" },
+                            { label: "SEO Score", value: "95/100", col: "#08A9E6" },
+                            { label: "Security", value: "100%", col: "#2E9E6B" }
+                          ].map((Stat) => (
+                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
+                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                      {data.heroVisualType === 'design' && (
+                        <>
+                          {[
+                            { label: "UX Score", value: "9.6/10", col: "#A855F7" },
+                            { label: "Design Quality", value: "95%", col: "#08A9E6" }
+                          ].map((Stat) => (
+                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
+                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                      {data.heroVisualType === 'content' && (
+                        <>
+                          {[
+                            { label: "SEO Score", value: "92%", col: "#2E9E6B" },
+                            { label: "Readability", value: "Clear", col: "#FF8A3D" }
+                          ].map((Stat) => (
+                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
+                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                      {data.heroVisualType === 'marketing' && (
+                        <>
+                          {[
+                            { label: "ROI Target", value: "4.6x ROAS", col: "#FF8A3D" },
+                            { label: "Conversions", value: "Excellent", col: "#2E9E6B" }
+                          ].map((Stat) => (
+                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
+                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                      {data.heroVisualType === 'video' && (
+                        <>
+                          {[
+                            { label: "Output Quality", value: "8.7/10", col: "#ef4444" },
+                            { label: "Retention Rate", value: "92%", col: "#A855F7" }
+                          ].map((Stat) => (
+                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
+                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                      {data.heroVisualType === 'consultation' && (
+                        <>
+                          {[
+                            { label: "Success Rate", value: "98%", col: "#08A9E6" },
+                            { label: "Action Roadmap", value: "Verified", col: "#2E9E6B" }
+                          ].map((Stat) => (
+                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
+                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom row: Technology stack badges */}
+                <div className="border-t border-gray-100 pt-4 mt-6">
+                  <span className="text-[9px] text-muted-foreground uppercase tracking-wider block mb-3 font-bold">
+                    Technologies Stack
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {data.tools.map((tech) => (
+                      <span 
+                        key={tech} 
+                        className="bg-[#F7FAFD] border border-gray-200/60 text-[10px] text-[#0B1F3A] px-3 py-1.5 rounded-lg font-bold"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
               </div>
