@@ -2761,7 +2761,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
                       <div className="flex flex-col">
                         <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-3 bg-gray-100 shadow-sm">
-                          <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+                          <img src={project.img} alt={project.title} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103" />
                           <div className="absolute top-3 left-3 bg-[#0B1F3A]/80 backdrop-blur-sm text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider transition-colors duration-300 group-hover:bg-[#1E7FD4] group-hover:text-white">
                             {project.category}
                           </div>
