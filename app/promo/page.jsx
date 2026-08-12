@@ -169,6 +169,61 @@ function ShowcaseCard({ card }) {
   }, [card.workflow.length]);
 
   const renderCardMockup = (type, stage) => {
+    let mediaSrc = "";
+    let isVideo = false;
+
+    if (type === 'web') {
+      if (stage === 0) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 1) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else if (stage === 2) mediaSrc = "/img/Services/product designgif.gif";
+      else if (stage === 3) {
+        mediaSrc = "/img/web-development-video.mp4";
+        isVideo = true;
+      }
+      else if (stage === 4) mediaSrc = "/img/wedeveloping gif.gif";
+      else mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+    }
+    else if (type === 'design') {
+      if (stage === 0) mediaSrc = "/img/Services/services2.gif";
+      else if (stage === 1) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else if (stage === 2) mediaSrc = "/img/wedeveloping gif.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/product designgif.gif";
+      else if (stage === 4) mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+      else mediaSrc = "/img/Services/webdevelopimg gif2.gif";
+    }
+    else if (type === 'content') {
+      if (stage === 0) mediaSrc = "/img/Services/servics.gif";
+      else if (stage === 1) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 2) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else if (stage === 3) mediaSrc = "/img/portfolio pics/Content-Writing-12.gif";
+      else if (stage === 4) mediaSrc = "/img/Services/digitalmarketgif1.gif";
+      else mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+    }
+    else if (type === 'marketing') {
+      if (stage === 0) mediaSrc = "/img/Services/services2.gif";
+      else if (stage === 1) mediaSrc = "/img/Services/servics.gif";
+      else if (stage === 2) mediaSrc = "/img/Services/digitalmarketgif1.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/digitalmarketgif2.gif";
+      else if (stage === 4) mediaSrc = "/img/Services/digitalmarketgif3.gif";
+      else mediaSrc = "/img/Services/digitalmarketgif4.gif";
+    }
+    else if (type === 'video') {
+      if (stage === 0) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 1) mediaSrc = "/img/portfolio pics/Content-Writing-12.gif";
+      else if (stage === 2) mediaSrc = "/img/portfolio pics/download.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/videogif.gif";
+      else if (stage === 4) mediaSrc = "/img/wedeveloping gif.gif";
+      else mediaSrc = "/img/Services/videogif.gif";
+    }
+    else {
+      if (stage === 0) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 1) mediaSrc = "/img/Services/services2.gif";
+      else if (stage === 2) mediaSrc = "/img/Services/servics.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/product designgif.gif";
+      else if (stage === 4) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+    }
+
     switch (type) {
       case 'web':
         return (
@@ -176,7 +231,7 @@ function ShowcaseCard({ card }) {
             <div className="col-5 h-full">
               <div className="bg-[#081225] border border-white/5 rounded-xl p-2.5 h-[175px] font-mono text-[7px] text-blue-400 overflow-hidden leading-relaxed">
                 <div className="flex items-center gap-1 border-b border-white/5 pb-1 mb-1">
-                  <span className="text-[7px] text-white/40">index.tsx</span>
+                  <span className="text-[7px] text-white/45">index.tsx</span>
                 </div>
                 <p className="text-white/40">// Step: {card.workflow[stage]?.title}</p>
                 <p className="text-yellow-300">import &#123; createWidget &#125; from &apos;core&apos;;</p>
@@ -188,14 +243,22 @@ function ShowcaseCard({ card }) {
             </div>
             <div className="col-7 h-full">
               <div className="relative h-[175px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
-                <video
-                  src={card.videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+                {isVideo ? (
+                  <video
+                    src={mediaSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={mediaSrc}
+                    className="w-full h-full object-cover"
+                    alt="Showcase visual"
+                  />
+                )}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
               </div>
             </div>
@@ -219,7 +282,7 @@ function ShowcaseCard({ card }) {
             <div className="col-8 h-full">
               <div className="relative h-[175px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
                 <img
-                  src={card.videoSrc}
+                  src={mediaSrc}
                   className="w-full h-full object-cover"
                   alt="Design visual"
                 />
@@ -234,7 +297,7 @@ function ShowcaseCard({ card }) {
           <div className="w-full h-full">
             <div className="relative h-[175px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
               <img
-                src={card.videoSrc}
+                src={mediaSrc}
                 className="w-full h-full object-cover"
                 alt="Showcase visual"
               />

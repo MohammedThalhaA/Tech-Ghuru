@@ -461,11 +461,66 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
   };
 
   const renderShowcaseVisual = (type: string, stage: number) => {
+    // Stage-specific media mapping
+    let mediaSrc = "";
+    let isVideo = false;
+
+    if (type === 'web') {
+      if (stage === 0) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 1) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else if (stage === 2) mediaSrc = "/img/Services/product designgif.gif";
+      else if (stage === 3) {
+        mediaSrc = "/img/web-development-video.mp4";
+        isVideo = true;
+      }
+      else if (stage === 4) mediaSrc = "/img/wedeveloping gif.gif";
+      else mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+    }
+    else if (type === 'design') {
+      if (stage === 0) mediaSrc = "/img/Services/services2.gif";
+      else if (stage === 1) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else if (stage === 2) mediaSrc = "/img/wedeveloping gif.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/product designgif.gif";
+      else if (stage === 4) mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+      else mediaSrc = "/img/Services/webdevelopimg gif2.gif";
+    }
+    else if (type === 'content') {
+      if (stage === 0) mediaSrc = "/img/Services/servics.gif";
+      else if (stage === 1) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 2) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else if (stage === 3) mediaSrc = "/img/portfolio pics/Content-Writing-12.gif";
+      else if (stage === 4) mediaSrc = "/img/Services/digitalmarketgif1.gif";
+      else mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+    }
+    else if (type === 'marketing') {
+      if (stage === 0) mediaSrc = "/img/Services/services2.gif";
+      else if (stage === 1) mediaSrc = "/img/Services/servics.gif";
+      else if (stage === 2) mediaSrc = "/img/Services/digitalmarketgif1.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/digitalmarketgif2.gif";
+      else if (stage === 4) mediaSrc = "/img/Services/digitalmarketgif3.gif";
+      else mediaSrc = "/img/Services/digitalmarketgif4.gif";
+    }
+    else if (type === 'video') {
+      if (stage === 0) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 1) mediaSrc = "/img/portfolio pics/Content-Writing-12.gif";
+      else if (stage === 2) mediaSrc = "/img/portfolio pics/download.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/videogif.gif";
+      else if (stage === 4) mediaSrc = "/img/wedeveloping gif.gif";
+      else mediaSrc = "/img/Services/videogif.gif";
+    }
+    else {
+      if (stage === 0) mediaSrc = "/img/Services/services1.gif";
+      else if (stage === 1) mediaSrc = "/img/Services/services2.gif";
+      else if (stage === 2) mediaSrc = "/img/Services/servics.gif";
+      else if (stage === 3) mediaSrc = "/img/Services/product designgif.gif";
+      else if (stage === 4) mediaSrc = "/img/portfolio pics/Plane Loop.gif";
+      else mediaSrc = "/img/portfolio pics/Responsive  Website Animation (1).gif";
+    }
+
     switch (type) {
       case 'web':
         return (
           <div className="row g-3 h-full">
-            {/* Left side: Code panel */}
             <div className="col-5 h-full flex flex-col">
               <div className="bg-[#081225] border border-white/5 rounded-xl p-3 flex-1 font-mono text-[9px] text-blue-400 overflow-hidden leading-relaxed">
                 <div className="flex items-center gap-1.5 border-b border-white/5 pb-2 mb-2">
@@ -533,14 +588,22 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             {/* Right side: Video player */}
             <div className="col-7 h-full flex flex-col">
               <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
-                <video
-                  src="/img/web-development-video.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+                {isVideo ? (
+                  <video
+                    src={mediaSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={mediaSrc}
+                    className="w-full h-full object-cover"
+                    alt="Showcase simulation"
+                  />
+                )}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
               </div>
             </div>
@@ -564,7 +627,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="col-8 h-full">
               <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
                 <img
-                  src="/img/Services/product designgif.gif"
+                  src={mediaSrc}
                   className="w-full h-full object-cover"
                   alt="Design simulation"
                 />
@@ -574,56 +637,14 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
         );
 
-      case 'content':
+      default:
         return (
           <div className="w-full h-full">
             <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
               <img
-                src="/img/portfolio pics/Content-Writing-12.gif"
+                src={mediaSrc}
                 className="w-full h-full object-cover"
-                alt="Content simulation"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
-            </div>
-          </div>
-        );
-
-      case 'marketing':
-        return (
-          <div className="w-full h-full">
-            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
-              <img
-                src="/img/Services/digitalmarketgif4.gif"
-                className="w-full h-full object-cover"
-                alt="Marketing simulation"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
-            </div>
-          </div>
-        );
-
-      case 'video':
-        return (
-          <div className="w-full h-full">
-            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
-              <img
-                src="/img/Services/videogif.gif"
-                className="w-full h-full object-cover"
-                alt="Video simulation"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
-            </div>
-          </div>
-        );
-
-      case 'consultation':
-        return (
-          <div className="w-full h-full">
-            <div className="relative h-[190px] rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-md">
-              <img
-                src="/img/Services/services1.gif"
-                className="w-full h-full object-cover"
-                alt="Consultation simulation"
+                alt="Showcase simulation"
               />
               <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-10 opacity-[0.12]" />
             </div>
