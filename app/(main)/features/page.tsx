@@ -171,59 +171,59 @@ export default function Page() {
 <i className="fa fa-laptop text-white"></i>
 </div>
 <h4 className="mb-3">IT Solutions &amp; IT Infrastructure</h4>
-<p className="m-0">Providing comprehensive IT solutions and robust IT infrastructure services for seamless operations.</p>
-<a className="btn btn-lg btn-primary rounded" href="Itsolutions.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-<div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-calendar-alt text-white"></i>
-</div>
-<h4 className="mb-3">Corporate Events Management</h4>
-<p className="m-0">Efficiently coordinate corporate events with our experienced management team.</p>
-<a className="btn btn-lg btn-primary rounded" href="corporate.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-<div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-archive text-white"></i>
-</div>
-<h4 className="mb-3">Corporate Supplies</h4>
-<p className="m-0">Elevate your workplace efficiency with our comprehensive corporate supply services.</p>
-<a className="btn btn-lg btn-primary rounded" href="supplies.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-<div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-briefcase text-white"></i>
-</div>
-<h4 className="mb-3">Logistics And Operations Management</h4>
-<p className="m-0">Optimize your business processes with our expert logistics and operations solutions.</p>
-<a className="btn btn-lg btn-primary rounded" href="logistics.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
-</div>
-<div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-<div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-<div className="service-icon">
-<i className="fa fa-users text-white"></i>
-</div>
-<h4 className="mb-3">Manpower Solutions</h4>
-<p className="m-0">Unlock the potential of your business with our strategic manpower services.</p>
-<a className="btn btn-lg btn-primary rounded" href="solution.html">
-<i className="bi bi-arrow-right"></i>
-</a>
-</div>
+                    <p className="m-0">Providing comprehensive IT solutions and robust IT infrastructure services for seamless operations.</p>
+                    <a className="btn btn-lg btn-primary rounded" href="/services">
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                  <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div className="service-icon">
+                      <i className="fa fa-calendar-alt text-white"></i>
+                    </div>
+                    <h4 className="mb-3">Corporate Events Management</h4>
+                    <p className="m-0">Efficiently coordinate corporate events with our experienced management team.</p>
+                    <a className="btn btn-lg btn-primary rounded" href="/services">
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
+                  <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div className="service-icon">
+                      <i className="fa fa-archive text-white"></i>
+                    </div>
+                    <h4 className="mb-3">Corporate Supplies</h4>
+                    <p className="m-0">Elevate your workplace efficiency with our comprehensive corporate supply services.</p>
+                    <a className="btn btn-lg btn-primary rounded" href="/services">
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+                  <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div className="service-icon">
+                      <i className="fa fa-briefcase text-white"></i>
+                    </div>
+                    <h4 className="mb-3">Logistics And Operations Management</h4>
+                    <p className="m-0">Optimize your business processes with our expert logistics and operations solutions.</p>
+                    <a className="btn btn-lg btn-primary rounded" href="/services">
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                  <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div className="service-icon">
+                      <i className="fa fa-users text-white"></i>
+                    </div>
+                    <h4 className="mb-3">Manpower Solutions</h4>
+                    <p className="m-0">Unlock the potential of your business with our strategic manpower services.</p>
+                    <a className="btn btn-lg btn-primary rounded" href="/services">
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
 </div>
 <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
 <div className="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
