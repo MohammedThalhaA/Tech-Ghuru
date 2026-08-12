@@ -1807,13 +1807,52 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             background: transparent !important;
           }
         ` }} />
-        {/* Subtle high-tech grid background overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+        {/* Subtle high-tech grid background overlay with slow breathing pulse */}
+        <motion.div 
+          className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0"
+          animate={{ opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-        {/* Mockup-faithful glowing mesh gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-gradient-to-tr from-[#1E7FD4]/10 to-[#08A9E6]/5 rounded-full blur-[100px] pointer-events-none z-0" />
-        <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-bl from-[#08A9E6]/10 to-[#2E9E6B]/5 rounded-full blur-[110px] pointer-events-none z-0" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#1E7FD4]/6 rounded-full blur-[120px] pointer-events-none z-0" />
+        {/* Mockup-faithful glowing mesh gradient orbs with slow floating drift */}
+        <motion.div 
+          className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-gradient-to-tr from-[#1E7FD4]/12 to-[#08A9E6]/5 rounded-full blur-[100px] pointer-events-none z-0" 
+          animate={{
+            x: [0, 45, -25, 0],
+            y: [0, -35, 35, 0],
+            scale: [1, 1.12, 0.93, 1]
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-bl from-[#08A9E6]/12 to-[#2E9E6B]/5 rounded-full blur-[110px] pointer-events-none z-0" 
+          animate={{
+            x: [0, -50, 35, 0],
+            y: [0, 45, -35, 0],
+            scale: [1, 0.92, 1.08, 1]
+          }}
+          transition={{
+            duration: 19,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#1E7FD4]/8 rounded-full blur-[120px] pointer-events-none z-0" 
+          animate={{
+            scale: [1, 1.15, 0.88, 1],
+            rotate: [0, 180, 360]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
 
         {/* Mockup-faithful Rocket Dotted Trail SVG at the top-left */}
         <svg className="absolute top-6 left-8 w-[220px] h-[100px] opacity-25 pointer-events-none z-10" viewBox="0 0 200 100" fill="none">
