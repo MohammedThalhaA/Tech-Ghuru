@@ -115,6 +115,15 @@ const FeatureCard: React.FC<{
   direction: 'left' | 'top' | 'right' | 'bottom';
 }> = ({ feature, index, accentCol, direction }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCoords({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
 
   return (
     <div className="col-lg-4 col-md-6">
@@ -130,6 +139,7 @@ const FeatureCard: React.FC<{
           className="group relative h-full rounded-2xl p-6 flex flex-col justify-between cursor-pointer select-none overflow-hidden"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          onMouseMove={handleMouseMove}
           animate={{
             y: isHovered ? -12 : 0,
             scale: isHovered ? 1.035 : 1,
@@ -140,7 +150,7 @@ const FeatureCard: React.FC<{
           }}
           style={{
             background: isHovered
-              ? `linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, ${accentCol}0e 100%)`
+              ? `radial-gradient(280px circle at ${coords.x}px ${coords.y}px, ${accentCol}22, transparent 75%), linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, ${accentCol}0a 100%)`
               : 'linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.35) 100%)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
