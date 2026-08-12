@@ -1517,12 +1517,24 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         </div>
       </section>
 
-      {/* 4. FEATURES & BENEFITS */}
-      <section ref={featuresRef} className="py-20 bg-white overflow-hidden">
-        <div className="container px-4">
+      {/* 4. FEATURES & BENEFITS — WEBSITE THEME COLOR (#1E7FD4) & INTERACTIVE ANIMATIONS */}
+      <section ref={featuresRef} className="py-24 bg-white overflow-hidden relative">
+        {/* Soft background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#1E7FD4]/3 via-transparent to-[#1E7FD4]/1 rounded-full blur-[120px] pointer-events-none -z-0" />
+        
+        <div className="container px-4 relative z-10">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Features &amp; Benefits</h5>
-            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <motion.h5
+              className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+              style={{ color: '#1E7FD4' }}
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Features &amp; Benefits
+            </motion.h5>
+            <h2 className="display-6 fw-extrabold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
               Engineered for Maximum Impact
             </h2>
             <p className="text-muted mt-2">Every feature of our work is meticulously structured to optimize user retention, security compliance and visual depth.</p>
@@ -1535,16 +1547,61 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             animate={isFeaturesInView ? "visible" : "hidden"}
           >
             {data.features.map((feature, i) => (
-              <motion.div key={i} className="col-lg-4 col-md-6" variants={fadeUp}>
-                <div className="service-feature-card group h-full bg-[#F7F5F0]/60 hover:bg-white border border-[#1E7FD4]/10 hover:border-[#2E9E6B]/30 rounded-2xl p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1.5 flex flex-col justify-between">
+              <motion.div
+                key={i}
+                className="col-lg-4 col-md-6"
+                variants={fadeUp}
+              >
+                <motion.div
+                  className="group h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none transition-all duration-300"
+                  style={{
+                    background: 'rgba(247, 245, 240, 0.55)',
+                    border: '1.5px solid rgba(30, 127, 212, 0.15)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                  }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.025,
+                    background: 'rgba(255, 255, 255, 1)',
+                    borderColor: 'rgba(30, 127, 212, 0.5)',
+                    boxShadow: '0 20px 40px -15px rgba(30, 127, 212, 0.22), 0 4px 12px rgba(0,0,0,0.04)'
+                  }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                >
                   <div>
-                    <div className="w-12 h-12 bg-[#1E7FD4]/10 rounded-xl flex items-center justify-center text-[#1E7FD4] text-xl mb-4 group-hover:scale-110 transition-transform">
+                    {/* Glowing Icon Wrapper */}
+                    <motion.div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-4 transition-all duration-300"
+                      style={{
+                        backgroundColor: 'rgba(30, 127, 212, 0.1)',
+                        color: '#1E7FD4'
+                      }}
+                      whileHover={{
+                        scale: 1.12,
+                        rotate: 8,
+                        backgroundColor: '#1E7FD4',
+                        color: '#FFFFFF',
+                        boxShadow: '0 8px 20px -4px rgba(30, 127, 212, 0.6)'
+                      }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
                       <i className={`fas ${feature.icon}`}></i>
-                    </div>
-                    <h4 className="text-base fw-bold text-[#0B1F3A] mb-2">{feature.title}</h4>
+                    </motion.div>
+
+                    {/* Card Title */}
+                    <h4
+                      className="text-base fw-extrabold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[var(--hover-title-color)]"
+                      style={{
+                        '--hover-title-color': '#1E7FD4'
+                      } as React.CSSProperties}
+                    >
+                      {feature.title}
+                    </h4>
+
+                    {/* Card Description */}
                     <p className="text-muted text-xs leading-relaxed mb-0">{feature.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
