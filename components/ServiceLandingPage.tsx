@@ -253,6 +253,13 @@ const FeatureCard: React.FC<{
   );
 };
 
+const hexToRgba = (hex: string, alpha: number) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
 export default function ServiceLandingPage({ data }: { data: ServiceData }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [showcaseStage, setShowcaseStage] = useState(0);
@@ -1816,11 +1823,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
         {/* Mockup-faithful glowing mesh gradient orbs with slow floating drift */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-gradient-to-tr from-[#1E7FD4]/12 to-[#08A9E6]/5 rounded-full blur-[100px] pointer-events-none z-0" 
+          className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] rounded-full pointer-events-none z-0" 
+          style={{
+            background: `radial-gradient(circle, ${hexToRgba(accentCol, 0.28)} 0%, ${hexToRgba(accentCol, 0.08)} 60%, transparent 100%)`,
+            filter: 'blur(90px)'
+          }}
           animate={{
-            x: [0, 45, -25, 0],
-            y: [0, -35, 35, 0],
-            scale: [1, 1.12, 0.93, 1]
+            x: [0, 50, -30, 0],
+            y: [0, -40, 40, 0],
+            scale: [1, 1.15, 0.9, 1]
           }}
           transition={{
             duration: 16,
@@ -1829,11 +1840,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           }}
         />
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] bg-gradient-to-bl from-[#08A9E6]/12 to-[#2E9E6B]/5 rounded-full blur-[110px] pointer-events-none z-0" 
+          className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] rounded-full pointer-events-none z-0" 
+          style={{
+            background: `radial-gradient(circle, rgba(8, 169, 230, 0.25) 0%, rgba(46, 158, 107, 0.08) 60%, transparent 100%)`,
+            filter: 'blur(90px)'
+          }}
           animate={{
-            x: [0, -50, 35, 0],
-            y: [0, 45, -35, 0],
-            scale: [1, 0.92, 1.08, 1]
+            x: [0, -60, 40, 0],
+            y: [0, 50, -40, 0],
+            scale: [1, 0.9, 1.1, 1]
           }}
           transition={{
             duration: 19,
@@ -1842,9 +1857,13 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#1E7FD4]/8 rounded-full blur-[120px] pointer-events-none z-0" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[250px] rounded-full pointer-events-none z-0" 
+          style={{
+            background: `radial-gradient(ellipse, ${hexToRgba(accentCol, 0.20)} 0%, transparent 70%)`,
+            filter: 'blur(80px)'
+          }}
           animate={{
-            scale: [1, 1.15, 0.88, 1],
+            scale: [1, 1.2, 0.85, 1],
             rotate: [0, 180, 360]
           }}
           transition={{
