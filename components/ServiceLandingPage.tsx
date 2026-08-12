@@ -1268,7 +1268,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       <div className="d-flex gap-1">
                         {data.workflow.map((_, i) => (
                           <motion.div
-                className="rounded-full cursor-pointer"
+                            key={i}
+                            className="rounded-full cursor-pointer"
                             style={{
                               width: i === showcaseStage ? 16 : 5,
                               height: 5,
