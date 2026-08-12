@@ -1000,6 +1000,18 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-[#1E7FD4]/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-[#2E9E6B]/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="container px-4 relative z-10">
+          {/* Glow Pulse CSS injection */}
+          <style>{`
+            @keyframes textGlowPulseShowcase {
+              0%   { text-shadow: 0 0 0px rgba(30, 127, 212, 0);    color: #0B1F3A; }
+              50%  { text-shadow: 0 0 20px rgba(30, 127, 212, 0.45); color: #1E7FD4; }
+              100% { text-shadow: 0 0 0px rgba(30, 127, 212, 0);    color: #0B1F3A; }
+            }
+            .glow-pulse-showcase {
+              animation: textGlowPulseShowcase 4s infinite ease-in-out;
+            }
+          `}</style>
+
           {/* Section Header */}
           <motion.div
             className="text-center max-w-[700px] mx-auto mb-16"
@@ -1008,13 +1020,44 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#1E7FD4]/20 text-[#1E7FD4] text-[11px] font-extrabold uppercase tracking-widest px-4 py-2 rounded-full mb-4 shadow-sm">
+            <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#1E7FD4]/20 text-[#1E7FD4] text-[11px] font-extrabold uppercase tracking-widest px-4 py-2 rounded-full mb-3 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#1E7FD4] animate-pulse"></span>
               Live Workflow Showcase
             </span>
-            <h2 className="display-6 fw-extrabold text-[#0B1F3A] mb-3" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <h2 className="display-6 fw-extrabold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
               Animated Service Delivery Simulation
             </h2>
+            
+            {/* Animated Underline with glowing dot */}
+            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+              <motion.div 
+                className="position-absolute top-0 start-50 translate-middle-x" 
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              <motion.div 
+                className="position-absolute top-0 bg-white" 
+                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                animate={{ 
+                  left: ['0%', '94%', '0%'],
+                  opacity: [1, 0.4, 1],
+                  boxShadow: [
+                    "0 0 4px #fff, 0 0 10px #1E7FD4",
+                    "0 0 1px #fff, 0 0 2px #1E7FD4",
+                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                  ]
+                }}
+                transition={{
+                  left: { duration: 4, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </div>
+
             <p className="text-muted leading-relaxed">
               Watch how we transform your requirements into a premium digital product — step by step, in real time.
             </p>
