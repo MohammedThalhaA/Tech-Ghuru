@@ -915,7 +915,33 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 variants={staggerContainer}
               >
                 {data.overview.paragraphs.map((p, i) => (
-                  <motion.p key={i} variants={fadeUp} className="mb-3">{p}</motion.p>
+                  <motion.p
+                    key={i}
+                    variants={fadeUp}
+                    className="mb-3 rounded-xl px-3 py-2 cursor-pointer"
+                    style={{
+                      borderLeft: `3px solid transparent`,
+                      transition: 'border-color 0.2s'
+                    }}
+                    whileHover={{
+                      color: accentCol,
+                      background: accentCol + '0a',
+                      borderColor: accentCol + '60',
+                      x: 6,
+                      scale: 1.01,
+                      boxShadow: `inset 0 0 0 1px ${accentCol}15, 0 4px 16px ${accentCol}10`
+                    }}
+                    whileTap={{
+                      color: accentCol,
+                      background: accentCol + '14',
+                      borderColor: accentCol,
+                      scale: 0.99,
+                      boxShadow: `inset 0 0 0 1px ${accentCol}30, 0 2px 12px ${accentCol}20`
+                    }}
+                    transition={{ duration: 0.18, ease: 'easeOut' }}
+                  >
+                    {p}
+                  </motion.p>
                 ))}
               </motion.div>
 
