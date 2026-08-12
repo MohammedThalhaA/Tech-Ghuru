@@ -776,7 +776,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             {/* ── LEFT: Premium Metric Card ── */}
             <div className="col-lg-5">
               <motion.div
-                className="group relative rounded-[28px] p-10 text-center overflow-hidden cursor-default select-none"
+                className="group relative rounded-[28px] text-center overflow-hidden cursor-default select-none"
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 animate={isOverviewInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, ease: "easeOut" }}
@@ -784,7 +784,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 style={{
                   background: `linear-gradient(135deg, ${accentCol}0a 0%, ${accentCol}16 50%, ${accentCol}06 100%)`,
                   border: `1.5px solid ${accentCol}25`,
-                  boxShadow: `0 8px 32px ${accentCol}12`
+                  boxShadow: `0 8px 32px ${accentCol}12`,
+                  padding: '3rem 2rem'
                 }}
               >
                 {/* Hover glow ring — animates to full opacity on hover */}
@@ -852,21 +853,42 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 ))}
 
                 {/* Metric value with glow on hover */}
-                <motion.div
-                  className="relative z-10 mb-3"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <span
-                    className="display-3 fw-extrabold block leading-none"
-                    style={{
-                      color: accentCol,
-                      textShadow: `0 0 30px ${accentCol}40, 0 0 60px ${accentCol}20`
-                    }}
-                  >
-                    {data.overview.metric.value}
-                  </span>
-                </motion.div>
+                {(() => {
+                  const parts = data.overview.metric.value.split(' ');
+                  const num = parts[0];
+                  const label = parts.slice(1).join(' ');
+                  return (
+                    <motion.div
+                      className="relative z-10 mb-3"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span
+                        className="fw-black block leading-none"
+                        style={{
+                          color: accentCol,
+                          textShadow: `0 0 30px ${accentCol}40, 0 0 60px ${accentCol}20`,
+                          fontSize: '4.5rem',
+                          letterSpacing: '-2px'
+                        }}
+                      >
+                        {num}
+                      </span>
+                      {label && (
+                        <span
+                          className="block mt-2 font-bold uppercase tracking-wider"
+                          style={{
+                            color: accentCol,
+                            fontSize: '1.75rem',
+                            lineHeight: '1.2'
+                          }}
+                        >
+                          {label}
+                        </span>
+                      )}
+                    </motion.div>
+                  );
+                })()}
 
                 {/* Label */}
                 <p className="relative z-10 text-xs uppercase tracking-widest font-extrabold mb-5"
