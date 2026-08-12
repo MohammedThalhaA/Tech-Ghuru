@@ -1007,8 +1007,16 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               50%  { text-shadow: 0 0 20px rgba(30, 127, 212, 0.45); color: #1E7FD4; }
               100% { text-shadow: 0 0 0px rgba(30, 127, 212, 0);    color: #0B1F3A; }
             }
+            @keyframes textGlowPulseShowcaseWhite {
+              0%   { text-shadow: 0 0 0px rgba(255, 255, 255, 0);    color: #FFFFFF; }
+              50%  { text-shadow: 0 0 20px rgba(255, 255, 255, 0.45); color: #08A9E6; }
+              100% { text-shadow: 0 0 0px rgba(255, 255, 255, 0);    color: #FFFFFF; }
+            }
             .glow-pulse-showcase {
               animation: textGlowPulseShowcase 4s infinite ease-in-out;
+            }
+            .glow-pulse-showcase-white {
+              animation: textGlowPulseShowcaseWhite 4s infinite ease-in-out;
             }
           `}</style>
 
@@ -1577,9 +1585,40 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             >
               Features &amp; Benefits
             </motion.h5>
-            <h2 className="display-6 fw-extrabold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <h2 className="display-6 fw-extrabold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
               Engineered for Maximum Impact
             </h2>
+
+            {/* Animated Underline with glowing dot */}
+            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+              <motion.div 
+                className="position-absolute top-0 start-50 translate-middle-x" 
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              <motion.div 
+                className="position-absolute top-0 bg-white" 
+                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                animate={{ 
+                  left: ['0%', '94%', '0%'],
+                  opacity: [1, 0.4, 1],
+                  boxShadow: [
+                    "0 0 4px #fff, 0 0 10px #1E7FD4",
+                    "0 0 1px #fff, 0 0 2px #1E7FD4",
+                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                  ]
+                }}
+                transition={{
+                  left: { duration: 4, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </div>
+
             <p className="text-muted mt-2">Every feature of our work is meticulously structured to optimize user retention, security compliance and visual depth.</p>
           </div>
 
@@ -1656,10 +1695,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_120%_-20%,rgba(30,127,212,0.14),rgba(255,255,255,0))]"></div>
         <div className="container px-4 relative z-10">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <h5 className="fw-bold text-[#08A9E6] uppercase tracking-wider text-sm mb-2">Our Execution Roadmap</h5>
-            <h2 className="display-6 fw-bold text-white" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <motion.h5 
+              className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+              style={{ color: '#08A9E6' }}
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Our Execution Roadmap
+            </motion.h5>
+            <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase-white" style={{ fontFamily: 'var(--font-rubik)' }}>
               Proven Process Timeline
             </h2>
+
+            {/* Animated Underline with glowing dot (white) */}
+            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+              <motion.div 
+                className="position-absolute top-0 start-50 translate-middle-x" 
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#08A9E6' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              <motion.div 
+                className="position-absolute top-0 bg-white" 
+                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                animate={{ 
+                  left: ['0%', '94%', '0%'],
+                  opacity: [1, 0.4, 1],
+                  boxShadow: [
+                    "0 0 4px #fff, 0 0 10px #08A9E6",
+                    "0 0 1px #fff, 0 0 2px #08A9E6",
+                    "0 0 4px #fff, 0 0 10px #08A9E6"
+                  ]
+                }}
+                transition={{
+                  left: { duration: 4, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </div>
+
             <p className="text-white/60 mt-2">A structured journey from first requirements audit to post-launch optimization support.</p>
           </div>
 
@@ -1726,10 +1805,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       <section ref={toolsRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Technology &amp; Stack</h5>
-            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <motion.h5 
+              className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+              style={{ color: '#1E7FD4' }}
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Technology &amp; Stack
+            </motion.h5>
+            <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
               Industry Standard Toolkits
             </h2>
+
+            {/* Animated Underline with glowing dot */}
+            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+              <motion.div 
+                className="position-absolute top-0 start-50 translate-middle-x" 
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              <motion.div 
+                className="position-absolute top-0 bg-white" 
+                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                animate={{ 
+                  left: ['0%', '94%', '0%'],
+                  opacity: [1, 0.4, 1],
+                  boxShadow: [
+                    "0 0 4px #fff, 0 0 10px #1E7FD4",
+                    "0 0 1px #fff, 0 0 2px #1E7FD4",
+                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                  ]
+                }}
+                transition={{
+                  left: { duration: 4, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </div>
+
             <p className="text-muted mt-2">We build and compile applications strictly adhering to reliable modern framework standards.</p>
           </div>
 
@@ -1757,10 +1876,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       <section ref={whyChooseRef} className="py-20 bg-[#F7F5F0] overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Our Advantage</h5>
-            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <motion.h5 
+              className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+              style={{ color: '#1E7FD4' }}
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Our Advantage
+            </motion.h5>
+            <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
               Why AtrioWings?
             </h2>
+
+            {/* Animated Underline with glowing dot */}
+            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+              <motion.div 
+                className="position-absolute top-0 start-50 translate-middle-x" 
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              <motion.div 
+                className="position-absolute top-0 bg-white" 
+                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                animate={{ 
+                  left: ['0%', '94%', '0%'],
+                  opacity: [1, 0.4, 1],
+                  boxShadow: [
+                    "0 0 4px #fff, 0 0 10px #1E7FD4",
+                    "0 0 1px #fff, 0 0 2px #1E7FD4",
+                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                  ]
+                }}
+                transition={{
+                  left: { duration: 4, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </div>
+
             <p className="text-muted mt-2">What sets Atriowings apart is our dedication to execution metrics, custom development, and reliable client communication pipelines.</p>
           </div>
 
@@ -1786,10 +1945,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       <section ref={outcomesRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Outcomes</h5>
-            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+            <motion.h5 
+              className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+              style={{ color: '#1E7FD4' }}
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Outcomes
+            </motion.h5>
+            <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
               Designed For Results
             </h2>
+
+            {/* Animated Underline with glowing dot */}
+            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+              <motion.div 
+                className="position-absolute top-0 start-50 translate-middle-x" 
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+              <motion.div 
+                className="position-absolute top-0 bg-white" 
+                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                animate={{ 
+                  left: ['0%', '94%', '0%'],
+                  opacity: [1, 0.4, 1],
+                  boxShadow: [
+                    "0 0 4px #fff, 0 0 10px #1E7FD4",
+                    "0 0 1px #fff, 0 0 2px #1E7FD4",
+                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                  ]
+                }}
+                transition={{
+                  left: { duration: 4, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                }}
+              />
+            </div>
+
             <p className="text-muted mt-2">We construct architectures intended to scale organic search positions, loading speeds and business queries.</p>
           </div>
 
@@ -1822,10 +2021,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <section ref={portfolioRef} className="py-20 bg-[#F7F5F0] overflow-hidden">
           <div className="container px-4">
             <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-              <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Our Portfolio</h5>
-              <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              <motion.h5 
+                className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+                style={{ color: '#1E7FD4' }}
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                Our Portfolio
+              </motion.h5>
+              <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
                 Recent Collaborations
               </h2>
+
+              {/* Animated Underline with glowing dot */}
+              <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+                <motion.div 
+                  className="position-absolute top-0 start-50 translate-middle-x" 
+                  style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+                <motion.div 
+                  className="position-absolute top-0 bg-white" 
+                  style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                  animate={{ 
+                    left: ['0%', '94%', '0%'],
+                    opacity: [1, 0.4, 1],
+                    boxShadow: [
+                      "0 0 4px #fff, 0 0 10px #1E7FD4",
+                      "0 0 1px #fff, 0 0 2px #1E7FD4",
+                      "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    ]
+                  }}
+                  transition={{
+                    left: { duration: 4, repeat: Infinity, ease: "linear" },
+                    opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                    boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                  }}
+                />
+              </div>
+
               <p className="text-muted mt-2">Explore live examples of digital platforms, travel portals and corporate layouts successfully launched by our engineering team.</p>
             </div>
 
@@ -1869,10 +2108,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <section className="py-20 bg-white overflow-hidden">
           <div className="container px-4">
             <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-              <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">FAQ</h5>
-              <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+              <motion.h5 
+                className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
+                style={{ color: '#1E7FD4' }}
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                FAQ
+              </motion.h5>
+              <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
                 Frequently Asked Questions
               </h2>
+
+              {/* Animated Underline with glowing dot */}
+              <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
+                <motion.div 
+                  className="position-absolute top-0 start-50 translate-middle-x" 
+                  style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+                <motion.div 
+                  className="position-absolute top-0 bg-white" 
+                  style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+                  animate={{ 
+                    left: ['0%', '94%', '0%'],
+                    opacity: [1, 0.4, 1],
+                    boxShadow: [
+                      "0 0 4px #fff, 0 0 10px #1E7FD4",
+                      "0 0 1px #fff, 0 0 2px #1E7FD4",
+                      "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    ]
+                  }}
+                  transition={{
+                    left: { duration: 4, repeat: Infinity, ease: "linear" },
+                    opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                    boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+                  }}
+                />
+              </div>
+
               <p className="text-muted mt-2">Get answers to standard questions regarding our execution milestones, post-launch updates and integrations.</p>
             </div>
 
@@ -1914,8 +2193,50 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       <section className="py-20 bg-gradient-to-r from-[#0B1F3A] to-[#1E7FD4] text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_120%,rgba(8,169,230,0.18),rgba(255,255,255,0))]"></div>
         <div className="container relative z-10 px-4 text-center">
-          <span className="text-xs font-bold text-[#08A9E6] uppercase tracking-widest block mb-3">Get Started Today</span>
-          <h2 className="display-5 fw-extrabold mb-4" style={{ fontFamily: 'var(--font-rubik)' }}>Ready to Scale Your Platform?</h2>
+          <motion.span 
+            className="text-xs font-bold uppercase tracking-widest block mb-3"
+            style={{ color: '#08A9E6' }}
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Get Started Today
+          </motion.span>
+          <h2 className="display-5 fw-extrabold mb-0 glow-pulse-showcase-white" style={{ fontFamily: 'var(--font-rubik)' }}>
+            Ready to Scale Your Platform?
+          </h2>
+
+          {/* Animated Underline with glowing dot (white CTA version) */}
+          <div className="position-relative mx-auto mt-4 mb-5" style={{ width: '150px', height: '6px' }}>
+            <motion.div 
+              className="position-absolute top-0 start-50 translate-middle-x" 
+              style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#08A9E6' }}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+            <motion.div 
+              className="position-absolute top-0 bg-white" 
+              style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
+              animate={{ 
+                left: ['0%', '94%', '0%'],
+                opacity: [1, 0.4, 1],
+                boxShadow: [
+                  "0 0 4px #fff, 0 0 10px #08A9E6",
+                  "0 0 1px #fff, 0 0 2px #08A9E6",
+                  "0 0 4px #fff, 0 0 10px #08A9E6"
+                ]
+              }}
+              transition={{
+                left: { duration: 4, repeat: Infinity, ease: "linear" },
+                opacity: { duration: 4, repeat: Infinity, ease: "linear" },
+                boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
+              }}
+            />
+          </div>
+
           <p className="text-white/70 max-w-[500px] mx-auto text-sm leading-relaxed mb-8">Contact our strategy team to receive an operational audit, custom wireframes, and project timeline quotes.</p>
           <div className="flex flex-wrap gap-3.5 justify-center">
             <Link
