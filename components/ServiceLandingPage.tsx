@@ -721,52 +721,226 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         </div>
       </section>
 
-      {/* 2. OVERVIEW SECTION */}
-      <section ref={overviewRef} className="py-20 bg-white overflow-hidden">
-        <div className="container px-4">
+      {/* 2. OVERVIEW SECTION — HOVER + GLOW UPGRADED */}
+      <section ref={overviewRef} className="py-24 bg-white overflow-hidden relative">
+        {/* Soft ambient background blobs */}
+        <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#1E7FD4]/4 rounded-full blur-[100px] pointer-events-none -z-0" />
+        <div className="absolute bottom-0 right-0 w-[280px] h-[280px] bg-[#2E9E6B]/4 rounded-full blur-[80px] pointer-events-none -z-0" />
+
+        <div className="container px-4 relative z-10">
           <div className="row g-5 align-items-center">
+
+            {/* ── LEFT: Premium Metric Card ── */}
             <div className="col-lg-5">
               <motion.div
-                className="bg-gradient-to-tr from-[#1E7FD4]/10 to-[#08A9E6]/10 border border-[#1E7FD4]/15 rounded-3xl p-8 text-center relative overflow-hidden"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={isOverviewInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.6 }}
+                className="group relative rounded-[28px] p-10 text-center overflow-hidden cursor-default select-none"
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={isOverviewInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                whileHover={{ scale: 1.025, y: -4 }}
+                style={{
+                  background: `linear-gradient(135deg, ${accentCol}0a 0%, ${accentCol}16 50%, ${accentCol}06 100%)`,
+                  border: `1.5px solid ${accentCol}25`,
+                  boxShadow: `0 8px 32px ${accentCol}12`
+                }}
               >
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#08A9E6]/10 rounded-full blur-2xl"></div>
-                <div className="display-4 fw-extrabold text-[#1E7FD4] mb-3">{data.overview.metric.value}</div>
-                <p className="text-muted text-xs uppercase tracking-wider font-bold mb-0">{data.overview.metric.label}</p>
+                {/* Hover glow ring — animates to full opacity on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-[28px] pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  style={{
+                    boxShadow: `0 0 0 2px ${accentCol}40, 0 0 40px ${accentCol}20, 0 0 80px ${accentCol}10`
+                  }}
+                />
+
+                {/* Animated pulsing ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-[28px] pointer-events-none"
+                  animate={{
+                    boxShadow: [
+                      `0 0 0 0px ${accentCol}22`,
+                      `0 0 0 12px ${accentCol}00`
+                    ]
+                  }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
+                />
+
+                {/* Background glow orb — expands on hover */}
+                <motion.div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none"
+                  animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.22, 0.12] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    width: 200,
+                    height: 200,
+                    backgroundColor: accentCol,
+                    filter: 'blur(60px)'
+                  }}
+                />
+
+                {/* Floating sparkle dots */}
+                {[
+                  { top: '12%', left: '10%', delay: 0 },
+                  { top: '20%', right: '8%', delay: 0.6 },
+                  { bottom: '18%', left: '14%', delay: 1.2 },
+                  { bottom: '12%', right: '12%', delay: 1.8 }
+                ].map((pos, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute rounded-full pointer-events-none"
+                    style={{
+                      width: 6, height: 6,
+                      backgroundColor: accentCol,
+                      opacity: 0.4,
+                      ...pos
+                    }}
+                    animate={{
+                      scale: [1, 1.6, 1],
+                      opacity: [0.25, 0.6, 0.25]
+                    }}
+                    transition={{
+                      duration: 2.8,
+                      repeat: Infinity,
+                      delay: pos.delay,
+                      ease: "easeInOut"
+                    }}
+                  />
+                ))}
+
+                {/* Metric value with glow on hover */}
+                <motion.div
+                  className="relative z-10 mb-3"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span
+                    className="display-3 fw-extrabold block leading-none"
+                    style={{
+                      color: accentCol,
+                      textShadow: `0 0 30px ${accentCol}40, 0 0 60px ${accentCol}20`
+                    }}
+                  >
+                    {data.overview.metric.value}
+                  </span>
+                </motion.div>
+
+                {/* Label */}
+                <p className="relative z-10 text-xs uppercase tracking-widest font-extrabold mb-5"
+                  style={{ color: `${accentCol}90` }}
+                >
+                  {data.overview.metric.label}
+                </p>
+
+                {/* Verified badge */}
+                <motion.div
+                  className="relative z-10 inline-flex items-center gap-2 rounded-full px-4 py-2 text-white text-[10px] font-extrabold uppercase tracking-widest"
+                  style={{ backgroundColor: accentCol }}
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.06 }}
+                >
+                  <i className="fas fa-check-circle text-white/80"></i>
+                  AtrioWings Verified Result
+                </motion.div>
+
+                {/* Bottom shimmer bar */}
+                <div className="relative z-10 mt-5 h-1 rounded-full overflow-hidden" style={{ background: `${accentCol}18` }}>
+                  <motion.div
+                    className="h-full rounded-full"
+                    style={{ background: `linear-gradient(90deg, transparent, ${accentCol}, transparent)` }}
+                    animate={{ x: ['-100%', '200%'] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.8 }}
+                  />
+                </div>
               </motion.div>
             </div>
 
+            {/* ── RIGHT: Text content with animated highlights ── */}
             <div className="col-lg-7">
               <motion.span
-                className="text-xs font-bold text-[#2E9E6B] uppercase tracking-widest mb-2.5 block"
+                className="text-xs font-extrabold uppercase tracking-widest mb-3 block flex items-center gap-2"
+                style={{ color: '#2E9E6B' }}
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={fadeUp}
               >
+                <motion.span
+                  className="inline-block w-5 h-0.5 rounded-full"
+                  style={{ backgroundColor: '#2E9E6B' }}
+                  initial={{ scaleX: 0 }}
+                  animate={isOverviewInView ? { scaleX: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                />
                 Overview
               </motion.span>
+
               <motion.h2
-                className="display-6 fw-bold text-[#0B1F3A] mb-5"
-                style={{ fontFamily: 'var(--font-rubik)' }}
+                className="fw-extrabold text-[#0B1F3A] mb-5"
+                style={{
+                  fontFamily: 'var(--font-rubik)',
+                  fontSize: 'clamp(1.6rem, 3vw, 2.5rem)',
+                  lineHeight: 1.2
+                }}
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={fadeUp}
               >
                 {data.overview.title}
               </motion.h2>
+
               <motion.div
-                className="space-y-4 text-muted text-sm leading-relaxed"
+                className="space-y-4 text-muted text-sm leading-relaxed mb-8"
                 initial="hidden"
                 animate={isOverviewInView ? "visible" : "hidden"}
                 variants={staggerContainer}
               >
                 {data.overview.paragraphs.map((p, i) => (
-                  <motion.p key={i} variants={fadeUp}>{p}</motion.p>
+                  <motion.p key={i} variants={fadeUp} className="mb-0">{p}</motion.p>
+                ))}
+              </motion.div>
+
+              {/* Glowing stat chips row */}
+              <motion.div
+                className="d-flex flex-wrap gap-3"
+                initial="hidden"
+                animate={isOverviewInView ? "visible" : "hidden"}
+                variants={staggerContainer}
+              >
+                {[
+                  { icon: 'fa-bolt', label: 'Fast Delivery', col: accentCol },
+                  { icon: 'fa-shield-alt', label: 'Quality Assured', col: '#2E9E6B' },
+                  { icon: 'fa-chart-line', label: 'ROI Driven', col: '#FF8A3D' }
+                ].map((chip) => (
+                  <motion.div
+                    key={chip.label}
+                    variants={fadeUp}
+                    className="d-inline-flex align-items-center gap-2 rounded-pill px-4 py-2 text-xs font-bold cursor-default"
+                    style={{
+                      background: chip.col + '0f',
+                      border: `1.5px solid ${chip.col}25`,
+                      color: '#374151',
+                      boxShadow: `0 2px 8px ${chip.col}10`
+                    }}
+                    whileHover={{
+                      scale: 1.06,
+                      boxShadow: `0 4px 20px ${chip.col}30`,
+                      borderColor: chip.col + '60'
+                    }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span
+                      className="w-6 h-6 rounded-full flex items-center justify-center text-white text-[10px]"
+                      style={{ backgroundColor: chip.col }}
+                    >
+                      <i className={`fas ${chip.icon}`}></i>
+                    </span>
+                    {chip.label}
+                  </motion.div>
                 ))}
               </motion.div>
             </div>
+
           </div>
         </div>
       </section>
