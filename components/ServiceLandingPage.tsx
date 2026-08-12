@@ -125,7 +125,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* Browser video player mockup */}
             <motion.div
-              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(8,169,230,0.3)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -155,14 +155,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Play progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                  <motion.div 
-                    className="h-full bg-[#08A9E6]"
-                    animate={{ width: ['0%', '100%'] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
               </div>
             </motion.div>
 
@@ -205,7 +199,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* Browser GIF player mockup */}
             <motion.div
-              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(255,138,61,0.25)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -231,14 +225,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Play progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                  <motion.div 
-                    className="h-full bg-[#FF8A3D]"
-                    animate={{ width: ['0%', '100%'] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
               </div>
             </motion.div>
 
@@ -277,7 +265,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* Browser Design Player mockup */}
             <motion.div
-              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(168,85,247,0.25)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -303,14 +291,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Play progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                  <motion.div 
-                    className="h-full bg-[#A855F7]"
-                    animate={{ width: ['0%', '100%'] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
               </div>
             </motion.div>
 
@@ -347,7 +329,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* Browser Content Player mockup */}
             <motion.div
-              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(8,169,230,0.25)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -373,14 +355,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Play progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                  <motion.div 
-                    className="h-full bg-[#08A9E6]"
-                    animate={{ width: ['0%', '100%'] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
               </div>
             </motion.div>
 
@@ -420,7 +396,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* Browser Video Player mockup */}
             <motion.div
-              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(239,68,68,0.25)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -446,14 +422,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Play progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                  <motion.div 
-                    className="h-full bg-[#ef4444]"
-                    animate={{ width: ['0%', '100%'] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
               </div>
             </motion.div>
 
@@ -481,7 +451,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
             {/* Browser Consultation Player mockup */}
             <motion.div
-              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55)] overflow-hidden z-10"
+              className="absolute w-[85%] bg-[#0B1F3A]/95 border border-white/10 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.55),0_0_50px_rgba(46,158,107,0.25)] overflow-hidden z-10"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -507,14 +477,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Play progress bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                  <motion.div 
-                    className="h-full bg-[#2E9E6B]"
-                    animate={{ width: ['0%', '100%'] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                  />
-                </div>
+                {/* Futuristic scanline overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[size:100%_4px] pointer-events-none z-20 opacity-25" />
               </div>
             </motion.div>
 
