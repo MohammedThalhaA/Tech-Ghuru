@@ -53,7 +53,11 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     portfolio: [
       { title: "Universal Engineering Portal", desc: "Premium engineering website showcasing machinery portfolios and corporate assets.", category: "Corporate", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" },
-      { title: "Travel Hassle Free", desc: "Modern dynamic travel agency portal featuring holiday packages and custom queries.", category: "E-Commerce", img: "/img/portfolio pics/travelhasslefree.com_.png", link: "https://travelhasslefree.com/" }
+      { title: "Travel Hassle Free", desc: "Modern dynamic travel agency portal featuring holiday packages and custom queries.", category: "E-Commerce", img: "/img/portfolio pics/travelhasslefree.com_.png", link: "https://travelhasslefree.com/" },
+      { title: "Scissors Properties", desc: "Responsive corporate website showing real estate portfolios and property listings.", category: "Corporate", img: "/img/portfolio pics/React App (2).png", link: "http://scissorsproperties.com/" },
+      { title: "Yakobu Website", desc: "Sleek responsive business website demonstrating custom architectural services.", category: "Corporate", img: "/img/portfolio pics/yakobu.png", link: "https://yakobu.in/" },
+      { title: "Dhara Foundations", desc: "Dynamic charity community portal showcasing community welfare programs.", category: "Social Impact", img: "/img/portfolio pics/dharafoundations.com_.png", link: "https://dharafoundations.com/" },
+      { title: "Ghurudev Academy", desc: "Advanced learning portal and educational asset database for students.", category: "Education", img: "/img/portfolio pics/ghrudev.png", link: "https://ghurudev.in/" }
     ]
   },
   "digital-marketing": {
@@ -108,7 +112,11 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     portfolio: [
       { title: "Sri Gnana Sai Baba Mandir", desc: "Expanded web reach, local SEO profiles, and social media trust vectors.", category: "Social Campaign", img: "/img/portfolio pics/srignanasaibabamandir.com_.png", link: "https://srignanasaibabamandir.com/" },
-      { title: "Digital Ghuru Academy", desc: "Optimized paid ads campaign and lead capture flows to scale student admissions.", category: "Lead Gen", img: "/img/portfolio pics/digitalghru.png", link: "https://digitalghuru.in/" }
+      { title: "Digital Ghuru Academy", desc: "Optimized paid ads campaign and lead capture flows to scale student admissions.", category: "Lead Gen", img: "/img/portfolio pics/digitalghru.png", link: "https://digitalghuru.in/" },
+      { title: "Miniso Retail Ads", desc: "Targeted digital marketing campaign driving foot traffic and e-commerce conversions.", category: "Marketing", img: "/img/portfolio pics/mini so.png", link: "#" },
+      { title: "Blessence Marketing Campaign", desc: "Social media marketing, targeted organic growth, and product launch funnel.", category: "Marketing", img: "/img/portfolio pics/blessence.png", link: "#" },
+      { title: "Newsghuru Tamil SEO", desc: "Search engine optimization audit yielding massive organic search volume gains.", category: "Media Growth", img: "/img/portfolio pics/newsghuru.in_.png", link: "https://newsghuru.in/" },
+      { title: "Newsghuru English SEO", desc: "Comprehensive on-page and off-page SEO strategy targeting international readers.", category: "Media Growth", img: "/img/portfolio pics/www.newsghuru.com_.png", link: "https://www.newsghuru.com/" }
     ]
   },
   "product-design": {
@@ -162,7 +170,10 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "How do you ensure the design fits our brand?", a: "We build a mood board and visual style guide at the planning stage. We align on primary typography, button roundness, and brand themes before designing layout mockups." }
     ],
     portfolio: [
-      { title: "Sivaji Sons Corporate Portal", desc: "Designed premium agricultural enterprise platform layout reflecting trust and legacy.", category: "UI/UX", img: "/img/portfolio pics/Sivaji sons.jpeg", link: "http://www.sivajison.com/" }
+      { title: "Sivaji Sons Corporate Portal", desc: "Designed premium agricultural enterprise platform layout reflecting trust and legacy.", category: "UI/UX", img: "/img/portfolio pics/Sivaji sons.jpeg", link: "http://www.sivajison.com/" },
+      { title: "Universal Engineering Prototypes", desc: "Designed intuitive wireframes and responsive layouts for complex engineering directories.", category: "UI/UX", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" },
+      { title: "Prs Dental Care Layouts", desc: "Clean visual brand system, custom illustrations, and responsive booking pages.", category: "UI/UX", img: "/img/portfolio pics/Prs dentel.jpeg", link: "https://prsdentalcare.com/" },
+      { title: "GJS Hospital Portal", desc: "User-friendly patient intake layout designed for quick access on mobile devices.", category: "UI/UX", img: "/img/portfolio pics/G.j Chid.jpeg", link: "https://gjshospitals.com/" }
     ]
   },
   "video-ads": {
@@ -216,7 +227,9 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "How many edits/revisions do we get?", a: "We include 2 rounds of structural changes at the rough-cut stage, and 1 final round of minor revisions (such as typography corrections or swap clips) to ensure satisfaction." }
     ],
     portfolio: [
-      { title: "Blessence Brand Spot", desc: "Elegant lifestyle branding video detailing natural ingredient formulation.", category: "Promo Spot", img: "/img/portfolio pics/blessence.png", link: "#" }
+      { title: "Blessence Brand Spot", desc: "Elegant lifestyle branding video detailing natural ingredient formulation.", category: "Promo Spot", img: "/img/portfolio pics/blessence.png", link: "#" },
+      { title: "Miniso Promo Reels", desc: "Dynamic video advertisements highlighting store layouts and custom products.", category: "Social Reel", img: "/img/portfolio pics/mini so.png", link: "#" },
+      { title: "Sivaji Sons Corporate Video", desc: "Corporate storytelling video explaining legacy and operational reach.", category: "Corporate Film", img: "/img/portfolio pics/Sivaji sons.jpeg", link: "http://www.sivajison.com/" }
     ]
   },
   "content-writing": {
@@ -271,7 +284,9 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     portfolio: [
       { title: "News Ghuru Articles", desc: "Written SEO-optimized tech trends and lifestyle articles with structured layouts.", category: "SEO Writing", img: "/img/portfolio pics/newsghuru.in_.png", link: "https://newsghuru.in/" },
-      { title: "Universal Engineering Case Study", desc: "Detailed technical showcase document detailing custom industrial builds.", category: "Technical Copy", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" }
+      { title: "Universal Engineering Case Study", desc: "Detailed technical showcase document detailing custom industrial builds.", category: "Technical Copy", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" },
+      { title: "Digital Ghuru Academy Copy", desc: "Engaging promotional copy, headlines, and landing page materials.", category: "Copywriting", img: "/img/portfolio pics/digitalghru.png", link: "https://digitalghuru.in/" },
+      { title: "Health Ghuru Blog Posts", desc: "Authentic, high-value health and wellness blog posts optimized for target keywords.", category: "SEO Writing", img: "/img/portfolio pics/yoga.png", link: "https://healthghuru.com/" }
     ]
   },
   "consultation": {
@@ -326,7 +341,9 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     portfolio: [
       { title: "Universal Engineering Systems Audit", desc: "Audited cloud deployment patterns, securing data pipelines and cutting server bills.", category: "System Audit", img: "/img/portfolio pics/Universal Engineering.jpeg", link: "https://universalengineering.org.in/" },
-      { title: "Dhara Foundations Strategy Roadmap", desc: "Designed workflow roadmap and technical structure for scaling community operations.", category: "Consulting", img: "/img/portfolio pics/dharafoundations.com_.png", link: "https://dharafoundations.com/" }
+      { title: "Dhara Foundations Strategy Roadmap", desc: "Designed workflow roadmap and technical structure for scaling community operations.", category: "Consulting", img: "/img/portfolio pics/dharafoundations.com_.png", link: "https://dharafoundations.com/" },
+      { title: "Scissors Properties Tech Stack Consulting", desc: "Recommended framework upgrades, database structures, and server hosting setups.", category: "Consulting", img: "/img/portfolio pics/React App (2).png", link: "http://scissorsproperties.com/" },
+      { title: "Sri Gnana Sai Baba Mandir Roadmap", desc: "Formulated strategy for expanding online fundraising and social donation pathways.", category: "Consulting", img: "/img/portfolio pics/srignanasaibabamandir.com_.png", link: "https://srignanasaibabamandir.com/" }
     ]
   }
 };
