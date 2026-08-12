@@ -500,7 +500,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
   };
 
   return (
-    <div className="bg-[#F7F5F0] overflow-x-hidden">
+    <div className="bg-[#F7F5F0] w-full overflow-x-hidden relative">
       
       {/* 1. HERO BANNER */}
       <section className="relative bg-gradient-to-b from-[#0B1F3A] to-[#0f2d54] text-white pt-28 pb-20 md:py-32 overflow-hidden">
@@ -566,7 +566,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 2. OVERVIEW SECTION */}
-      <section ref={overviewRef} className="py-20 bg-white">
+      <section ref={overviewRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="row g-5 align-items-center">
             <div className="col-lg-5">
@@ -757,7 +757,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 4. FEATURES & BENEFITS */}
-      <section ref={featuresRef} className="py-20 bg-white">
+      <section ref={featuresRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Features &amp; Benefits</h5>
@@ -883,7 +883,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 6. TECHNOLOGY / TOOLS */}
-      <section ref={toolsRef} className="py-20 bg-white">
+      <section ref={toolsRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Technology &amp; Stack</h5>
@@ -914,7 +914,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 7. WHY CHOOSE ATRIOWINGS */}
-      <section ref={whyChooseRef} className="py-20 bg-[#F7F5F0]">
+      <section ref={whyChooseRef} className="py-20 bg-[#F7F5F0] overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Our Advantage</h5>
@@ -948,7 +948,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 8. RESULTS / OUTCOMES */}
-      <section ref={outcomesRef} className="py-20 bg-white">
+      <section ref={outcomesRef} className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Outcomes</h5>
@@ -986,7 +986,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 9. PORTFOLIO / PROJECT SHOWCASE */}
-      <section ref={portfolioRef} className="py-20 bg-[#F7F5F0]">
+      <section ref={portfolioRef} className="py-20 bg-[#F7F5F0] overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Our Portfolio</h5>
@@ -1035,7 +1035,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 10. FAQ SECTION */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="container px-4">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">FAQ</h5>
