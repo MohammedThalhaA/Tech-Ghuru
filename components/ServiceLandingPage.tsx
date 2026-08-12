@@ -2203,16 +2203,16 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.15 }}
-                      className="group relative bg-white/80 border border-[#1E7FD4]/12 rounded-3xl p-5 h-full flex flex-col justify-between shadow-sm overflow-hidden"
+                      className="group relative bg-white/90 border border-[#1E7FD4]/12 rounded-3xl p-4 h-full flex flex-col justify-between shadow-sm overflow-hidden"
                       style={{
                         backdropFilter: 'blur(10px)',
                         WebkitBackdropFilter: 'blur(10px)'
                       }}
                       whileHover={{
-                        y: -8,
-                        scale: 1.015,
+                        y: -6,
+                        scale: 1.012,
                         borderColor: 'rgba(30, 127, 212, 0.4)',
-                        boxShadow: '0 25px 45px -12px rgba(30, 127, 212, 0.2), 0 4px 12px rgba(0,0,0,0.02)'
+                        boxShadow: '0 20px 40px -12px rgba(30, 127, 212, 0.18), 0 4px 12px rgba(0,0,0,0.02)'
                       }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
@@ -2220,26 +2220,26 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent opacity-20 group-hover:opacity-100 group-hover:h-[4px] transition-all duration-300" />
                       
                       {/* Floating ambient bubble in background */}
-                      <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-[#1E7FD4]/3 blur-xl group-hover:bg-[#1E7FD4]/6 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
+                      <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-[#1E7FD4]/3 blur-xl group-hover:bg-[#1E7FD4]/6 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
 
                       {/* Glowing corner spark dot */}
                       <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#1E7FD4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#1E7FD4]" />
 
-                      <div>
-                        <div className="relative h-[250px] rounded-2xl overflow-hidden mb-4 bg-gray-100">
-                          <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                          <div className="absolute top-4 left-4 bg-[#0B1F3A]/80 backdrop-blur-sm text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider transition-colors duration-300 group-hover:bg-[#1E7FD4] group-hover:text-white">
+                      <div className="flex flex-col">
+                        <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-3 bg-gray-100 shadow-sm">
+                          <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" />
+                          <div className="absolute top-3 left-3 bg-[#0B1F3A]/80 backdrop-blur-sm text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider transition-colors duration-300 group-hover:bg-[#1E7FD4] group-hover:text-white">
                             {project.category}
                           </div>
                         </div>
-                        <h4 className="text-lg fw-bold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[#1E7FD4]">{project.title}</h4>
-                        <p className="text-muted text-xs leading-relaxed mb-4 transition-colors duration-300 group-hover:text-[#1E7FD4]/80">{project.desc}</p>
+                        <h4 className="text-base fw-bold text-[#0B1F3A] mb-1.5 transition-colors duration-300 group-hover:text-[#1E7FD4]">{project.title}</h4>
+                        <p className="text-muted text-[11px] leading-relaxed mb-3 transition-colors duration-300 group-hover:text-[#1E7FD4]/85">{project.desc}</p>
                       </div>
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-outline-primary btn-sm rounded-pill font-bold align-self-start border-[#1E7FD4] text-[#1E7FD4] hover:bg-[#1E7FD4] hover:text-white px-4 py-2 text-xs flex items-center gap-2 transition-all duration-300"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-[11px] font-extrabold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-sm hover:shadow-[0_8px_20px_-4px_rgba(30,127,212,0.5)] transition-all duration-300 self-start no-underline"
                       >
                         Visit Website <i className="fas fa-external-link-alt text-[9px]"></i>
                       </a>
