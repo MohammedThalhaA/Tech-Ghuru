@@ -2066,63 +2066,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               </div>
             </div>
 
-            {/* Start Project redirect buttons */}
-            <div className="flex flex-wrap justify-center gap-3 mt-12">
-              <motion.a 
-                href="/contact" 
-                whileHover="hover"
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline overflow-hidden relative"
-                style={{ scale: 1 }}
-              >
-                {/* Sliding background color fill from left to right */}
-                <motion.span
-                  className="absolute inset-0 bg-[#08A9E6] z-0"
-                  variants={{
-                    hover: { x: 0 }
-                  }}
-                  initial={{ x: "-100%" }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                />
-                <span className="relative z-10 flex items-center gap-2">
-                  Start Your Project 
-                  <motion.i 
-                    className="fas fa-arrow-right text-[10px]"
-                    variants={{
-                      hover: { x: 3 }
-                    }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  />
-                </span>
-              </motion.a>
-              <motion.a 
-                href="/portfolio" 
-                whileHover="hover"
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline overflow-hidden relative"
-                style={{ scale: 1 }}
-              >
-                {/* Sliding background color fill from left to right */}
-                <motion.span
-                  className="absolute inset-0 bg-[#1E7FD4] z-0"
-                  variants={{
-                    hover: { x: 0 }
-                  }}
-                  initial={{ x: "-100%" }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                />
-                <span className="relative z-10 flex items-center gap-2">
-                  <motion.i 
-                    className="fas fa-briefcase text-[10px]"
-                    variants={{
-                      hover: { rotate: [-10, 10, -10, 10, 0] }
-                    }}
-                    transition={{ duration: 0.5 }}
-                  />
-                  View Our Portfolio
-                </span>
-              </motion.a>
-            </div>
+            {/* Spacing spacer to replace duplicate buttons and balance layout */}
+            <div className="mb-4" />
           </div>
 
           {/* Mobile Workflow Steps */}
@@ -2284,38 +2229,55 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               href="/contact" 
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline overflow-hidden relative"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline overflow-hidden relative"
               style={{ scale: 1 }}
             >
+              {/* Sliding background color fill from left to right */}
               <motion.span
-                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-                animate={{ x: ['100%', '-100%'] }}
-                transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-              />
-              Start Your Project 
-              <motion.i 
-                className="fas fa-arrow-right text-[10px]"
+                className="absolute inset-0 bg-[#08A9E6] z-0"
                 variants={{
-                  hover: { x: 3 }
+                  hover: { x: 0 }
                 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                initial={{ x: "-100%" }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
               />
+              <span className="relative z-10 flex items-center gap-2">
+                Start Your Project 
+                <motion.i 
+                  className="fas fa-arrow-right text-[10px]"
+                  variants={{
+                    hover: { x: 3 }
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                />
+              </span>
             </motion.a>
             <motion.a 
               href="/portfolio" 
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline overflow-hidden relative"
               style={{ scale: 1 }}
             >
-              <motion.i 
-                className="fas fa-briefcase text-[10px] mr-1"
+              {/* Sliding background color fill from left to right */}
+              <motion.span
+                className="absolute inset-0 bg-[#1E7FD4] z-0"
                 variants={{
-                  hover: { rotate: [-10, 10, -10, 10, 0] }
+                  hover: { x: 0 }
                 }}
-                transition={{ duration: 0.5 }}
+                initial={{ x: "-100%" }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
               />
-              View Our Portfolio
+              <span className="relative z-10 flex items-center gap-2">
+                <motion.i 
+                  className="fas fa-briefcase text-[10px]"
+                  variants={{
+                    hover: { rotate: [-10, 10, -10, 10, 0] }
+                  }}
+                  transition={{ duration: 0.5 }}
+                />
+                View Our Portfolio
+              </span>
             </motion.a>
           </div>
         </div>
