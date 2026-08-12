@@ -1684,13 +1684,13 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 5. INTERACTIVE WORKFLOW */}
-      <section ref={workflowRef} className="py-14 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
+      <section ref={workflowRef} className="py-20 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
         {/* Abstract decorative layout dots/orbs */}
         <div className="absolute top-12 left-10 w-[160px] h-[160px] bg-[#1E7FD4]/8 rounded-full blur-[70px] pointer-events-none" />
         <div className="absolute bottom-12 right-10 w-[180px] h-[180px] bg-[#08A9E6]/8 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="container px-4 relative z-10">
-          <div className="section-title text-center max-w-[700px] mx-auto mb-8">
+          <div className="section-title text-center max-w-[700px] mx-auto mb-14">
             <div className="flex items-center justify-center gap-2.5 mb-2">
               <div className="h-[1px] w-6 bg-gradient-to-r from-transparent to-[#1E7FD4]" />
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#1E7FD4]">Our Process Journey</span>
@@ -1718,7 +1718,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Desktop Process Line & Visual Node Pipeline */}
-          <div className="hidden lg:block relative py-6 mb-4 px-4">
+          <div className="hidden lg:block relative py-10 mb-8 px-4">
             {/* The main progress track */}
             <div className="absolute top-[81px] left-4 right-4 h-[2px] bg-white/10 z-0" />
             
@@ -1736,13 +1736,13 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             {/* Flying Rocket element following the progress line */}
             {isWorkflowInView && (
               <motion.div
-                className="absolute top-[81px] w-6 h-6 -translate-y-1/2 -mt-[0.5px] z-10 pointer-events-none"
-                initial={{ left: "0%" }}
-                animate={{ left: "100%" }}
+                className="absolute w-6 h-6 -translate-y-1/2 z-10 pointer-events-none flex items-center justify-center"
+                initial={{ left: "16px" }}
+                animate={{ left: "calc(100% - 36px)" }}
                 transition={{ duration: 2.2, ease: "easeInOut" }}
-                style={{ width: 'calc(100% - 32px)', left: '16px' }}
+                style={{ top: "81px" }}
               >
-                <i className="fas fa-rocket text-[#1E7FD4] text-sm drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
+                <i className="fas fa-rocket text-[#1E7FD4] text-xs drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
               </motion.div>
             )}
 
@@ -1877,7 +1877,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Bottom Grid: Standard value offerings */}
-          <div className="mt-8 p-3 rounded-2xl border border-white/5 bg-white/3 backdrop-blur-md">
+          <div className="mt-16 p-4 md:px-5 md:py-4 rounded-2xl border border-white/5 bg-white/3 backdrop-blur-md">
             <div className="row g-2 justify-content-center text-center">
               <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-2">
                 <div className="w-8 h-8 rounded-lg bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-2">
@@ -1919,19 +1919,44 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           </div>
 
           {/* Start Project redirect buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <a 
+          <div className="flex flex-wrap justify-center gap-3 mt-12">
+            <motion.a 
               href="/contact" 
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline"
+              whileHover="hover"
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline overflow-hidden relative"
+              style={{ scale: 1 }}
             >
-              Start Your Project <i className="fas fa-arrow-right text-[10px]" />
-            </a>
-            <a 
+              <motion.span
+                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+                animate={{ x: ['100%', '-100%'] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+              />
+              Start Your Project 
+              <motion.i 
+                className="fas fa-arrow-right text-[10px]"
+                variants={{
+                  hover: { x: 3 }
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              />
+            </motion.a>
+            <motion.a 
               href="/portfolio" 
+              whileHover="hover"
+              whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline"
+              style={{ scale: 1 }}
             >
-              <i className="fas fa-briefcase text-[10px] mr-1" /> View Our Portfolio
-            </a>
+              <motion.i 
+                className="fas fa-briefcase text-[10px] mr-1"
+                variants={{
+                  hover: { rotate: [-10, 10, -10, 10, 0] }
+                }}
+                transition={{ duration: 0.5 }}
+              />
+              View Our Portfolio
+            </motion.a>
           </div>
         </div>
       </section>
