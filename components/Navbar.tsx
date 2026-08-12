@@ -198,7 +198,6 @@ export default function Navbar() {
             <Link href="/services" className={getLinkClass('/services')} style={getLinkStyle('/services')}>Services</Link>
             <Link href="/portfolio" className={getLinkClass('/portfolio')} style={getLinkStyle('/portfolio')}>Portfolio</Link>
             <Link href="/blog" className={getLinkClass('/blog')} style={getLinkStyle('/blog')}>Blogs</Link>
-            <Link href="/promo" className={getLinkClass('/promo')} style={getLinkStyle('/promo')}>Promo</Link>
             <Link href="/careers" className={getLinkClass('/careers')} style={getLinkStyle('/careers')}>Careers</Link>
             <Link href="/contact" className={getLinkClass('/contact')} style={getLinkStyle('/contact')}>Contact Us</Link>
           </div>
