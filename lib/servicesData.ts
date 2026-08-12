@@ -162,7 +162,6 @@ export const servicesData: Record<string, ServiceData> = {
       { q: "How do you ensure the design fits our brand?", a: "We build a mood board and visual style guide at the planning stage. We align on primary typography, button roundness, and brand themes before designing layout mockups." }
     ],
     portfolio: [
-      { title: "Mythri's Gleams Branding", desc: "Crafted sleek visual identity and custom e-commerce product listings layout.", category: "Branding", img: "/img/portfolio pics/mythrisgleams.png", link: "https://aarions.in/" },
       { title: "Sivaji Sons Corporate Portal", desc: "Designed premium agricultural enterprise platform layout reflecting trust and legacy.", category: "UI/UX", img: "/img/portfolio pics/Sivaji sons.jpeg", link: "http://www.sivajison.com/" }
     ]
   },

@@ -483,17 +483,6 @@ export default function Page() {
                 </div>
               </div>
 
-              {/* Card 9 */}
-              <div className={`card wow slideInRight ecommerce ${filter !== 'all' && filter !== 'ecommerce' ? 'hide' : ''}`}>
-                <div className="card-image">
-                  <img alt="Product 4" src="/img/portfolio pics/aarions-new.jpg" />
-                </div>
-                <div className="card-content">
-                  <p>E-Commerce</p>
-                  <a className="portbtn" href="https://aarions.in/" style={{ backgroundColor: '#d19c97' }} target="_blank" rel="noreferrer">Visit site →</a>
-                </div>
-              </div>
-
               {/* Card 10 */}
               <div className={`card wow slideInLeft Marketing ${filter !== 'all' && filter !== 'Marketing' ? 'hide' : ''}`}>
                 <div className="card-image">
