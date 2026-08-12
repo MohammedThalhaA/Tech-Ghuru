@@ -653,6 +653,18 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
     }
   };
 
+  const accentCol =
+    data.heroVisualType === 'web' ? '#1E7FD4' :
+    data.heroVisualType === 'design' ? '#A855F7' :
+    data.heroVisualType === 'content' ? '#2E9E6B' :
+    data.heroVisualType === 'marketing' ? '#FF8A3D' :
+    data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+
+  const cardBorder = `1.5px solid ${accentCol}33`;
+  const cardShadow = `0 25px 80px -15px ${accentCol}1f, 0 2px 6px rgba(0,0,0,0.05)`;
+  const gradientTop = `linear-gradient(90deg, transparent, ${accentCol}, transparent)`;
+  const gradientProgress = `linear-gradient(90deg, ${accentCol}, ${accentCol}99)`;
+
   return (
     <div className="bg-[#F7F5F0] overflow-x-hidden w-full relative">
       
@@ -759,218 +771,524 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         </div>
       </section>
 
-      {/* 3. ANIMATED SERVICE SHOWCASE */}
-      <section className="py-20 bg-[#F7F5F0] overflow-hidden">
-        <div className="container px-4">
-          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <h5 className="fw-bold text-[#1E7FD4] uppercase tracking-wider text-sm mb-2">Workflow Showcase</h5>
-            <h2 className="display-6 fw-bold text-[#0B1F3A]" style={{ fontFamily: 'var(--font-rubik)' }}>
+      {/* 3. ANIMATED SERVICE SHOWCASE — PREMIUM REDESIGN */}
+      <section className="py-24 bg-gradient-to-br from-[#F7F5F0] via-[#EFF6FF] to-[#F0FDF4] overflow-hidden relative">
+        {/* Floating background orbs */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-[#1E7FD4]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-[#2E9E6B]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="container px-4 relative z-10">
+          {/* Section Header */}
+          <motion.div
+            className="text-center max-w-[700px] mx-auto mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#1E7FD4]/20 text-[#1E7FD4] text-[11px] font-extrabold uppercase tracking-widest px-4 py-2 rounded-full mb-4 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1E7FD4] animate-pulse"></span>
+              Live Workflow Showcase
+            </span>
+            <h2 className="display-6 fw-extrabold text-[#0B1F3A] mb-3" style={{ fontFamily: 'var(--font-rubik)' }}>
               Animated Service Delivery Simulation
             </h2>
-            <p className="text-muted mt-2">See how we take your project requirements and transform them step-by-step into a premium digital platform.</p>
-          </div>
+            <p className="text-muted leading-relaxed">
+              Watch how we transform your requirements into a premium digital product — step by step, in real time.
+            </p>
+          </motion.div>
 
+          {/* Main Showcase Card */}
           <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div className="bg-white border border-[#1E7FD4]/10 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
-                {/* Accent glow backdrop */}
-                <div 
-                  className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-[80px] -z-10"
-                  style={{ 
-                    backgroundColor: 
-                      data.heroVisualType === 'web' ? 'rgba(30,127,212,0.08)' :
-                      data.heroVisualType === 'design' ? 'rgba(168,85,247,0.08)' :
-                      data.heroVisualType === 'content' ? 'rgba(46,158,107,0.08)' :
-                      data.heroVisualType === 'marketing' ? 'rgba(255,138,61,0.08)' :
-                      data.heroVisualType === 'video' ? 'rgba(239,68,68,0.08)' :
-                      'rgba(8,169,230,0.08)'
+            <div className="col-xl-11 col-lg-12">
+              <motion.div
+                className="relative rounded-[28px] overflow-hidden"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                style={{
+                  background: 'rgba(255,255,255,0.72)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: cardBorder,
+                  boxShadow: cardShadow
+                }}
+              >
+                {/* Gradient top-border accent */}
+                <div
+                  className="absolute top-0 left-0 w-full h-1 z-20"
+                  style={{
+                    background: gradientTop
                   }}
                 />
 
-                {/* Card Header matching third image cards */}
-                <div className="flex justify-between items-center mb-6">
-                  <div>
-                    <span className="bg-[#1E7FD4]/10 text-[#1E7FD4] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      {data.id || "01"}
-                    </span>
-                    <h3 className="h5 fw-extrabold text-[#0B1F3A] mt-2 mb-1">{data.title}</h3>
-                    <p className="text-muted text-xs mb-0">{data.tagline}</p>
-                  </div>
-                </div>
-
-                {/* Horizontal flow timeline matching third image cards */}
-                <div className="relative py-4 mb-6 border-y border-gray-100/60">
-                  <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 z-0"></div>
-                  <div className="row relative z-10 g-0 justify-between">
-                    {data.workflow.map((step, idx) => {
-                      const isActive = idx === showcaseStage;
-                      const accentColor = 
+                {/* Floating particle dots */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1.5 h-1.5 rounded-full opacity-30 pointer-events-none"
+                    style={{
+                      backgroundColor:
                         data.heroVisualType === 'web' ? '#1E7FD4' :
                         data.heroVisualType === 'design' ? '#A855F7' :
                         data.heroVisualType === 'content' ? '#2E9E6B' :
                         data.heroVisualType === 'marketing' ? '#FF8A3D' :
                         data.heroVisualType === 'video' ? '#ef4444' :
-                        '#08A9E6';
-                      return (
-                        <div 
-                          key={step.title} 
-                          className="col flex flex-col items-center cursor-pointer"
-                          onClick={() => setShowcaseStage(idx)}
-                        >
-                          <motion.div
-                            className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[10px] border bg-white shadow-sm transition-all"
-                            style={{
-                              borderColor: isActive ? accentColor : '#E5E7EB',
-                              color: isActive ? '#FFFFFF' : '#9CA3AF',
-                              backgroundColor: isActive ? accentColor : '#FFFFFF'
-                            }}
-                            animate={isActive ? { scale: 1.15 } : { scale: 1 }}
-                          >
-                            {step.number}
-                          </motion.div>
-                          <span 
-                            className="text-[9px] font-bold mt-1.5 text-center transition-colors block truncate max-w-[75px]"
-                            style={{ color: isActive ? accentColor : '#0B1F3A' }}
-                          >
-                            {step.title}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                        '#08A9E6',
+                      top: `${15 + i * 12}%`,
+                      right: `${3 + (i % 3) * 4}%`,
+                    }}
+                    animate={{ y: [0, -12, 0], opacity: [0.2, 0.5, 0.2] }}
+                    transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+                  />
+                ))}
 
-                {/* Symmetrical mockup dashboard blocks matching third image layout */}
-                <div className="row g-4 align-items-stretch">
-                  <div className="col-lg-9 col-md-8">
-                    <div className="border border-gray-200/85 rounded-2xl p-4 bg-[#F7FAFD] shadow-inner h-full flex flex-col justify-between">
-                      
-                      <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-3">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-red-400"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-green-400"></span>
-                          <span className="text-[9px] text-muted-foreground ml-3 font-mono">
-                            atriowings.in/{data.heroVisualType}
-                          </span>
-                        </div>
-                        <span className="text-[8px] font-mono text-muted-foreground font-bold tracking-wider">
-                          LIVE PREVIEW
-                        </span>
-                      </div>
+                <div className="p-5 p-md-7 p-lg-8">
 
-                      {/* Display custom HTML layout playing actual animated videos/GIFs */}
-                      <div className="h-[200px] overflow-hidden">
-                        {renderShowcaseVisual(data.heroVisualType, showcaseStage)}
-                      </div>
-
-                    </div>
-                  </div>
-
-                  {/* Right side: Circular gauge dials panel */}
-                  <div className="col-lg-3 col-md-4 flex flex-col justify-between">
-                    <div className="bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm h-full flex flex-col justify-around text-center">
-                      {data.heroVisualType === 'web' && (
-                        <>
-                          {[
-                            { label: "Performance", value: "98%", col: "#1E7FD4" },
-                            { label: "SEO Score", value: "95/100", col: "#08A9E6" },
-                            { label: "Security", value: "100%", col: "#2E9E6B" }
-                          ].map((Stat) => (
-                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
-                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                      {data.heroVisualType === 'design' && (
-                        <>
-                          {[
-                            { label: "UX Score", value: "9.6/10", col: "#A855F7" },
-                            { label: "Design Quality", value: "95%", col: "#08A9E6" }
-                          ].map((Stat) => (
-                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
-                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                      {data.heroVisualType === 'content' && (
-                        <>
-                          {[
-                            { label: "SEO Score", value: "92%", col: "#2E9E6B" },
-                            { label: "Readability", value: "Clear", col: "#FF8A3D" }
-                          ].map((Stat) => (
-                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
-                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                      {data.heroVisualType === 'marketing' && (
-                        <>
-                          {[
-                            { label: "ROI Target", value: "4.6x ROAS", col: "#FF8A3D" },
-                            { label: "Conversions", value: "Excellent", col: "#2E9E6B" }
-                          ].map((Stat) => (
-                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
-                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                      {data.heroVisualType === 'video' && (
-                        <>
-                          {[
-                            { label: "Output Quality", value: "8.7/10", col: "#ef4444" },
-                            { label: "Retention Rate", value: "92%", col: "#A855F7" }
-                          ].map((Stat) => (
-                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
-                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                      {data.heroVisualType === 'consultation' && (
-                        <>
-                          {[
-                            { label: "Success Rate", value: "98%", col: "#08A9E6" },
-                            { label: "Action Roadmap", value: "Verified", col: "#2E9E6B" }
-                          ].map((Stat) => (
-                            <div key={Stat.label} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                              <span className="text-[9px] text-muted-foreground uppercase font-bold tracking-wider">{Stat.label}</span>
-                              <span className="text-xl font-extrabold block mt-1" style={{ color: Stat.col }}>{Stat.value}</span>
-                            </div>
-                          ))}
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom row: Technology stack badges */}
-                <div className="border-t border-gray-100 pt-4 mt-6">
-                  <span className="text-[9px] text-muted-foreground uppercase tracking-wider block mb-3 font-bold">
-                    Technologies Stack
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {data.tools.map((tech) => (
-                      <span 
-                        key={tech} 
-                        className="bg-[#F7FAFD] border border-gray-200/60 text-[10px] text-[#0B1F3A] px-3 py-1.5 rounded-lg font-bold"
+                  {/* Card header row */}
+                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-6">
+                    <div className="d-flex align-items-center gap-3">
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-extrabold shrink-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${
+                            data.heroVisualType === 'web' ? '#1E7FD4, #08A9E6' :
+                            data.heroVisualType === 'design' ? '#A855F7, #7C3AED' :
+                            data.heroVisualType === 'content' ? '#2E9E6B, #10b981' :
+                            data.heroVisualType === 'marketing' ? '#FF8A3D, #F97316' :
+                            data.heroVisualType === 'video' ? '#ef4444, #dc2626' :
+                            '#08A9E6, #0284c7'
+                          })`
+                        }}
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        <i className={`fas fa-${
+                          data.heroVisualType === 'web' ? 'code' :
+                          data.heroVisualType === 'design' ? 'pen-nib' :
+                          data.heroVisualType === 'content' ? 'file-alt' :
+                          data.heroVisualType === 'marketing' ? 'chart-bar' :
+                          data.heroVisualType === 'video' ? 'film' :
+                          'handshake'
+                        }`}></i>
+                      </div>
+                      <div>
+                        <h3 className="h5 fw-extrabold text-[#0B1F3A] mb-0 leading-tight">{data.title}</h3>
+                        <p className="text-muted text-xs mb-0 mt-0.5">{data.tagline}</p>
+                      </div>
+                    </div>
+                    {/* Live badge */}
+                    <span className="inline-flex items-center gap-1.5 bg-[#2E9E6B]/10 border border-[#2E9E6B]/25 text-[#2E9E6B] text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2E9E6B] animate-pulse"></span>
+                      Live Simulation
+                    </span>
                   </div>
-                </div>
 
-              </div>
+                  {/* Horizontal Timeline */}
+                  <div className="relative mb-8">
+                    {/* Progress track */}
+                    <div className="absolute top-4 left-0 w-full h-0.5 bg-gray-100 z-0 rounded-full">
+                      <motion.div
+                        className="h-full rounded-full"
+                        style={{
+                          background: `linear-gradient(90deg, ${
+                            data.heroVisualType === 'web' ? '#1E7FD4, #08A9E6' :
+                            data.heroVisualType === 'design' ? '#A855F7, #7C3AED' :
+                            data.heroVisualType === 'content' ? '#2E9E6B, #10b981' :
+                            data.heroVisualType === 'marketing' ? '#FF8A3D, #F97316' :
+                            data.heroVisualType === 'video' ? '#ef4444, #F97316' :
+                            '#08A9E6, #1E7FD4'
+                          })`
+                        }}
+                        animate={{ width: `${((showcaseStage) / (data.workflow.length - 1)) * 100}%` }}
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
+                      />
+                    </div>
+
+                    <div className="d-flex justify-content-between position-relative" style={{ zIndex: 1 }}>
+                      {data.workflow.map((step, idx) => {
+                        const isActive = idx === showcaseStage;
+                        const isPast = idx < showcaseStage;
+                        const accentColor =
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+                        return (
+                          <div
+                            key={step.title}
+                            className="d-flex flex-column align-items-center cursor-pointer"
+                            style={{ minWidth: 0, flex: 1 }}
+                            onClick={() => setShowcaseStage(idx)}
+                          >
+                            <motion.div
+                              className="rounded-full flex items-center justify-center font-bold text-[10px] border-2 shadow-sm cursor-pointer"
+                              style={{
+                                width: 32, height: 32,
+                                borderColor: isActive || isPast ? accentColor : '#E5E7EB',
+                                color: isActive ? '#FFFFFF' : isPast ? accentColor : '#9CA3AF',
+                                backgroundColor: isActive ? accentColor : isPast ? accentColor + '18' : '#FFFFFF',
+                                boxShadow: isActive ? `0 0 0 4px ${accentColor}22, 0 4px 12px ${accentColor}40` : 'none'
+                              }}
+                              animate={isActive ? { scale: [1, 1.15, 1.1] } : { scale: 1 }}
+                              transition={{ duration: 0.4 }}
+                            >
+                              {isPast ? <i className="fas fa-check text-[8px]" style={{ color: accentColor }}></i> : step.number}
+                            </motion.div>
+                            <AnimatePresence mode="wait">
+                              {isActive && (
+                                <motion.span
+                                  key={step.title}
+                                  className="text-[8px] sm:text-[9px] font-extrabold mt-2 text-center block"
+                                  style={{ color: accentColor, maxWidth: 70 }}
+                                  initial={{ opacity: 0, y: 4 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  {step.title}
+                                </motion.span>
+                              )}
+                              {!isActive && (
+                                <motion.span
+                                  key={step.title + '-idle'}
+                                  className="text-[8px] font-bold mt-2 text-center block text-gray-400 truncate"
+                                  style={{ maxWidth: 60 }}
+                                >
+                                  {step.title}
+                                </motion.span>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Step description callout */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={showcaseStage}
+                      className="rounded-xl px-4 py-3 mb-6 d-flex align-items-center gap-3"
+                      style={{
+                        background: `${
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                        }0f`,
+                        border: `1px solid ${
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                        }20`
+                      }}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 10 }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center text-white text-xs shrink-0 font-bold"
+                        style={{
+                          backgroundColor:
+                            data.heroVisualType === 'web' ? '#1E7FD4' :
+                            data.heroVisualType === 'design' ? '#A855F7' :
+                            data.heroVisualType === 'content' ? '#2E9E6B' :
+                            data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                            data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                        }}
+                      >
+                        {data.workflow[showcaseStage]?.number}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[10px] font-extrabold text-[#0B1F3A] block">{data.workflow[showcaseStage]?.title}</span>
+                        <span className="text-[10px] text-gray-500 block truncate">{data.workflow[showcaseStage]?.desc}</span>
+                      </div>
+                      <div className="d-flex gap-1">
+                        {data.workflow.map((_, i) => (
+                          <motion.div
+                            key={i}
+                            className="rounded-full cursor-pointer"
+                            style={{
+                              width: i === showcaseStage ? 16 : 5,
+                              height: 5,
+                              backgroundColor: i === showcaseStage ? (
+                                data.heroVisualType === 'web' ? '#1E7FD4' :
+                                data.heroVisualType === 'design' ? '#A855F7' :
+                                data.heroVisualType === 'content' ? '#2E9E6B' :
+                                data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                                data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                              ) : '#E5E7EB'
+                            }}
+                            onClick={() => setShowcaseStage(i)}
+                            animate={{ width: i === showcaseStage ? 16 : 5 }}
+                            transition={{ duration: 0.3 }}
+                          />
+                        ))}
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Main preview panel + metrics */}
+                  <div className="row g-4 align-items-stretch mb-6">
+
+                    {/* Video / mockup preview */}
+                    <div className="col-lg-8 col-md-7">
+                      <div
+                        className="rounded-2xl overflow-hidden h-100"
+                        style={{
+                          background: '#0A1628',
+                          border: '1px solid rgba(255,255,255,0.06)',
+                          minHeight: 260
+                        }}
+                      >
+                        {/* Browser chrome bar */}
+                        <div className="d-flex align-items-center justify-content-between px-3 py-2" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}>
+                          <div className="d-flex align-items-center gap-2">
+                            <span className="rounded-circle" style={{ width: 9, height: 9, background: '#ef4444', opacity: 0.8, display: 'inline-block' }}></span>
+                            <span className="rounded-circle" style={{ width: 9, height: 9, background: '#f59e0b', opacity: 0.8, display: 'inline-block' }}></span>
+                            <span className="rounded-circle" style={{ width: 9, height: 9, background: '#22c55e', opacity: 0.8, display: 'inline-block' }}></span>
+                            <span className="text-white/40 ms-2" style={{ fontSize: 9, fontFamily: 'monospace' }}>atriowings.in/{data.heroVisualType}</span>
+                          </div>
+                          <span className="d-flex align-items-center gap-1" style={{ fontSize: 9, color: 'rgba(255,255,255,0.3)', fontFamily: 'monospace', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                            <span className="rounded-circle" style={{ width: 6, height: 6, backgroundColor: '#22c55e', display: 'inline-block', animation: 'pulse 2s infinite' }}></span>
+                            LIVE PREVIEW
+                          </span>
+                        </div>
+
+                        {/* Video preview area with AnimatePresence crossfade */}
+                        <div className="position-relative overflow-hidden" style={{ height: 220 }}>
+                          <AnimatePresence mode="wait">
+                            <motion.div
+                              key={`${data.heroVisualType}-${showcaseStage}`}
+                              className="w-100 h-100 position-absolute inset-0"
+                              initial={{ opacity: 0, scale: 1.04 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.97 }}
+                              transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
+                              {renderShowcaseVisual(data.heroVisualType, showcaseStage)}
+                            </motion.div>
+                          </AnimatePresence>
+
+                          {/* Gradient overlay at bottom */}
+                          <div className="position-absolute bottom-0 start-0 w-100" style={{ height: 60, background: 'linear-gradient(to top, rgba(10,22,40,0.7), transparent)', zIndex: 5, pointerEvents: 'none' }} />
+
+                          {/* Step badge overlay */}
+                          <div className="position-absolute bottom-0 start-0 m-3" style={{ zIndex: 10 }}>
+                            <AnimatePresence mode="wait">
+                              <motion.div
+                                key={showcaseStage}
+                                className="d-inline-flex align-items-center gap-2 rounded-pill px-3 py-1 text-white"
+                                style={{
+                                  background: 'rgba(0,0,0,0.55)',
+                                  backdropFilter: 'blur(12px)',
+                                  fontSize: 10,
+                                  fontWeight: 700,
+                                  border: '1px solid rgba(255,255,255,0.1)'
+                                }}
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                <span
+                                  className="rounded-circle"
+                                  style={{
+                                    width: 7, height: 7, display: 'inline-block',
+                                    backgroundColor:
+                                      data.heroVisualType === 'web' ? '#1E7FD4' :
+                                      data.heroVisualType === 'design' ? '#A855F7' :
+                                      data.heroVisualType === 'content' ? '#2E9E6B' :
+                                      data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                                      data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                                  }}
+                                ></span>
+                                Step {data.workflow[showcaseStage]?.number} · {data.workflow[showcaseStage]?.title}
+                              </motion.div>
+                            </AnimatePresence>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Metrics panel */}
+                    <div className="col-lg-4 col-md-5">
+                      <div className="bg-white border border-gray-100 rounded-2xl p-4 h-100 d-flex flex-column justify-content-between" style={{ minHeight: 260 }}>
+                        <div>
+                          <span className="text-[9px] font-extrabold uppercase tracking-widest text-gray-400 block mb-3">Live Metrics</span>
+                          {(() => {
+                            const metricMap: Record<string, { label: string; value: string; col: string; icon: string }[]> = {
+                              web: [
+                                { label: "Performance", value: "98%", col: "#1E7FD4", icon: "fa-bolt" },
+                                { label: "SEO Score", value: "95/100", col: "#08A9E6", icon: "fa-search" },
+                                { label: "Security", value: "100%", col: "#2E9E6B", icon: "fa-shield-alt" }
+                              ],
+                              design: [
+                                { label: "UX Score", value: "9.6/10", col: "#A855F7", icon: "fa-star" },
+                                { label: "Accessibility", value: "AA+", col: "#08A9E6", icon: "fa-universal-access" },
+                                { label: "Design Quality", value: "95%", col: "#2E9E6B", icon: "fa-paint-brush" }
+                              ],
+                              content: [
+                                { label: "SEO Score", value: "92%", col: "#2E9E6B", icon: "fa-search" },
+                                { label: "Readability", value: "Clear", col: "#FF8A3D", icon: "fa-book-open" },
+                                { label: "Word Count", value: "1,250+", col: "#1E7FD4", icon: "fa-align-left" }
+                              ],
+                              marketing: [
+                                { label: "ROI Target", value: "4.6x", col: "#FF8A3D", icon: "fa-chart-line" },
+                                { label: "CTR Rate", value: "8.4%", col: "#1E7FD4", icon: "fa-mouse-pointer" },
+                                { label: "Conversions", value: "Excellent", col: "#2E9E6B", icon: "fa-bullseye" }
+                              ],
+                              video: [
+                                { label: "Output Quality", value: "4K UHD", col: "#ef4444", icon: "fa-film" },
+                                { label: "Retention Rate", value: "92%", col: "#A855F7", icon: "fa-eye" },
+                                { label: "Render Speed", value: "Fast", col: "#FF8A3D", icon: "fa-tachometer-alt" }
+                              ],
+                              consultation: [
+                                { label: "Success Rate", value: "98%", col: "#08A9E6", icon: "fa-chart-pie" },
+                                { label: "ROI Impact", value: "+35%", col: "#2E9E6B", icon: "fa-arrow-up" },
+                                { label: "Action Plan", value: "Verified", col: "#1E7FD4", icon: "fa-check-circle" }
+                              ]
+                            };
+                            const stats = metricMap[data.heroVisualType] || metricMap.web;
+                            return (
+                              <div className="d-flex flex-column gap-3">
+                                {stats.map((stat, i) => (
+                                  <motion.div
+                                    key={stat.label}
+                                    className="d-flex align-items-center gap-3 p-2.5 rounded-xl"
+                                    style={{ background: stat.col + '08', border: `1px solid ${stat.col}18` }}
+                                    initial={{ opacity: 0, x: 15 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.12, duration: 0.4 }}
+                                  >
+                                    <div
+                                      className="rounded-lg flex items-center justify-center text-white shrink-0"
+                                      style={{ width: 30, height: 30, backgroundColor: stat.col, fontSize: 11 }}
+                                    >
+                                      <i className={`fas ${stat.icon}`}></i>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <span className="text-[9px] text-gray-500 font-bold uppercase tracking-wider block">{stat.label}</span>
+                                      <span className="font-extrabold block leading-tight" style={{ fontSize: 14, color: stat.col }}>{stat.value}</span>
+                                    </div>
+                                  </motion.div>
+                                ))}
+                              </div>
+                            );
+                          })()}
+                        </div>
+
+                        {/* Mini autoplay controls */}
+                        <div className="d-flex align-items-center justify-content-between mt-3 pt-2 border-top border-gray-100">
+                          <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Auto-play</span>
+                          <div className="d-flex gap-1.5">
+                            {data.workflow.map((_, i) => (
+                              <div
+                                key={i}
+                                onClick={() => setShowcaseStage(i)}
+                                className="rounded-full cursor-pointer"
+                                style={{
+                                  width: i === showcaseStage ? 18 : 6,
+                                  height: 6,
+                                  transition: 'all 0.3s',
+                                  backgroundColor: i === showcaseStage ? (
+                                    data.heroVisualType === 'web' ? '#1E7FD4' :
+                                    data.heroVisualType === 'design' ? '#A855F7' :
+                                    data.heroVisualType === 'content' ? '#2E9E6B' :
+                                    data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                                    data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6'
+                                  ) : '#E5E7EB'
+                                }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Trending Feature Chips row */}
+                  <div className="border-top border-gray-100 pt-5 mb-5">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 block mb-3">Trending Features</span>
+                    <div className="d-flex flex-wrap gap-2">
+                      {(() => {
+                        const featChips: Record<string, string[]> = {
+                          web: ["⚡ Turbopack Build", "🔍 AI SEO Audit", "🛡 Zero-Trust Security", "📱 Mobile-First Layout", "🚀 Edge Deployment", "🌐 PWA Ready"],
+                          design: ["🎨 Auto-Layout Figma", "🧠 AI-Generated Mockups", "♿ WCAG Accessibility", "✨ Micro-interactions", "🔄 Design System", "💡 UX Heatmaps"],
+                          content: ["🤖 AI-Assisted Drafts", "📈 Topical Authority", "🔑 Keyword Clustering", "📝 Schema Markup", "🌍 Multi-Language", "📊 Content Analytics"],
+                          marketing: ["📣 Omnichannel Ads", "🎯 Lookalike Audiences", "📊 Real-Time ROAS", "🤖 AI Bid Strategy", "💬 Retargeting Funnels", "🛒 Conversion Tracking"],
+                          video: ["🎬 4K HDR Output", "🎵 Sound Design", "✨ Motion Graphics", "🎨 Color Grading", "📱 Vertical Shorts", "🔄 Revision Rounds"],
+                          consultation: ["🗺 Growth Roadmap", "📊 KPI Dashboard", "🔍 Tech Stack Audit", "💼 Market Research", "🤝 Weekly Check-ins", "📋 Action Plans"]
+                        };
+                        const chips = featChips[data.heroVisualType] || featChips.web;
+                        const accentColor =
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+                        return chips.map((chip, i) => (
+                          <motion.span
+                            key={chip}
+                            className="inline-flex align-items-center rounded-pill px-3 py-1.5 text-[11px] font-bold cursor-default"
+                            style={{
+                              background: accentColor + '0c',
+                              border: `1px solid ${accentColor}20`,
+                              color: '#374151'
+                            }}
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.07, duration: 0.35, type: "spring", stiffness: 200 }}
+                            whileHover={{ scale: 1.05, borderColor: accentColor + '50' }}
+                          >
+                            {chip}
+                          </motion.span>
+                        ));
+                      })()}
+                    </div>
+                  </div>
+
+                  {/* Technology stack badges */}
+                  <div className="border-top border-gray-100 pt-4">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 block mb-3">Technologies Used</span>
+                    <div className="d-flex flex-wrap gap-2">
+                      {data.tools.map((tech, i) => {
+                        const accentColor =
+                          data.heroVisualType === 'web' ? '#1E7FD4' :
+                          data.heroVisualType === 'design' ? '#A855F7' :
+                          data.heroVisualType === 'content' ? '#2E9E6B' :
+                          data.heroVisualType === 'marketing' ? '#FF8A3D' :
+                          data.heroVisualType === 'video' ? '#ef4444' : '#08A9E6';
+                        return (
+                          <motion.span
+                            key={tech}
+                            className="inline-block rounded-lg text-[10px] font-bold px-3 py-1.5"
+                            style={{
+                              background: '#F7FAFD',
+                              border: '1px solid #E5E7EB',
+                              color: '#0B1F3A'
+                            }}
+                            initial={{ opacity: 0, y: 8 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.06, duration: 0.3 }}
+                            whileHover={{ borderColor: accentColor + '50', color: accentColor }}
+                          >
+                            {tech}
+                          </motion.span>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
