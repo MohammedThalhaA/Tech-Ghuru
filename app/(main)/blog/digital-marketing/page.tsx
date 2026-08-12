@@ -61,49 +61,49 @@ export default function Page() {
 <div className="col-lg-8">
 
 <div className="mb-5">
-<img alt="" className="img-fluid w-100 rounded mb-5" src="img/Services/digital marketing 5.jpg"/>
+<img alt="" className="img-fluid w-100 rounded mb-5" src="/img/Services/digital marketing 5.jpg"/>
 <h1 className="mb-4">The Art and Science of Influencer Marketing A Definitive Guide to Success</h1>
 <p>
                             Introduction: The digital marketing world is all about being real and relatable, and so the use of influencer marketing has become highly sought after. This blog will help in understanding the details behind the world of influencer marketing and give a clear direction to brands seeking to tap into influential individuals by strengthening their visibility and credibility.
                         </p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Understanding Influencer Marketing:</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Defining who an influencer is and what role they play in marketing.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> The Evolution of Influencer Marketing.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Types of Influencers: macro, micro, nano</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Why Influencer Marketing Works:</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Build trust through authentic recommendations</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Harness influencer audiences</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Humanize the brand by connecting on a personal level</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Setting Clear Objectives: Clearly articulate your campaign objectives: awareness, engagement, conversions.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Make sure influencer partnerships align with your core brand values.
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Understanding Influencer Marketing:</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Defining who an influencer is and what role they play in marketing.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> The Evolution of Influencer Marketing.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Types of Influencers: macro, micro, nano</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Why Influencer Marketing Works:</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Build trust through authentic recommendations</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Harness influencer audiences</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Humanize the brand by connecting on a personal level</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Setting Clear Objectives: Clearly articulate your campaign objectives: awareness, engagement, conversions.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Make sure influencer partnerships align with your core brand values.
                             Clearly define measurable KPIs.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Identifying the Right Influencers: In-depth research</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Audience demographics and engagement analysis</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Whether the influencer is real and will work for your brand</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Crafting Compelling Influencer Campaigns</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Content creation in collaboration</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Smooth brand integration within the influencer's content.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Utilize different content formats: posts, stories, videos.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Navigating Legal and Ethical Considerations</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Disclosure requirements and transparency.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> How to ensure influencers abide by the advertising guidelines.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> How to make sure expectations and guidelines are clearly communicated from the brand to the influencer.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Negotiating and Building Relationships</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Form a mutually beneficial partnership.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Set expectations: define deliverables and ensure alignment.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Nurture ongoing collaborations for long-term success.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Measuring Influencer Marketing ROI</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Tracking key metrics: engagement, reach, and conversions.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> How to utilize tracking links and promo codes.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Analyzing the impact on brand sentiment and awareness.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Overcoming Challenges in Influencer Marketing
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Identifying the Right Influencers: In-depth research</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Audience demographics and engagement analysis</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Whether the influencer is real and will work for your brand</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Crafting Compelling Influencer Campaigns</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Content creation in collaboration</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Smooth brand integration within the influencer's content.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Utilize different content formats: posts, stories, videos.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Navigating Legal and Ethical Considerations</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Disclosure requirements and transparency.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> How to ensure influencers abide by the advertising guidelines.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> How to make sure expectations and guidelines are clearly communicated from the brand to the influencer.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Negotiating and Building Relationships</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Form a mutually beneficial partnership.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Set expectations: define deliverables and ensure alignment.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Nurture ongoing collaborations for long-term success.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Measuring Influencer Marketing ROI</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Tracking key metrics: engagement, reach, and conversions.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> How to utilize tracking links and promo codes.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Analyzing the impact on brand sentiment and awareness.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Overcoming Challenges in Influencer Marketing
                         </p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> How to deal with fake followers and engagement.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Managing influencer controversies and image risks.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Mastering the shifting sands of algorithms and platform policies.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Rise of virtual influencers.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Influencer marketing on emerging platforms.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Importance of diversity and inclusivity.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> How to deal with fake followers and engagement.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Managing influencer controversies and image risks.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Mastering the shifting sands of algorithms and platform policies.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Rise of virtual influencers.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Influencer marketing on emerging platforms.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Importance of diversity and inclusivity.</p>
 <p>
 <b>Conclusion:</b> Influencer marketing is much more than a trend; rather, it's a strategic channel through which brands can reach and connect with their target audience more authentically and effectively. By being strategic in choosing the right influencers, being clear about your objectives, and actually building a real relationship, brands can harness the power of these key personalities to elevate their marketing to the next level. As you move forward in this space, remember that authenticity and transparency are core parts of any successful collaboration. Now, get your influencers, share your story, and may the influencing begin!    
                         </p>
@@ -139,32 +139,32 @@ export default function Page() {
 <h3 className="mb-0">Recent Blog Post</h3>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/webdesiging1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/webdesiging1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="webdevelopingblog.html">Web development is a multifaceted process that involves planning, designing, coding, and testing.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/product1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="productdesignblog.html">Product design encompasses the entire process of creating a product, from ideation to launch.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/contentwriting2.avif" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/contentwriting2.avif" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="contentwritingblog.html">Will AI Replace Writers?: What Today's Content Creators and Digital Marketers Should Know.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/digital marketing3.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/digital marketing3.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="digitalmarketingblog.html">The Art and Science of Influencer Marketing A Definitive Guide to Success
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/product photoshoot.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product photoshoot.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="productdesignblog.html">In the ever-evolving realm of product photography, innovative and creative ideas for capturing product images
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/d.manpower.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/d.manpower.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="brandingblog.html">In India’s bustling digital market, staying ahead is crucial. Mastering top-tier link strategies is key to success.
                         </a>
 </div>
@@ -172,7 +172,7 @@ export default function Page() {
 
 
 <div className="mb-5 wow slideInUp" data-wow-delay="0.1s">
-<img alt="" className="img-fluid rounded" src="img/IT Solution.png"/>
+<img alt="" className="img-fluid rounded" src="/img/IT Solution.png"/>
 </div>
 
 
@@ -197,7 +197,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="webdevelopingblog.html">
-<img alt="" className="img-fluid" src="img/Services/webdesiging2.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/webdesiging2.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="webdevelopingblog.html">Web Developing</a>
 </div>
@@ -216,7 +216,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="productdesignblog.html">
-<img alt="" className="img-fluid" src="img/Services/product3.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product3.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="productdesignblog.html">Product Design</a>
 </div>
@@ -235,7 +235,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="contentwritingblog.html">
-<img alt="" className="img-fluid" src="img/Services/contentwriting2.avif" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/contentwriting2.avif" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="contentwritingblog.html">Content Writing</a>
 </div>
@@ -254,7 +254,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="digitalmarketingblog.html">
-<img alt="" className="img-fluid" src="img/Services/digital marketing 4.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/digital marketing 4.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="digitalmarketingblog.html">Digital Marketing</a>
 </div>
@@ -273,7 +273,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="videoadblog.html">
-<img alt="" className="img-fluid" src="img/Services/product photoshoot.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product photoshoot.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="videoadblog.html">Product Photoshoot</a>
 </div>
@@ -292,7 +292,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="brandingblog.html">
-<img alt="" className="img-fluid" src="img/Services/d.manpower.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/d.manpower.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="brandingblog.html">Digital Marketing</a>
 </div>

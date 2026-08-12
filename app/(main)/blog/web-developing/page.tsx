@@ -35,7 +35,7 @@ export default function Page() {
 <div className="col-lg-8">
 
 <div className="mb-5">
-<img alt="" className="img-fluid w-100 rounded-pill wow slideInLeft mb-5" src="img/Services/webdesiging1.jpg"/>
+<img alt="" className="img-fluid w-100 rounded-pill wow slideInLeft mb-5" src="/img/Services/webdesiging1.jpg"/>
 <h1 className="mb-4">Web Developing</h1>
 <p><b>Introduction</b></p>
 <p>
@@ -73,10 +73,10 @@ export default function Page() {
 <p>
                             At Atriowings, we believe in building long-lasting relationships with our clients. We work closely with them to understand their unique needs and goals. Our approach is characterized by
                         </p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> <b>Client-Centric Focus:</b> We prioritize our clients' satisfaction above all else.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> <b>Quality Assurance:</b> We adhere to strict quality standards to deliver reliable and high-performing websites.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> <b>Continuous Learning:</b> We stay updated with the latest trends and technologies in the web development industry.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> <b>Innovation:</b> We embrace innovation to create cutting-edge digital solutions.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Client-Centric Focus:</b> We prioritize our clients' satisfaction above all else.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Quality Assurance:</b> We adhere to strict quality standards to deliver reliable and high-performing websites.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Continuous Learning:</b> We stay updated with the latest trends and technologies in the web development industry.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Innovation:</b> We embrace innovation to create cutting-edge digital solutions.</p>
 <h1 className="mb-4">Success Stories: Our Web Development Projects</h1>
 <p>
                             Over the years, Atriowings Technologies has successfully delivered numerous web development projects across various industries. From e-commerce platforms to corporate websites, our portfolio showcases our expertise and commitment to excellence.
@@ -198,32 +198,32 @@ export default function Page() {
 <h3 className="mb-0">Recent Blog Post</h3>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/webdesiging1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/webdesiging1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="webdevelopingblog.html">Web development is a multifaceted process that involves planning, designing, coding, and testing.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/product1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="productdesignblog.html">Product design encompasses the entire process of creating a product, from ideation to launch.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/contentwriting2.avif" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/contentwriting2.avif" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="contentwritingblog.html">Will AI Replace Writers?: What Today's Content Creators and Digital Marketers Should Know.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/digital marketing3.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/digital marketing3.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="digitalmarketingblog.html">The Art and Science of Influencer Marketing A Definitive Guide to Success
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/product photoshoot.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product photoshoot.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="productdesignblog.html">In the ever-evolving realm of product photography, innovative and creative ideas for capturing product images
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/d.manpower.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/d.manpower.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="brandingblog.html">In India’s bustling digital market, staying ahead is crucial. Mastering top-tier link strategies is key to success.
                         </a>
 </div>
@@ -231,7 +231,7 @@ export default function Page() {
 
 
 <div className="mb-5 wow slideInUp" data-wow-delay="0.1s">
-<img alt="" className="img-fluid rounded" src="img/IT Solution.png"/>
+<img alt="" className="img-fluid rounded" src="/img/IT Solution.png"/>
 </div>
 
 
@@ -279,7 +279,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="webdevelopingblog.html">
-<img alt="" className="img-fluid" src="img/Services/webdesiging2.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/webdesiging2.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="webdevelopingblog.html">Web Developing</a>
 </div>
@@ -298,7 +298,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="productdesignblog.html">
-<img alt="" className="img-fluid" src="img/Services/product3.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product3.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="productdesignblog.html">Product Design</a>
 </div>
@@ -317,7 +317,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="contentwritingblog.html">
-<img alt="" className="img-fluid" src="img/Services/contentwriting2.avif" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/contentwriting2.avif" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="contentwritingblog.html">Content Writing</a>
 </div>
@@ -336,7 +336,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="digitalmarketingblog.html">
-<img alt="" className="img-fluid" src="img/Services/digitalmarketing2.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/digitalmarketing2.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="digitalmarketingblog.html">Digital Marketing</a>
 </div>
@@ -355,7 +355,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="videoadblog.html">
-<img alt="" className="img-fluid" src="img/Services/product photoshoot.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product photoshoot.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="videoadblog.html">Product Photoshoot</a>
 </div>
@@ -374,7 +374,7 @@ export default function Page() {
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="brandingblog.html">
-<img alt="" className="img-fluid" src="img/Services/d.manpower.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/d.manpower.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="brandingblog.html">Digital Marketing</a>
 </div>

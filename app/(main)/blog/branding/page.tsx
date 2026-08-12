@@ -62,7 +62,7 @@ export default function Page() {
 <div className="col-lg-8">
 
 <div className="mb-5">
-<img alt="" className="img-fluid w-100 rounded mb-5" src="img/Services/d.manpower.jpg"/>
+<img alt="" className="img-fluid w-100 rounded mb-5" src="/img/Services/d.manpower.jpg"/>
 <h1 className="mb-4">Advanced Link-Building Strategies To Elevate Your Online Presence</h1>
 <p>
                             In India's buzzing digital market, it's all about the edge. Being at the top in the linking game ensures success. Building links is essentially building online credibility and forging strong bonds with your target audience. Advanced outreach will fetch quality backlinks moving your digital marketing ahead.
@@ -80,13 +80,13 @@ export default function Page() {
                             As you hone these outreach techniques, don't forget that crafting content that attracts links organically is just as important. This strategy attracts backlinks and establishes you as a thought leader in your niche.
                         </p>
 <h1 className="mb-4">Creating Content Strategy for Successful Link Building</h1>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Creating content that resonates with the masses is of prime importance to stand at the top in the marketing funnel. Your content should stand out like a beacon of knowledge.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Creating content that resonates with the masses is of prime importance to stand at the top in the marketing funnel. Your content should stand out like a beacon of knowledge.</p>
 <p>To identify the types of content that garner shares and links, consider examples such as:</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Guides on how to do something that solves a day-to-day problem in steps.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Research and data-driven pieces with solid facts and new information.
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Guides on how to do something that solves a day-to-day problem in steps.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Research and data-driven pieces with solid facts and new information.
                             New perspective or solve a problem in a new light regarding a well-covered topic.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Considering these content types, it's also very important that fresh perspectives be provided and problems solved in new ways to actually create link-worthy content.</p>
-<p><img src="img/arrow.png" style={{'height': '25px'}}/> Audit your existing content to find the gaps and opportunities. Ask yourself</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Considering these content types, it's also very important that fresh perspectives be provided and problems solved in new ways to actually create link-worthy content.</p>
+<p><img src="/img/arrow.png" style={{'height': '25px'}}/> Audit your existing content to find the gaps and opportunities. Ask yourself</p>
 <h1 className="mb-4">What insider information do I have?</h1>
 <p>Fill these gaps, and you will begin to see more creative ways to attract backlinks and enhance your authority in the niche.</p>
 <p>
@@ -165,32 +165,32 @@ After dealing with these bits of technology, consider the wider plans that actua
 <h3 className="mb-0">Recent Blog Post</h3>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/webdesiging1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/webdesiging1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="webdevelopingblog.html">Web development is a multifaceted process that involves planning, designing, coding, and testing.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/product1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product1.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="productdesignblog.html">Product design encompasses the entire process of creating a product, from ideation to launch.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/contentwriting2.avif" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/contentwriting2.avif" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="contentwritingblog.html">Will AI Replace Writers?: What Today's Content Creators and Digital Marketers Should Know.
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/digital marketing3.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/digital marketing3.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="digitalmarketingblog.html">The Art and Science of Influencer Marketing A Definitive Guide to Success
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/product photoshoot.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product photoshoot.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="productdesignblog.html">In the ever-evolving realm of product photography, innovative and creative ideas for capturing product images
                         </a>
 </div>
 <div className="d-flex rounded overflow-hidden mb-3">
-<img alt="" className="img-fluid" src="img/Services/d.manpower.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
+<img alt="" className="img-fluid" src="/img/Services/d.manpower.jpg" style={{'width': '100px', 'height': '100px', 'objectFit': 'cover'}}/>
 <a className="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0" href="brandingblog.html">In India’s bustling digital market, staying ahead is crucial. Mastering top-tier link strategies is key to success.
                         </a>
 </div>
@@ -198,7 +198,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 
 
 <div className="mb-5 wow slideInUp" data-wow-delay="0.1s">
-<img alt="" className="img-fluid rounded" src="img/IT Solution.png"/>
+<img alt="" className="img-fluid rounded" src="/img/IT Solution.png"/>
 </div>
 
 
@@ -223,7 +223,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="webdevelopingblog.html">
-<img alt="" className="img-fluid" src="img/Services/webdesiging1.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/webdesiging1.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="webdevelopingblog.html">Web Developing</a>
 </div>
@@ -242,7 +242,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="productdesignblog.html">
-<img alt="" className="img-fluid" src="img/Services/product3.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product3.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="productdesignblog.html">Product Design</a>
 </div>
@@ -261,7 +261,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="contentwritingblog.html">
-<img alt="" className="img-fluid" src="img/Services/contentwriting2.avif" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/contentwriting2.avif" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="contentwritingblog.html">Content Writing</a>
 </div>
@@ -280,7 +280,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="digitalmarketingblog.html">
-<img alt="" className="img-fluid" src="img/Services/digital marketing3.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/digital marketing3.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="digitalmarketingblog.html">Digital Marketing</a>
 </div>
@@ -299,7 +299,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="blog-item bg-light rounded overflow-hidden radius">
 <div className="blog-img position-relative overflow-hidden">
 <a href="videoadblog.html">
-<img alt="" className="img-fluid" src="img/Services/product photoshoot.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/product photoshoot.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="videoadblog.html">Product Photoshoot</a>
 </div>
@@ -318,7 +318,7 @@ After dealing with these bits of technology, consider the wider plans that actua
 <div className="blog-item bg-light rounded overflow-hidden radius2">
 <div className="blog-img position-relative overflow-hidden">
 <a href="brandingblog.html">
-<img alt="" className="img-fluid" src="img/Services/d.manpower.jpg" style={{'height': '230px', 'width': '400px'}}/>
+<img alt="" className="img-fluid" src="/img/Services/d.manpower.jpg" style={{'height': '230px', 'width': '400px'}}/>
 </a>
 <a className="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="brandingblog.html">Digital Marketing</a>
 </div>

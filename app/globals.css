@@ -80,3 +80,7 @@ section::-webkit-scrollbar:horizontal {
   background: transparent !important;
 }
 
+/* Remove/hide author name and date meta section from all blog cards */
+.blog-item .p-4 .d-flex.mb-3 {
+  display: none !important;
+}
