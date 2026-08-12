@@ -1929,33 +1929,6 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           {/* Desktop Process Line & Visual Node Pipeline */}
           <div className="hidden lg:block mb-8 px-4">
             <div className="relative py-10">
-              {/* The main progress track - aligned with column centers (8.33% to 91.66%) */}
-              <div className="absolute top-[81px] left-[8.33%] right-[8.33%] h-[2px] bg-white/10 z-0" />
-              
-              {/* Glow accent track path */}
-              {isWorkflowInView && (
-                <motion.div 
-                  className="absolute top-[81px] left-[8.33%] h-[2.5px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] z-0 origin-left"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: activeTimelineStep / (data.workflow.length - 1) }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  style={{ width: '83.33%' }}
-                />
-              )}
-
-              {/* Flying Rocket element following the progress line */}
-              {isWorkflowInView && (
-                <motion.div
-                  className="absolute w-6 h-6 -translate-y-1/2 z-10 pointer-events-none flex items-center justify-center"
-                  initial={{ left: "8.33%" }}
-                  animate={{ left: `calc(${((activeTimelineStep + 0.5) / 6) * 100}% - 12px)` }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  style={{ top: "81px" }}
-                >
-                  <i className="fas fa-rocket text-[#1E7FD4] text-xs drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
-                </motion.div>
-              )}
-
               <div className="row relative z-10 justify-between">
                 {data.workflow.map((step, i) => {
                   const isCompleted = i < activeTimelineStep;
@@ -1974,8 +1947,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
                   return (
                     <div key={i} className="col flex flex-col items-center relative" style={{ flex: 1, minWidth: 0 }}>
-                      {/* Visual stack with fixed height of 86px to align the dots and line perfectly */}
-                      <div className="relative h-[86px] w-full flex flex-col items-center justify-between">
+                      <div className="relative flex flex-col items-center">
                         {/* Tooltip badge for active role stage */}
                         {isActive && (
                           <motion.div 
@@ -2015,22 +1987,6 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                                   : 'text-white/40'
                           }`} />
                         </motion.div>
-
-                        {/* Vertical Connector Line (draws from bottom of circle down to the track dot) */}
-                        <div className={`w-[1px] h-6 ${
-                          isLast ? 'bg-[#2E9E6B]/40' : isCompleted ? 'bg-[#1E7FD4]/40' : 'bg-white/10'
-                        }`} />
-
-                        {/* Small node dot underneath the circle */}
-                        <div className={`w-2.5 h-2.5 rounded-full border border-[#030E21] z-10 transition-colors duration-300 ${
-                          isActive 
-                            ? 'bg-[#1E7FD4] shadow-[0_0_6px_#1E7FD4]'
-                            : isLast 
-                              ? 'bg-[#2E9E6B] shadow-[0_0_6px_#2E9E6B]'
-                              : isCompleted 
-                                ? 'bg-[#1E7FD4]' 
-                                : 'bg-white/30'
-                        }`} />
                       </div>
 
                       {/* Step Content */}
@@ -2066,7 +2022,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               </div>
             </div>
 
-            {/* Spacing spacer to replace duplicate buttons and balance layout */}
+            {/* Spacing spacer and balance layout */}
             <div className="mb-4" />
           </div>
 
