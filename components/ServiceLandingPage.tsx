@@ -69,24 +69,23 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
-const fadeLeftToRight: Variants = {
-  hidden: { opacity: 0, x: -60 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
-};
-
-const fadeRightToLeft: Variants = {
-  hidden: { opacity: 0, x: 60 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
-};
-
-const fadeTopToBottom: Variants = {
-  hidden: { opacity: 0, y: -60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
-};
-
-const fadeBottomToTop: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+const cardEntranceVariants: Variants = {
+  hidden: (custom: { direction: 'left' | 'right' | 'top' | 'bottom'; index: number }) => ({
+    opacity: 0,
+    x: custom.direction === 'left' ? -80 : custom.direction === 'right' ? 80 : 0,
+    y: custom.direction === 'top' ? -80 : custom.direction === 'bottom' ? 80 : 0
+  }),
+  visible: (custom: { direction: 'left' | 'right' | 'top' | 'bottom'; index: number }) => ({
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 90,
+      damping: 14,
+      delay: (custom.index % 3) * 0.15
+    }
+  })
 };
 
 const staggerContainer: Variants = {
@@ -1653,19 +1652,20 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             animate={isFeaturesInView ? "visible" : "hidden"}
           >
             {data.features.map((feature, i) => {
-              const cardVariant = i % 4 === 0 
-                ? fadeLeftToRight 
+              const direction = i % 4 === 0 
+                ? 'left' 
                 : i % 4 === 1 
-                  ? fadeTopToBottom 
+                  ? 'top' 
                   : i % 4 === 2 
-                    ? fadeRightToLeft 
-                    : fadeBottomToTop;
+                    ? 'right' 
+                    : 'bottom';
 
               return (
                 <motion.div
                   key={i}
                   className="col-lg-4 col-md-6"
-                  variants={cardVariant}
+                  custom={{ direction, index: i }}
+                  variants={cardEntranceVariants}
                 >
                   <motion.div
                   className="group relative h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
