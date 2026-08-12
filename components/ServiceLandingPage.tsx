@@ -1003,14 +1003,14 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           {/* Glow Pulse CSS injection */}
           <style>{`
             @keyframes textGlowPulseShowcase {
-              0%   { text-shadow: 0 0 0px rgba(30, 127, 212, 0);    color: #0B1F3A; }
-              50%  { text-shadow: 0 0 20px rgba(30, 127, 212, 0.45); color: #1E7FD4; }
-              100% { text-shadow: 0 0 0px rgba(30, 127, 212, 0);    color: #0B1F3A; }
+              0%   { text-shadow: 0 0 0px ${accentCol}00;    color: #0B1F3A; }
+              50%  { text-shadow: 0 0 20px ${accentCol}60; color: ${accentCol}; }
+              100% { text-shadow: 0 0 0px ${accentCol}00;    color: #0B1F3A; }
             }
             @keyframes textGlowPulseShowcaseWhite {
-              0%   { text-shadow: 0 0 0px rgba(255, 255, 255, 0);    color: #FFFFFF; }
-              50%  { text-shadow: 0 0 20px rgba(255, 255, 255, 0.45); color: #08A9E6; }
-              100% { text-shadow: 0 0 0px rgba(255, 255, 255, 0);    color: #FFFFFF; }
+              0%   { text-shadow: 0 0 0px ${accentCol}00;    color: #FFFFFF; }
+              50%  { text-shadow: 0 0 20px ${accentCol}60; color: ${accentCol}; }
+              100% { text-shadow: 0 0 0px ${accentCol}00;    color: #FFFFFF; }
             }
             .glow-pulse-showcase {
               animation: textGlowPulseShowcase 4s infinite ease-in-out;
@@ -1028,8 +1028,10 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#1E7FD4]/20 text-[#1E7FD4] text-[11px] font-extrabold uppercase tracking-widest px-4 py-2 rounded-full mb-3 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E7FD4] animate-pulse"></span>
+            <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border text-[11px] font-extrabold uppercase tracking-widest px-4 py-2 rounded-full mb-3 shadow-sm"
+              style={{ borderColor: `${accentCol}33`, color: accentCol }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: accentCol }}></span>
               Live Workflow Showcase
             </span>
             <h2 className="display-6 fw-extrabold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
@@ -1040,7 +1042,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
               <motion.div 
                 className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -1053,9 +1055,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   left: ['0%', '94%', '0%'],
                   opacity: [1, 0.4, 1],
                   boxShadow: [
-                    "0 0 4px #fff, 0 0 10px #1E7FD4",
-                    "0 0 1px #fff, 0 0 2px #1E7FD4",
-                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`
                   ]
                 }}
                 transition={{
@@ -1568,16 +1570,18 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         </div>
       </section>
 
-      {/* 4. FEATURES & BENEFITS — WEBSITE THEME COLOR (#1E7FD4) & INTERACTIVE ANIMATIONS */}
+      {/* 4. FEATURES & BENEFITS — ROLE ACCENT THEME & INTERACTIVE ANIMATIONS */}
       <section ref={featuresRef} className="py-24 bg-white overflow-hidden relative">
         {/* Soft background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#1E7FD4]/3 via-transparent to-[#1E7FD4]/1 rounded-full blur-[120px] pointer-events-none -z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[120px] pointer-events-none -z-0"
+          style={{ background: `linear-gradient(90deg, ${accentCol}0c, transparent, ${accentCol}04)` }}
+        />
         
         <div className="container px-4 relative z-10">
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <motion.h5
               className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-              style={{ color: '#1E7FD4' }}
+              style={{ color: accentCol }}
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1593,7 +1597,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
               <motion.div 
                 className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -1606,9 +1610,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   left: ['0%', '94%', '0%'],
                   opacity: [1, 0.4, 1],
                   boxShadow: [
-                    "0 0 4px #fff, 0 0 10px #1E7FD4",
-                    "0 0 1px #fff, 0 0 2px #1E7FD4",
-                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`
                   ]
                 }}
                 transition={{
@@ -1697,7 +1701,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <motion.h5 
               className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-              style={{ color: '#08A9E6' }}
+              style={{ color: accentCol }}
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1713,7 +1717,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
               <motion.div 
                 className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#08A9E6' }}
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -1726,9 +1730,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   left: ['0%', '94%', '0%'],
                   opacity: [1, 0.4, 1],
                   boxShadow: [
-                    "0 0 4px #fff, 0 0 10px #08A9E6",
-                    "0 0 1px #fff, 0 0 2px #08A9E6",
-                    "0 0 4px #fff, 0 0 10px #08A9E6"
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`
                   ]
                 }}
                 transition={{
@@ -1753,7 +1757,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               {isWorkflowInView && (
                 <motion.path
                   d="M 0,5 L 1000,5"
-                  stroke="#1E7FD4"
+                  stroke={accentCol}
                   strokeWidth="3.5"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -1773,7 +1777,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="row relative z-10 justify-between">
               {data.workflow.map((step, i) => (
                 <div key={i} className="col flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full border-2 border-[#1E7FD4] bg-[#0B1F3A] flex items-center justify-center font-bold text-white text-base mb-4 shadow-[0_0_15px_rgba(30,127,212,0.2)]">
+                  <div className="w-12 h-12 rounded-full border-2 bg-[#0B1F3A] flex items-center justify-center font-bold text-white text-base mb-4"
+                    style={{ borderColor: accentCol, boxShadow: `0 0 15px ${accentCol}33` }}
+                  >
                     {step.number}
                   </div>
                   <h5 className="text-xs fw-bold mb-1 text-center">{step.title}</h5>
@@ -1788,7 +1794,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="absolute left-[17px] top-4 bottom-4 w-0.5 bg-white/10 z-0"></div>
             {data.workflow.map((step, i) => (
               <div key={i} className="flex gap-4 relative z-10">
-                <div className="w-9 h-9 rounded-full bg-[#1E7FD4] border-2 border-[#0B1F3A] flex items-center justify-center font-bold text-white text-xs shrink-0">
+                <div className="w-9 h-9 rounded-full border-2 border-[#0B1F3A] flex items-center justify-center font-bold text-white text-xs shrink-0"
+                  style={{ backgroundColor: accentCol }}
+                >
                   {step.number}
                 </div>
                 <div>
@@ -1807,7 +1815,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <motion.h5 
               className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-              style={{ color: '#1E7FD4' }}
+              style={{ color: accentCol }}
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1823,7 +1831,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
               <motion.div 
                 className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -1836,9 +1844,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   left: ['0%', '94%', '0%'],
                   opacity: [1, 0.4, 1],
                   boxShadow: [
-                    "0 0 4px #fff, 0 0 10px #1E7FD4",
-                    "0 0 1px #fff, 0 0 2px #1E7FD4",
-                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`
                   ]
                 }}
                 transition={{
@@ -1878,7 +1886,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <motion.h5 
               className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-              style={{ color: '#1E7FD4' }}
+              style={{ color: accentCol }}
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1894,7 +1902,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
               <motion.div 
                 className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -1907,9 +1915,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   left: ['0%', '94%', '0%'],
                   opacity: [1, 0.4, 1],
                   boxShadow: [
-                    "0 0 4px #fff, 0 0 10px #1E7FD4",
-                    "0 0 1px #fff, 0 0 2px #1E7FD4",
-                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`
                   ]
                 }}
                 transition={{
@@ -1947,7 +1955,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           <div className="section-title text-center max-w-[650px] mx-auto mb-16">
             <motion.h5 
               className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-              style={{ color: '#1E7FD4' }}
+              style={{ color: accentCol }}
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1963,7 +1971,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
               <motion.div 
                 className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -1976,9 +1984,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   left: ['0%', '94%', '0%'],
                   opacity: [1, 0.4, 1],
                   boxShadow: [
-                    "0 0 4px #fff, 0 0 10px #1E7FD4",
-                    "0 0 1px #fff, 0 0 2px #1E7FD4",
-                    "0 0 4px #fff, 0 0 10px #1E7FD4"
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                    `0 0 4px #fff, 0 0 10px ${accentCol}`
                   ]
                 }}
                 transition={{
@@ -2023,7 +2031,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="section-title text-center max-w-[650px] mx-auto mb-16">
               <motion.h5 
                 className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-                style={{ color: '#1E7FD4' }}
+                style={{ color: accentCol }}
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -2039,7 +2047,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
                 <motion.div 
                   className="position-absolute top-0 start-50 translate-middle-x" 
-                  style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                  style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
@@ -2052,9 +2060,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     left: ['0%', '94%', '0%'],
                     opacity: [1, 0.4, 1],
                     boxShadow: [
-                      "0 0 4px #fff, 0 0 10px #1E7FD4",
-                      "0 0 1px #fff, 0 0 2px #1E7FD4",
-                      "0 0 4px #fff, 0 0 10px #1E7FD4"
+                      `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                      `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                      `0 0 4px #fff, 0 0 10px ${accentCol}`
                     ]
                   }}
                   transition={{
@@ -2110,7 +2118,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <div className="section-title text-center max-w-[650px] mx-auto mb-16">
               <motion.h5 
                 className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-                style={{ color: '#1E7FD4' }}
+                style={{ color: accentCol }}
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -2126,7 +2134,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
                 <motion.div 
                   className="position-absolute top-0 start-50 translate-middle-x" 
-                  style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#1E7FD4' }}
+                  style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
@@ -2139,9 +2147,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     left: ['0%', '94%', '0%'],
                     opacity: [1, 0.4, 1],
                     boxShadow: [
-                      "0 0 4px #fff, 0 0 10px #1E7FD4",
-                      "0 0 1px #fff, 0 0 2px #1E7FD4",
-                      "0 0 4px #fff, 0 0 10px #1E7FD4"
+                      `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                      `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                      `0 0 4px #fff, 0 0 10px ${accentCol}`
                     ]
                   }}
                   transition={{
@@ -2195,7 +2203,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         <div className="container relative z-10 px-4 text-center">
           <motion.span 
             className="text-xs font-bold uppercase tracking-widest block mb-3"
-            style={{ color: '#08A9E6' }}
+            style={{ color: accentCol }}
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -2211,7 +2219,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
           <div className="position-relative mx-auto mt-4 mb-5" style={{ width: '150px', height: '6px' }}>
             <motion.div 
               className="position-absolute top-0 start-50 translate-middle-x" 
-              style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: '#08A9E6' }}
+              style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -2224,9 +2232,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 left: ['0%', '94%', '0%'],
                 opacity: [1, 0.4, 1],
                 boxShadow: [
-                  "0 0 4px #fff, 0 0 10px #08A9E6",
-                  "0 0 1px #fff, 0 0 2px #08A9E6",
-                  "0 0 4px #fff, 0 0 10px #08A9E6"
+                  `0 0 4px #fff, 0 0 10px ${accentCol}`,
+                  `0 0 1px #fff, 0 0 2px ${accentCol}`,
+                  `0 0 4px #fff, 0 0 10px ${accentCol}`
                 ]
               }}
               transition={{
