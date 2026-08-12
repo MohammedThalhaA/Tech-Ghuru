@@ -1905,10 +1905,10 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#1E7FD4]">Our Process Journey</span>
               <div className="h-[1px] w-6 bg-gradient-to-l from-transparent to-[#1E7FD4]" />
             </div>
-            <h2 className="text-3xl md:text-4xl fw-bold mb-3">
+            <h2 className="text-3xl md:text-4xl fw-bold mb-3" style={{ color: '#ffffff' }}>
               Proven Process <span className="text-[#1E7FD4] bg-clip-text text-transparent bg-gradient-to-r from-[#1E7FD4] to-[#08A9E6]">Timeline</span>
             </h2>
-            <p className="text-white/60 text-xs leading-relaxed max-w-[500px] mx-auto">
+            <p className="text-xs leading-relaxed max-w-[500px] mx-auto" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
               A structured journey from first requirements audit to post-launch optimization support.
             </p>
 
