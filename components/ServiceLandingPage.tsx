@@ -1642,15 +1642,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="group h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none transition-all duration-300"
                   style={{
                     background: 'rgba(247, 245, 240, 0.55)',
-                    border: `1.5px solid ${accentCol}22`,
+                    border: '1.5px solid rgba(30, 127, 212, 0.15)',
                     boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
                   }}
                   whileHover={{
                     y: -8,
                     scale: 1.025,
                     background: 'rgba(255, 255, 255, 1)',
-                    borderColor: `${accentCol}80`,
-                    boxShadow: `0 20px 40px -15px ${accentCol}33, 0 4px 12px rgba(0,0,0,0.04)`
+                    borderColor: 'rgba(30, 127, 212, 0.5)',
+                    boxShadow: '0 20px 40px -15px rgba(30, 127, 212, 0.22), 0 4px 12px rgba(0,0,0,0.04)'
                   }}
                   transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 >
@@ -1659,15 +1659,15 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     <motion.div
                       className="w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-4 transition-all duration-300"
                       style={{
-                        backgroundColor: `${accentCol}15`,
-                        color: accentCol
+                        backgroundColor: 'rgba(30, 127, 212, 0.1)',
+                        color: '#1E7FD4'
                       }}
                       whileHover={{
                         scale: 1.12,
                         rotate: 8,
-                        backgroundColor: accentCol,
+                        backgroundColor: '#1E7FD4',
                         color: '#FFFFFF',
-                        boxShadow: `0 8px 20px -4px ${accentCol}99`
+                        boxShadow: '0 8px 20px -4px rgba(30, 127, 212, 0.6)'
                       }}
                       transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     >
@@ -1678,7 +1678,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     <h4
                       className="text-base fw-extrabold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[var(--hover-title-color)]"
                       style={{
-                        '--hover-title-color': accentCol
+                        '--hover-title-color': '#1E7FD4'
                       } as React.CSSProperties}
                     >
                       {feature.title}
