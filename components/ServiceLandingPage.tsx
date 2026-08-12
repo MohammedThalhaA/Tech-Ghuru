@@ -1901,21 +1901,93 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <p className="text-muted mt-2">What sets Atriowings apart is our dedication to execution metrics, custom development, and reliable client communication pipelines.</p>
           </div>
 
-          <div className="row g-4">
-            {data.whyChooseUs.map((item, i) => (
-              <div key={i} className="col-md-6 col-lg-3">
-                <div className="bg-[#F7F5F0]/60 border border-[#1E7FD4]/10 rounded-2xl p-5 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-[#2E9E6B]/10 flex items-center justify-center text-[#2E9E6B] text-base mb-4">
-                      <i className={`fas ${item.icon}`}></i>
+          <motion.div 
+            className="row g-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isWhyChooseInView ? "visible" : "hidden"}
+          >
+            {data.whyChooseUs.map((item, i) => {
+              const direction = i % 4 === 0 
+                ? 'left' 
+                : i % 4 === 1 
+                  ? 'top' 
+                  : i % 4 === 2 
+                    ? 'right' 
+                    : 'bottom';
+
+              return (
+                <motion.div
+                  key={i}
+                  className="col-md-6 col-lg-3"
+                  custom={{ direction, index: i }}
+                  variants={cardEntranceVariants}
+                >
+                  <motion.div
+                    className="group relative h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.48)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      border: '1.5px solid rgba(30, 127, 212, 0.12)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                    }}
+                    whileHover={{
+                      y: -8,
+                      scale: 1.025,
+                      background: 'rgba(255, 255, 255, 0.88)',
+                      borderColor: 'rgba(30, 127, 212, 0.4)',
+                      boxShadow: '0 25px 45px -12px rgba(30, 127, 212, 0.2), 0 4px 12px rgba(0,0,0,0.04)'
+                    }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  >
+                    {/* Decorative glowing gradient top beam */}
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent opacity-20 group-hover:opacity-100 group-hover:h-[4px] transition-all duration-300" />
+                    
+                    {/* Floating ambient bubble in background */}
+                    <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-[#1E7FD4]/3 blur-xl group-hover:bg-[#1E7FD4]/8 group-hover:scale-150 transition-all duration-500 pointer-events-none" />
+
+                    {/* Glowing corner spark dot */}
+                    <div className="absolute top-3 right-3 w-1.5 h-1.5 rounded-full bg-[#1E7FD4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_8px_#1E7FD4]" />
+
+                    {/* Glowing bottom line bar */}
+                    <div className="absolute bottom-0 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-transparent via-[#1E7FD4] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+
+                    <div className="relative z-10">
+                      {/* Glowing Icon Wrapper */}
+                      <motion.div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-base mb-4 transition-all duration-300"
+                        style={{
+                          backgroundColor: 'rgba(30, 127, 212, 0.08)',
+                          color: '#1E7FD4'
+                        }}
+                        whileHover={{
+                          scale: 1.12,
+                          rotate: 8,
+                          backgroundColor: '#1E7FD4',
+                          color: '#FFFFFF',
+                          boxShadow: '0 8px 20px -4px rgba(30, 127, 212, 0.6)'
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                      >
+                        <i className={`fas ${item.icon}`}></i>
+                      </motion.div>
+
+                      {/* Card Title */}
+                      <h4 className="text-sm fw-bold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[#1E7FD4]">
+                        {item.title}
+                      </h4>
+
+                      {/* Card Description */}
+                      <p className="text-muted text-xs leading-relaxed mb-0 transition-colors duration-300 group-hover:text-[#1E7FD4]/80">
+                        {item.desc}
+                      </p>
                     </div>
-                    <h4 className="text-sm fw-bold text-[#0B1F3A] mb-2">{item.title}</h4>
-                    <p className="text-muted text-xs leading-relaxed mb-0">{item.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
