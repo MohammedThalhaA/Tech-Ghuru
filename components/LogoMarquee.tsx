@@ -8,7 +8,6 @@ const LogoMarquee: React.FC = () => {
     'mithra.jpeg',
     'brand1.png',
     'brand03.png',
-    'brand3.png',
     'brand4.png',
     'newbrand6.png',
     'newbrand7.png',
