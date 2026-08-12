@@ -5,32 +5,7 @@ const LogoMarquee: React.FC = () => {
     'sai.jpeg',
     'dhara.jpeg',
     'divine.jpeg',
-    'mithra.jpeg',
-    'brand1.png',
-    'brand03.png',
-    'brand3.png',
-    'brand4.png',
-    'newbrand6.png',
-    'newbrand7.png',
-    'newbrand8.png',
-    'newbrand9.png',
-    'mcars.png',
-    'newsghru.png',
-    'school.png',
-    'sissers.png',
-    'blessence.png',
-    'miniso poster logo.png',
-    'PRS LOGO.png',
-    'sivajisons.png',
-    'joysontrust.png',
-    'spacemedia.png',
-    'meera filngs.png',
-    'digitalghru.png',
-    'studioj.png',
-    'uelogo.png',
-    'vasanth.png',
-    'vrtech.png',
-    'mk.png'
+    'mithra.jpeg'
   ];
 
   return (
