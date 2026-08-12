@@ -112,6 +112,16 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [showcaseStage, setShowcaseStage] = useState(0);
 
+  const roleStageMap: Record<string, { activeIdx: number; label: string }> = {
+    web: { activeIdx: 3, label: "Development Stage" },
+    design: { activeIdx: 2, label: "Design Stage" },
+    content: { activeIdx: 3, label: "Content Stage" },
+    marketing: { activeIdx: 3, label: "Campaign Stage" },
+    video: { activeIdx: 2, label: "Editing Stage" },
+    consultation: { activeIdx: 2, label: "Roadmap Stage" }
+  };
+  const activeStage = roleStageMap[data.heroVisualType] || { activeIdx: 3, label: "Implementation Stage" };
+
   const overviewRef = useRef(null);
   const isOverviewInView = useInView(overviewRef, { once: true, margin: "-100px" });
 
@@ -1674,116 +1684,250 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
       </section>
 
       {/* 5. INTERACTIVE WORKFLOW */}
-      <section ref={workflowRef} className="py-20 bg-[#0B1F3A] text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_120%_-20%,rgba(30,127,212,0.14),rgba(255,255,255,0))]"></div>
+      <section ref={workflowRef} className="py-24 bg-[#030E21] text-white overflow-hidden relative" style={{ fontFamily: 'var(--font-rubik)' }}>
+        {/* Abstract decorative layout dots/orbs */}
+        <div className="absolute top-24 left-10 w-[200px] h-[200px] bg-[#1E7FD4]/10 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute bottom-24 right-10 w-[240px] h-[240px] bg-[#08A9E6]/10 rounded-full blur-[90px] pointer-events-none" />
+
         <div className="container px-4 relative z-10">
-          <div className="section-title text-center max-w-[650px] mx-auto mb-16">
-            <motion.h5 
-              className="fw-bold uppercase tracking-wider text-sm mb-2.5 block"
-              style={{ color: accentCol }}
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Our Execution Roadmap
-            </motion.h5>
-            <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase-white" style={{ fontFamily: 'var(--font-rubik)' }}>
-              Proven Process Timeline
-            </h2>
-
-            {/* Animated Underline with glowing dot (white) */}
-            <div className="position-relative mx-auto mt-4 mb-4" style={{ width: '150px', height: '6px' }}>
-              <motion.div 
-                className="position-absolute top-0 start-50 translate-middle-x" 
-                style={{ height: '5px', borderRadius: '3px', width: '100%', originX: 0.5, backgroundColor: accentCol }}
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              />
-              <motion.div 
-                className="position-absolute top-0 bg-white" 
-                style={{ width: '8px', height: '5px', borderRadius: '2px', left: 0 }}
-                animate={{ 
-                  left: ['0%', '94%', '0%'],
-                  opacity: [1, 0.4, 1],
-                  boxShadow: [
-                    `0 0 4px #fff, 0 0 10px ${accentCol}`,
-                    `0 0 1px #fff, 0 0 2px ${accentCol}`,
-                    `0 0 4px #fff, 0 0 10px ${accentCol}`
-                  ]
-                }}
-                transition={{
-                  left: { duration: 4, repeat: Infinity, ease: "linear" },
-                  opacity: { duration: 4, repeat: Infinity, ease: "linear" },
-                  boxShadow: { duration: 4, repeat: Infinity, ease: "linear" }
-                }}
-              />
+          <div className="section-title text-center max-w-[700px] mx-auto mb-20">
+            <div className="flex items-center justify-center gap-3 mb-2.5">
+              <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-[#1E7FD4]" />
+              <span className="text-xs font-bold uppercase tracking-widest text-[#1E7FD4]">Our Process Journey</span>
+              <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-[#1E7FD4]" />
             </div>
+            <h2 className="display-5 fw-bold mb-4">
+              Proven Process <span className="text-[#1E7FD4] bg-clip-text text-transparent bg-gradient-to-r from-[#1E7FD4] to-[#08A9E6]">Timeline</span>
+            </h2>
+            <p className="text-white/60 text-sm leading-relaxed max-w-[550px] mx-auto">
+              A structured journey from first requirements audit to post-launch optimization support.
+            </p>
 
-            <p className="text-white/60 mt-2">A structured journey from first requirements audit to post-launch optimization support.</p>
+            {/* Sub-badge categories */}
+            <div className="flex flex-wrap justify-center gap-3 mt-6">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/3 text-[10px] font-bold text-white/80">
+                <i className="fas fa-check-circle text-[#1E7FD4]" /> Transparent Process
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/3 text-[10px] font-bold text-white/80">
+                <i className="fas fa-clock text-[#1E7FD4]" /> On-time Delivery
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/5 bg-white/3 text-[10px] font-bold text-white/80">
+                <i className="fas fa-award text-[#1E7FD4]" /> Quality Assured
+              </span>
+            </div>
           </div>
 
-          {/* Desktop Workflow Line */}
-          <div className="hidden lg:block relative py-10 mb-10 overflow-hidden">
-            <svg className="absolute top-1/2 left-0 w-full h-1 -translate-y-1/2" viewBox="0 0 1000 10" fill="none" preserveAspectRatio="none">
-              <motion.path
-                d="M 0,5 L 1000,5"
-                stroke="rgba(255,255,255,0.1)"
-                strokeWidth="2"
-              />
-              {isWorkflowInView && (
-                <motion.path
-                  d="M 0,5 L 1000,5"
-                  stroke={accentCol}
-                  strokeWidth="3.5"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2.2, ease: "easeInOut" }}
-                />
-              )}
-            </svg>
-
+          {/* Desktop Process Line & Visual Node Pipeline */}
+          <div className="hidden lg:block relative py-20 mb-16 px-4">
+            {/* The main progress track */}
+            <div className="absolute top-1/2 left-0 w-full h-[3px] bg-white/10 -translate-y-1/2 z-0" />
+            
+            {/* Glow accent track path */}
             {isWorkflowInView && (
-              <motion.div
-                className="absolute top-1/2 left-0 w-4 h-4 rounded-full bg-[#2E9E6B] shadow-[0_0_12px_rgba(46,158,107,0.8)] -translate-y-1/2 -translate-x-1/2 z-20"
-                animate={{ left: "100%" }}
-                transition={{ duration: 2.2, ease: "easeInOut" }}
+              <motion.div 
+                className="absolute top-1/2 left-0 h-[3px] bg-gradient-to-r from-[#1E7FD4] via-[#08A9E6] to-[#2E9E6B] -translate-y-1/2 z-0 origin-left"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 2.5, ease: "easeInOut" }}
+                style={{ width: '100%' }}
               />
             )}
 
+            {/* Flying Rocket element following the progress line */}
+            {isWorkflowInView && (
+              <motion.div
+                className="absolute top-1/2 w-6 h-6 -translate-y-1/2 -mt-[2px] z-10 pointer-events-none"
+                initial={{ left: "0%", rotate: 0 }}
+                animate={{ 
+                  left: "100%",
+                  y: ["-50%", "-65%", "-35%", "-50%"]
+                }}
+                transition={{ 
+                  left: { duration: 2.5, ease: "easeInOut" },
+                  y: { duration: 2.5, repeat: 0, ease: "easeInOut" }
+                }}
+              >
+                <i className="fas fa-rocket text-[#1E7FD4] text-lg drop-shadow-[0_0_8px_#1E7FD4] rotate-45" />
+              </motion.div>
+            )}
+
             <div className="row relative z-10 justify-between">
-              {data.workflow.map((step, i) => (
-                <div key={i} className="col flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full border-2 bg-[#0B1F3A] flex items-center justify-center font-bold text-white text-base mb-4"
-                    style={{ borderColor: accentCol, boxShadow: `0 0 15px ${accentCol}33` }}
-                  >
-                    {step.number}
+              {data.workflow.map((step, i) => {
+                const isCompleted = i < activeStage.activeIdx;
+                const isActive = i === activeStage.activeIdx;
+                const isLast = i === data.workflow.length - 1;
+
+                // Set node icons matching the second image
+                const stepIcons = [
+                  "fa-search",       // Requirement Discovery
+                  "fa-clipboard-list", // Strategy & Planning
+                  "fa-pencil-ruler", // Design & Prototyping
+                  "fa-code",         // Development & Implementation
+                  "fa-shield-alt",   // Testing & Quality Assurance
+                  "fa-rocket"        // Launch & Optimization
+                ];
+
+                return (
+                  <div key={i} className="col flex flex-col items-center relative">
+                    {/* Tooltip badge for active role stage */}
+                    {isActive && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ delay: 0.6, duration: 0.4 }}
+                        className="absolute -top-16 bg-[#1E7FD4]/90 backdrop-blur-sm border border-[#1E7FD4]/30 rounded-xl px-3 py-1.5 flex flex-col items-center justify-center shadow-lg"
+                      >
+                        <span className="text-[8px] uppercase tracking-widest text-white/70 font-extrabold leading-none mb-0.5">You are here</span>
+                        <span className="text-[10px] font-bold text-white leading-none whitespace-nowrap">{activeStage.label}</span>
+                        {/* Triangle arrow */}
+                        <div className="w-2 h-2 bg-[#1E7FD4] rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
+                      </motion.div>
+                    )}
+
+                    {/* Ring Orb */}
+                    <div 
+                      className={`w-16 h-16 rounded-full flex items-center justify-center relative cursor-pointer select-none transition-all duration-500 ${
+                        isActive 
+                          ? 'bg-[#030E21] border-[3px] border-[#1E7FD4] shadow-[0_0_25px_rgba(30,127,212,0.65)] scale-110' 
+                          : isLast 
+                            ? 'bg-[#030E21] border-[3px] border-[#2E9E6B] shadow-[0_0_20px_rgba(46,158,107,0.5)]'
+                            : isCompleted
+                              ? 'bg-[#030E21] border-2 border-[#1E7FD4] shadow-[0_0_12px_rgba(30,127,212,0.25)]'
+                              : 'bg-[#030E21] border-2 border-white/20'
+                      }`}
+                    >
+                      <i className={`fas ${stepIcons[i] || step.icon} text-lg ${
+                        isActive 
+                          ? 'text-[#1E7FD4]' 
+                          : isLast 
+                            ? 'text-[#2E9E6B]'
+                            : isCompleted 
+                              ? 'text-white' 
+                              : 'text-white/40'
+                      }`} />
+
+                      {/* Small node dot underneath the circle */}
+                      <div className={`w-3.5 h-3.5 rounded-full absolute bottom-[-32px] left-1/2 -translate-x-1/2 border-2 border-[#030E21] z-20 transition-colors duration-500 ${
+                        isActive 
+                          ? 'bg-[#1E7FD4] shadow-[0_0_8px_#1E7FD4]'
+                          : isLast 
+                            ? 'bg-[#2E9E6B] shadow-[0_0_8px_#2E9E6B]'
+                            : isCompleted 
+                              ? 'bg-[#1E7FD4]' 
+                              : 'bg-white/30'
+                      }`} />
+                    </div>
+
+                    {/* Step Content */}
+                    <div className="text-center mt-12">
+                      <span className={`text-[10px] font-extrabold block mb-1 tracking-wider uppercase ${
+                        isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/60'
+                      }`}>
+                        0{i + 1}
+                      </span>
+                      <h4 className={`text-xs fw-extrabold mb-1.5 transition-colors duration-300 ${
+                        isActive ? 'text-[#1E7FD4]' : 'text-white'
+                      }`}>
+                        {step.title}
+                      </h4>
+                      <p className="text-white/50 text-[10px] leading-relaxed max-w-[130px] line-clamp-3">
+                        {step.desc}
+                      </p>
+                    </div>
                   </div>
-                  <h5 className="text-xs fw-bold mb-1 text-center">{step.title}</h5>
-                  <p className="text-white/50 text-[10px] text-center max-w-[130px] line-clamp-2">{step.desc}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           {/* Mobile Workflow Steps */}
-          <div className="lg:hidden space-y-8 relative">
-            <div className="absolute left-[17px] top-4 bottom-4 w-0.5 bg-white/10 z-0"></div>
-            {data.workflow.map((step, i) => (
-              <div key={i} className="flex gap-4 relative z-10">
-                <div className="w-9 h-9 rounded-full border-2 border-[#0B1F3A] flex items-center justify-center font-bold text-white text-xs shrink-0"
-                  style={{ backgroundColor: accentCol }}
-                >
-                  {step.number}
+          <div className="lg:hidden space-y-10 relative px-2">
+            <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-white/10 z-0" />
+            {data.workflow.map((step, i) => {
+              const isActive = i === activeStage.activeIdx;
+              const isLast = i === data.workflow.length - 1;
+              const stepIcons = ["fa-search", "fa-clipboard-list", "fa-pencil-ruler", "fa-code", "fa-shield-alt", "fa-rocket"];
+
+              return (
+                <div key={i} className="flex gap-5 relative z-10">
+                  <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isActive 
+                      ? 'bg-[#030E21] border-[#1E7FD4] shadow-[0_0_15px_rgba(30,127,212,0.4)]' 
+                      : isLast 
+                        ? 'bg-[#030E21] border-[#2E9E6B]'
+                        : 'bg-[#030E21] border-white/20'
+                  }`}>
+                    <i className={`fas ${stepIcons[i] || step.icon} text-sm ${isActive ? 'text-[#1E7FD4]' : isLast ? 'text-[#2E9E6B]' : 'text-white/60'}`} />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-[9px] font-extrabold text-[#1E7FD4] tracking-widest">0{i + 1}</span>
+                      {isActive && <span className="bg-[#1E7FD4]/20 text-[#1E7FD4] text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full">Active</span>}
+                    </div>
+                    <h5 className={`text-xs font-bold mb-1 ${isActive ? 'text-[#1E7FD4]' : 'text-white'}`}>{step.title}</h5>
+                    <p className="text-white/50 text-[10px] leading-relaxed mb-0">{step.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="text-xs font-bold mb-1">{step.title}</h5>
-                  <p className="text-white/60 text-[10px] leading-relaxed mb-0">{step.desc}</p>
+              );
+            })}
+          </div>
+
+          {/* Bottom Grid: Standard value offerings */}
+          <div className="mt-16 p-4 rounded-3xl border border-white/5 bg-white/3 backdrop-blur-md">
+            <div className="row g-4 justify-content-center text-center">
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
+                  <i className="fas fa-users text-[#1E7FD4]" />
                 </div>
+                <span className="text-[10px] font-bold text-white">Dedicated Team</span>
               </div>
-            ))}
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
+                  <i className="fas fa-bullseye text-[#1E7FD4]" />
+                </div>
+                <span className="text-[10px] font-bold text-white">Goal-Oriented Approach</span>
+              </div>
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
+                  <i className="fas fa-cogs text-[#1E7FD4]" />
+                </div>
+                <span className="text-[10px] font-bold text-white">Agile Process</span>
+              </div>
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
+                  <i className="fas fa-chart-line text-[#1E7FD4]" />
+                </div>
+                <span className="text-[10px] font-bold text-white">Result-Driven Solutions</span>
+              </div>
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
+                  <i className="fas fa-headset text-[#1E7FD4]" />
+                </div>
+                <span className="text-[10px] font-bold text-white">Dedicated Support</span>
+              </div>
+              <div className="col-6 col-md-4 col-lg-2 flex flex-col items-center p-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E7FD4]/10 border border-[#1E7FD4]/20 flex items-center justify-center mb-3">
+                  <i className="fas fa-award text-[#1E7FD4]" />
+                </div>
+                <span className="text-[10px] font-bold text-white">Continuous Improvement</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Start Project redirect buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mt-16">
+            <a 
+              href="/contact" 
+              className="inline-flex items-center gap-2.5 px-6 py-3 text-xs font-bold text-white rounded-full bg-[#1E7FD4] hover:bg-[#08A9E6] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline"
+            >
+              Start Your Project <i className="fas fa-arrow-right text-[10px]" />
+            </a>
+            <a 
+              href="/portfolio" 
+              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline"
+            >
+              <i className="fas fa-briefcase text-[10px] mr-1" /> View Our Portfolio
+            </a>
           </div>
         </div>
       </section>
