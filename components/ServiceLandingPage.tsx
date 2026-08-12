@@ -1586,12 +1586,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <p className="text-muted mt-2">Every feature of our work is meticulously structured to optimize user retention, security compliance and visual depth.</p>
           </div>
 
-          <motion.div
-            className="row g-4 justify-content-center"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isFeaturesInView ? "visible" : "hidden"}
-          >
+          <div className="row g-4 justify-content-center">
             {data.features.map((feature, i) => {
               const direction = i % 4 === 0 
                 ? 'left' 
@@ -1607,6 +1602,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="col-lg-4 col-md-6"
                   custom={{ direction, index: i }}
                   variants={cardEntranceVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <motion.div
                   className="group relative h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
@@ -1670,7 +1668,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               </motion.div>
             );
           })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1911,12 +1909,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <p className="text-muted mt-2">What sets Atriowings apart is our dedication to execution metrics, custom development, and reliable client communication pipelines.</p>
           </div>
 
-          <motion.div 
-            className="row g-4"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isWhyChooseInView ? "visible" : "hidden"}
-          >
+          <div className="row g-4">
             {data.whyChooseUs.map((item, i) => {
               const direction = i % 4 === 0 
                 ? 'left' 
@@ -1932,6 +1925,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="col-md-6 col-lg-3"
                   custom={{ direction, index: i }}
                   variants={cardEntranceVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <motion.div
                     className="group relative h-full rounded-2xl p-5 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
@@ -1997,7 +1993,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 </motion.div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -2056,12 +2052,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
             <p className="text-muted mt-2">We construct architectures intended to scale organic search positions, loading speeds and business queries.</p>
           </div>
 
-          <motion.div
-            className="row g-4 justify-content-center"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isOutcomesInView ? "visible" : "hidden"}
-          >
+          <div className="row g-4 justify-content-center">
             {data.outcomes.map((outcome, i) => {
               const direction = i % 4 === 0 
                 ? 'left' 
@@ -2077,6 +2068,9 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   className="col-lg-4 col-md-6"
                   custom={{ direction, index: i }}
                   variants={cardEntranceVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <motion.div
                     className="group relative h-full rounded-2xl p-6 flex flex-col justify-between cursor-pointer select-none overflow-hidden transition-all duration-300"
@@ -2142,7 +2136,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 </motion.div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
