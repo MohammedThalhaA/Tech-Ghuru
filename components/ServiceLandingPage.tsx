@@ -1675,17 +1675,12 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                     </motion.div>
 
                     {/* Card Title */}
-                    <h4
-                      className="text-base fw-extrabold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[var(--hover-title-color)]"
-                      style={{
-                        '--hover-title-color': '#1E7FD4'
-                      } as React.CSSProperties}
-                    >
+                    <h4 className="text-base fw-extrabold text-[#0B1F3A] mb-2 transition-colors duration-300 group-hover:text-[#1E7FD4]">
                       {feature.title}
                     </h4>
 
                     {/* Card Description */}
-                    <p className="text-muted text-xs leading-relaxed mb-0">{feature.desc}</p>
+                    <p className="text-muted text-xs leading-relaxed mb-0 transition-colors duration-300 group-hover:text-[#1E7FD4]/80">{feature.desc}</p>
                   </div>
                 </motion.div>
               </motion.div>
