@@ -1858,19 +1858,28 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
 
                     {/* Step Content */}
                     <div className="text-center mt-3">
-                      <span className={`text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase transition-colors duration-300 ${
-                        isActive ? 'text-[#1E7FD4]' : isCompleted ? 'text-[#1E7FD4]/70' : 'text-white/30'
-                      }`}>
+                      <span 
+                        className="text-[9px] font-extrabold block mb-0.5 tracking-wider uppercase transition-colors duration-300"
+                        style={{
+                          color: isActive ? '#1E7FD4' : isCompleted ? 'rgba(30, 127, 212, 0.7)' : 'rgba(255, 255, 255, 0.3)'
+                        }}
+                      >
                         0{i + 1}
                       </span>
-                      <h4 className={`text-[11px] font-extrabold mb-1 transition-colors duration-300 ${
-                        isActive ? 'text-white' : isCompleted ? 'text-white/85' : 'text-white/35'
-                      }`}>
+                      <h4 
+                        className="text-[11px] font-extrabold mb-1 transition-colors duration-300"
+                        style={{
+                          color: isActive ? '#ffffff' : isCompleted ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.35)'
+                        }}
+                      >
                         {step.title}
                       </h4>
-                      <p className={`text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3 transition-colors duration-300 ${
-                        isActive ? 'text-white/85' : isCompleted ? 'text-white/60' : 'text-white/20'
-                      }`}>
+                      <p 
+                        className="text-[9px] leading-relaxed mx-auto max-w-[120px] line-clamp-3 transition-colors duration-300"
+                        style={{
+                          color: isActive ? 'rgba(255, 255, 255, 0.85)' : isCompleted ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.2)'
+                        }}
+                      >
                         {step.desc}
                       </p>
                     </div>
@@ -1912,17 +1921,32 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className={`text-[9px] font-extrabold tracking-widest ${
-                        isActive ? 'text-[#1E7FD4]' : isCompleted ? 'text-[#1E7FD4]/70' : 'text-white/30'
-                      }`}>0{i + 1}</span>
+                      <span 
+                        className="text-[9px] font-extrabold tracking-widest"
+                        style={{
+                          color: isActive ? '#1E7FD4' : isCompleted ? 'rgba(30, 127, 212, 0.7)' : 'rgba(255, 255, 255, 0.3)'
+                        }}
+                      >
+                        0{i + 1}
+                      </span>
                       {isActive && <span className="bg-[#1E7FD4]/20 text-[#1E7FD4] text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full">Active</span>}
                     </div>
-                    <h5 className={`text-xs font-bold mb-1 transition-colors duration-300 ${
-                      isActive ? 'text-white' : isCompleted ? 'text-white/80' : 'text-white/35'
-                    }`}>{step.title}</h5>
-                    <p className={`text-[10px] leading-relaxed mb-0 transition-colors duration-300 ${
-                      isActive ? 'text-white/80' : isCompleted ? 'text-white/60' : 'text-white/20'
-                    }`}>{step.desc}</p>
+                    <h5 
+                      className="text-xs font-bold mb-1 transition-colors duration-300"
+                      style={{
+                        color: isActive ? '#ffffff' : isCompleted ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.35)'
+                      }}
+                    >
+                      {step.title}
+                    </h5>
+                    <p 
+                      className="text-[10px] leading-relaxed mb-0 transition-colors duration-300"
+                      style={{
+                        color: isActive ? 'rgba(255, 255, 255, 0.8)' : isCompleted ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.2)'
+                      }}
+                    >
+                      {step.desc}
+                    </p>
                   </div>
                 </div>
               );
