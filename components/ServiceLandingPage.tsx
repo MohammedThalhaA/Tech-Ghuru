@@ -2230,7 +2230,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-full bg-[#1E7FD4] shadow-lg hover:shadow-[0_8px_25px_-5px_rgba(30,127,212,0.5)] transition-all duration-300 no-underline overflow-hidden relative"
-              style={{ scale: 1 }}
+              style={{ scale: 1, color: '#ffffff' }}
             >
               {/* Sliding background color fill from left to right */}
               <motion.span
@@ -2241,10 +2241,11 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 initial={{ x: "-100%" }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
               />
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-2" style={{ color: '#ffffff' }}>
                 Start Your Project 
                 <motion.i 
                   className="fas fa-arrow-right text-[10px]"
+                  style={{ color: '#ffffff' }}
                   variants={{
                     hover: { x: 3 }
                   }}
@@ -2256,8 +2257,8 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               href="/portfolio" 
               whileHover="hover"
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white/90 hover:text-white rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline overflow-hidden relative"
-              style={{ scale: 1 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold rounded-full border border-white/10 hover:border-white/30 bg-white/3 hover:bg-white/8 transition-all duration-300 no-underline overflow-hidden relative"
+              style={{ scale: 1, color: '#ffffff' }}
             >
               {/* Sliding background color fill from left to right */}
               <motion.span
@@ -2268,9 +2269,10 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                 initial={{ x: "-100%" }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
               />
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-2" style={{ color: '#ffffff' }}>
                 <motion.i 
                   className="fas fa-briefcase text-[10px]"
+                  style={{ color: '#ffffff' }}
                   variants={{
                     hover: { rotate: [-10, 10, -10, 10, 0] }
                   }}
