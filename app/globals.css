@@ -63,3 +63,9 @@ html {
   visibility: visible !important;
 }
 
+/* Global scrollbar and horizontal overflow prevention */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+

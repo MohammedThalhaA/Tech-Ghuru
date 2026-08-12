@@ -118,7 +118,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
     switch (data.heroVisualType) {
       case 'web':
         return (
-          <div className="relative w-full h-[420px] flex items-center justify-center">
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
             {/* Grid background */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#1E7FD4]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
@@ -193,7 +193,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         );
       case 'marketing':
         return (
-          <div className="relative w-full h-[420px] flex items-center justify-center">
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#FF8A3D]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
@@ -259,7 +259,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         );
       case 'design':
         return (
-          <div className="relative w-full h-[420px] flex items-center justify-center">
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#A855F7]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
@@ -323,7 +323,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         );
       case 'content':
         return (
-          <div className="relative w-full h-[420px] flex items-center justify-center">
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#FF8A3D]/20 to-[#A855F7]/20 rounded-full blur-[80px] -z-10" />
 
@@ -390,7 +390,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         );
       case 'video':
         return (
-          <div className="relative w-full h-[420px] flex items-center justify-center">
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#ef4444]/20 to-[#08A9E6]/20 rounded-full blur-[80px] -z-10" />
 
@@ -445,7 +445,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         );
       case 'consultation':
         return (
-          <div className="relative w-full h-[420px] flex items-center justify-center">
+          <div className="relative w-full h-[420px] flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] opacity-45 pointer-events-none" />
             <div className="absolute w-[220px] h-[220px] bg-gradient-to-tr from-[#2E9E6B]/20 to-[#1E7FD4]/20 rounded-full blur-[80px] -z-10" />
 
