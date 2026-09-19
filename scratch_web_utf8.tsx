@@ -30,7 +30,7 @@ export default function Page() {
 <h1 className="mb-4">Web Developing</h1>
 
 
-<h4>Website Design and Development by AtrioWings Technologies</h4>
+<h4>Website Design and Development by Tech Ghuru</h4>
 <p>Best Website Design and Web Application Development company in Chennai. Website Designing Company started its operation in the year 2018. If you are looking for the best web designing company in Chennai, then here we are.</p>
 <p>Your website is the face of your company on the internet, accessible by everyoune across the world. Our company provides website design for low cost rates.we provide all types of website need for your business to attract your audience.</p>
 <button className="readmorebtn bg-primary text-light fancy-button">Read More</button>

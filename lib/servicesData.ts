@@ -10,7 +10,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       title: "Transform Your Digital Presence with Modern Web Architecture",
       paragraphs: [
-        "In today's digital landscape, your website is the primary touchpoint for clients across the globe. At Atriowings Technologies, we design and develop custom web solutions that go beyond visual elegance. We prioritize loading speeds, accessibility, and robust security frameworks.",
+        "In today's digital landscape, your website is the primary touchpoint for clients across the globe. At Tech Ghuru, we design and develop custom web solutions that go beyond visual elegance. We prioritize loading speeds, accessibility, and robust security frameworks.",
         "Whether you require a corporate portfolio, a heavy-traffic dynamic web application, or a multi-vendor e-commerce store, our engineering team implements clean, modular React and Next.js structures that scale seamlessly as your customer base expands."
       ],
       metric: {
@@ -69,7 +69,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       title: "Data-Driven Marketing to Grow Your Customer Base",
       paragraphs: [
-        "In a highly competitive digital market, getting eyes on your platform is only half the battle. Atriowings Technologies focuses on conversion rate optimization (CRO) and direct customer acquisition. We construct custom marketing funnels tailored to your exact industry metrics.",
+        "In a highly competitive digital market, getting eyes on your platform is only half the battle. Tech Ghuru focuses on conversion rate optimization (CRO) and direct customer acquisition. We construct custom marketing funnels tailored to your exact industry metrics.",
         "We audit search console layouts, design optimized Google and Meta ad campaigns, and create engaging social copy that converts casual impressions into qualified sales opportunities."
       ],
       metric: {
@@ -128,7 +128,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       title: "Shape How Users Interact with Your Product",
       paragraphs: [
-        "Great design is not just how a system looks, but how effortlessly it operates. Atriowings Technologies designs digital interfaces that make complex data structures feel natural and pleasant to navigate.",
+        "Great design is not just how a system looks, but how effortlessly it operates. Tech Ghuru designs digital interfaces that make complex data structures feel natural and pleasant to navigate.",
         "We map out custom user journeys, construct atomic design libraries, and deliver high-fidelity interactive Figma prototypes that validate visual ideas prior to starting expensive backend coding passes."
       ],
       metric: {
@@ -185,7 +185,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       title: "Visual Storytelling that Drives Social Media Traction",
       paragraphs: [
-        "Video is the most consumed format across the web. Atriowings Technologies creates professional video ads, corporate explainers, and engaging social reels that highlight your product values instantly.",
+        "Video is the most consumed format across the web. Tech Ghuru creates professional video ads, corporate explainers, and engaging social reels that highlight your product values instantly.",
         "We structure the edits, apply professional color grading, mix precise sound effects, and design custom motion graphic overlays to deliver high-converting social campaigns."
       ],
       metric: {
@@ -241,7 +241,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       title: "Content that Ranks on Search and Earns Reader Trust",
       paragraphs: [
-        "Search engines reward original, valuable content. Atriowings Technologies writes articles and website copy that solve actual user questions, rather than just filling pages with generic paragraphs.",
+        "Search engines reward original, valuable content. Tech Ghuru writes articles and website copy that solve actual user questions, rather than just filling pages with generic paragraphs.",
         "We research keywords, compile search intent briefs, outline headings logically, and edit copy to make it clear, engaging, and fully optimized for digital search indexing systems."
       ],
       metric: {
@@ -298,7 +298,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       title: "Align Your Technology with Your Business Objectives",
       paragraphs: [
-        "Using the wrong software stack can limit company growth. Atriowings Technologies conducts deep technology audits to identify operational bottlenecks and scale database setups.",
+        "Using the wrong software stack can limit company growth. Tech Ghuru conducts deep technology audits to identify operational bottlenecks and scale database setups.",
         "We draft clear system maps, evaluate hosting costs, design digital transformation strategies, and provide expert guidance to prepare your platforms for future traffic surges."
       ],
       metric: {

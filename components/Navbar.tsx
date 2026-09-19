@@ -48,7 +48,7 @@ export default function Navbar() {
 
   const getLinkStyle = (path: string) => {
     const isActive = pathname === path || (path !== '/' && pathname.startsWith(path));
-    return { color: isActive ? '#06a3da' : '#1e293b' };
+    return { color: isActive ? '#F97316' : '#1e293b' };
   };
 
   // Live filter results
@@ -79,11 +79,11 @@ export default function Navbar() {
           height: 3px;
           bottom: 18px;
           left: 50%;
-          background-color: #06a3da;
+          background-color: #F97316;
           transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
           transform: translateX(-50%) scaleX(0);
           border-radius: 4px;
-          box-shadow: 0 0 8px rgba(6, 163, 218, 0.5);
+          box-shadow: 0 0 8px rgba(249, 115, 22, 0.5);
         }
         .custom-nav-link:hover::after,
         .custom-nav-link.active::after {
@@ -91,11 +91,11 @@ export default function Navbar() {
           transform: translateX(-50%) scaleX(1);
         }
         .custom-nav-link:hover {
-          color: #06a3da !important;
+          color: #F97316 !important;
           transform: translateY(-2px);
         }
         .custom-nav-link.active {
-          color: #06a3da !important;
+          color: #F97316 !important;
         }
         
         /* Sticky bar animation classes (Capsule Floating layout) */
@@ -108,8 +108,8 @@ export default function Navbar() {
           margin: 0 auto;
           border-radius: 50px !important;
           background: #ffffff !important;
-          border: 1px solid rgba(6, 163, 218, 0.18) !important;
-          box-shadow: 0 12px 35px rgba(6, 163, 218, 0.08) !important;
+          border: 1px solid rgba(249, 115, 22, 0.18) !important;
+          box-shadow: 0 12px 35px rgba(249, 115, 22, 0.08) !important;
           animation: slideDown 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           z-index: 1000;
           padding: 10px 30px !important;
@@ -147,7 +147,7 @@ export default function Navbar() {
           }
           .custom-nav-link:hover,
           .custom-nav-link.active {
-            background-color: rgba(6, 163, 218, 0.05) !important;
+            background-color: rgba(249, 115, 22, 0.05) !important;
             transform: none !important;
           }
           .navbar-collapse {
@@ -169,8 +169,8 @@ export default function Navbar() {
         <Link href="/" className="navbar-brand p-0 anand" style={{ display: 'flex', alignItems: 'center' }}>
           <h1 className="m-0" style={{ display: 'flex', alignItems: 'center' }}>
             <Image 
-              src="/img/logo.png" 
-              alt="Logo" 
+              src="/Tech Ghuru logo.png" 
+              alt="Tech Ghuru Logo" 
               width={160} 
               height={48} 
               priority
@@ -217,7 +217,7 @@ export default function Navbar() {
               width: '40px', 
               height: '40px', 
               borderRadius: '50%',
-              background: 'rgba(6, 163, 218, 0.08)',
+              background: 'rgba(249, 115, 22, 0.08)',
               border: 'none',
               outline: 'none'
             }}
@@ -276,27 +276,27 @@ export default function Navbar() {
                       paddingLeft: '56px',
                       fontSize: '18px',
                       borderRadius: '50px',
-                      border: '2px solid rgba(6, 163, 218, 0.5)',
+                      border: '2px solid rgba(249, 115, 22, 0.5)',
                       background: 'rgba(255, 255, 255, 0.08)',
                       color: '#fff',
                       outline: 'none',
-                      boxShadow: '0 0 25px rgba(6, 163, 218, 0.3)',
+                      boxShadow: '0 0 25px rgba(249, 115, 22, 0.3)',
                       transition: 'all 0.3s ease-in-out',
                     }}
                     onFocus={(e) => {
-                      e.target.style.boxShadow = '0 0 35px rgba(6, 163, 218, 0.55)';
-                      e.target.style.borderColor = '#00E5FF';
+                      e.target.style.boxShadow = '0 0 35px rgba(249, 115, 22, 0.55)';
+                      e.target.style.borderColor = '#49200B';
                     }}
                     onBlur={(e) => {
-                      e.target.style.boxShadow = '0 0 25px rgba(6, 163, 218, 0.3)';
-                      e.target.style.borderColor = 'rgba(6, 163, 218, 0.5)';
+                      e.target.style.boxShadow = '0 0 25px rgba(249, 115, 22, 0.3)';
+                      e.target.style.borderColor = 'rgba(249, 115, 22, 0.5)';
                     }}
                   />
                   <i 
                     className="fa fa-search" 
                     style={{ 
                       position: 'absolute', left: '22px', top: '50%', 
-                      transform: 'translateY(-50%)', color: '#00E5FF', 
+                      transform: 'translateY(-50%)', color: '#49200B', 
                       fontSize: '18px' 
                     }}
                   />
@@ -349,8 +349,8 @@ export default function Navbar() {
                       transition: 'all 0.2s',
                     }}
                     onMouseEnter={(e: any) => {
-                      e.currentTarget.style.background = 'rgba(6, 163, 218, 0.15)';
-                      e.currentTarget.style.borderColor = 'rgba(6, 163, 218, 0.4)';
+                      e.currentTarget.style.background = 'rgba(249, 115, 22, 0.15)';
+                      e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.4)';
                       e.currentTarget.style.color = '#fff';
                     }}
                     onMouseLeave={(e: any) => {

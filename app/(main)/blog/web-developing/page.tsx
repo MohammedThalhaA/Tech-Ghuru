@@ -39,11 +39,11 @@ export default function Page() {
 <h1 className="mb-4">Web Developing</h1>
 <p><b>Introduction</b></p>
 <p>
-                            Atriowings Technologies, a seasoned player in the web development landscape, has been crafting digital solutions for over six years. Our journey has been marked by innovation, dedication, and a relentless pursuit of excellence. In this blog, we'll delve into the intricacies of web development, sharing insights, tips, and real-world experiences from our projects.
+                            Tech Ghuru, a seasoned player in the web development landscape, has been crafting digital solutions for over six years. Our journey has been marked by innovation, dedication, and a relentless pursuit of excellence. In this blog, we'll delve into the intricacies of web development, sharing insights, tips, and real-world experiences from our projects.
                         </p>
 <p><b>Understanding the Web Development Process</b></p>
 <p>
-                            Web development is a multifaceted process that involves planning, designing, coding, and testing. It's a collaborative effort between designers, developers, and project managers. At Atriowings, we follow a structured approach that ensures efficient project execution and client satisfaction.
+                            Web development is a multifaceted process that involves planning, designing, coding, and testing. It's a collaborative effort between designers, developers, and project managers. At Tech Ghuru, we follow a structured approach that ensures efficient project execution and client satisfaction.
                         </p>
 <p><b>The Importance of User Experience (UX)</b></p>
 <p>
@@ -51,7 +51,7 @@ export default function Page() {
                         </p>
 <p><b>The Role of Front-End Development</b></p>
 <p>
-                            Front-end development is responsible for creating the visual interface of a website. It involves using HTML, CSS, and JavaScript to design and build responsive, user-friendly layouts. At Atriowings, we stay updated with the latest front-end technologies and frameworks to deliver cutting-edge web experiences.
+                            Front-end development is responsible for creating the visual interface of a website. It involves using HTML, CSS, and JavaScript to design and build responsive, user-friendly layouts. At Tech Ghuru, we stay updated with the latest front-end technologies and frameworks to deliver cutting-edge web experiences.
                         </p>
 <p><b>Back-End Development: The Powerhouse</b></p>
 <p>
@@ -59,7 +59,7 @@ export default function Page() {
                         </p>
 <p><b>The Significance of Mobile-First Design</b></p>
 <p>
-                            In today's mobile-centric world, mobile-first design is a must. It ensures that websites are optimized for smaller screens and provide a seamless user experience across devices. At Atriowings, we prioritize mobile-first design in all our projects.
+                            In today's mobile-centric world, mobile-first design is a must. It ensures that websites are optimized for smaller screens and provide a seamless user experience across devices. At Tech Ghuru, we prioritize mobile-first design in all our projects.
                         </p>
 <p><b>The Future of Web Development: Emerging Trends</b></p>
 <p>
@@ -69,9 +69,9 @@ export default function Page() {
 <p>
                             Web development is not without its challenges. From tight deadlines to complex technical issues, developers often face hurdles. However, the rewards are immense. Witnessing a website come to life and making a positive impact on users is incredibly fulfilling.
                         </p>
-<h1 className="mb-4">Atriowings Technologies: Our Approach to Web Development</h1>
+<h1 className="mb-4">Tech Ghuru: Our Approach to Web Development</h1>
 <p>
-                            At Atriowings, we believe in building long-lasting relationships with our clients. We work closely with them to understand their unique needs and goals. Our approach is characterized by
+                            At Tech Ghuru, we believe in building long-lasting relationships with our clients. We work closely with them to understand their unique needs and goals. Our approach is characterized by
                         </p>
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Client-Centric Focus:</b> We prioritize our clients' satisfaction above all else.</p>
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Quality Assurance:</b> We adhere to strict quality standards to deliver reliable and high-performing websites.</p>
@@ -79,7 +79,7 @@ export default function Page() {
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Innovation:</b> We embrace innovation to create cutting-edge digital solutions.</p>
 <h1 className="mb-4">Success Stories: Our Web Development Projects</h1>
 <p>
-                            Over the years, Atriowings Technologies has successfully delivered numerous web development projects across various industries. From e-commerce platforms to corporate websites, our portfolio showcases our expertise and commitment to excellence.
+                            Over the years, Tech Ghuru has successfully delivered numerous web development projects across various industries. From e-commerce platforms to corporate websites, our portfolio showcases our expertise and commitment to excellence.
                         </p>
 <h1 className="mb-4">The Evolution of Web Development</h1>
 <p><b>The Early Days of the Web</b></p>
@@ -164,7 +164,7 @@ export default function Page() {
                         </p>
 <h1 className="mb-4">Conclusion</h1>
 <p>
-                            Web development is a dynamic and ever-evolving field. At Atriowings Technologies, we are passionate about crafting exceptional digital experiences. With our six years of experience and dedication to innovation, we are well-equipped to meet the challenges of the modern web.
+                            Web development is a dynamic and ever-evolving field. At Tech Ghuru, we are passionate about crafting exceptional digital experiences. With our six years of experience and dedication to innovation, we are well-equipped to meet the challenges of the modern web.
                         </p>
 </div>
 

@@ -10,24 +10,24 @@ export default function Page() {
         <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="w-100 min-vh-100 navimgres" src="/img/Frame 1 (3).png" alt="Image" />
+              <img className="w-100 min-vh-100 navimgres" src="/img/Frame 1 (3).png" alt="Image" style={{ filter: 'hue-rotate(-185deg) saturate(1.2) brightness(0.95)' }} />
               <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                 <div className="p-3" style={{ maxWidth: '900px' }}>
-                  <h1 className="display-1 text-white mb-md-4 animated zoomIn">Atriowings Technologies </h1>
+                  <h1 className="display-1 text-white mb-md-4 animated zoomIn">Tech Ghuru Digital Solutions</h1>
                   <h5 className="text-white mb-3 animated slideInDown">
-                    Atriowings Technologies is a leading global IT Solutions company that offers Web development, digital marketing and multimedia services.
+                    Tech Ghuru is a leading global IT Solutions company that offers Web development, digital marketing and multimedia services.
                   </h5>
                   <Link href="/contact" className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight mt-5">Contact Us</Link>
                 </div>
               </div>
             </div>
             <div className="carousel-item">
-              <img className="w-100 min-vh-100 navimgres" src="/img/Frame 1 (3).png" alt="Image" />
+              <img className="w-100 min-vh-100 navimgres" src="/img/Frame 1 (3).png" alt="Image" style={{ filter: 'hue-rotate(-185deg) saturate(1.2) brightness(0.95)' }} />
               <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                 <div className="p-3" style={{ maxWidth: '900px' }}>
-                  <h1 className="display-1 text-white mb-md-4 animated zoomIn">Atriowings Technologies</h1>
+                  <h1 className="display-1 text-white mb-md-4 animated zoomIn">Tech Ghuru Digital Solutions</h1>
                   <h5 className="text-white mb-3 animated slideInDown">
-                    Atriowings Technologies is a leading global IT Solutions company that offers Web development, digital marketing and multimedia services.
+                    Tech Ghuru is a leading global IT Solutions company that offers Web development, digital marketing and multimedia services.
                   </h5>
                   <Link href="/contact" className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</Link>
                 </div>
@@ -114,7 +114,7 @@ export default function Page() {
                 <h1 className="mb-0">The Best IT Solutions With Six Years of Experience</h1>
               </div>
               <p className="mb-4">
-                AtrioWings Technologies is a leading global IT Solutions company that offers web development, digital marketing, and multimedia services. We are dedicated, passionate service providers offering the best industry practices synced with technology expertise and business domain knowledge to drive the digital revolution.
+                Tech Ghuru is a leading global IT Solutions company that offers web development, digital marketing, and multimedia services. We are dedicated, passionate service providers offering the best industry practices synced with technology expertise and business domain knowledge to drive the digital revolution.
               </p>
               <p>
                 Upgrade your IT Solutions by collaborating with a highly-skilled, experienced, hand-picked team of experts. We ensure your project is in your hands on time at an affordable price.
@@ -216,7 +216,7 @@ export default function Page() {
             </div>
             <div className="col-lg-4 wow zoomIn" data-wow-delay="0.9s" style={{ minHeight: '350px' }}>
               <div className="position-relative h-100 border border-none">
-                <img className="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="/img/Whychooseus.jpg" style={{ objectFit: 'cover' }} alt="Why Choose Us" />
+                <img className="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="/img/Whychooseus.jpg" style={{ objectFit: 'cover', filter: 'hue-rotate(-185deg) saturate(1.2) brightness(0.95)' }} alt="Why Choose Us" />
               </div>
             </div>
             <div className="col-lg-4">

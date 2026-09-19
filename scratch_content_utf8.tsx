@@ -31,7 +31,7 @@ export default function Page() {
 <p>Content writing involves creating informative, engaging, and persuasive text for various purposes, such as:</p>
 
 
-<p>Would you like to create a specific social media post for Atriowings Technologies? Please provide me with more information about your target audience and the message you want to convey.</p>
+<p>Would you like to create a specific social media post for Tech Ghuru? Please provide me with more information about your target audience and the message you want to convey.</p>
 <button className="readmorebtn bg-primary text-light fancy-button">Read More</button>
 </div>
 

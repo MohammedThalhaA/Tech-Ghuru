@@ -84,7 +84,7 @@ export async function submitJobApplication(formData: FormData) {
     });
 
     // 5. Generate secure, signature-validated download link
-    const secret = process.env.NEXTAUTH_SECRET || 'atriowings_secret_fallback';
+    const secret = process.env.NEXTAUTH_SECRET || 'techghuru_secret_fallback';
     const signature = crypto.createHmac('sha256', secret).update(filename).digest('hex');
     const appUrl = process.env.NEXTAUTH_URL || 'http://localhost:3000';
     const resumeDownloadUrl = `${appUrl}/api/resumes/download?filename=${encodeURIComponent(filename)}&sig=${signature}`;

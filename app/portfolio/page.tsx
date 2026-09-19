@@ -156,8 +156,8 @@ export default function Page() {
           margin: 0 auto;
           border-radius: 50px !important;
           background: #ffffff !important;
-          border: 1px solid rgba(6, 163, 218, 0.18) !important;
-          box-shadow: 0 12px 35px rgba(6, 163, 218, 0.08) !important;
+          border: 1px solid rgba(249, 115, 22, 0.18) !important;
+          box-shadow: 0 12px 35px rgba(249, 115, 22, 0.08) !important;
           animation: slideDown 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           z-index: 1000;
           padding: 10px 30px !important;
@@ -183,7 +183,7 @@ export default function Page() {
           <a href="/" className="navbar-brand p-0 anand" style={{ display: 'flex', alignItems: 'center' }}>
             <h1 className="m-0" style={{ display: 'flex', alignItems: 'center' }}>
               <img 
-                src="/img/logo.png" 
+                src="/Tech Ghuru logo.png" 
                 alt="Logo" 
                 style={{ 
                   width: '160px', 
@@ -215,7 +215,7 @@ export default function Page() {
               <div className="table-cell">
                 <div className="container">
                   <h1 className="intro-title wow slideInDown mb-4" style={{ color: 'white', textAlign: 'center' }}>
-                    Atriowings Technologies
+                    Tech Ghuru
                   </h1>
                   <h2 className="wow slideInLeft intro-title2" style={{ color: 'white', fontSize: '30px', textAlign: 'center' }}>What We Do</h2>
                   <div className="typing-wrapper wow slideInRight">
@@ -241,7 +241,7 @@ export default function Page() {
               <a className="menu-item3 phone" href="tel:+91 8825948859">
                 <i className="fas fa-phone-volume"></i> Call Us
               </a>
-              <a className="menu-item3 mail" href="mailto:info@atriowings.in">
+              <a className="menu-item3 mail" href="mailto:info@techghuru.in">
                 <i className="fas fa-envelope"></i> Email
               </a>
             </div>
@@ -252,9 +252,9 @@ export default function Page() {
           <div className="aboutpadd" id="about">
             <div className="row mt-5 p-5 container aboutus ms-5 wow slideInLeft">
               <div className="col">
-                <h1 className="mb-5" style={{ color: '#06a3da' }}>About Us</h1>
+                <h1 className="mb-5" style={{ color: '#F97316' }}>About Us</h1>
                 <p>
-                  AtrioWings Technologies is a leading global IT Solutions company that offers web development, digital marketing, and multimedia services. We are dedicated, passionate service providers offering the best
+                  Tech Ghuru is a leading global IT Solutions company that offers web development, digital marketing, and multimedia services. We are dedicated, passionate service providers offering the best
                   industry practices synced with technology expertise and business domain knowledge to drive the digital
                   revolution.
                 </p>
@@ -383,7 +383,7 @@ export default function Page() {
 
         <section id="Portfolio">
           <div className="portfolio-section container" style={{ padding: '60px 15px 0 15px' }}>
-            <h1 className="portfolioh1 text-center" style={{ color: '#06a3da', textAlign: 'center', marginBottom: '30px', fontWeight: 'bold' }}>Portfolio</h1>
+            <h1 className="portfolioh1 text-center" style={{ color: '#F97316', textAlign: 'center', marginBottom: '30px', fontWeight: 'bold' }}>Portfolio</h1>
             <div className="portfolio-filter">
               <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All</button>
               <button className={`filter-btn ${filter === 'ecommerce' ? 'active' : ''}`} onClick={() => setFilter('ecommerce')}>E-Commerce</button>
@@ -403,7 +403,7 @@ export default function Page() {
                 </div>
                 <div className="card-content">
                   <p>Corporate</p>
-                  <a className="portbtn" href="https://universalengineering.org.in/" style={{ backgroundColor: '#0072ce' }} target="_blank" rel="noreferrer">Visit site →</a>
+                  <a className="portbtn" href="https://universalengineering.org.in/" style={{ backgroundColor: '#49200B' }} target="_blank" rel="noreferrer">Visit site →</a>
                 </div>
               </div>
 
@@ -645,7 +645,7 @@ export default function Page() {
                                   </div>
                                 </div>
                                 <div className="col-md-12">
-                                  <button className="button button-a button-big button-rouded fancy-button" id="submit" name="submit" style={{ backgroundColor: '#06a3da' }} type="submit" value="submit">Send Message</button>
+                                  <button className="button button-a button-big button-rouded fancy-button" id="submit" name="submit" style={{ backgroundColor: '#F97316' }} type="submit" value="submit">Send Message</button>
                                 </div>
                               </div>
                             </form>
@@ -663,15 +663,15 @@ export default function Page() {
                             <ul className="list-ico">
                               <li><span className="ion-ios-location"></span>No.1,Gurudev Complex,57th Street,V R Nagar,Korattur,Chennai-600 080.</li>
                               <li><span className="ion-ios-telephone"></span>+918825948859</li>
-                              <li><span className="ion-email"></span>info@atriowings.com</li>
+                              <li><span className="ion-email"></span>info@techghuru.com</li>
                             </ul>
                           </div>
                           <div className="socials">
                             <ul>
-                              <li><a href="https://www.facebook.com/people/AtrioWings-Technologies/100082503773842/"><span className="ico-circle"><i className="fab fa-facebook-f" style={{ fontSize: '24px', color: '#1877F2' }}></i></span></a></li>
-                              <li><a href="https://www.instagram.com/atriowingstechnologies/"><span className="ico-circle"> <i className="fab fa-instagram" style={{ fontSize: '24px', color: '#E1306C' }}></i></span></a></li>
-                              <li><a href="https://x.com/atriowings"><span className="ico-circle"> <i className="fab fa-twitter" style={{ fontSize: '24px', color: '#1DA1F2' }}></i></span></a></li>
-                              <li><a href="https://www.linkedin.com/posts/atriowings_atriowings-atriowingstechnologies-business-activity-6910483218567741440-4G05/"><span className="ico-circle"><i className="fab fa-linkedin" style={{ fontSize: '24px', color: '#0077B5' }}></i></span></a></li>
+                              <li><a href="#"><span className="ico-circle"><i className="fab fa-facebook-f" style={{ fontSize: '24px', color: '#1877F2' }}></i></span></a></li>
+                              <li><a href="#"><span className="ico-circle"> <i className="fab fa-instagram" style={{ fontSize: '24px', color: '#E1306C' }}></i></span></a></li>
+                              <li><a href="#"><span className="ico-circle"> <i className="fab fa-twitter" style={{ fontSize: '24px', color: '#1DA1F2' }}></i></span></a></li>
+                              <li><a href="#"><span className="ico-circle"><i className="fab fa-linkedin" style={{ fontSize: '24px', color: '#0077B5' }}></i></span></a></li>
                             </ul>
                           </div>
                         </div>
@@ -686,7 +686,7 @@ export default function Page() {
                 <div className="row">
                   <div className="col-sm-12">
                     <div className="copyright-box">
-                      <p className="copyright text-center">© Copyright <strong>Atriowings Technologies</strong> All Rights Reserved</p>
+                      <p className="copyright text-center">© Copyright <strong>Tech Ghuru</strong> All Rights Reserved</p>
                     </div>
                   </div>
                 </div>

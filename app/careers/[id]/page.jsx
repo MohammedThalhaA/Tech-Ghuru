@@ -145,8 +145,8 @@ export default function JobDetailsPage() {
           100% { transform: scale(1.05); opacity: 1; }
         }
         .hover-highlight-item:hover {
-          background-color: rgba(6, 163, 218, 0.05) !important;
-          border-color: #06a3da !important;
+          background-color: rgba(249, 115, 22, 0.05) !important;
+          border-color: #F97316 !important;
           transform: translateX(4px);
         }
         .fa-paper-plane {
@@ -241,7 +241,7 @@ export default function JobDetailsPage() {
                 {/* Trending Careers Card */}
                 <motion.div 
                   className="bg-white rounded-4 p-4 shadow-sm border-0 mb-4"
-                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(6, 163, 218, 0.1)' }}
+                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(249, 115, 22, 0.1)' }}
                   transition={{ duration: 0.3 }}
                 >
                   <h4 className="fw-bold text-dark mb-3"><i className="fas fa-fire text-danger me-2"></i>Trending Roles</h4>
@@ -271,7 +271,7 @@ export default function JobDetailsPage() {
                 {/* Highlights Card */}
                 <motion.div 
                   className="bg-white rounded-4 p-4 shadow-sm border-0 mb-4"
-                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(6, 163, 218, 0.1)' }}
+                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(249, 115, 22, 0.1)' }}
                   transition={{ duration: 0.3 }}
                 >
                   <h4 className="fw-bold text-dark mb-4">Job Summary</h4>
@@ -316,7 +316,7 @@ export default function JobDetailsPage() {
                 {/* Benefits Card */}
                 <motion.div 
                   className="bg-white rounded-4 p-4 shadow-sm border-0 mb-4"
-                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(6, 163, 218, 0.1)' }}
+                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(249, 115, 22, 0.1)' }}
                   transition={{ duration: 0.3 }}
                 >
                   <h4 className="fw-bold text-dark mb-3">Benefits & Perks</h4>
@@ -330,7 +330,7 @@ export default function JobDetailsPage() {
                 {/* Hiring Process Card */}
                 <motion.div 
                   className="bg-white rounded-4 p-4 shadow-sm border-0"
-                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(6, 163, 218, 0.1)' }}
+                  whileHover={{ y: -4, boxShadow: '0 15px 40px rgba(249, 115, 22, 0.1)' }}
                   transition={{ duration: 0.3 }}
                 >
                   <h4 className="fw-bold text-dark mb-3">Hiring Process</h4>
@@ -473,7 +473,7 @@ export default function JobDetailsPage() {
                           type="text" readOnly
                           className="form-control rounded-3"
                           value={job.title}
-                          style={{ borderColor: '#e2e8f0', padding: '10px 14px', backgroundColor: '#f8fafc', color: '#06a3da', fontWeight: 600 }}
+                          style={{ borderColor: '#e2e8f0', padding: '10px 14px', backgroundColor: '#f8fafc', color: '#F97316', fontWeight: 600 }}
                         />
                       </div>
                       <div className="col-md-6">
@@ -524,7 +524,7 @@ export default function JobDetailsPage() {
                         <textarea
                           required rows={3}
                           className="form-control rounded-3"
-                          placeholder="Explain why you're a great fit for Atriowings..."
+                          placeholder="Explain why you're a great fit for Tech Ghuru..."
                           value={formState.coverLetter}
                           onChange={e => setFormState(p => ({ ...p, coverLetter: e.target.value }))}
                           style={{ borderColor: '#e2e8f0', padding: '10px 14px', resize: 'none' }}
@@ -538,7 +538,7 @@ export default function JobDetailsPage() {
                           style={{ fontSize: '15px' }}
                           whileHover={{ 
                             scale: 1.02, 
-                            boxShadow: '0 8px 25px rgba(6, 163, 218, 0.3)'
+                            boxShadow: '0 8px 25px rgba(249, 115, 22, 0.3)'
                           }}
                           whileTap={{ scale: 0.98 }}
                           transition={{ duration: 0.2 }}

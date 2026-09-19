@@ -41,7 +41,7 @@ html {
 .circle {
   width: 14px;
   height: 14px;
-  background-color: black;
+  background-color: #F97316; /* Orange Cursor */
   border-radius: 50%;
   position: fixed;
   z-index: 100000;

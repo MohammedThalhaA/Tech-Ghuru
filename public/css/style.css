@@ -1,16 +1,33 @@
 /********** Template CSS **********/
 :root {
-  --primary: #06a3da;
-  --secondary: #34ad54;
-  --light: #eef9ff;
-  --dark: #091e3e;
-   --orbit-radius: 150px; /* Increased from 100px to bring orbiting items closer */
+  --primary: #F97316; /* Vibrant Orange (Tailwind orange-500) */
+  --secondary: #49200B; /* Deep Chocolate Brown */
+  --light: #FFF7ED; /* Warm Orange 50 */
+  --dark: #431407; /* Deep Orange 950 / Stone 900 */
+  --surface: #FFFFFF;
+  --border: #E2E8F0;
+  --orbit-radius: 150px;
   --orbit-duration: 20s;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
 body {
+  font-family: 'Inter', sans-serif;
+  color: #334155;
+  background-color: var(--light);
   overflow-x: hidden;
 }
+
+h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: 'Outfit', sans-serif !important;
+  color: var(--dark);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
 
 /*===================================== 
   //--//-->  Courser Design
@@ -105,13 +122,13 @@ h6,
 }
 
 .dropdown-menu a:hover{
-  color: #34ad54;
+  color: var(--secondary);
 }
 /*** Button ***/
 .btnhover {
   background: var(--ocean);
   position: relative;
-  font-family: "Raleway", sans-serif;
+  font-family: "Inter", sans-serif;
   outline: none;
   cursor: pointer;
   border: 0;
@@ -150,18 +167,18 @@ h6,
 
 .ocean:before {
   border-radius: 45%;
-  background: #06a3da;
+  background: var(--primary);
   animation: moveOcean 5s linear infinite;
 }
 
 .ocean:after {
   border-radius: 40%;
-  background: #34ad54;
+  background: var(--secondary);
   animation: moveOcean 10s linear infinite;
 }
 
 .whatsapplogo:hover {
-  background-color: #34ad54;
+  background-color: var(--secondary);
 }
 
 @keyframes moveOcean {
@@ -179,17 +196,17 @@ h6,
   .btnhover {
     padding: 20px 50px 20px 50px;
     letter-spacing: 2px;
-    border: 2px solid #06a3da;
+    border: 2px solid var(--primary);
   }
   .ocean:before {
     border-radius: 35%;
-    background: #06a3da;
+    background: var(--primary);
     animation: moveOcean 5s linear infinite;
   }
 
   .ocean:after {
     border-radius: 30%;
-    background: #34ad54;
+    background: var(--secondary);
     animation: moveOcean 10s linear infinite;
   }
 }
@@ -197,7 +214,7 @@ h6,
   .btnhover {
     padding: 20px 50px 20px 50px;
     letter-spacing: 2px;
-    border: 2px solid #06a3da;
+    border: 2px solid var(--primary);
   }
   .ocean:before,
   .ocean:after {
@@ -225,7 +242,7 @@ h6,
 }
 
 .btn {
-  font-family: "Nunito", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 600;
   transition: 0.5s;
 }
@@ -269,7 +286,7 @@ h6,
 
 /*** Navbar ***/
 .navbar-dark .navbar-nav .nav-link {
-  font-family: "Nunito", sans-serif;
+  font-family: "Outfit", sans-serif;
   position: relative;
   margin-left: 25px;
   padding: 35px 0;
@@ -545,11 +562,11 @@ h6,
 }
 .radius {
   border-radius: 20px 0px 20px 0px !important;
-  box-shadow: 0px 0px 3px 3px #06a3da;
+  box-shadow: 0px 0px 3px 3px var(--primary);
 }
 .radius2 {
   border-radius: 0px 20px 0px 20px !important;
-  box-shadow: 0px 0px 3px 3px #06a3da;
+  box-shadow: 0px 0px 3px 3px var(--primary);
 }
 /*** Testimonial ***/
 .testimonial-carousel .owl-dots {
@@ -709,7 +726,7 @@ h6,
   color: green !important;
 }
 .linkhover a:hover {
-  background-color: #34ad54 !important;
+  background-color: var(--secondary) !important;
   transform: translateX(100px);
   color: white !important;
 }
@@ -762,7 +779,7 @@ h6,
 
 .icon {
   font-size: 20px !important;
-  background-color: #06a3da !important;
+  background-color: var(--primary) !important;
   color: white !important;
   padding: 10px;
   border-radius: 50%;
@@ -779,7 +796,7 @@ h6,
 
 .main-icon {
   font-size: 25px !important;
-  background-color: #007bff;
+  background-color: var(--secondary);
   color: white;
   padding: 5px;
   border-radius: 50%;
@@ -813,7 +830,7 @@ h6,
 
 /* Tooltip box style */
 .tooltip-box {
-  background-color: #34ad54;
+  background-color: var(--secondary);
   color: #fff;
   padding: 10px 30px 10px 30px;
   border-radius: 10px;
@@ -861,7 +878,7 @@ h6,
 .icon {
   font-size: 32px;
   background: white;
-  color: #06a3da;
+  color: var(--primary);
   padding: 16px;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -872,7 +889,7 @@ h6,
 /* Main icon */
 .main-icon {
   font-size: 32px;
-  background-color: #007bff;
+  background-color: var(--secondary);
   color: white;
   padding: 16px;
   border-radius: 50%;
@@ -1146,7 +1163,7 @@ h6,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #34ad54, #00aeff);
+  background: linear-gradient(135deg, var(--secondary), var(--secondary));
   color: white;
   padding: 20px;
   text-align: center;
@@ -1175,7 +1192,7 @@ h6,
 
 .card-face.back h3 {
   margin-bottom: 10px;
-  color: #007bff;
+  color: var(--secondary);
 }
 
 .card-face.back p {
@@ -1185,7 +1202,7 @@ h6,
 
 
  .flip-card {
-  background: linear-gradient(135deg, #00f0ff, #06a3da);
+  background: linear-gradient(135deg, #FDBA74, var(--primary));
   padding: 3px; /* Border thickness */
   border-radius: 20px;
   transition: all 0.4s ease;
@@ -1205,8 +1222,8 @@ h6,
   }
 }
 @keyframes borderGlow {
-  0% { box-shadow: 0 0 10px #00f0ff; }
-  100% { box-shadow: 0 0 10px #06a3da, 0 0 10px #00f0ff; }
+  0% { box-shadow: 0 0 10px #FDBA74; }
+  100% { box-shadow: 0 0 10px var(--primary), 0 0 10px #FDBA74; }
 }
 
 .flip-card-inner {
@@ -1266,7 +1283,7 @@ h6,
   margin-top: 20px;
   padding: 10px 16px;
   border: none;
-  background-color: #007bff;
+  background-color: var(--secondary);
   color: white;
   border-radius: 8px;
   font-weight: bold;
@@ -1283,7 +1300,7 @@ h6,
   margin-top: 20px;
   padding: 10px 16px;
   border: none;
-  background-color: #007bff;
+  background-color: var(--secondary);
   color: white;
   border-radius: 8px;
   font-weight: bold;
@@ -1328,7 +1345,7 @@ h6,
   font-size: 16px;
   color: black;
   background: transparent;
-  /* border: 2px solid #007BFF; */
+  /* border: 2px solid var(--secondary); */
   border-radius: 8px;
   cursor: pointer;
   overflow: hidden;
@@ -1385,7 +1402,7 @@ h6,
   left: 50%;
   width: 120px; /* Increased from 100px */
   height: 120px; /* Increased from 100px */
-  background-image: linear-gradient(to right, #34ad54, #06a3da);
+  background-image: linear-gradient(to right, var(--secondary), var(--primary));
   color: white;
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -1422,7 +1439,7 @@ h6,
   left: -30px; /* Adjusted for larger size */
   width: 80px; /* Increased from 50px */
   height: 80px; /* Increased from 50px */
-  background-color: #34ad54;
+  background-color: var(--secondary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1459,7 +1476,7 @@ h6,
       width: 100%;
       overflow: hidden;
       background: #f0f8ff;
-      border: 1px solid #007bff;
+      border: 1px solid var(--secondary);
       white-space: nowrap;
       position: relative;
     }
@@ -1483,7 +1500,7 @@ h6,
       display: inline-block;
       padding: 0 2rem;
       font-size: 20px;
-      color: #007bff;
+      color: var(--secondary);
       font-weight: 600;
     }
 
@@ -1572,7 +1589,7 @@ background: linear-gradient(to top, #0c133b, #1a1a2e);
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  background-color:#06a3da;
+  background-color:var(--primary);
   color: #fff;
   padding: 60px 40px;
   max-width:50vw;;
@@ -1611,7 +1628,7 @@ background: linear-gradient(to top, #0c133b, #1a1a2e);
 }
 
 .cta-content a {
-  background-color: #06a3da;
+  background-color: var(--primary);
   color:white;
   padding: 12px 24px;
   border: none;
@@ -1622,7 +1639,7 @@ background: linear-gradient(to top, #0c133b, #1a1a2e);
 }
 
 .cta-content a:hover {
-  background-color: #34ad54;
+  background-color: var(--secondary);
 }
 
 @media (min-width:320px)and (max-width:770px){
@@ -1743,7 +1760,7 @@ background: linear-gradient(to top, #0c133b, #1a1a2e);
 /* .gradient-text {
       font-size: 40px;
       font-weight: bold;
-      background: linear-gradient(90deg, #06a3da, #34ad54);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       /* For some Firefox versions 
@@ -1753,7 +1770,7 @@ background: linear-gradient(to top, #0c133b, #1a1a2e);
 .animated-gradient-text {
       font-size: 40px;
       font-weight: bold;
-      background: linear-gradient(270deg, #06a3da, #34ad54, #007bff);
+      background: linear-gradient(270deg, var(--primary), var(--secondary), var(--secondary));
       background-size: 200% auto;
       color: transparent;
       background-clip: text;
@@ -1810,4 +1827,111 @@ background: linear-gradient(to top, #0c133b, #1a1a2e);
 
 .servicessubheading{
   margin-bottom: -50px!important;
+}
+/* ==========================================================================
+   Modern UI Redesign Additions (Clean Light Mode)
+   ========================================================================== */
+
+/* Glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Modern Cards */
+.modern-card {
+  background-color: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.modern-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Floating Navbar */
+.sticky-top.navbar-dark {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+  color: var(--dark) !important;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+.sticky-top.navbar-dark .navbar-nav .nav-link:hover {
+  color: var(--primary) !important;
+}
+.sticky-top.navbar-dark .navbar-brand h1 {
+  color: var(--primary) !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Updated Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  border-radius: 8px;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.39) !important;
+}
+
+/* Updated Service Items */
+.service-item {
+  background-color: var(--surface) !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  padding: 40px 30px !important;
+}
+.service-item:hover {
+  box-shadow: var(--shadow-lg) !important;
+}
+.service-item .service-icon {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39) !important;
+}
+
+/* Carousel Adjustments */
+.carousel-caption {
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.7)) !important;
+  backdrop-filter: blur(2px);
+}
+
+/* Facts Section */
+.facts .bg-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+  border-radius: 20px !important;
+}
+.facts .bg-light {
+  background: var(--surface) !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--border);
+}
+.facts .bg-primary .bg-white, .facts .bg-light .bg-primary {
+  border-radius: 12px !important;
+}
+
+/* Footer Adjustments */
+.footercolor {
+  background-color: var(--dark) !important;
+}
+
+/* Fix generic body fonts across the site */
+p {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400;
+  line-height: 1.6;
 }

@@ -63,10 +63,10 @@ export default function Page() {
 
 <div className="mb-5">
 <img alt="" className="img-fluid w-100 rounded mb-5" src="/img/Services/product2.jpg"/>
-<h1 className="mb-4">Crafting Exceptional Experiences with Atriowings Technologies</h1>
+<h1 className="mb-4">Crafting Exceptional Experiences with Tech Ghuru</h1>
 <p><b>Introduction</b></p>
 <p>
-                            At Atriowings Technologies, we believe that product design is more than just aesthetics; it's about creating meaningful experiences that resonate with users. Our six years of expertise in the field have equipped us with a deep understanding of human-centered design principles and innovative methodologies. In this blog, we'll delve into the world of product design, sharing insights, tips, and case studies from our projects.
+                            At Tech Ghuru, we believe that product design is more than just aesthetics; it's about creating meaningful experiences that resonate with users. Our six years of expertise in the field have equipped us with a deep understanding of human-centered design principles and innovative methodologies. In this blog, we'll delve into the world of product design, sharing insights, tips, and case studies from our projects.
                         </p>
 <p><b>Understanding Product Design</b></p>
 <p>
@@ -126,7 +126,7 @@ export default function Page() {
                         </p>
 <h1 className="mb-4">Our Approach to Product Design</h1>
 <p>
-                            At Atriowings Technologies, we believe in creating products that are not only functional but also delightful to use. Our approach is characterized by:
+                            At Tech Ghuru, we believe in creating products that are not only functional but also delightful to use. Our approach is characterized by:
                         </p>
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>User-Centric Design:</b> We put users at the heart of everything we do.</p>
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Innovation:</b> We strive to create innovative and groundbreaking products.</p>
@@ -134,7 +134,7 @@ export default function Page() {
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Quality:</b> We are committed to delivering high-quality products that exceed expectations.</p>
 <p><b>The Future of Product Design</b></p>
 <p>
-                            The future of product design is bright, with new technologies and trends emerging constantly. At Atriowings Technologies, we are excited to be at the forefront of this evolution.
+                            The future of product design is bright, with new technologies and trends emerging constantly. At Tech Ghuru, we are excited to be at the forefront of this evolution.
                         </p>
 <h1 className="mb-4">Emerging Trends in Product Design</h1>
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Voice User Interfaces (VUIs):</b> Designing for conversational interactions.</p>
@@ -143,7 +143,7 @@ export default function Page() {
 <p><img src="/img/arrow.png" style={{'height': '25px'}}/> <b>Ethical Design:</b> Considering the social and ethical implications of product design.</p>
 <h1 className="mb-4">Conclusion</h1>
 <p>
-                            Product design is a complex and rewarding field that requires a combination of creativity, technical expertise, and a deep understanding of human psychology. At Atriowings Technologies, we are passionate about crafting exceptional products that make a difference.
+                            Product design is a complex and rewarding field that requires a combination of creativity, technical expertise, and a deep understanding of human psychology. At Tech Ghuru, we are passionate about crafting exceptional products that make a difference.
                         </p>
 </div>
 

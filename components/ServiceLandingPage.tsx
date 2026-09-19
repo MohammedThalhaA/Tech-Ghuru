@@ -337,7 +337,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/web-developing</span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">techghuru.in/web-developing</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1E7FD4] animate-pulse"></span>
@@ -404,7 +404,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/digital-marketing</span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">techghuru.in/digital-marketing</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A3D] animate-pulse"></span>
@@ -520,7 +520,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/content-editor</span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">techghuru.in/content-editor</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#2E9E6B] animate-pulse"></span>
@@ -579,7 +579,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/video-studio</span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">techghuru.in/video-studio</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444] animate-pulse"></span>
@@ -629,7 +629,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">atriowings.in/consultation-flow</span>
+                  <span className="text-[10px] text-white/45 ml-4 font-mono select-none">techghuru.in/consultation-flow</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#08A9E6] animate-pulse"></span>
@@ -722,7 +722,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
         return (
           <div className="row g-3 h-full">
             <div className="col-5 h-full flex flex-col">
-              <div className="bg-[#081225] border border-white/5 rounded-xl p-3 flex-1 font-mono text-[9px] text-blue-400 overflow-hidden leading-relaxed">
+              <div className="bg-[#081225] border border-white/5 rounded-xl p-3 flex-1 font-mono text-[9px] text-orange-400 overflow-hidden leading-relaxed">
                 <div className="flex items-center gap-1.5 border-b border-white/5 pb-2 mb-2">
                   <span className="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
                   <span className="text-white/40 text-[8px]">index.tsx</span>
@@ -1058,7 +1058,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                   whileHover={{ scale: 1.06 }}
                 >
                   <i className="fas fa-check-circle text-white/80"></i>
-                  AtrioWings Verified Result
+                  Tech Ghuru Verified Result
                 </motion.div>
 
                 {/* Bottom shimmer bar */}
@@ -1496,7 +1496,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
                             <span className="rounded-circle" style={{ width: 9, height: 9, background: '#ef4444', opacity: 0.8, display: 'inline-block' }}></span>
                             <span className="rounded-circle" style={{ width: 9, height: 9, background: '#f59e0b', opacity: 0.8, display: 'inline-block' }}></span>
                             <span className="rounded-circle" style={{ width: 9, height: 9, background: '#22c55e', opacity: 0.8, display: 'inline-block' }}></span>
-                            <span className="text-white/40 ms-2" style={{ fontSize: 9, fontFamily: 'monospace' }}>atriowings.in/{data.heroVisualType}</span>
+                            <span className="text-white/40 ms-2" style={{ fontSize: 9, fontFamily: 'monospace' }}>techghuru.in/{data.heroVisualType}</span>
                           </div>
                           <span className="d-flex align-items-center gap-1" style={{ fontSize: 9, color: 'rgba(255,255,255,0.3)', fontFamily: 'monospace', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                             <span className="rounded-circle" style={{ width: 6, height: 6, backgroundColor: '#22c55e', display: 'inline-block', animation: 'pulse 2s infinite' }}></span>
@@ -2371,7 +2371,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               Our Advantage
             </motion.h5>
             <h2 className="display-6 fw-bold mb-0 glow-pulse-showcase" style={{ fontFamily: 'var(--font-rubik)' }}>
-              Why AtrioWings?
+              Why Tech Ghuru?
             </h2>
 
             {/* Animated Underline with glowing dot */}
@@ -2404,7 +2404,7 @@ export default function ServiceLandingPage({ data }: { data: ServiceData }) {
               />
             </div>
 
-            <p className="text-muted mt-2">What sets Atriowings apart is our dedication to execution metrics, custom development, and reliable client communication pipelines.</p>
+            <p className="text-muted mt-2">What sets Tech Ghuru apart is our dedication to execution metrics, custom development, and reliable client communication pipelines.</p>
           </div>
 
           <div className="row g-4">

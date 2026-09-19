@@ -118,7 +118,7 @@ export default function Page() {
 </div>
 <div className="ps-4">
 <h5 className="mb-2">Email to get free quote</h5>
-<h4 className="text-primary mb-0">info@atriowings.in</h4>
+<h4 className="text-primary mb-0">info@techghuru.in</h4>
 </div>
 </div>
 </div>

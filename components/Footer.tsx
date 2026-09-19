@@ -17,17 +17,18 @@ export default function Footer() {
               <div className="d-flex flex-column align-items-start justify-content-start text-start h-100 p-4 pt-5 text-light">
                 <Link href="/" className="navbar-brand mb-3">
                   <Image 
-                    src="/img/atriowings white logo.png" 
-                    alt="Atriowings Logo" 
-                    width={200} 
-                    height={60} 
-                    style={{ width: 'auto', height: '48px', objectFit: 'contain' }} 
+                    src="/Tech Ghuru logo.png" 
+                    alt="Tech Ghuru Logo" 
+                    width={300} 
+                    height={90} 
+                    className="bg-white p-2 rounded"
+                    style={{ width: 'auto', height: '80px', objectFit: 'contain' }} 
                   />
                 </Link>
                 <p className="mb-4 text-light" style={{ lineHeight: '1.6', fontSize: '14.5px' }}>
                   We are proud to offer a wide range of web developing and digital marketing services to build brand recognition and ultimately serve your customers well.
                 </p>
-                <Link href="/quote" className="btn rounded py-3 px-5 text-light" style={{ backgroundColor: '#00c3da', borderColor: '#00c3da', fontWeight: 'bold' }}>
+                <Link href="/quote" className="btn rounded py-3 px-5 text-light" style={{ backgroundColor: '#F97316', borderColor: '#F97316', fontWeight: 'bold' }}>
                   Reach Us
                 </Link>
               </div>
@@ -47,23 +48,23 @@ export default function Footer() {
                   </div>
                   <div className="d-flex mb-2">
                     <i className="bi bi-envelope-open text-primary me-2"></i>
-                    <p className="mb-0">info@atriowings.in</p>
+                    <p className="mb-0">info@techghuru.in</p>
                   </div>
                   <div className="d-flex mb-2">
                     <i className="bi bi-telephone text-primary me-2"></i>
                     <p className="mb-0">+91 8825948859</p>
                   </div>
                   <div className="d-flex mt-4">
-                    <a className="btn btn-primary btn-square me-2" href="https://x.com/atriowings">
+                    <a className="btn btn-primary btn-square me-2" href="#">
                       <i className="fab fa-twitter fw-normal"></i>
                     </a>
-                    <a className="btn btn-primary btn-square me-2" href="https://www.facebook.com/people/AtrioWings-Technologies/100082503773842/">
+                    <a className="btn btn-primary btn-square me-2" href="#">
                       <i className="fab fa-facebook-f fw-normal"></i>
                     </a>
-                    <a className="btn btn-primary btn-square me-2" href="https://www.linkedin.com/posts/atriowings_atriowings-atriowingstechnologies-business-activity-6910483218567741440-4G05/">
+                    <a className="btn btn-primary btn-square me-2" href="#">
                       <i className="fab fa-linkedin-in fw-normal"></i>
                     </a>
-                    <a className="btn btn-primary btn-square me-2" href="https://www.instagram.com/atriowingstechnologies/">
+                    <a className="btn btn-primary btn-square me-2" href="#">
                       <i className="fab fa-instagram fw-normal"></i>
                     </a>
                   </div>
@@ -109,7 +110,7 @@ export default function Footer() {
             <div className="col-12">
               <div className="d-flex align-items-center justify-content-center" style={{ height: '75px' }}>
                 <p className="mb-0">
-                  &copy; <span className="text-white border-bottom">All Rights Reserved by Atriowings Technologies</span>
+                  &copy; <span className="text-white border-bottom">All Rights Reserved by Tech Ghuru</span>
                 </p>
               </div>
             </div>
@@ -130,7 +131,7 @@ export default function Footer() {
             </div>
             <div className="tooltip-wrapper">
               <div className="tooltip-box tooltip-left">Email</div>
-              <a href="mailto:info@atriowings.in"><i className="fas fa-envelope icon"></i></a>
+              <a href="mailto:info@techghuru.in"><i className="fas fa-envelope icon"></i></a>
             </div>
           </div>
           <div className="tooltip-wrapper" onClick={() => setShowIcons(!showIcons)}>

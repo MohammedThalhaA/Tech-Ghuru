@@ -40,7 +40,7 @@ export default function Page() {
 <h1 className="mb-0">The Best IT Solutions With Six Years of Experience</h1>
 </div>
 <p className="mb-4">
-                    AtrioWings Technologies is a leading global IT Solutions company that offers web development, digital marketing, and multimedia services. We are dedicated, passionate service providers offering the best industry practices synced with technology expertise and business domain knowledge to drive the digital revolution.
+                    Tech Ghuru is a leading global IT Solutions company that offers web development, digital marketing, and multimedia services. We are dedicated, passionate service providers offering the best industry practices synced with technology expertise and business domain knowledge to drive the digital revolution.
                 </p>
 <p>
                     Upgrade your IT Solutions by collaborating with a highly-skilled, experienced, hand-picked team of experts. We ensure your project is in your hands on time at an affordable price.

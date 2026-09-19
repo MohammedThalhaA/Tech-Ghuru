@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
     }
 
     // 1. Verify signature to prevent directory traversal and guessing filenames
-    const secret = process.env.NEXTAUTH_SECRET || 'atriowings_secret_fallback';
+    const secret = process.env.NEXTAUTH_SECRET || 'techghuru_secret_fallback';
     const expectedSig = crypto.createHmac('sha256', secret).update(filename).digest('hex');
 
     if (sig !== expectedSig) {

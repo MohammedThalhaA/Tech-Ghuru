@@ -4,9 +4,9 @@ import Spinner from "@/components/Spinner";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Atriowings Technologies",
+  title: "Tech Ghuru",
   description:
-    "Atriowings Technologies is a leading global IT Solutions company that offers Web development, digital marketing and multimedia services.",
+    "Tech Ghuru is a leading global IT Solutions company that offers Web development, digital marketing and multimedia services.",
   keywords: "IT Solutions, Web Development, Digital Marketing, Multimedia",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
 
@@ -43,7 +43,7 @@ export default function RootLayout({
         />
         {/* Main Custom Stylesheet */}
         <link
-          href="/css/style.css"
+          href="/css/style.css?v=2"
           rel="stylesheet"
         />
         {/* Bootstrap Icons CDN */}

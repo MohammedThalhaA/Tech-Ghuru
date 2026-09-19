@@ -53,22 +53,22 @@ export default function Topbar() {
             <i className="fa-solid fa-phone me-2" style={{ color: '#38BDF8' }}></i>+91 8825948859
           </span>
           <span className="text-light" style={{ display: 'inline-flex', alignItems: 'center', whiteSpace: 'nowrap' }}>
-            <i className="fa fa-envelope-open me-2" style={{ color: '#38BDF8' }}></i>info@atriowings.in
+            <i className="fa fa-envelope-open me-2" style={{ color: '#38BDF8' }}></i>info@techghuru.in
           </span>
         </div>
 
         {/* Right Side: Social Media Icons */}
         <div className="d-inline-flex align-items-center" style={{ height: '45px' }}>
-          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/atriowings">
+          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#">
             <i className="fab fa-twitter fw-normal"></i>
           </a>
-          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/people/AtrioWings-Technologies/100082503773842/">
+          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#">
             <i className="fab fa-facebook-f fw-normal"></i>
           </a>
-          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/posts/atriowings_atriowings-atriowingstechnologies-business-activity-6910483218567741440-4G05/">
+          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#">
             <i className="fab fa-linkedin-in fw-normal"></i>
           </a>
-          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="https://www.instagram.com/atriowingstechnologies/">
+          <a className="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#">
             <i className="fab fa-instagram fw-normal"></i>
           </a>
         </div>

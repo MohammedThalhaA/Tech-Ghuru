@@ -258,14 +258,14 @@ export default function CareersPage() {
       <link href="/css/style.css" rel="stylesheet" />
       <style dangerouslySetInnerHTML={{ __html: `
         .bg-light-primary {
-          background-color: rgba(6, 163, 218, 0.08);
+          background-color: rgba(249, 115, 22, 0.08);
         }
         .careers-badge {
           display: inline-block;
           padding: 8px 16px;
-          background: rgba(6, 163, 218, 0.1);
-          color: #06a3da;
-          border: 1px solid rgba(6, 163, 218, 0.2);
+          background: rgba(249, 115, 22, 0.1);
+          color: #F97316;
+          border: 1px solid rgba(249, 115, 22, 0.2);
           border-radius: 50px;
           font-size: 13px;
           font-weight: 700;
@@ -301,13 +301,13 @@ export default function CareersPage() {
           width: 45px;
           height: 45px;
           border-radius: 50%;
-          background: rgba(6, 163, 218, 0.08);
+          background: rgba(249, 115, 22, 0.08);
           display: flex;
           align-items: center;
           justify-content: center;
           margin: 0 auto 12px auto;
           font-size: 16px;
-          color: #06a3da;
+          color: #F97316;
         }
         .careers-why-card {
           background: white;
@@ -327,12 +327,12 @@ export default function CareersPage() {
           width: 55px;
           height: 55px;
           border-radius: 12px;
-          background: rgba(6, 163, 218, 0.08);
+          background: rgba(249, 115, 22, 0.08);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 22px;
-          color: #06a3da;
+          color: #F97316;
           margin-bottom: 20px;
           transition: background-color 180ms ease, color 180ms ease;
         }
@@ -386,15 +386,15 @@ export default function CareersPage() {
           height: 55px;
           border-radius: 50%;
           background: white;
-          border: 3px solid #06a3da;
+          border: 3px solid #F97316;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 16px;
           font-weight: 800;
-          color: #06a3da;
+          color: #F97316;
           margin: -58px auto 20px auto;
-          box-shadow: 0 5px 15px rgba(6, 163, 218, 0.15);
+          box-shadow: 0 5px 15px rgba(249, 115, 22, 0.15);
           z-index: 10;
           position: relative;
         }
@@ -402,13 +402,13 @@ export default function CareersPage() {
           width: 45px;
           height: 45px;
           border-radius: 50%;
-          background: rgba(6, 163, 218, 0.08);
+          background: rgba(249, 115, 22, 0.08);
           display: flex;
           align-items: center;
           justify-content: center;
           margin: 0 auto 15px auto;
           font-size: 16px;
-          color: #06a3da;
+          color: #F97316;
         }
         .careers-perk-card {
           background: white;
@@ -430,23 +430,23 @@ export default function CareersPage() {
           width: 48px;
           height: 48px;
           border-radius: 12px;
-          background: rgba(6, 163, 218, 0.08);
+          background: rgba(249, 115, 22, 0.08);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 18px;
-          color: #06a3da;
+          color: #F97316;
           flex-shrink: 0;
         }
         @keyframes textGlowPulse {
-          0%   { text-shadow: 0 0 0px rgba(6, 163, 218, 0);    color: #091E3E; }
-          50%  { text-shadow: 0 0 20px rgba(6, 163, 218, 0.45); color: #06a3da; }
-          100% { text-shadow: 0 0 0px rgba(6, 163, 218, 0);    color: #091E3E; }
+          0%   { text-shadow: 0 0 0px rgba(249, 115, 22, 0);    color: #091E3E; }
+          50%  { text-shadow: 0 0 20px rgba(249, 115, 22, 0.45); color: #F97316; }
+          100% { text-shadow: 0 0 0px rgba(249, 115, 22, 0);    color: #091E3E; }
         }
         @keyframes textOpacityPulse {
-          0%   { opacity: 0.75; color: #06a3da; }
+          0%   { opacity: 0.75; color: #F97316; }
           50%  { opacity: 1;    color: #0dcaf0; }
-          100% { opacity: 0.75; color: #06a3da; }
+          100% { opacity: 0.75; color: #F97316; }
         }
         .glow-pulse-text {
           animation: textGlowPulse 4s infinite ease-in-out;
@@ -515,7 +515,7 @@ export default function CareersPage() {
           border: 1px solid rgba(255, 255, 255, 0.5) !important;
           border-radius: 16px !important;
           padding: 12px 18px !important;
-          box-shadow: 0 8px 32px rgba(6, 163, 218, 0.1) !important;
+          box-shadow: 0 8px 32px rgba(249, 115, 22, 0.1) !important;
           display: flex;
           align-items: center;
           gap: 10px;
@@ -524,7 +524,7 @@ export default function CareersPage() {
         }
         .glass-badge:hover {
           transform: scale(1.05) translateY(-3px) !important;
-          box-shadow: 0 12px 40px rgba(6, 163, 218, 0.15) !important;
+          box-shadow: 0 12px 40px rgba(249, 115, 22, 0.15) !important;
           background: rgba(255, 255, 255, 0.85) !important;
         }
         @keyframes ping {
@@ -559,7 +559,7 @@ export default function CareersPage() {
         {/* Section 1: HERO */}
         <section className="careers-hero-section py-5 position-relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%)', minHeight: '92vh', display: 'flex', alignItems: 'center', paddingTop: '150px' }}>
           {/* Animated decorative shapes */}
-          <div className="position-absolute d-none d-lg-block" style={{ width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 163, 218, 0.05) 0%, transparent 70%)', top: '-100px', right: '-100px' }} />
+          <div className="position-absolute d-none d-lg-block" style={{ width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(249, 115, 22, 0.05) 0%, transparent 70%)', top: '-100px', right: '-100px' }} />
           <div className="position-absolute d-none d-lg-block" style={{ width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(46, 158, 107, 0.04) 0%, transparent 70%)', bottom: '-50px', left: '-50px' }} />
 
           <div className="container position-relative z-3">
@@ -576,7 +576,7 @@ export default function CareersPage() {
                   animate="visible"
                   transition={{ duration: 0.5 }}
                 >
-                  Careers at Atriowings
+                  Careers at Tech Ghuru
                 </motion.span>
 
                 {/* Headline Staggered word-by-word */}
@@ -587,13 +587,13 @@ export default function CareersPage() {
                   initial="hidden"
                   animate="visible"
                 >
-                  {["Build", "Your", "Future", "With", "Atriowings"].map((word, i) => {
-                    const isAtriowings = word === "Atriowings";
+                  {["Build", "Your", "Future", "With", "Tech Ghuru"].map((word, i) => {
+                    const isTechGhuru = word === "Tech Ghuru";
                     return (
                       <motion.span
                         key={i}
                         variants={wordVariants}
-                        className={isAtriowings ? "text-primary" : ""}
+                        className={isTechGhuru ? "text-primary" : ""}
                         style={{ display: "inline-block", marginRight: "12px" }}
                       >
                         {word}
@@ -724,7 +724,7 @@ export default function CareersPage() {
                     className="glass-badge position-absolute floating-badge-2" 
                     style={{ bottom: '30px', right: '-20px' }}
                   >
-                    <div className="rounded-circle d-flex align-items-center justify-content-center text-white" style={{ width: '36px', height: '36px', backgroundColor: '#06a3da' }}>
+                    <div className="rounded-circle d-flex align-items-center justify-content-center text-white" style={{ width: '36px', height: '36px', backgroundColor: '#F97316' }}>
                       <i className="fas fa-paper-plane" style={{ fontSize: '14px' }}></i>
                     </div>
                     <div className="text-start">
@@ -744,7 +744,7 @@ export default function CareersPage() {
                   >
                     <Image 
                       src="/img/career-hero.jpg" 
-                      alt="Atriowings Team Collaborating" 
+                      alt="Tech Ghuru Team Collaborating" 
                       width={500} 
                       height={375} 
                       priority
@@ -772,7 +772,7 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                Why Atriowings
+                Why Tech Ghuru
               </motion.h5>
               <motion.h2 
                 className="display-5 fw-bold text-dark mb-0 glow-pulse-text"
@@ -782,7 +782,7 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Why Join Atriowings?
+                Why Join Tech Ghuru?
               </motion.h2>
               {/* Animated Underline based on website theme */}
               <div className="position-relative mx-auto mt-3" style={{ width: '150px', height: '6px' }}>
@@ -801,9 +801,9 @@ export default function CareersPage() {
                     left: ['0%', '94%', '0%'],
                     opacity: [1, 0.4, 1],
                     boxShadow: [
-                      "0 0 4px #fff, 0 0 10px #06a3da",
-                      "0 0 1px #fff, 0 0 2px #06a3da",
-                      "0 0 4px #fff, 0 0 10px #06a3da"
+                      "0 0 4px #fff, 0 0 10px #F97316",
+                      "0 0 1px #fff, 0 0 2px #F97316",
+                      "0 0 4px #fff, 0 0 10px #F97316"
                     ]
                   }}
                   transition={{
@@ -874,7 +874,7 @@ export default function CareersPage() {
                     style={{ fontFamily: 'var(--font-nunito)' }} 
                     variants={fadeUpVariants}
                   >
-                    Life at Atriowings
+                    Life at Tech Ghuru
                   </motion.h2>
                   <motion.p className="text-muted mb-4 lead" style={{ fontSize: '1.05rem' }} variants={fadeUpVariants}>
                     We believe great work happens when great people work together in a positive, inspiring, and fun environment.
@@ -975,9 +975,9 @@ export default function CareersPage() {
                     left: ['0%', '94%', '0%'],
                     opacity: [1, 0.4, 1],
                     boxShadow: [
-                      "0 0 4px #fff, 0 0 10px #06a3da",
-                      "0 0 1px #fff, 0 0 2px #06a3da",
-                      "0 0 4px #fff, 0 0 10px #06a3da"
+                      "0 0 4px #fff, 0 0 10px #F97316",
+                      "0 0 1px #fff, 0 0 2px #F97316",
+                      "0 0 4px #fff, 0 0 10px #F97316"
                     ]
                   }}
                   transition={{
@@ -1062,8 +1062,8 @@ export default function CareersPage() {
                       whileHover={{ 
                         y: -8, 
                         scale: 1.02,
-                        boxShadow: '0 20px 40px rgba(6, 163, 218, 0.12)',
-                        borderColor: '#06a3da'
+                        boxShadow: '0 20px 40px rgba(249, 115, 22, 0.12)',
+                        borderColor: '#F97316'
                       }}
                       transition={{ 
                         type: "spring", 
@@ -1119,7 +1119,7 @@ export default function CareersPage() {
                   dept: 'General',
                   type: 'Full Time',
                   location: 'Chennai, India',
-                  color: '#06a3da',
+                  color: '#F97316',
                   icon: 'fa-envelope-open'
                 })}
                 className="btn btn-outline-primary py-3 px-5 rounded-pill fw-bold border-2"
@@ -1173,9 +1173,9 @@ export default function CareersPage() {
                     left: ['0%', '94%', '0%'],
                     opacity: [1, 0.4, 1],
                     boxShadow: [
-                      "0 0 4px #fff, 0 0 10px #06a3da",
-                      "0 0 1px #fff, 0 0 2px #06a3da",
-                      "0 0 4px #fff, 0 0 10px #06a3da"
+                      "0 0 4px #fff, 0 0 10px #F97316",
+                      "0 0 1px #fff, 0 0 2px #F97316",
+                      "0 0 4px #fff, 0 0 10px #F97316"
                     ]
                   }}
                   transition={{
@@ -1201,7 +1201,7 @@ export default function CareersPage() {
                 <motion.path
                   d="M 100 50 L 900 50"
                   fill="none"
-                  stroke="#06a3da"
+                  stroke="#F97316"
                   strokeWidth="3"
                   strokeDasharray="8,8"
                   variants={pathVariants}
@@ -1211,7 +1211,7 @@ export default function CareersPage() {
               {/* Animated paper plane along path */}
               <motion.div
                 className="position-absolute d-none d-lg-block"
-                style={{ top: '25px', left: 0, zIndex: 1, color: '#06a3da', fontSize: '18px' }}
+                style={{ top: '25px', left: 0, zIndex: 1, color: '#F97316', fontSize: '18px' }}
                 variants={planeVariants}
               >
                 <i className="fas fa-paper-plane" style={{ transform: 'rotate(45deg)' }}></i>
@@ -1222,7 +1222,7 @@ export default function CareersPage() {
                 <motion.path
                   d="M 50 50 L 50 950"
                   fill="none"
-                  stroke="#06a3da"
+                  stroke="#F97316"
                   strokeWidth="3"
                   strokeDasharray="8,8"
                   variants={pathVariants}
@@ -1236,7 +1236,7 @@ export default function CareersPage() {
                   { step: "02", title: "Review", desc: "Our team reviews your profile and experience carefully.", icon: "fa-file-invoice" },
                   { step: "03", title: "Interview", desc: "Selected candidates participate in technical and HR interviews.", icon: "fa-comments" },
                   { step: "04", title: "Selection", desc: "Successful candidates receive an offer to join our team.", icon: "fa-handshake" },
-                  { step: "05", title: "Welcome Aboard", desc: "Kickstart your journey with Atriowings and grow with us!", icon: "fa-rocket" }
+                  { step: "05", title: "Welcome Aboard", desc: "Kickstart your journey with Tech Ghuru and grow with us!", icon: "fa-rocket" }
                 ].map((item, idx) => (
                   <div key={idx} className="col-lg col-md-12 mb-5 mb-lg-0">
                     <motion.div 
@@ -1299,9 +1299,9 @@ export default function CareersPage() {
                     left: ['0%', '94%', '0%'],
                     opacity: [1, 0.4, 1],
                     boxShadow: [
-                      "0 0 4px #fff, 0 0 10px #06a3da",
-                      "0 0 1px #fff, 0 0 2px #06a3da",
-                      "0 0 4px #fff, 0 0 10px #06a3da"
+                      "0 0 4px #fff, 0 0 10px #F97316",
+                      "0 0 1px #fff, 0 0 2px #F97316",
+                      "0 0 4px #fff, 0 0 10px #F97316"
                     ]
                   }}
                   transition={{
@@ -1350,13 +1350,13 @@ export default function CareersPage() {
         <section id="closing-cta" className="py-4 position-relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #020817 0%, #071428 50%, #0c1e3d 100%)' }}>
           
           {/* Animated ambient glow orbs */}
-          <div className="position-absolute" style={{ width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(6, 163, 218, 0.12) 0%, transparent 70%)', top: '-200px', left: '-100px', filter: 'blur(40px)' }} />
+          <div className="position-absolute" style={{ width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%)', top: '-200px', left: '-100px', filter: 'blur(40px)' }} />
           <div className="position-absolute" style={{ width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%)', bottom: '-150px', right: '-80px', filter: 'blur(40px)' }} />
           <div className="position-absolute" style={{ width: '250px', height: '250px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%)', top: '50%', left: '40%', filter: 'blur(30px)' }} />
 
           {/* Grid dot pattern overlay */}
           <div className="position-absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(rgba(6, 163, 218, 0.15) 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px)',
             backgroundSize: '30px 30px',
             width: '100%',
             height: '100%',
@@ -1379,7 +1379,7 @@ export default function CareersPage() {
                   <motion.div variants={fadeUpVariants} className="d-flex align-items-center gap-2 mb-4 flex-wrap">
                     <motion.span
                       className="badge rounded-pill px-3 py-2 fw-bold text-uppercase"
-                      style={{ backgroundColor: 'rgba(6, 163, 218, 0.15)', color: '#00E5FF', border: '1px solid rgba(6, 163, 218, 0.3)', fontSize: '11px' }}
+                      style={{ backgroundColor: 'rgba(249, 115, 22, 0.15)', color: '#49200B', border: '1px solid rgba(249, 115, 22, 0.3)', fontSize: '11px' }}
                       animate={{ boxShadow: ['0 0 0px rgba(0,229,255,0)', '0 0 14px rgba(0,229,255,0.4)', '0 0 0px rgba(0,229,255,0)'] }}
                       transition={{ duration: 2.5, repeat: Infinity }}
                     >
@@ -1405,7 +1405,7 @@ export default function CareersPage() {
                     variants={fadeUpVariants}
                   >
                     We're Always Looking<br />
-                    For <span style={{ background: 'linear-gradient(90deg, #06a3da, #00E5FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Amazing People!</span>
+                    For <span style={{ background: 'linear-gradient(90deg, #F97316, #49200B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Amazing People!</span>
                   </motion.h2>
 
                   <motion.p className="lead mb-4" style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.7 }} variants={fadeUpVariants}>
@@ -1415,7 +1415,7 @@ export default function CareersPage() {
                   {/* Live stat pills */}
                   <motion.div variants={fadeUpVariants} className="d-flex flex-wrap gap-3 mb-5">
                     {[
-                      { icon: 'fa-users', label: '50+ Team Members', color: '#06a3da' },
+                      { icon: 'fa-users', label: '50+ Team Members', color: '#F97316' },
                       { icon: 'fa-map-marker-alt', label: 'Chennai, India', color: '#10b981' },
                       { icon: 'fa-briefcase', label: 'Multiple Departments', color: '#a78bfa' }
                     ].map((stat, i) => (
@@ -1442,8 +1442,8 @@ export default function CareersPage() {
                         <motion.span
                           key={i}
                           className="badge rounded-pill px-3 py-2"
-                          style={{ background: 'rgba(6, 163, 218, 0.1)', color: '#67e8f9', border: '1px solid rgba(6, 163, 218, 0.2)', fontSize: '11px', fontWeight: 600 }}
-                          whileHover={{ scale: 1.1, background: 'rgba(6, 163, 218, 0.25)' }}
+                          style={{ background: 'rgba(249, 115, 22, 0.1)', color: '#67e8f9', border: '1px solid rgba(249, 115, 22, 0.2)', fontSize: '11px', fontWeight: 600 }}
+                          whileHover={{ scale: 1.1, background: 'rgba(249, 115, 22, 0.25)' }}
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: i * 0.08, duration: 0.3 }}
@@ -1467,7 +1467,7 @@ export default function CareersPage() {
                       <Link
                         href="/contact?subject=Resume Submission – General Application"
                         className="btn btn-primary py-3 px-5 rounded-pill fw-bold text-white border-0 d-inline-flex align-items-center gap-2"
-                        style={{ fontSize: '15px', background: 'linear-gradient(135deg, #06a3da, #0284c7)' }}
+                        style={{ fontSize: '15px', background: 'linear-gradient(135deg, #F97316, #0284c7)' }}
                       >
                         <i className="fas fa-paper-plane"></i> Send Your Resume
                         <i className="fas fa-arrow-right" style={{ fontSize: '12px' }}></i>
@@ -1492,7 +1492,7 @@ export default function CareersPage() {
                     className="position-absolute rounded-circle"
                     style={{
                       width: '340px', height: '340px',
-                      border: '1px dashed rgba(6, 163, 218, 0.25)',
+                      border: '1px dashed rgba(249, 115, 22, 0.25)',
                       top: '50%', left: '50%',
                       transform: 'translate(-50%, -50%)',
                       zIndex: 0
@@ -1520,7 +1520,7 @@ export default function CareersPage() {
                     animate={shouldReduceMotion ? {} : { y: [0, -14, 0], x: [0, 8, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   >
-                    <i className="fas fa-paper-plane" style={{ transform: 'rotate(-25deg)', color: '#00E5FF' }}></i>
+                    <i className="fas fa-paper-plane" style={{ transform: 'rotate(-25deg)', color: '#49200B' }}></i>
                   </motion.div>
                   <motion.div
                     className="position-absolute text-primary"
@@ -1528,7 +1528,7 @@ export default function CareersPage() {
                     animate={shouldReduceMotion ? {} : { y: [0, 10, 0], x: [0, -8, 0] }}
                     transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
                   >
-                    <i className="fas fa-paper-plane" style={{ transform: 'rotate(15deg)', color: '#06a3da' }}></i>
+                    <i className="fas fa-paper-plane" style={{ transform: 'rotate(15deg)', color: '#F97316' }}></i>
                   </motion.div>
 
                   {/* Glassmorphic email card */}
@@ -1538,7 +1538,7 @@ export default function CareersPage() {
                       dept: 'General',
                       type: 'Full Time',
                       location: 'Chennai, India',
-                      color: '#06a3da',
+                      color: '#F97316',
                       icon: 'fa-envelope-open'
                     })}
                     style={{ cursor: 'pointer', position: 'relative', zIndex: 1 }}
@@ -1553,23 +1553,23 @@ export default function CareersPage() {
                       }}
                       whileHover={{
                         scale: 1.04,
-                        borderColor: 'rgba(6, 163, 218, 0.5)',
-                        backgroundColor: 'rgba(6, 163, 218, 0.06)',
-                        boxShadow: '0 0 40px rgba(6, 163, 218, 0.2)'
+                        borderColor: 'rgba(249, 115, 22, 0.5)',
+                        backgroundColor: 'rgba(249, 115, 22, 0.06)',
+                        boxShadow: '0 0 40px rgba(249, 115, 22, 0.2)'
                       }}
                       transition={{ duration: 0.25 }}
                     >
                       {/* Animated email icon */}
                       <motion.div
                         className="mb-4"
-                        style={{ fontSize: '72px', color: '#06a3da' }}
+                        style={{ fontSize: '72px', color: '#F97316' }}
                         animate={shouldReduceMotion ? {} : { y: [0, -8, 0] }}
                         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                       >
                         <i className="far fa-envelope-open"></i>
                       </motion.div>
 
-                      <h5 className="fw-bold text-white mb-2" style={{ fontSize: '16px' }}>info@atriowings.in</h5>
+                      <h5 className="fw-bold text-white mb-2" style={{ fontSize: '16px' }}>info@techghuru.in</h5>
                       <p className="text-muted mb-3" style={{ fontSize: '13px', lineHeight: 1.5 }}>
                         Drop us a line and let's build something incredible together.
                       </p>
@@ -1577,12 +1577,12 @@ export default function CareersPage() {
                       {/* Animated CTA tag */}
                       <motion.div
                         className="d-inline-flex align-items-center gap-1 px-3 py-2 rounded-pill"
-                        style={{ background: 'rgba(6, 163, 218, 0.15)', border: '1px solid rgba(6, 163, 218, 0.3)' }}
+                        style={{ background: 'rgba(249, 115, 22, 0.15)', border: '1px solid rgba(249, 115, 22, 0.3)' }}
                         animate={{ x: [0, 4, 0] }}
                         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
                       >
-                        <span style={{ fontSize: '12px', color: '#06a3da', fontWeight: 700 }}>Click to apply</span>
-                        <i className="fas fa-arrow-right ms-1" style={{ fontSize: '10px', color: '#06a3da' }}></i>
+                        <span style={{ fontSize: '12px', color: '#F97316', fontWeight: 700 }}>Click to apply</span>
+                        <i className="fas fa-arrow-right ms-1" style={{ fontSize: '10px', color: '#F97316' }}></i>
                       </motion.div>
                     </motion.div>
                   </div>
@@ -1723,7 +1723,7 @@ export default function CareersPage() {
                           type="text" readOnly
                           className="form-control rounded-3"
                           value={selectedJob.title}
-                          style={{ borderColor: '#e2e8f0', padding: '10px 14px', backgroundColor: '#f8fafc', color: '#06a3da', fontWeight: 600 }}
+                          style={{ borderColor: '#e2e8f0', padding: '10px 14px', backgroundColor: '#f8fafc', color: '#F97316', fontWeight: 600 }}
                         />
                       </div>
                       <div className="col-md-6">
@@ -1774,7 +1774,7 @@ export default function CareersPage() {
                         <textarea
                           required rows={3}
                           className="form-control rounded-3"
-                          placeholder="Explain why you're a great fit for Atriowings..."
+                          placeholder="Explain why you're a great fit for Tech Ghuru..."
                           value={formState.coverLetter}
                           onChange={e => setFormState(p => ({ ...p, coverLetter: e.target.value }))}
                           style={{ borderColor: '#e2e8f0', padding: '10px 14px', resize: 'none' }}
